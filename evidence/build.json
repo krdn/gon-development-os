@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "built_at_utc": "2026-10-31T11:54:08.903973+00:00",
+  "checks": {
+    "pdf_pages": 21,
+    "bookmarks": 20,
+    "all_section_titles_found": true,
+    "internal_links": 14,
+    "named_destinations": 20
+  },
+  "scope": "PDF 제목·목차와 파일 내용 식별. 스킬 테스트·CI·시각 품질은 별도 기록.",
+  "contents": [
+    {
+      "id": "start",
+      "title": "이 매뉴얼로 시작하는 방법",
+      "page": 1
+    },
+    {
+      "id": "map",
+      "title": "전체 흐름과 네 번의 확인",
+      "page": 2
+    },
+    {
+      "id": "roles",
+      "title": "도구와 이름을 구분하기",
+      "page": 3
+    },
+    {
+      "id": "step-01",
+      "title": "01 작업 대상과 시작점을 확인한다",
+      "page": 4
+    },
+    {
+      "id": "step-02",
+      "title": "02 목표와 첫 출시 범위를 정한다",
+      "page": 5
+    },
+    {
+      "id": "step-03",
+      "title": "03 구조와 상태 흐름을 설계한다",
+      "page": 6
+    },
+    {
+      "id": "step-04",
+      "title": "04 문서와 실행 환경을 연결한다",
+      "page": 7
+    },
+    {
+      "id": "step-05",
+      "title": "05 첫 작업을 검증 가능한 크기로 나눈다",
+      "page": 8
+    },
+    {
+      "id": "step-06",
+      "title": "06 작은 기능을 끝까지 구현한다",
+      "page": 9
+    },
+    {
+      "id": "step-07",
+      "title": "07 실제 동작을 검증하고 수정한다",
+      "page": 10
+    },
+    {
+      "id": "step-08",
+      "title": "08 검토하고 변경을 통합한다",
+      "page": 11
+    },
+    {
+      "id": "step-09",
+      "title": "09 배포 준비와 실제 배포를 확인한다",
+      "page": 12
+    },
+    {
+      "id": "step-10",
+      "title": "10 결과를 기록하고 다음 작업을 잇는다",
+      "page": 13
+    },
+    {
+      "id": "handoff",
+      "title": "Work와 Codex 사이에서 전달할 내용",
+      "page": 14
+    },
+    {
+      "id": "records",
+      "title": "문서와 완료 증거를 관리하는 방법",
+      "page": 15
+    },
+    {
+      "id": "aeos",
+      "title": "기존 AI Engineering OS를 사용하는 경우",
+      "page": 16
+    },
+    {
+      "id": "types",
+      "title": "프로젝트 유형별로 완료 기준을 바꾼다",
+      "page": 17
+    },
+    {
+      "id": "recovery",
+      "title": "문제가 생겼을 때의 복구 순서",
+      "page": 18
+    },
+    {
+      "id": "practice",
+      "title": "앞으로 매번 사용하는 짧은 운영 절차",
+      "page": 19
+    },
+    {
+      "id": "sources",
+      "title": "적용 기준과 원본 자료",
+      "page": 20
+    }
+  ],
+  "sources": {
+    "VERSION": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "diagrams/workflow.json": "57537f0d01fa48b1f2522ab42a247d1e5813f5278fcdaf7b3e4bb5d09581dd0c",
+    "manual/sections.json": "2d04b5af7c921178d76e70b139d53e9822fb496c9d5072f4936c51a62130a7c8",
+    "manual/style.css": "616b5ca4fe4373a02482e455fe4498f70e9c5962d6898b4c5bc3981cf0da93e9",
+    "manual/viewer.js": "4924dd7923e44d63aad93e5b7071de7e47aae9aefe7805638e6f539ac648ff37",
+    "package-lock.json": "c26e828beed07760d3b082ed5e524d6b093101fad28d48991c5706ba929e25ab",
+    "package.json": "e54ee882e1be60e2416ed9ed38ce08b9f2500797416cc1be4d0a9ae06d2662c4",
+    "requirements.txt": "3ec8922905dc4e3a10c3b46bd7fba023c37ffc309d51c6bed2a13ec3e98177fd",
+    "scripts/build-manual.py": "bc8490999bbf18dffd13c54365d3d7e0094abdef37c75e74ab25d0f96dba1568",
+    "scripts/finalize-manual.py": "eb6cf01a5df3ed50f6b9527cbb1387cb80c34ea4c26f8cd5ea22110ea17428f0",
+    "scripts/print-manual.cjs": "d02505ae2431518c7e3c4bd96264a0863d41409365c0aebf3fe12f488d6d51f7",
+    "scripts/validate.py": "21a0c418eb73cf276b7a069d6fdaa272e4f3b73850143b791766dd14acf67dfe"
+  },
+  "artifacts": {
+    "dist/01-project-workflow-manual.html": {
+      "sha256": "8541c5a3a97e408d6878bc17d751784f270d4060c7f3a8f89c038562832def64",
+      "bytes": 79191
+    },
+    "dist/01-project-workflow-manual.pdf": {
+      "sha256": "17096e786c4332422651713900f0a4d90c58916a7ee27c1aee0e20a154f82c3e",
+      "bytes": 1013357
+    },
+    "dist/02-workflow-map.html": {
+      "sha256": "b4b1dc25c48860eadc2c1b6f992119b075a2321c26af93939932e4b63d45bfd5",
+      "bytes": 761352
+    },
+    "docs/01-manual.md": {
+      "sha256": "731827d88cd6ebf36a925c0a509b01718a806b6a9203588edea6a1cc03886e5b",
+      "bytes": 56974
+    }
+  }
+}

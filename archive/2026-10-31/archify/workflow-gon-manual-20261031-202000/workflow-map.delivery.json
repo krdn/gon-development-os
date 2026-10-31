@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "c335cf6c-c277-4533-893e-229b81e46883",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "/home/gon/문서/ChatGPT/사용법/.archify/workflow-gon-manual-20261031-202000/candidate.json",
+  "output": "/home/gon/문서/ChatGPT/사용법/.archify/workflow-gon-manual-20261031-202000/workflow-map.html",
+  "specification": {
+    "sha256": "1f191ac194cb07ecb82f5c24c0f5c2dc5a0ced5fa29ca3ceb34d8e8af96ba03c",
+    "bytes": 35398
+  },
+  "artifact": {
+    "sha256": "b4b1dc25c48860eadc2c1b6f992119b075a2321c26af93939932e4b63d45bfd5",
+    "bytes": 761352
+  }
+}

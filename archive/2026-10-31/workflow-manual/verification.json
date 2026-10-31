@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-31",
+  "title": "Gon 프로젝트 워크플로우 실행 매뉴얼",
+  "sections": 20,
+  "steps": 10,
+  "prompt_blocks": 19,
+  "pdf_pages": 21,
+  "pdf_bookmarks": 20,
+  "checks": {
+    "internal_and_local_links": "PASS",
+    "pdf_all_section_headings": "PASS",
+    "pdf_page_size": "A4",
+    "pdf_visual_inspection": "대표 페이지 및 전체 페이지 배치 확인",
+    "html_desktop_width": 1440,
+    "html_mobile_width": 390,
+    "horizontal_page_overflow": false,
+    "prompt_copy": "실제 클릭 복사 성공 및 선택 복사 대체 동작 확인",
+    "navigation": "목차와 단계 링크 확인",
+    "a11y_automated_violations": 0,
+    "a11y_incomplete": "화살표 3개의 대비 자동 판정 보류; 화면 확인",
+    "diagram_finalize": "validate/deliver/check/browser-check PASS",
+    "diagram_visual_inspection": "1440x900 밝은 테마와 연결·실패 복귀선 확인",
+    "diagram_copy_hash_matches": true,
+    "skill_receipt_hashes_match": "14/14"
+  },
+  "sources": {
+    "project_chats": [
+      "1.ChatGPT Codex Work 비교 Guide",
+      "2.개발 워크플로우 정리",
+      "3.Gon AI Development OS 표준 확인 경로 찾기",
+      "gon-project-lifecycle 스킬 생성",
+      "스킬 저장 위치가 다른 이유 찾기"
+    ],
+    "local_skill": "/home/gon/.agents/skills/gon-project-lifecycle/SKILL.md",
+    "local_web_skill": "/home/gon/.agents/skills/gon-web-engineering/SKILL.md",
+    "prior_verification": "/home/gon/문서/ChatGPT/사용법/gon-project-lifecycle-verification.json",
+    "official_docs": [
+      "https://learn.chatgpt.com/docs/skills-and-plugins",
+      "https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills",
+      "https://learn.chatgpt.com/guides/best-practices#use-scheduled-tasks-for-repeated-work"
+    ]
+  },
+  "limits": [
+    "긴 비교 Guide 대화의 끝부분은 조회 도구 길이 제한으로 일부 생략됨. 현재 스킬 원문으로 실행 절차를 대조함.",
+    "기존 스킬 테스트 20개는 이전 검증 기록의 결과이며 이번 작업에서 전체 재실행하지 않음.",
+    "실제 새 제품의 전체 수명주기와 운영 배포를 이번 매뉴얼 작업에서 수행한 것은 아님."
+  ],
+  "artifacts": {
+    "01-project-workflow-manual.html": {
+      "sha256": "c0822b349c82b363bf9bdbd0e33c17d93b09248aa49f03c7f238f59c27eb7a6d",
+      "bytes": 80470
+    },
+    "01-project-workflow-manual.pdf": {
+      "sha256": "3ed5c2eaa72821d0e3b8c81308cb3186bbcbc4c0c29403b08b3a705083522636",
+      "bytes": 1013310
+    },
+    "02-workflow-map.html": {
+      "sha256": "b4b1dc25c48860eadc2c1b6f992119b075a2321c26af93939932e4b63d45bfd5",
+      "bytes": 761352
+    }
+  }
+}

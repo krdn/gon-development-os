@@ -1,0 +1,105 @@
+{
+  "checked_at": "2026-10-31T14:02:04.052458+09:00",
+  "installed_skill": "/home/gon/.agents/skills/gon-project-lifecycle/SKILL.md",
+  "archive": "/home/gon/문서/ChatGPT/사용법/gon-project-lifecycle.zip",
+  "files": 14,
+  "sha256": {
+    "SKILL.md": "cc6a739a2373f1edba1d21827d402e94b4bc5cdf5638548ecea35b6ef2d9803b",
+    "agents/openai.yaml": "58093890d7f8d33a1c56947cb5de736d71f863188220738067bb19a5f9c8f15c",
+    "assets/project/AGENTS.md": "a1225b3ccae730232c88437a9c83592396d8d740763b6036bec5e576f56f3ac2",
+    "assets/project/ARCHITECTURE.md": "71c29f978e94209e139422b5dda6dd01d537c961a2359da859712fb86021e8d3",
+    "assets/project/PLAN.md": "0aab6b3f958145ccb33ac80e39b7138cb201671a040eee4f3ad3ce5b2c6ca3c2",
+    "assets/project/PRODUCT.md": "2913df4f6112ef0d631ac9c8a7122a5650f0da66c287465b5c2ef2db355b42a3",
+    "assets/project/README.md": "b089b5ea143ead55de53df26b6bea0f87d9d872b02026ba79d2cdeaf223116d5",
+    "assets/project/STATE.md": "d409e8e1f0a4869d41382deef83c167d36df6e6d8a779dbd5ffb527590d3baa8",
+    "references/aeos.md": "85e1c06c42dd60dc3eae0dc13e4a5c82c51100d37c77afa418afa0fbf034ea30",
+    "references/delivery.md": "0f4b61113a665a976df8c2716e7c0f768ef4612a21212cbcf63ebe78a8b174eb",
+    "references/project-start.md": "b1d28a3ca14573f2a62e58fd102a79b61cbbd2f6213a1f9c3a47ae3f6eadd48c",
+    "references/work-cycle.md": "da0c4da1d2fddef38caafbde9c5da371a9686fd5608c2b5f19da97faca728aae",
+    "scripts/bootstrap_project.py": "22fdb651182149ee54f48eaa2c7f199fc2cac0eb127abc9c593af4dfd295aaac",
+    "scripts/test_bootstrap_project.py": "7a52f85dc22dc1b70bac112b0b5b843a981a0a9c89ae7c939a310cdac7916c5f"
+  },
+  "checks": {
+    "unit_tests": {
+      "result": "PASS",
+      "count": 20,
+      "command": "python3 -m unittest discover -s scripts -p 'test_*.py' -v"
+    },
+    "skill_format": "PASS",
+    "reference_links": "PASS",
+    "archive_integrity": "PASS",
+    "codex_cli_loader": {
+      "enabled": true,
+      "scope": "user",
+      "errors": []
+    },
+    "implicit_invocation_allowed": true,
+    "aeos_isolated_smoke": {
+      "validate": "PASS",
+      "new_task_six_contracts": "PASS",
+      "draft_packet": "PASS",
+      "source_head": "6b98898648b0579be1b421b010cd9247aba4c5c7"
+    }
+  },
+  "external_review": {
+    "status": "completed_findings_addressed",
+    "requested_model": "claude-opus-5-5",
+    "returned_model": "claude-opus-5-5",
+    "requested_effort": "high",
+    "returned_effort": "not_reported",
+    "reviewed_sha256": {
+      "SKILL.md": "87bcaae7054732f733c6f95094f5a9d72579fb30be8125537faa34ba310c342a",
+      "agents/openai.yaml": "58093890d7f8d33a1c56947cb5de736d71f863188220738067bb19a5f9c8f15c",
+      "assets/project/AGENTS.md": "a1225b3ccae730232c88437a9c83592396d8d740763b6036bec5e576f56f3ac2",
+      "assets/project/ARCHITECTURE.md": "71c29f978e94209e139422b5dda6dd01d537c961a2359da859712fb86021e8d3",
+      "assets/project/PLAN.md": "0aab6b3f958145ccb33ac80e39b7138cb201671a040eee4f3ad3ce5b2c6ca3c2",
+      "assets/project/PRODUCT.md": "2913df4f6112ef0d631ac9c8a7122a5650f0da66c287465b5c2ef2db355b42a3",
+      "assets/project/README.md": "b089b5ea143ead55de53df26b6bea0f87d9d872b02026ba79d2cdeaf223116d5",
+      "assets/project/STATE.md": "d409e8e1f0a4869d41382deef83c167d36df6e6d8a779dbd5ffb527590d3baa8",
+      "references/aeos.md": "85e1c06c42dd60dc3eae0dc13e4a5c82c51100d37c77afa418afa0fbf034ea30",
+      "references/delivery.md": "8009c362ad36440c27385600c505bee4f1dfa7a0df89591ee2521a29969c2ee9",
+      "references/project-start.md": "d1d58d53381ff029bfc37a675e69dd6f0647ab41fdb579d039ca342ff7a0625e",
+      "references/work-cycle.md": "eb68a1d38afd0623050c1a62474e973326a4501dc54c0e60eb8eb924387e56aa",
+      "scripts/bootstrap_project.py": "6c31c189039ba7b3a24fdc1ce986a33ed46e06735448dc3644ff2745b89a7d70",
+      "scripts/test_bootstrap_project.py": "615c3723498c3c20c9a60cbd529c2624816898c61119e0eba53cd25d7b44f853"
+    },
+    "critical_or_high_findings": 0,
+    "accepted_and_addressed": [
+      "미정 항목의 이유·다음 확인을 남기면 문서 구성을 완료할 수 있도록 명확화",
+      "현재 세션의 CI 대기와 세션 밖 지속 감시를 구분",
+      "커밋할 변경 구간·staged diff·기존 변경의 범위를 명시",
+      "CLAUDE.md와 .claude/CLAUDE.md 발견·보존·병합 확인",
+      "부분 AEOS 작업/도구 감지와 회귀 테스트 추가",
+      "기존 실패 기준선과 재시도 중단 조건 보완"
+    ],
+    "retained_with_reason": [
+      {
+        "finding": "상위 심볼릭 링크 차단",
+        "reason": "의도한 보수적 경계이며 실제 물리 경로로 다시 계획하는 절차 제공. 현 Ubuntu 환경의 테스트 통과. 타 OS 지원을 주장하지 않음"
+      },
+      {
+        "finding": "진입점의 참조 후보 경로도 차단",
+        "reason": "링크 대상까지 확인한 뒤 생성하려는 현재 동작 유지. 기존 문서 체계는 직접 병합하는 경로 제공"
+      }
+    ],
+    "post_review": "수정분을 직접 확인하고 관련 테스트 20개·형식·링크 검사를 실행. 추가 외부 리뷰 없음"
+  },
+  "not_verified": [
+    "실제 새 요청에서의 자동 스킬 선택",
+    "소비자 제품 구현·운영 배포",
+    "다른 OS·별도 Orca 런타임에서의 스킬 발견"
+  ],
+  "relocation": {
+    "from": "/home/gon/.codex/skills/gon-project-lifecycle",
+    "to": "/home/gon/.agents/skills/gon-project-lifecycle",
+    "file_count": 16,
+    "all_file_hashes_match": true,
+    "loader": {
+      "path": "/home/gon/.agents/skills/gon-project-lifecycle/SKILL.md",
+      "enabled": true,
+      "scope": "user",
+      "errors": [],
+      "duplicate_count": 1
+    }
+  }
+}

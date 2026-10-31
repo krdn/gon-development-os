@@ -1,0 +1,41 @@
+name: Validate and build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: npm ci
+      - run: python3 -m pip install -r requirements.txt
+      - run: npx playwright install --with-deps chromium
+      - run: sudo apt-get install -y fonts-noto-cjk
+      - run: npm run verify:artifacts
+      - run: npm run build
+      - run: npm test
+      - name: 생성 문서의 원본 반영 여부 확인
+        run: git diff --exit-code -- docs/01-manual.md dist/01-project-workflow-manual.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gon-development-os-${{ github.sha }}
+          path: |
+            dist/
+            evidence/build.json
+          retention-days: 30

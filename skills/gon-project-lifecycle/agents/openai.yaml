@@ -1,0 +1,6 @@
+interface:
+  display_name: "Gon 프로젝트 수명주기"
+  short_description: "Gon 표준으로 프로젝트 시작·도입·개발 재개와 검증·전달을 연결"
+  default_prompt: "$gon-project-lifecycle로 현재 프로젝트의 상태를 확인하고, 요청한 단계에 필요한 문서와 실행·검증을 이어서 수행해 줘."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-31",
+  "kind": "historical-import-snapshot",
+  "skills": {
+    "gon-project-lifecycle": {
+      "SKILL.md": "cc6a739a2373f1edba1d21827d402e94b4bc5cdf5638548ecea35b6ef2d9803b",
+      "agents/openai.yaml": "58093890d7f8d33a1c56947cb5de736d71f863188220738067bb19a5f9c8f15c",
+      "assets/project/AGENTS.md": "a1225b3ccae730232c88437a9c83592396d8d740763b6036bec5e576f56f3ac2",
+      "assets/project/ARCHITECTURE.md": "71c29f978e94209e139422b5dda6dd01d537c961a2359da859712fb86021e8d3",
+      "assets/project/PLAN.md": "0aab6b3f958145ccb33ac80e39b7138cb201671a040eee4f3ad3ce5b2c6ca3c2",
+      "assets/project/PRODUCT.md": "2913df4f6112ef0d631ac9c8a7122a5650f0da66c287465b5c2ef2db355b42a3",
+      "assets/project/README.md": "b089b5ea143ead55de53df26b6bea0f87d9d872b02026ba79d2cdeaf223116d5",
+      "assets/project/STATE.md": "d409e8e1f0a4869d41382deef83c167d36df6e6d8a779dbd5ffb527590d3baa8",
+      "references/aeos.md": "85e1c06c42dd60dc3eae0dc13e4a5c82c51100d37c77afa418afa0fbf034ea30",
+      "references/delivery.md": "0f4b61113a665a976df8c2716e7c0f768ef4612a21212cbcf63ebe78a8b174eb",
+      "references/project-start.md": "b1d28a3ca14573f2a62e58fd102a79b61cbbd2f6213a1f9c3a47ae3f6eadd48c",
+      "references/work-cycle.md": "da0c4da1d2fddef38caafbde9c5da371a9686fd5608c2b5f19da97faca728aae",
+      "scripts/bootstrap_project.py": "22fdb651182149ee54f48eaa2c7f199fc2cac0eb127abc9c593af4dfd295aaac",
+      "scripts/test_bootstrap_project.py": "7a52f85dc22dc1b70bac112b0b5b843a981a0a9c89ae7c939a310cdac7916c5f"
+    },
+    "gon-web-engineering": {
+      "SKILL.md": "cf79ebf961cd2d452bbf3971e091e016e76890cf01184b3df45fb498b4483126",
+      "agents/openai.yaml": "e2a680143350d376391e412fe0b3e945af56262393ee537250efe4f45c9da9bc",
+      "assets/icon.svg": "72343cc4b66256ae7de8474c7cad14e711ad84a94c473732a44f96a56124c42d",
+      "references/architecture.md": "cf537b5ce415dfdbfe03ff83e8f57d28a3d590597e668cea49f79ea408f49246",
+      "references/backend-data.md": "e7fdab05c7ad47d637f7478a8bb225c93b6bc5012e03db6de5d90e987edbf4d6",
+      "references/frontend.md": "52418605b711798d88cb736d4869a30aead2d40e4528b0b57ac98e44973b33e0",
+      "references/project-setup.md": "64b937b6db52d1884b86f5f94468117bef0199d8de5bfad24962affee091e844",
+      "references/verification.md": "08a7c6cb50194feeb08a1315a4b9c259700265f249a48fe4b7480a7ac9e22844",
+      "scripts/configure_project.py": "773555a6bd90eac7d3d7d31975029c908dcba7f728d7894cb1b71c889aca30dd",
+      "scripts/test_configure_project.py": "7d1bd0884b7d59e00a522a719bc113b26bf9fa3f2827ea2ca2c482abfa920686"
+    }
+  }
+}

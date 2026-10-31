@@ -1,0 +1,19 @@
+{
+  "name": "gon-development-os",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gon 개발 워크플로우 매뉴얼과 재사용 스킬",
+  "scripts": {
+    "build:html": "python3 scripts/build-manual.py",
+    "build:pdf": "node scripts/print-manual.cjs",
+    "build": "npm run build:html && npm run build:pdf && python3 scripts/finalize-manual.py",
+    "test": "python3 scripts/validate.py",
+    "verify:artifacts": "python3 scripts/validate.py --artifacts-only"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

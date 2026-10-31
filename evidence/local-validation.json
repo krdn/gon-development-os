@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-31",
+  "skills_tests": {
+    "gon-project-lifecycle": 20,
+    "gon-web-engineering": 13,
+    "result": "PASS"
+  },
+  "manual_links": 91,
+  "manual_sections": 20,
+  "pdf_pages": 21,
+  "pdf_bookmarks": 20,
+  "desktop_width": 1440,
+  "mobile_width": 390,
+  "horizontal_overflow": false,
+  "zip_integrity": "PASS",
+  "imported_and_installed_skill_hashes_match": true,
+  "credential_pattern_scan_files": [],
+  "limits": [
+    "외부 웹 링크 내용·로그인 상태 검증 제외",
+    "개인 스킬 설치본 변경 없음",
+    "현재 제품 배포·다른 실행 환경 검증 아님"
+  ],
+  "browser": {
+    "viewport_screenshots_reviewed": [
+      1440,
+      390
+    ],
+    "copy_button_write_success_message": true,
+    "clipboard_readback": "브라우저 읽기 권한 거부로 미검증",
+    "pdf_last_page_reviewed": true
+  },
+  "review_fix_checks": {
+    "stale_source_rejected": true,
+    "ignored_and_untracked_files_excluded_from_zip": true,
+    "pdf_internal_named_links": {
+      "pdf_pages": 21,
+      "bookmarks": 20,
+      "all_section_titles_found": true,
+      "internal_links": 14,
+      "named_destinations": 20
+    },
+    "preserved_archive_whitespace": "초기 보관본·Archify 결과의 기존 공백은 그대로 보존, 새 작성 파일 범위 diff 검사 통과"
+  }
+}
