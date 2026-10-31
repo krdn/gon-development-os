@@ -25,6 +25,8 @@
 
 PROJECT/ARCHITECT에는 보일러플레이트 자체 설명을 제품 목적과 경계로 조정한다. 제품과 관련된 Core 불변식은 보존한다. WORK/STATE 문서를 추가하더라도 TASK 결과를 이중 관리하지 않는다.
 
+[GitHub 관리 절차](github-management.md)를 함께 적용한다. `.ai/tasks/<id>` 계약·결과는 저장소에 커밋하고 대응 이슈/PR에서 정확한 경로·revision을 연결한다. 이슈/Project는 진행 상태, 계약 파일은 상세 요구·실행 증거를 담당한다. 양쪽 수용 기준이 다르면 기준 문서와 차이를 먼저 해결한다. `validate`/packet 생성은 GitHub 저장·제품 동작·독립 승인 증거가 아니다.
+
 ## CLI를 사용할 때
 
 Python 3.11+와 현재 CLI·계약·registry 의존성이 갖춰졌는지 확인한다. 저장소의 스크립트는 실행 전 필요한 부분을 읽는다. 루트에서 현재 help를 먼저 확인한다.

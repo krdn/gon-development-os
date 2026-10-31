@@ -7,6 +7,8 @@
 - AEOS 기반 생성/도입 요청 또는 `.ai` 계약·작업/`aeos.py`가 있는 프로젝트: [aeos.md](aeos.md)를 읽는다. 일반 문서 생성 도구를 함께 실행하지 않는다.
 - `Gon 표준`만 지정했고 새 문서 체계가 없다면 아래 일반 구조로 시작한다. 완전한 AEOS 도구·registry 복사는 필요할 때 선택한다.
 
+프로젝트 관리는 [GitHub 관리 절차](github-management.md)를 적용한다. 원격 저장소·관리 대상 Project와 기존 기록을 먼저 찾는다. 새 저장소가 필요하면 사용자 지정 소유자·이름·공개 범위를 확인하고 생성한다. 현재 요청이 로컬 준비까지만 허용하면 원격 단계는 `pending_sync`로 남긴다. 관리 정책 추가를 이유로 기존 저장소의 기능·요금제·공개 범위·보호 규칙을 임의로 바꾸지 않는다.
+
 Chat/Work 설계에는 원문 출처, 확정한 범위, 수용 기준, 미정 질문만 추려 담는다. 채팅 접근이 없으면 제공된 내용으로 가능한 작업을 진행하고 실제로 필요한 원문만 요청한다. 계정·연결·전용 메모리 설정을 바꾸는 작업을 추가하지 않는다.
 
 ## 각 문서에 한 가지 책임을 둔다
@@ -17,10 +19,11 @@ Chat/Work 설계에는 원문 출처, 확정한 범위, 수용 기준, 미정 �
 | `README.md` | 제품 설명, 실제 설치·실행·검사 방법, 문서 진입점 |
 | `docs/PRODUCT.md` | 대상 사용자, 문제, 입출력, 범위/비범위, 관찰 가능한 수용 기준 |
 | `docs/ARCHITECTURE.md` | 구성·데이터·인터페이스 경계, 선택 이유와 미정 사항 |
-| `docs/PLAN.md` | 다음 검증 가능한 작업, 허용 변경, 의존성과 완료 조건 |
-| `docs/STATE.md` | 기준 revision/환경, 구현·검사·배포 상태, 장애와 다음 행동 |
+| `docs/PLAN.md` | 기준 Issues/Project·Milestone 링크와 다음 작업의 짧은 요약 |
+| `docs/STATE.md` | 기준 원격 기록, 확인 revision/환경, 원격 동기화 여부와 다음 행동 |
+| `.github/project-management.md` | host/저장소·Project 연결, GitHub 기능별 적용·불가·대체 기록과 완료 기준 |
 
-실제 구조 결정이 바뀔 때만 기존 ADR 경로 또는 `docs/decisions/`에 짧은 결정 기록을 추가한다. 빈 ADR·태스크 폴더를 미리 만들지 않는다. 진행 중 목록을 관리하는 도구가 이미 있다면 PLAN/STATE에는 그 위치와 프로젝트 판단에 필요한 요점만 남긴다.
+실제 구조 결정이 바뀔 때만 기존 ADR 경로 또는 `docs/decisions/`에 짧은 결정 기록을 추가하고 관련 이슈/PR에서 연결한다. 빈 ADR·태스크 폴더를 미리 만들지 않는다. PLAN/STATE에는 기준 원격 URL과 프로젝트 판단에 필요한 요점만 남긴다. 기존 외부 추적기가 지정됐다면 기준과 GitHub 대체/연결 범위를 명시한다.
 
 ## 필요한 문서 틀만 생성한다
 
@@ -30,12 +33,13 @@ Chat/Work 설계에는 원문 출처, 확정한 범위, 수용 기준, 미정 �
 다음은 인자가 실제 경로로 대체되어야 하는 명령 형식이다. 먼저 기본 계획 출력을 확인한다.
 
 ```text
-python3 <skill-directory>/scripts/bootstrap_project.py --project <project-root> --name <project-name> --documents product architecture plan state entrypoints
+python3 <skill-directory>/scripts/bootstrap_project.py --project <project-root> --name <project-name> --documents product architecture plan state github entrypoints
 ```
 
 생성이 요청된 범위라면 같은 인자에 `--apply`를 추가한다. 기본 계획 모드는 폴더도 만들지 않는다. `--apply`는 없는 파일만 생성한다. 기존 파일과 알려진 동등 문서는 보존하고 `review_required`로 보고한다. 알려지지 않은 문서명까지 자동으로 발견하는 도구는 아니다.
 
 - 일반 문서 일부만 필요하면 예를 들어 `--documents state`만 사용한다.
+- `--documents github`는 관리 매핑 문서만 생성한다. 원격 기능 설정이나 이슈·Project 생성은 수행하지 않는다. 문서에 실제 URL·기능별 사유를 채운 뒤 허용 범위의 원격 저장·재조회를 수행한다.
 - `.ai/contracts`, `.ai/tasks`, `scripts/aeos.py` 중 하나라도 있으면 생성기는 중단한다. 부분 도입 여부를 확인하고 기존 AEOS 문서를 갱신한다.
 - 기존 `CLAUDE.md`·`.claude/CLAUDE.md`는 수정하지 않고 진입점 생성 시 병합 확인 대상으로 보고한다. 내용을 읽어 충돌·중복을 해소하고 필요한 연결만 반영한다.
 - 경로 충돌·심볼릭 링크는 쓰기 전에 차단한다. 명시한 프로젝트 경로에 심볼릭 링크가 있으면 실제 의도한 위치를 확인한 뒤 그 물리 경로로 다시 계획한다.
@@ -44,7 +48,7 @@ python3 <skill-directory>/scripts/bootstrap_project.py --project <project-root> 
 
 ## 첫 작업까지 연결한다
 
-목적·경계·검사 명령을 실제 제품에 맞게 채우고, 첫 작업을 외부에서 확인할 수 있는 크기로 정한다.
+목적·경계·검사 명령을 실제 제품에 맞게 채우고, 첫 작업을 외부에서 확인할 수 있는 크기로 정한다. 기존 이슈가 있으면 재사용하고 없으면 허용된 저장소에 수용 기준을 가진 이슈를 만든다. Project 항목·담당자·라벨·Milestone은 현재 프로젝트의 매핑과 적용 여부를 따른다.
 문서 작성만 요청됐다면 여기서 마친다. 앱 생성·구현도 요청됐다면 [work-cycle.md](work-cycle.md)로 이어서 실제 구현·연결·검증을 수행한다.
 
 생성기 변경 검증은 스킬 폴더에서 실행한다.

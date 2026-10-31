@@ -31,7 +31,7 @@ GitHub는 HTML의 상호작용 기능을 직접 실행하지 않습니다. 저�
 | --- | --- | --- |
 | `manual/sections.json` | 단계별 매뉴얼 내용과 요청문 | 내용 변경의 원본 |
 | `manual/style.css`, `manual/viewer.js` | 화면·인쇄 스타일과 복사·탐색 동작 | 화면 변경 시 |
-| `skills/gon-project-lifecycle/` | 시작·기존 도입·재개·검증·전달 스킬 | 절차 변경 시 |
+| `skills/gon-project-lifecycle/` | GitHub 기준 시작·도입·재개·검증·전달과 원격 기록 확인 | 절차 변경 시 |
 | `skills/gon-web-engineering/` | 웹 기술·구현·검증 스킬 | 웹 기준 변경 시 |
 | `diagrams/workflow.json` | Archify 흐름도 편집 원본 | 흐름 변경 시 |
 | `scripts/` | 매뉴얼 생성·PDF·검증 도구 | 생성 방식 변경 시 |
@@ -49,7 +49,8 @@ $gon-project-lifecycle
 [프로젝트 경로]에서 [목표]를 진행해줘.
 현재 상태·기존 지침·미커밋 변경을 먼저 확인하고,
 이번 범위와 실제 완료 기준을 정한 뒤 필요한 단계만 수행해줘.
-실행한 검증, 남은 제한, 다음 작업을 상태 문서에 남겨줘.
+기준 GitHub 이슈·Project·PR/CI에 실행한 검증·남은 제한·다음 작업을 연결해줘.
+원격 내용을 다시 조회하고, 로컬 상태 문서는 URL을 가진 요약으로 유지해줘.
 ```
 
 이 저장소는 개별 제품을 자동 생성·배포하는 플랫폼이 아닙니다. 실제 작업은 선택한 실행 환경의 도구·권한·사용자 요청 범위 안에서 진행합니다. [기존 `ai-engineering-os`](https://github.com/krdn/ai-engineering-os)는 별도 보일러플레이트이며, 이 저장소의 이름과 구분합니다.

@@ -46,6 +46,8 @@ python3 <skill-directory>/scripts/configure_project.py --project <project-root> 
 
 ## 프로젝트 결정을 기록한다
 
+새 프로젝트 구성에 관리 연결이 포함되면 GitHub host/저장소, 기준 이슈/Project와 CI·배포 경로를 기존 관리 문서에 기록한다. lifecycle이 사용 가능하면 해당 생성기로 필요한 `github` 문서 틀만 추가하고 실제 내용·원격 저장을 확인한다. 기존 기준 문서가 있으면 직접 병합한다. 이 설정 도구 자체는 원격 저장소·Project·이슈를 생성하거나 인증·기능/보호 설정을 바꾸지 않는다.
+
 `docs/ai/project-context.md` 또는 기존 동등 문서에 다음을 실제 확인한 내용으로 기록한다.
 
 - 선택한 프런트엔드·백엔드·DB, 렌더링 방식, 선택 이유와 예외.

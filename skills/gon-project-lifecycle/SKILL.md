@@ -1,12 +1,19 @@
 ---
 name: gon-project-lifecycle
-description: Gon AI Development OS 표준으로 새 프로젝트를 시작하거나 기존 프로젝트에 개발 절차를 도입하고, 중단한 개발을 재개하며 작업·검증·배포 상태를 연결한다. Use for Gon 표준으로 프로젝트 시작, 개발 워크플로우 구성, ai-engineering-os 도입, 프로젝트 이어서 진행, 상태·인수인계 정리. 기존 프로젝트의 기술·문서·CI를 보존한다. 단순 코드 수정·오탈자·일반 기술 설명에는 수명주기 초기화를 추가하지 않는다.
+description: Gon AI Development OS 표준과 GitHub 기준 기록으로 프로젝트 시작·도입·재개·검증·전달을 연결한다. Use for Gon 표준 프로젝트 시작, GitHub 프로젝트 관리, 개발 워크플로우 구성, ai-engineering-os 도입, 프로젝트 이어서 진행, 상태·인수인계 정리. Issues·Projects·PR·CI·릴리스의 기록을 연결하고 원격 저장을 확인한다. 기존 기술·변경·권한을 보존하며 단순 코드 수정·오탈자·일반 설명에 수명주기 초기화를 추가하지 않는다.
 ---
 
 # Gon 프로젝트 수명주기
 
 아이디어·설계를 저장소의 실행 가능한 작업으로 옮기고, 실제 검증 결과와 다음 행동까지 잇는다.
 이 스킬은 작업 절차를 연결한다. 기술 스택·모델·배포 권한을 대신 결정하지 않는다.
+
+## GitHub를 관리 기록의 기준으로 삼는다
+
+- 프로젝트 관리·구현 요청에는 [GitHub 관리 절차](references/github-management.md)를 적용한다. 기능별 기준 저장 위치, 적용 여부와 예외는 저장소의 `.github/project-management.md` 또는 기존 동등 문서에 기록한다.
+- 목적·설계·ADR·계약은 저장소 파일, 실행할 작업과 진행은 Issues/Projects, 변경·검증은 PR/Actions, 전달은 Releases/Deployments에 연결한다. 로컬 PLAN/STATE·메모리·작업 목록은 GitHub URL을 가진 요약/임시 기록이며 별도 기준 목록으로 관리하지 않는다.
+- 해당 단계의 기록을 실제 원격에서 다시 조회하기 전에는 GitHub 저장 완료라고 보고하지 않는다. 연결 불가·권한 부족은 `pending_sync`로 남기고 가역적인 독립 작업은 계속한다. 다른 추적기가 지정된 기존 프로젝트는 임의로 이전하지 않고 명시된 예외를 기록한다.
+- 설명·점검 요청은 읽기로 끝낸다. 작은 수정은 기존 이슈·PR에 연결하며 새 이슈·Project를 매번 만들지 않는다. 기록 정책은 공개 전환·권한/보호 설정 변경·릴리스 발행·배포·외부 메시지 전송 권한을 추가하지 않는다.
 
 ## 현재 요청의 경계를 정한다
 
@@ -22,6 +29,7 @@ description: Gon AI Development OS 표준으로 새 프로젝트를 시작하거
 2. 실제 매니페스트·잠금 파일·툴체인·CI에서 스택과 검사 명령을 확인한다. 설치되지 않은 도구·스킬·모델을 가정하지 않는다.
 3. 기존 문서가 담당하는 목적·구조·계획·상태의 위치를 찾고 그 문서를 기준으로 삼는다. 오래된 상태는 현재 파일·Git·실행 결과와 대조한다.
 4. `.ai/contracts`, `.ai/tasks`, `PROJECT.md`, `ARCHITECT.md`, `scripts/aeos.py`가 있는지 확인한다. 완성된 AEOS 구조와 일부 파일만 있는 상태를 구분한다.
+5. 실제 Git remote와 GitHub host/저장소·접근 계정, 기존 이슈/Project·관리 문서, 현재 기능·권한을 확인한다. fork의 origin을 배포/관리 대상이라고 추측하지 않는다.
 
 전체 저장소·대화·과거 로그를 무조건 읽지 않는다. 다음 행동에 필요한 자료만 연다.
 
@@ -33,12 +41,13 @@ description: Gon AI Development OS 표준으로 새 프로젝트를 시작하거
 | 구현·개발 재개·작업 분해 | [work-cycle.md](references/work-cycle.md) | 범위 안 구현, 실행 증거, 다음 행동 |
 | 검토·PR·배포·인수인계 | [delivery.md](references/delivery.md) | 실제 도달 단계와 남은 조건 |
 | `ai-engineering-os` 도입·기존 `.ai` 작업 | [aeos.md](references/aeos.md) | 기존 Core 계약과 현재 도구를 재사용 |
+| GitHub 기준 기록·기능 선택·동기화 | [github-management.md](references/github-management.md) | 작업별 원격 기록과 기능별 적용/예외 확인 |
 
 명시한 단계에서 시작한다. 구현 요청을 문서 생성으로 끝내거나, 재개 요청을 신규 프로젝트 초기화로 바꾸지 않는다.
 
 ## 두 문서 구조를 함께 지원한다
 
-- 일반 프로젝트는 기존 경로를 우선한다. 경로가 없고 문서화가 필요한 새 프로젝트의 기본안은 `AGENTS.md`, `README.md`, `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, `docs/PLAN.md`, `docs/STATE.md`다. 작은 작업에는 이 세트를 만들지 않는다.
+- 일반 프로젝트는 기존 경로를 우선한다. 경로가 없고 문서화가 필요한 새 프로젝트의 기본안은 `AGENTS.md`, `README.md`, `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, 요약용 `docs/PLAN.md`·`docs/STATE.md`, `.github/project-management.md`다. 작은 작업에는 이 세트를 만들지 않는다.
 - AEOS 프로젝트는 `PROJECT.md`·`ARCHITECT.md`·`.ai/tasks/<id>/`를 계속 사용한다. 같은 내용을 새 `docs/PRODUCT.md` 등에 중복 생성하지 않는다.
 - Work/Chat에서 만든 설계는 현재 연결된 원문 또는 제공받은 내용을 확인하고 저장소 문서로 필요한 부분만 옮긴다. Work↔Codex의 대화·파일·메모리가 자동 공유된다고 가정하지 않는다.
 - 확정 결정·제안·미정을 구분한다. 상태 문서는 구현·검증·배포 증거를 각각 기록하며 자동 판정이나 승인 문서로 쓰지 않는다.
@@ -50,10 +59,11 @@ description: Gon AI Development OS 표준으로 새 프로젝트를 시작하거
 - 모델·effort는 사용자 지정과 현재 적용 정책을 따른다. 이 스킬에 모델 목록을 복제하지 않는다. 프로젝트 registry와 전역 설정이 실제로 충돌하면 충돌을 밝히고 승인 없이 어느 쪽도 바꾸지 않는다.
 - 리뷰는 프로젝트 규칙과 현재 유효한 외부 리뷰 지침을 따른다. 지침 경로가 제공됐다면 호출 전에 읽는다. 실제 반환 모델·실패 여부를 확인한다.
 - Orca가 지정되면 사용 가능한 `orca-cli`를, 감독·DAG가 요청된 경우 `orchestration`을 사용한다. 현재 실행파일·가이드를 확인하고 예전 명령을 복사하지 않는다.
-- GitHub·배포는 현재 연결 도구와 프로젝트 CI/CD를 사용한다. 도구가 없으면 필요한 부분만 수동으로 처리하고 자동 실행을 주장하지 않는다.
+- GitHub는 연결 도구를 우선하고 부족한 기능은 현재 `gh` CLI/API로 처리한다. [CLI 절차](references/github-cli.md)는 이때만 읽는다. 도구·권한이 없으면 원격 미저장과 다음 조건을 명시한다. 기존 CI/CD·상태값·라벨·Projects 필드는 그대로 매핑한다.
 
 ## 완료를 보고한다
 
 요청한 결과, 실제 검증, 남은 제한과 다음 행동을 짧게 보고한다. 파일·PR·배포 URL이 있으면 연결한다.
 파일 생성, 스킬 로더 발견, 자동 선택, 제품 동작, 운영 배포는 서로 다른 증거다.
+GitHub 관리 완료는 해당 단계의 원격 기록·상호 링크·실제 상태를 확인한 범위에 한정한다. 기능별 미적용/불가 사유와 대체 GitHub 기록도 보고한다.
 성공하지 않은 검사·리뷰·배포를 완료로 바꾸지 않는다. 재사용할 개선점은 사용자 요청 범위에서만 스킬에 반영한다.

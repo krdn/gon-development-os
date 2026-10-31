@@ -20,14 +20,17 @@ DOCUMENTS = {
     ]),
     'plan': ('PLAN.md', 'docs/PLAN.md', ['PLAN.md', 'docs/plan.md']),
     'state': ('STATE.md', 'docs/STATE.md', ['STATE.md', 'docs/state.md']),
+    'github': ('GITHUB-MANAGEMENT.md', '.github/project-management.md', [
+        'docs/GITHUB.md', 'docs/github-management.md',
+    ]),
     'agents': ('AGENTS.md', 'AGENTS.md', ['AGENTS.override.md']),
     'readme': ('README.md', 'README.md', ['README.rst', 'README']),
 }
 LABELS = {
     'product': '제품 범위', 'architecture': '구조', 'plan': '다음 작업',
-    'state': '현재 상태', 'agents': '작업 지침', 'readme': '시작 안내',
+    'state': '현재 상태', 'github': 'GitHub 관리 기준', 'agents': '작업 지침', 'readme': '시작 안내',
 }
-CHOICES = ('product', 'architecture', 'plan', 'state', 'entrypoints')
+CHOICES = ('product', 'architecture', 'plan', 'state', 'github', 'entrypoints')
 
 
 def check_path(path, directory=False):
