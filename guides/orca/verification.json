@@ -1,5 +1,5 @@
 {
-  "built_at_utc": "2026-11-06T00:19:40.495164+00:00",
+  "built_at_utc": "2026-11-06T03:40:19.129485+00:00",
   "scope": "이번 재생성의 브라우저 회귀·PDF 내용·링크 검사. 실제 Herdr/Orca 실행·배포 아님.",
   "historical_evidence": "preview 이미지, evidence/ 및 외부 리뷰 기록은 이전 확인 자료이며 이번 실행 증거가 아님.",
   "browser_tests": {
@@ -74,7 +74,7 @@
       "pages": 32,
       "complete_copy_boxes": 31,
       "complete_stage_items": 183,
-      "sha256": "b3e13e6e6832bf114dcd42db0586624144c72a48164d1cf23ed59b32781e49d1"
+      "sha256": "00c1d34cd22217d0a487c280379053613c13ead998fbe5ec29472ab7017e89c2"
     }
   },
   "sha256": {
@@ -94,7 +94,7 @@
     "example-project/docs/research/04-decision.md": "b1263118595d319facaf5a750822a75b731518b3df9109690c0d3a7797f646cd",
     "examples.html": "261ed4d3d0412b7ba3b6b32dca8a4801c24a70e3df77ab782a2965fb095b87ac",
     "external-review.json": "82397903a9254f7c3b7db3323a8028642cfae96c1cfd3d83f894f0baecc1442c",
-    "guide.pdf": "b3e13e6e6832bf114dcd42db0586624144c72a48164d1cf23ed59b32781e49d1",
+    "guide.pdf": "00c1d34cd22217d0a487c280379053613c13ead998fbe5ec29472ab7017e89c2",
     "index.html": "fa4ee787ed66be3c18545756c4d1815499018ec9e59fe4a0acd698d9482582f6",
     "mobile-p5.png": "8464b82b0ee99618bb28b051c56c91cbdc1d601adcd43460b9af2761f2f8b153",
     "overview.png": "fd21edab4c609cd53d70da45cfa7f99e76f1ff302e781e8d0d3074e5afb030bc",
@@ -103,7 +103,7 @@
     "package.json": "ee7c654c64cb9fcf20d233d9892b05c49c4ff97c25b44c3d4aafbf2223a14972",
     "pdf-documents.png": "530a48df591a7badd56a51055cf3f6d13dacf3ec12313a6df63fabb842003116",
     "pdf-step.png": "dac1d61b3fa5a69edcba38f0954ef3d664752ea5e5c005e1c34c63f08878dfba",
-    "pdf-validation.json": "d12180003ae09ee3bfacf877a0ee39270f92cd09d35539cc385b66613973e1cc",
+    "pdf-validation.json": "ec4e4a110b29f2b18bc99b1d850975f165f7cae1bda5a97da3d87ec5ceb198f1",
     "print-guide.cjs": "a137059f16ef6d757950be6bb3f688d0daa67c6942d6c9d718c46b7c0d1ad0e0",
     "rendered-prompts.json": "61538b59ea45f6bb41f868a2de2d2bf4e8ce957db433b70b05a83b2cf5da9923",
     "sources.json": "50fef6eb1cd8cd21036b65ee4c1e671045705f7794adda9a7a776debb349ac21",

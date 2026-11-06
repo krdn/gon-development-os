@@ -8,6 +8,7 @@
 
 [전체 재생성 안내와 AI 요청문](docs/05-rebuild-workflow.md)을 기준으로 `npm run build:all` → `npm test` → `npm run verify:all`을 수행합니다. 의존성·글꼴·브라우저 준비 방법도 같은 문서에 있습니다.
 
+- [Herdr CLI에서 프로젝트 처음 시작하기](docs/06-herdr-cli-start.md)
 - [Herdr 단계별 안내](guides/herdr/README.md) · [Orca 단계별 안내](guides/orca/README.md)
 - [아이디어 입력용 실행 양식](templates/herdr-project/README.md) · [시험지 OCR 프로젝트 예시](examples/exam-ocr/README.md)
 
