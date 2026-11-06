@@ -1,5 +1,10 @@
 # 변경 이력
 
+## 1.4.2 — 2026-11-06
+
+- 새 주 모델·협업 작업자에 Codex/Gemini --yolo, Claude/Opus/Fable --dangerously-skip-permissions 적용.
+- Herdr argv·core·Gemini 예시, Orca의 터미널 생성 후 worker-start 연결과 직접 실행·재개 명령을 갱신.
+
 ## 1.4.1 — 2026-11-06
 
 - 두 Herdr 실행 문서에 단계별 스킬 선택·실제 지침 읽기·적용 근거와 미설치 처리 추가.

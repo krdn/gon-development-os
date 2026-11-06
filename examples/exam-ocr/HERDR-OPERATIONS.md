@@ -20,6 +20,8 @@ codex debug models
 
 `herdr-core`는 실행·대기·메시지·결과 읽기, `herdr-app`은 사람이 보는 화면 제어를 담당한다. 앱이 열리지 않았으면 사용자에게 현재 상태를 알리고 승인된 실행 범위에서 연다. 설치·업데이트·서버 재시작은 별도로 주어진 허용 범위에서 수행한다. 허용이 없으면 필요한 작업과 실행 컴퓨터를 안내한다.
 
+새 주 모델·작업자는 `HERDR-PROJECT.md`의 에이전트 실행 옵션을 사용한다. 아래 `argv`와 core 예시에 해당 옵션이 포함되어 있다.
+
 ## 새 개발 세션에 인계
 
 기획 세션은 STATE에 다음 요청을 실제 프로젝트 경로와 첫 작업으로 채워 남긴다. 새 개발 세션의 첫 요청으로 전달하고 수신을 확인한다. 주 모델이 새 탭을 제어할 수 없으면 사용자에게 해당 요청과 프로젝트 경로를 전달한다.
@@ -44,7 +46,7 @@ gon-web-engineering의 실제 SKILL.md와 관련 참조를 읽어 적용해.
 Codex 작업자를 오른쪽 분할에 여는 명령 형태다. 먼저 작업 계약 파일을 실제로 저장한다. 아래 `PROJECT`는 두 실행 문서가 있는 주 프로젝트의 절대경로, `TASK_FILE`은 작업지시서의 절대경로로 바꾼다. 별도 worktree를 쓰면 실행 폴더는 그 worktree로 지정하고, 입력 문서와 결과 파일의 실제 위치는 작업지시서에 분리해 적는다. 아래 JSON의 경로·모델·pane ID를 바꾼 후 실행한다.
 
 ```sh
-herdr-app do pane.split '{"direction":"right","pane":"PANE_ID","argv":["codex","--no-daemon","-C","PROJECT","-m","MODEL_ID","-c","model_reasoning_effort=\"xhigh\"","PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과 파일을 저장하고 계약의 보고 대상으로 완료 또는 차단을 알려줘."]}'
+herdr-app do pane.split '{"direction":"right","pane":"PANE_ID","argv":["codex","--yolo","--no-daemon","-C","PROJECT","-m","MODEL_ID","-c","model_reasoning_effort=\"xhigh\"","PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과 파일을 저장하고 계약의 보고 대상으로 완료 또는 차단을 알려줘."]}'
 ```
 
 이 형태는 최초 요청을 CLI 인수로 전달한다. 앱의 `pane.split`에는 `task` 인수가 없으므로 추가하지 않는다. JSON은 실제 값에서 직렬화하고 셸에 넣을 때는 올바르게 인용한다. 경로의 공백·따옴표를 수동 문자열 연결로 처리하지 않는다.
@@ -56,8 +58,20 @@ Claude 작업자는 `herdr-app do tab.new`의 명시적 `space`, `folder`, `argv
   "name": "T002 기술 대안 검토",
   "space": "SPACE_ID",
   "folder": "PROJECT",
-  "argv": ["claude", "--model", "MODEL_ID", "--effort", "xhigh"],
+  "argv": ["claude", "--dangerously-skip-permissions", "--model", "MODEL_ID", "--effort", "xhigh"],
   "task": "PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과를 계약의 파일에 저장하고 보고해."
+}
+```
+
+Gemini 작업자도 같은 작업 계약으로 시작한다. `GEMINI_MODEL_ID`는 현재 계정에서 지원하고 선택한 모델 ID로 바꾼다.
+
+```json
+{
+  "name": "T003 독립 조사",
+  "space": "SPACE_ID",
+  "folder": "PROJECT",
+  "argv": ["gemini", "--yolo", "--model", "GEMINI_MODEL_ID"],
+  "task": "PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정 역할·파일·스킬 범위로 수행해. 결과를 계약의 파일에 저장하고 보고해."
 }
 ```
 
@@ -71,14 +85,14 @@ Claude 작업자는 `herdr-app do tab.new`의 명시적 `space`, `folder`, `argv
 herdr-core send --if idle TERMINAL_ID 'PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정한 역할·스킬 범위로 실행해. 결과 경로와 완료 또는 차단을 보고해.'
 ```
 
-blocked 상태의 인증·권한 결정을 `--force`로 통과시키지 않는다. 모델 선택 메뉴·신뢰 확인 화면은 실제 상태를 보고 필요한 사용자 결정을 요청한다.
+CLI 도구 실행 승인은 시작 옵션으로 생략한다. blocked 상태에서는 실제 화면을 읽고 최초 승인 생략 모드 수락·계정 로그인·모델 선택·폴더 신뢰·OS 권한 중 어떤 단계인지 확인해 해당 절차로 처리한다. 계정 로그인·폴더 신뢰 등의 화면에 작업 지시문을 `herdr-core send --force`로 밀어 넣지 않는다.
 
 ## core를 통한 대안 실행
 
 새 탭으로 보여도 괜찮거나 앱의 분할 실행이 지원되지 않는 경우, 현재 도움말에 맞춰 다음 형태를 쓴다. 공간 라벨을 붙여 사용자에게 보이도록 하고 반환된 terminal을 추적한다.
 
 ```sh
-herdr-core run --bg --name project-t001 --cwd 'PROJECT' --label 'herdr.space=SPACE_ID' codex --no-daemon -m MODEL_ID -c model_reasoning_effort='"xhigh"' 'PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정한 역할·스킬 범위로 수행해. 결과 파일을 저장하고 보고해.'
+herdr-core run --bg --name project-t001 --cwd 'PROJECT' --label 'herdr.space=SPACE_ID' codex --yolo --no-daemon -m MODEL_ID -c model_reasoning_effort='"xhigh"' 'PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정한 역할·스킬 범위로 수행해. 결과 파일을 저장하고 보고해.'
 ```
 
 `--name`은 실행별로 고유하게 정한다. 이 명령에 `--bg`가 있어도 작업 완료를 뜻하지 않는다. 실제 첫 요청 수신과 결과를 확인한다. core로 생성한 자식은 부모 종료 시 끝날 수 있다. 지속 실행이 필요한 경우 현재 권한과 수명 요구를 확인하고 `--outlive-parent` 여부를 명시적으로 정한다. `--keep`은 잃어버린 프로그램을 쉘로 대체할 뿐 AI 작업을 재개하지 않는다.
@@ -111,6 +125,7 @@ herdr-core read --lines 100 TERMINAL_ID
 프로젝트 절대경로 및 기준 revision:
 선행 작업과 근거 파일:
 요청 모델 / CLI / effort / 선택 이유:
+실제 실행 명령과 승인 생략 옵션:
 실제 모델 확인 근거: 아직 없음
 읽을 파일: HERDR-PROJECT.md, HERDR-OPERATIONS.md와 이 작업의 입력 파일
 적용할 스킬: 이름 / 적용 이유 / 관련 참조 / 제외 절 또는 not_applicable

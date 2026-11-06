@@ -87,10 +87,10 @@ nano HERDR-PROJECT.md
 
 ```sh
 pwd
-codex --no-daemon -C "$PWD" -m gpt-6-astra -c 'model_reasoning_effort="xhigh"'
+codex --yolo --no-daemon -C "$PWD" -m gpt-6-astra -c 'model_reasoning_effort="xhigh"'
 ```
 
-`-C "$PWD"`로 현재 프로젝트를 지정하고, `--no-daemon`으로 Herdr 터미널 안에서 실행합니다. Astra와 xhigh는 실행 양식의 기본 후보입니다. 모델 지원 오류가 나면 같은 컴퓨터에서 `codex debug models`로 지원 목록을 확인하세요.
+`--yolo`로 도구 실행 승인을 생략하고, `-C "$PWD"`로 현재 프로젝트를 지정하고, `--no-daemon`으로 Herdr 터미널 안에서 실행합니다. Astra와 xhigh는 실행 양식의 기본 후보입니다. 모델 지원 오류가 나면 같은 컴퓨터에서 `codex debug models`로 지원 목록을 확인하세요.
 
 ## 6. 주 모델이 사용할 스킬 확인하기
 
@@ -124,6 +124,7 @@ P5 인계 문서가 이미 있으면 docs/PROJECT-BRIEF.md의 수용 기준과 �
 현재 단계와 다음 행동을 기록한 뒤 첫 작업을 시작해. 기획, 조사, 개발 인계,
 구현, 실제 동작 검증을 문서의 순서와 허용 범위에 맞춰 진행해.
 새 개발 세션과 작업자에게도 실행 문서·현재 단계·해당 작업의 스킬을 전달해.
+생성할 때 Codex·Gemini는 --yolo, Claude·Opus·Fable은 --dangerously-skip-permissions를 넣어.
 읽은 스킬 경로와 적용한 작업·검사 근거를 같은 상태 기록에 남겨.
 독립 작업에 도움이 될 때만 Herdr 작업자를 열고, 결과 파일을 직접 읽어 검증해.
 사용자만 결정할 사항은 모아서 질문하고 그 답과 관계없는 작업은 계속해.

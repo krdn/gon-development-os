@@ -21,3 +21,6 @@
 ## 보고·질문
 주어진 Task/Dispatch 지시문과 설치 orchestration 스킬을 따른다.
 막히면 ask로 질문하고 응답을 끝내 답을 기다린다. 종료 시 worker_done으로 결과·증거·남은 문제를 보고한다.
+
+## 실행 옵션
+Codex는 `--yolo`, Claude·Opus·Fable은 `--dangerously-skip-permissions`, Gemini는 `--yolo`를 넣어 실행한다. 주 조정자는 해당 명령으로 연 터미널을 worker-start의 `--terminal`로 연결하고 실제 실행 명령을 STATE에 기록한다.
