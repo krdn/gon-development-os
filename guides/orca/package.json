@@ -1,0 +1,12 @@
+{
+  "name": "gon-orca-codex-guide",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "python3 build-guide.py",
+    "pdf": "node print-guide.cjs",
+    "test": "node test-guide.cjs && python3 validate-guide.py"
+  },
+  "devDependencies": { "playwright": "1.62.1" },
+  "engines": { "node": ">=22" }
+}

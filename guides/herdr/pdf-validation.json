@@ -1,0 +1,17 @@
+{
+  "steps": 16,
+  "links": 48,
+  "diagram_bindings": "PASS",
+  "pdf": {
+    "guide.pdf": {
+      "pages": 38,
+      "complete_prompts": 44,
+      "all_titles_and_full_prompts": "PASS"
+    },
+    "project-guide.pdf": {
+      "pages": 38,
+      "complete_prompts": 44,
+      "all_titles_and_full_prompts": "PASS"
+    }
+  }
+}

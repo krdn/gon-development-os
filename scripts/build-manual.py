@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """편집 원본에서 HTML과 GitHub 읽기용 문서를 재생성한다."""
 from pathlib import Path
+from planning import read_sections
 import html
 import json
 import re
@@ -9,13 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def build():
-    sections = json.loads((ROOT / 'manual/sections.json').read_text())
+    sections = read_sections(ROOT)
     css = (ROOT / 'manual/style.css').read_text()
     js = (ROOT / 'manual/viewer.js').read_text()
     version = (ROOT / 'VERSION').read_text().strip()
     nav = ''.join(f'<a href="#{s["id"]}">{html.escape(s["title"])}</a>' for s in sections)
     body = ''
-    markdown = f'# Gon 프로젝트 워크플로우 실행 매뉴얼\n\n버전 {version}. 편집 원본은 `manual/sections.json`입니다. 이 파일은 자동 생성합니다.\n\n'
+    markdown = f'# Gon 프로젝트 워크플로우 실행 매뉴얼\n\n버전 {version}. 편집 원본은 `manual/sections.json`과 `manual/planning-steps.json`입니다. 이 파일은 자동 생성합니다.\n\n'
     for i, section in enumerate(sections):
         sid = section['id']
         title = html.escape(section['title'])

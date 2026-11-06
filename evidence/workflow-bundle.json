@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "built_at_utc": "2026-11-06T00:19:40.575737+00:00",
+  "scope": "문서 재생성·브라우저 회귀·PDF·링크·파일 무결성. 실제 앱 협업·제품 OCR·배포는 별도.",
+  "markdown_links": 63,
+  "commands": [
+    {
+      "cwd": "guides/herdr",
+      "command": [
+        "python3",
+        "build-guide.py"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/herdr",
+      "command": [
+        "node",
+        "test-guide.cjs"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/herdr",
+      "command": [
+        "node",
+        "print-guide.cjs"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/herdr",
+      "command": [
+        "python3",
+        "validate-guide.py",
+        "--pdf",
+        "--manual-planning",
+        "../../manual/planning-steps.json"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/herdr",
+      "command": [
+        "python3",
+        "package-guide.py"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/orca",
+      "command": [
+        "python3",
+        "build-guide.py"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/orca",
+      "command": [
+        "node",
+        "test-guide.cjs"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/orca",
+      "command": [
+        "node",
+        "print-guide.cjs"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/orca",
+      "command": [
+        "python3",
+        "validate-guide.py",
+        "--pdf"
+      ],
+      "result": "PASS"
+    },
+    {
+      "cwd": "guides/orca",
+      "command": [
+        "python3",
+        "package-guide.py"
+      ],
+      "result": "PASS"
+    }
+  ],
+  "files": {
+    "guides/herdr/README.md": "847473ae5ed477892c2422c90e7b0fc8bb6bb357f2fb920f5224560068f2da74",
+    "guides/herdr/browser-tests.json": "3be07e7de08aa826ee81c2fc5d3728ac72183b425714b6224a6d362f680b8c26",
+    "guides/herdr/build-guide.py": "12adce36972108eff4208284f0b6645b8c9f96bb81c70047ec61334fe677bfe7",
+    "guides/herdr/development-map-preview.png": "d141b2c9fe6ea4c1d34e14af451835430773684a5fccbf388e5575fb8880bb38",
+    "guides/herdr/development-steps.json": "d994a0c476f5905e5f2fc88278d36b793e8cb23b282da3566823d426e0cc9e6a",
+    "guides/herdr/documents-preview.png": "5aa2beccbdf2d30a774c8b8f01d647677c21a61be1512f963857129e201c20fc",
+    "guides/herdr/entrypoints.json": "e4e5583c2825fda035afda1dc933e388944c965733779be3d75fd6a2900b38c3",
+    "guides/herdr/evidence/herdr-ui/desktop-exercise.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "guides/herdr/evidence/herdr-ui/desktop-project.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "guides/herdr/evidence/herdr-ui/mobile-exercise.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "guides/herdr/evidence/herdr-ui/mobile-project.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "guides/herdr/example-project.zip": "eeaf73ae9c0aacf5742ce1204cb755c6d1d0f4eea2289efa0c5d5dcae8f23d50",
+    "guides/herdr/example-project/README.md": "be9bccc7b77eebf584edcccd42ed1f343d285b78f2f6a07956674d37fede633c",
+    "guides/herdr/example-project/docs/PROJECT-BRIEF.md": "d5e9ca9cc50cc1ae447cec8ecdf394b8ea51462410647d212225d8c14243f096",
+    "guides/herdr/example-project/docs/STATE.md": "7cc11fe450bd60d7d3a94202de9477977c22aa2fd653ca20b198b363478a571e",
+    "guides/herdr/example-project/docs/research/01-problem.md": "9ded00609a9a578358c83f664aedae2be438c6342abebffff2eeb50ae036749b",
+    "guides/herdr/example-project/docs/research/02-research-plan.md": "c4f50b56e7e399d5a4610292ea422d42fe135c41c6c249985ad7462595ba5455",
+    "guides/herdr/example-project/docs/research/03-evidence.md": "c14424116e068398cf2bba7d0fe546f0058def4cbfdd6f7d4622a30a1e5bbcae",
+    "guides/herdr/example-project/docs/research/04-decision.md": "a4ee4c36e28d3744cb54ae375ea45d764318c32746cf628e05cb82db092b4ed2",
+    "guides/herdr/guide.pdf": "563895ebae0ef21cf7038905d18f5fa2a981d6bd17a4e5f39bebd4917869a860",
+    "guides/herdr/handbook.html": "a383deb91078039b4e945ac38b30c836faeb82bc34fe310e2e156acbf46e9919",
+    "guides/herdr/index.html": "f2111cbfbc0293212ef66e2ad17cc20557452b436a005c22827f1b10db380ea6",
+    "guides/herdr/opus-review.json": "fb375f09c3dbfed69ec366b7a5a899fb4dfd14a5c0779f1b3e6323a6213db2f9",
+    "guides/herdr/package-guide.py": "3b160bc2fe38bdbe363dfa4f143cb9f20733310f0ff0802bd53896c72658abd4",
+    "guides/herdr/package-lock.json": "765ee731aa98088b90f89c6e3c40789f21eec7b10dc3ec877d01ce5bb893efd8",
+    "guides/herdr/package.json": "28dfdbb96e8133ffd8ada34918d82274dd93e2f40f3703b7e8c688c50637ae36",
+    "guides/herdr/pdf-validation.json": "ece23e3f8aeeb0196772b65d0d76ed6be91db797c9d675fcc6d1fb09cb3fc80e",
+    "guides/herdr/planning-map-preview.png": "3e6d765fd382d2ffadfaec1739a347a41b590530fd79dbe5df0201db90ed3b5e",
+    "guides/herdr/planning-map-source.json": "623742df43406c69dcbe63539f876e78fd78e6f4f0c6fe403e5d8cca914459df",
+    "guides/herdr/planning-map-validation.json": "700a5d72c22fb0d5dd83cb2b6eb2ab8d63a1f9b1a1dcfc1415aa5ad0339329e3",
+    "guides/herdr/planning-map.html": "5b0c10e8792ebffc0afb79e43f55429a2a168d7d986f38b2385e80ebec2cf016",
+    "guides/herdr/planning-pdf-6.png": "b6a0ddf2c88072b1e37af49d7c9e5f1b35d2c99c5b95ac74b54f816b138274a4",
+    "guides/herdr/planning-steps.json": "03a45792caeab363cb3bf538189d7976498aec1d08892ba8be122037fc146389",
+    "guides/herdr/preview.png": "f4c2b846b1faf51a305253869ee527037634a159a1a8fbdac451595bc14fdaeb",
+    "guides/herdr/print-guide.cjs": "a60f0bede8e89dd1f6aac98d9c817f590a94fa20310b28d0f3fa93fd310f5321",
+    "guides/herdr/project-guide.pdf": "e22a9659ee03dffc24b4f7c152122e45c2aed04a65ee64a9e33667d2557ed32c",
+    "guides/herdr/project-mobile.png": "3f174269ba4979066f3fd43d1cefa072097c05d67d02bdc660898cd600fea88a",
+    "guides/herdr/project-step-preview.png": "f6eb6b2175a4b2c85858f5fd14193b673628305c512d0d22067d3a9a0a197842",
+    "guides/herdr/project-steps.json": "d36eb7e6504b3569bc624acc10d53d3cb6aacad973b1b4ac0fbe48c73876c011",
+    "guides/herdr/requirements.txt": "3ec8922905dc4e3a10c3b46bd7fba023c37ffc309d51c6bed2a13ec3e98177fd",
+    "guides/herdr/steps.json": "476035783e4a8e7687a4206df90534f81b74532c2e5c038f3be1b9e06cc07e89",
+    "guides/herdr/style.css": "2e8e4e7efd8d33e9b0bf49da60f50c018de35bc0a14c32fcc0a0a5d3b895a063",
+    "guides/herdr/template.html": "3b7d70a83c26c9c01be21f8d375a5354f8f0d7dacc22f5117e63f2c05fd582c0",
+    "guides/herdr/templates/PROJECT-BRIEF.md": "861f55bb5b4692f5e4fadc0a920ffcea64b145afe1a3ef3b24e9d6b75b6517fc",
+    "guides/herdr/test-guide.cjs": "9522049c4ce505c9144f9eb8f11c27a07fe90cca9df172a6a6708abd21e05f47",
+    "guides/herdr/validate-guide.py": "e02f8ffc738a940dfb0ff01a67cb3523c4ab8ca1d447d2c4790c7410a542c6d7",
+    "guides/herdr/verification.json": "02a1679eb11022c1698e3a45599e233e1fe948c522821b52ccab598cf17e8259",
+    "guides/herdr/viewer.js": "7bc8c1ca314e4cbe28b580a16f0a256f4ffc2849a8b2a37df28408c3832c3b5e",
+    "guides/herdr/workbench-preview.png": "ecd0f3f79577aa3d99e5880da8e838dee8fbf3c6cad40d80f8b5eaf7720e0014",
+    "guides/herdr/workflow-map.html": "7b2ba7da4b27d6259f52f7dbca72a858e2f0e803c7c98031cee1ab15fd4a4089",
+    "guides/herdr/workflow-source.json": "595655080cc846ffd7fb6e519e5955d2a6d94b46c7868cf8bdfd73ef57c3491c",
+    "guides/herdr/workflow-validation.json": "4e9f01481440e2d87431489cbf5d414cce79068cb29066d91207f2274dc2a5cf",
+    "guides/herdr/시작하기.txt": "b03b0dcd5724b7f62d5b1149e585272b7f5293cc8097dbadb93ce15f67f2238e",
+    "guides/orca/README.md": "99e57578eef289ad57305e2d4e89914f5504aa10f0d65f99292d2a93b4304db3",
+    "guides/orca/browser-tests.json": "e2d046d9791f68800b86dc2eb0f45c9627ef53ac10e82724e413a7641c2dc5ee",
+    "guides/orca/build-guide.py": "c09390298bf54bc4c0368ca12b7bc4c8b5bcddbf820ac8c314f186de525eeb9d",
+    "guides/orca/documents.png": "4b36542c1e612436f0f45b16f61f210e0f634075d00cd2636a04e6963953bd70",
+    "guides/orca/evidence/a11y-desktop.json": "16a0c9db4d321b8b7155b5877a70bebf276b8d33fc57dc5948272279a9844bf8",
+    "guides/orca/evidence/a11y-mobile.json": "2718dccbe957f57baa9d7026023d7e0d3a9fcdac3f96cd27199c7dc88c6db575",
+    "guides/orca/example-project/README.md": "6c3a7739aecd348966abcd6d2bfaaa353955d69d7ef587593fc733170c98193c",
+    "guides/orca/example-project/docs/PROJECT-BRIEF.md": "77376f402f8834590cee5405ae756ce76cf3bab368c1bef632da8af855659d8b",
+    "guides/orca/example-project/docs/STATE.md": "220fd3ee4d300aa4ad6d771a26ac309bad882cbe28f9c358d7576bef1fa38ec9",
+    "guides/orca/example-project/docs/TASKS.md": "acbfd024cb3fd7f1d976c45d624ccbd05a3beafd9783c60b6941a0be25db80d4",
+    "guides/orca/example-project/docs/research/01-problem.md": "9ded00609a9a578358c83f664aedae2be438c6342abebffff2eeb50ae036749b",
+    "guides/orca/example-project/docs/research/02-research-plan.md": "3e80c2a4ae4a2214b1722bc48175290b4cb59dc965304cb027f66e1fe3ebd164",
+    "guides/orca/example-project/docs/research/03-evidence.md": "de35af98861401b61b59f24c03fa2580080d364e542d83b8524933117a9e7125",
+    "guides/orca/example-project/docs/research/04-decision.md": "b1263118595d319facaf5a750822a75b731518b3df9109690c0d3a7797f646cd",
+    "guides/orca/examples.html": "261ed4d3d0412b7ba3b6b32dca8a4801c24a70e3df77ab782a2965fb095b87ac",
+    "guides/orca/external-review.json": "82397903a9254f7c3b7db3323a8028642cfae96c1cfd3d83f894f0baecc1442c",
+    "guides/orca/guide.pdf": "b3e13e6e6832bf114dcd42db0586624144c72a48164d1cf23ed59b32781e49d1",
+    "guides/orca/index.html": "fa4ee787ed66be3c18545756c4d1815499018ec9e59fe4a0acd698d9482582f6",
+    "guides/orca/mobile-p5.png": "8464b82b0ee99618bb28b051c56c91cbdc1d601adcd43460b9af2761f2f8b153",
+    "guides/orca/overview.png": "fd21edab4c609cd53d70da45cfa7f99e76f1ff302e781e8d0d3074e5afb030bc",
+    "guides/orca/package-guide.py": "bb56475ea95e5a427f3f818861d58fd1f2427a51de5f66205f22cd5f2e81d1d4",
+    "guides/orca/package-lock.json": "5655c412c9bfa4d6e334aa000c2ad0f8b41af7a7d9fe4164f766ccfa434bef28",
+    "guides/orca/package.json": "ee7c654c64cb9fcf20d233d9892b05c49c4ff97c25b44c3d4aafbf2223a14972",
+    "guides/orca/pdf-documents.png": "530a48df591a7badd56a51055cf3f6d13dacf3ec12313a6df63fabb842003116",
+    "guides/orca/pdf-step.png": "dac1d61b3fa5a69edcba38f0954ef3d664752ea5e5c005e1c34c63f08878dfba",
+    "guides/orca/pdf-validation.json": "d12180003ae09ee3bfacf877a0ee39270f92cd09d35539cc385b66613973e1cc",
+    "guides/orca/print-guide.cjs": "a137059f16ef6d757950be6bb3f688d0daa67c6942d6c9d718c46b7c0d1ad0e0",
+    "guides/orca/rendered-prompts.json": "61538b59ea45f6bb41f868a2de2d2bf4e8ce957db433b70b05a83b2cf5da9923",
+    "guides/orca/sources.json": "50fef6eb1cd8cd21036b65ee4c1e671045705f7794adda9a7a776debb349ac21",
+    "guides/orca/steps.json": "60b44b56e4bae32b23c21306663f222a5e7e5e2698e3674eb564def0d3308c35",
+    "guides/orca/style.css": "05cfe15ea24351e40fb451a82bde2fb297677fb90afc4ed317abf197b345f198",
+    "guides/orca/templates/PROJECT-BRIEF.md": "ad9211179922ef9d0e776a1a8c396427d83fd965c11fee666aaf9acb6bdf3220",
+    "guides/orca/templates/STATE.md": "c19ab49ad35676cc9ee39a12fa1e04b56b651f4cf657edd9df776475bfb628f4",
+    "guides/orca/templates/TASKS.md": "02a664301b33eebd431ab88613d19fe14ae3235d3341a0a9a2ed8934f3f2d698",
+    "guides/orca/templates/WORKER-SPEC.md": "35436bf86d16290c3adfe655203a051f66fd648e15ea32196df94acc5498fd8a",
+    "guides/orca/templates/research/01-problem.md": "5edd7989d957e3e8d9c04ba22a955d1ac5adc13b29c426be2477fcd8848079e7",
+    "guides/orca/templates/research/02-research-plan.md": "176401fef3867d1e119810187e164c7a0b9671d57bc0fd2cdda35a88f05a1710",
+    "guides/orca/templates/research/03-evidence.md": "bd42e903fed1394d6a598c9e534166458d16f868ef79065857dd5b89003ba32e",
+    "guides/orca/templates/research/04-decision.md": "8ccdbc0a9d4b099b0047e662cbf76846e36c3dff38e1d9c4d16ed9ffaf89ac05",
+    "guides/orca/test-guide.cjs": "c731a5c60691b135c2046578c7bca6f150a8abb774cb8a3c98a76b2b5c55dcef",
+    "guides/orca/validate-guide.py": "df359fd3ffdc80705048ffb773c6cf16303735b29c1f98485a58647179a8b60c",
+    "guides/orca/verification.json": "8c4aa876d995d6698555658bc4cabcb79c2386ac309e126746b4fccc8dc141fa",
+    "guides/orca/viewer.js": "0fe9c555f17fbe2b263469ac818bd2e589585ac971870393878796e2b1446a4e",
+    "guides/orca/workbench.png": "21d19c6635c9b9fb330332e38d39d2e448abb6673cfde9582eed64c4ce34e178",
+    "guides/orca/시작하기.txt": "3af4718c75ce5be634a48cdf06b49f6a24b7bd37fe95d4e8262422b86af144bb",
+    "templates/herdr-project/HERDR-OPERATIONS.md": "92668b5f89043dd409d46d15ec03d3eac89896d2dd1393f6a60fbb12bed3b806",
+    "templates/herdr-project/HERDR-PROJECT.md": "c7035eaf50f22cec7011c4c63a1446cf70fdd8d507f61b103262704508476b9f",
+    "templates/herdr-project/README.md": "00af41d5685b5f2afb9ec144c614e5488a2eb827c4d31b8411fe4909b7721f30",
+    "templates/herdr-project/VERIFICATION.md": "1ece1b0168ad64af54259a46fda5342a9abd7cb88266e94d1e82266c7036eb5c",
+    "examples/exam-ocr/HERDR-OPERATIONS.md": "92668b5f89043dd409d46d15ec03d3eac89896d2dd1393f6a60fbb12bed3b806",
+    "examples/exam-ocr/HERDR-PROJECT.md": "6ab1e502cb50a431fb89a340d0bf0755c845d20a543f7394d97bd12ac383c6e3",
+    "examples/exam-ocr/PILOT.md": "34400c56f63ebed4d303a75481bd79d1a658c2f76b407efd1c68b795cbcd68ab",
+    "examples/exam-ocr/README.md": "bc18c97e0d377e74e02316671ce16dc976ed0a233ba1a95dc83ff858eb4441c1",
+    "examples/exam-ocr/RUN-RESULT.md": "0ac1c4b51ee815aa276930557b3d66b1b3a9ff486906ed14d1775021b504f834",
+    "examples/exam-ocr/docs/ARCHITECTURE.md": "0464e3ab5b52d3fd6e723086d4c4021c86438702bfd821ad9b6592509a881951",
+    "examples/exam-ocr/docs/PLAN.md": "6862ec5202444a89ed975a7cd55e72d7ddcc2041d9d146e90d34d609b5e5c578",
+    "examples/exam-ocr/docs/PROJECT-BRIEF.md": "fc3c75e17dbb90115066a964a9a88f9f602957e78335fd8864e4367df0f0def8",
+    "examples/exam-ocr/docs/STATE.md": "a10f150f8e7bb15308b73d881e592de6b4d325bb5e39c9ab614063fe2ea95d52",
+    "examples/exam-ocr/docs/TEST-PLAN.md": "d82504c6c6a67adc719c7a405c5bf8459aa8bf1599518690104b56053965d5fe",
+    "examples/exam-ocr/docs/ai/results/pilot-intake.md": "2ae5b3f5cd2c8acbceef39a955c5cd6002e016c998f3d8af676f9810e49a7130",
+    "examples/exam-ocr/docs/ai/tasks/P002.md": "3f4b3766be8b37aba06dfcd1996774b0617b29fef0107bc7a96e2a21cfd21cd9",
+    "examples/exam-ocr/docs/research/01-problem.md": "0006702c6cac4dcebbd8a496a80c6795e3345874178070675b98cedaad6aaa46",
+    "examples/exam-ocr/docs/research/02-research-plan.md": "82e39ea4e369cda682728408b99db09b10616967c106c8fe117612e023e7f268",
+    "examples/exam-ocr/docs/research/03-evidence.md": "9a5f86ce67e3fdf1ca2aacab6592b9e2e7014aca0064ba6d516600189172d116",
+    "examples/exam-ocr/docs/research/04-decision.md": "2d49aed9bf100136c6af481e26d399cb1570a49a1afa005c896b24aab589adfd"
+  }
+}

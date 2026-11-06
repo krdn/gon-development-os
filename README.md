@@ -4,9 +4,18 @@
 
 현재 버전: [VERSION](VERSION) · 최초 통합: **2026-10-31** · 비공개 저장소
 
+## GitHub 원본에서 다시 만들기
+
+[전체 재생성 안내와 AI 요청문](docs/05-rebuild-workflow.md)을 기준으로 `npm run build:all` → `npm test` → `npm run verify:all`을 수행합니다. 의존성·글꼴·브라우저 준비 방법도 같은 문서에 있습니다.
+
+- [Herdr 단계별 안내](guides/herdr/README.md) · [Orca 단계별 안내](guides/orca/README.md)
+- [아이디어 입력용 실행 양식](templates/herdr-project/README.md) · [시험지 OCR 프로젝트 예시](examples/exam-ocr/README.md)
+
+안내서·실행 양식·예시의 편집 원본이 모두 이 저장소에 있습니다. 과거 앱 시험의 차단·미검증은 예시의 RUN-RESULT에 남기며 문서 빌드 성공을 실제 협업·제품 성공으로 간주하지 않습니다.
+
 ## 처음 읽을 순서
 
-1. [실행 매뉴얼](docs/01-manual.md): 10단계, 19개 요청문, 신규·기존·재개·AEOS 경로
+1. [실행 매뉴얼](docs/01-manual.md): Herdr + Codex CLI의 기획·리서치 5단계 + 개발 10단계, 문답·조사·의사결정·인계 및 신규·기존·재개·AEOS 경로
 2. [스킬 설치와 사용](docs/02-skills.md): 두 스킬의 역할, 설치, 기존 설치본 보호, 실제 인식 확인
 3. [수정·검증·업데이트](docs/03-maintenance.md): 무엇을 고칠지, 재생성, CI, 버전·이력 관리
 4. [자료 출처와 검증 범위](docs/04-provenance.md): 원본·보관본·현재 검증의 구분
@@ -29,12 +38,16 @@ GitHub는 HTML의 상호작용 기능을 직접 실행하지 않습니다. 저�
 
 | 경로 | 역할 | 수정 여부 |
 | --- | --- | --- |
-| `manual/sections.json` | 단계별 매뉴얼 내용과 요청문 | 내용 변경의 원본 |
+| `manual/sections.json` | 일반 단계별 매뉴얼 내용과 요청문 | 내용 변경의 원본 |
+| `manual/planning-steps.json` | 기획 단계의 공통 내용·요청문과 매뉴얼 표시 차이 | 기획 변경의 원본 |
 | `manual/style.css`, `manual/viewer.js` | 화면·인쇄 스타일과 복사·탐색 동작 | 화면 변경 시 |
 | `skills/gon-project-lifecycle/` | GitHub 기준 시작·도입·재개·검증·전달과 원격 기록 확인 | 절차 변경 시 |
 | `skills/gon-web-engineering/` | 웹 기술·구현·검증 스킬 | 웹 기준 변경 시 |
 | `diagrams/workflow.json` | Archify 흐름도 편집 원본 | 흐름 변경 시 |
-| `scripts/` | 매뉴얼 생성·PDF·검증 도구 | 생성 방식 변경 시 |
+| `scripts/` | 매뉴얼과 전체 안내서 생성·PDF·검증 도구 | 생성 방식 변경 시 |
+| `guides/herdr/`, `guides/orca/` | 별도 실행 안내서 원본·생성기·HTML/PDF·검사 | 해당 환경 안내 변경 시 |
+| `templates/herdr-project/` | 프로젝트 아이디어 입력·협업·재개 실행 양식 | 실행 계약 변경 시 |
+| `examples/exam-ocr/` | 채워진 OCR 프로젝트 문서와 과거 시험 결과 요약 | 예시 범위·근거 변경 시 |
 | `docs/01-manual.md`, `dist/01-*.html`, `dist/01-*.pdf` | 매뉴얼 자동 생성 결과 | 직접 편집하지 않음 |
 | `dist/02-workflow-map.html` | 별도 Archify 생성 결과 | 흐름도 변경 후 재생성 |
 | `archive/2026-10-31/` | 최초 대화·파일·이미지·검증 기록 | 당시 기록으로 보존 |

@@ -1,0 +1,33 @@
+{
+  "checked_on": "2026-11-02",
+  "installed": {
+    "orca_cli": "1.4.246",
+    "codex_cli": "0.166.0",
+    "orca_guides": [
+      "orca-cli",
+      "orchestration",
+      "references/coordinator-loop.md",
+      "references/placement-and-remote.md",
+      "references/recovery-and-cleanup.md"
+    ],
+    "help": [
+      "agent launch",
+      "orchestration worker-start",
+      "orchestration task-create",
+      "orchestration run-use",
+      "orchestration worker-read",
+      "codex resume",
+      "codex fork"
+    ],
+    "ui_labels_source": "설치 app.asar의 AddRepoDialog, AddProjectFromFolderDialog, Settings 리소스. GUI 클릭·설정 저장은 미시험.",
+    "gon_os": "현재 설치된 gon-project-lifecycle·gon-web-engineering의 문서 연결·기존 스택 보존·GitHub 기준 기록 원칙을 문서화. 설치본은 수정하지 않음."
+  },
+  "official_urls": [
+    "https://learn.chatgpt.com/docs/developer-commands",
+    "https://cli.github.com/manual/gh_repo_create",
+    "https://cli.github.com/manual/gh_auth_login",
+    "https://cli.github.com/manual/gh_pr_create",
+    "https://cli.github.com/manual/gh_pr_checks",
+    "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue"
+  ]
+}

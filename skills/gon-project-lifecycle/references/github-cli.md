@@ -36,7 +36,7 @@ gh api --hostname HOST --method POST repos/OWNER/REPO/milestones --input MILESTO
 
 새 라벨/Milestone 생성은 전체 기존 목록을 대조한 뒤 필요한 경우에만 한다. `--force`로 기존 라벨 정의를 덮어쓰지 않는다. 담당자/리뷰 요청은 실제 담당과 권한이 정해진 경우에만 한다.
 
-sub-issue는 현재 REST의 `issues/PARENT_NUMBER/sub_issues`에 `issue_id`를, 차단 관계는 `issues/NUMBER/dependencies/blocked_by`에 `issue_id`를 쓰는 방식이다. 호출 전 해당 host의 현재 API 문서·기존 관계·방향을 확인하고 추가 후 GET으로 재검증한다. 지원 불가면 본문 링크로 대체한다. 번호를 database ID 대신 전송하지 않는다.
+sub-issue는 현재 REST의 `issues/PARENT_NUMBER/sub_issues`에 `sub_issue_id`를, 차단 관계는 `issues/NUMBER/dependencies/blocked_by`에 `issue_id`를 쓰는 방식이다. 호출 전 해당 host의 현재 API 문서·기존 관계·방향을 확인하고 추가 후 GET으로 재검증한다. 지원 불가면 본문 링크로 대체한다. 번호를 database ID 대신 전송하지 않는다.
 
 ## Projects 상태
 

@@ -1,0 +1,143 @@
+{
+  "built_at_utc": "2026-11-06T00:19:31.935127+00:00",
+  "scope": "이번 재생성의 브라우저 회귀·PDF 내용·링크 검사. 실제 Herdr/Orca 실행·배포 아님.",
+  "historical_evidence": "preview 이미지, evidence/ 및 외부 리뷰 기록은 이전 확인 자료이며 이번 실행 증거가 아님.",
+  "browser_tests": {
+    "timestamp": "2026-11-06T00:19:27.067Z",
+    "engine": "Chromium / Playwright",
+    "document_sha256": "f2111cbfbc0293212ef66e2ad17cc20557452b436a005c22827f1b10db380ea6",
+    "viewports": [
+      1440,
+      390
+    ],
+    "cases": [
+      {
+        "name": "다음 단계·새로고침·주소 없이 재방문 시 현재 단계 복원",
+        "status": "PASS"
+      },
+      {
+        "name": "예제 03 주 요청문과 내 기획 03 주 요청문의 복사 대상 구분",
+        "status": "PASS"
+      },
+      {
+        "name": "체크 기록이 프로젝트 폴더·경로별로 분리되고 새로고침 후 유지",
+        "status": "PASS"
+      },
+      {
+        "name": "비개발 종료·로컬 완료·보관만 완료 분기",
+        "status": "PASS"
+      },
+      {
+        "name": "P5에서 새 개발 세션으로 이동하고 준비 단계는 쉘 명령으로 구분",
+        "status": "PASS"
+      },
+      {
+        "name": "두 경로·16단계·PC/모바일 모두 단일 단계 표시와 가로 넘침 없음",
+        "status": "PASS"
+      },
+      {
+        "name": "클립보드 거절 시 원문 선택과 수동 복사 안내",
+        "status": "PASS"
+      },
+      {
+        "name": "null·문자열·배열·깨진 저장 기록으로도 안내 정상 초기화",
+        "status": "PASS"
+      },
+      {
+        "name": "저장소 사용 불가·잘못된 URL 조각에도 화면과 탐색 유지",
+        "status": "PASS"
+      },
+      {
+        "name": "분할 터미널 배치 전환과 문서·세션 도움말 이동",
+        "status": "PASS"
+      },
+      {
+        "name": "상대경로·물결표 경로는 반영과 복사를 막고 절대경로는 안전하게 인용",
+        "status": "PASS"
+      },
+      {
+        "name": "기획 체크는 두 경로에 공통이고 개발 체크는 경로별 유지",
+        "status": "PASS"
+      },
+      {
+        "name": "개발 배치를 선택한 뒤 인쇄해도 두 캡션이 올바른 뷰를 가리킴",
+        "status": "PASS"
+      },
+      {
+        "name": "실행 중 브라우저 오류 없음",
+        "status": "PASS"
+      }
+    ]
+  },
+  "pdf_validation": {
+    "steps": 16,
+    "links": 48,
+    "diagram_bindings": "PASS",
+    "pdf": {
+      "guide.pdf": {
+        "pages": 38,
+        "complete_prompts": 44,
+        "all_titles_and_full_prompts": "PASS"
+      },
+      "project-guide.pdf": {
+        "pages": 38,
+        "complete_prompts": 44,
+        "all_titles_and_full_prompts": "PASS"
+      }
+    }
+  },
+  "sha256": {
+    "README.md": "847473ae5ed477892c2422c90e7b0fc8bb6bb357f2fb920f5224560068f2da74",
+    "browser-tests.json": "3be07e7de08aa826ee81c2fc5d3728ac72183b425714b6224a6d362f680b8c26",
+    "build-guide.py": "12adce36972108eff4208284f0b6645b8c9f96bb81c70047ec61334fe677bfe7",
+    "development-map-preview.png": "d141b2c9fe6ea4c1d34e14af451835430773684a5fccbf388e5575fb8880bb38",
+    "development-steps.json": "d994a0c476f5905e5f2fc88278d36b793e8cb23b282da3566823d426e0cc9e6a",
+    "documents-preview.png": "5aa2beccbdf2d30a774c8b8f01d647677c21a61be1512f963857129e201c20fc",
+    "entrypoints.json": "e4e5583c2825fda035afda1dc933e388944c965733779be3d75fd6a2900b38c3",
+    "evidence/herdr-ui/desktop-exercise.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "evidence/herdr-ui/desktop-project.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "evidence/herdr-ui/mobile-exercise.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "evidence/herdr-ui/mobile-project.json": "63dbcd8c90cf081c0b89557dbae9ba04b0ded70cece1ea441ac29612dcf901d1",
+    "example-project.zip": "eeaf73ae9c0aacf5742ce1204cb755c6d1d0f4eea2289efa0c5d5dcae8f23d50",
+    "example-project/README.md": "be9bccc7b77eebf584edcccd42ed1f343d285b78f2f6a07956674d37fede633c",
+    "example-project/docs/PROJECT-BRIEF.md": "d5e9ca9cc50cc1ae447cec8ecdf394b8ea51462410647d212225d8c14243f096",
+    "example-project/docs/STATE.md": "7cc11fe450bd60d7d3a94202de9477977c22aa2fd653ca20b198b363478a571e",
+    "example-project/docs/research/01-problem.md": "9ded00609a9a578358c83f664aedae2be438c6342abebffff2eeb50ae036749b",
+    "example-project/docs/research/02-research-plan.md": "c4f50b56e7e399d5a4610292ea422d42fe135c41c6c249985ad7462595ba5455",
+    "example-project/docs/research/03-evidence.md": "c14424116e068398cf2bba7d0fe546f0058def4cbfdd6f7d4622a30a1e5bbcae",
+    "example-project/docs/research/04-decision.md": "a4ee4c36e28d3744cb54ae375ea45d764318c32746cf628e05cb82db092b4ed2",
+    "guide.pdf": "563895ebae0ef21cf7038905d18f5fa2a981d6bd17a4e5f39bebd4917869a860",
+    "handbook.html": "a383deb91078039b4e945ac38b30c836faeb82bc34fe310e2e156acbf46e9919",
+    "index.html": "f2111cbfbc0293212ef66e2ad17cc20557452b436a005c22827f1b10db380ea6",
+    "opus-review.json": "fb375f09c3dbfed69ec366b7a5a899fb4dfd14a5c0779f1b3e6323a6213db2f9",
+    "package-guide.py": "3b160bc2fe38bdbe363dfa4f143cb9f20733310f0ff0802bd53896c72658abd4",
+    "package-lock.json": "765ee731aa98088b90f89c6e3c40789f21eec7b10dc3ec877d01ce5bb893efd8",
+    "package.json": "28dfdbb96e8133ffd8ada34918d82274dd93e2f40f3703b7e8c688c50637ae36",
+    "pdf-validation.json": "ece23e3f8aeeb0196772b65d0d76ed6be91db797c9d675fcc6d1fb09cb3fc80e",
+    "planning-map-preview.png": "3e6d765fd382d2ffadfaec1739a347a41b590530fd79dbe5df0201db90ed3b5e",
+    "planning-map-source.json": "623742df43406c69dcbe63539f876e78fd78e6f4f0c6fe403e5d8cca914459df",
+    "planning-map-validation.json": "700a5d72c22fb0d5dd83cb2b6eb2ab8d63a1f9b1a1dcfc1415aa5ad0339329e3",
+    "planning-map.html": "5b0c10e8792ebffc0afb79e43f55429a2a168d7d986f38b2385e80ebec2cf016",
+    "planning-pdf-6.png": "b6a0ddf2c88072b1e37af49d7c9e5f1b35d2c99c5b95ac74b54f816b138274a4",
+    "planning-steps.json": "03a45792caeab363cb3bf538189d7976498aec1d08892ba8be122037fc146389",
+    "preview.png": "f4c2b846b1faf51a305253869ee527037634a159a1a8fbdac451595bc14fdaeb",
+    "print-guide.cjs": "a60f0bede8e89dd1f6aac98d9c817f590a94fa20310b28d0f3fa93fd310f5321",
+    "project-guide.pdf": "e22a9659ee03dffc24b4f7c152122e45c2aed04a65ee64a9e33667d2557ed32c",
+    "project-mobile.png": "3f174269ba4979066f3fd43d1cefa072097c05d67d02bdc660898cd600fea88a",
+    "project-step-preview.png": "f6eb6b2175a4b2c85858f5fd14193b673628305c512d0d22067d3a9a0a197842",
+    "project-steps.json": "d36eb7e6504b3569bc624acc10d53d3cb6aacad973b1b4ac0fbe48c73876c011",
+    "requirements.txt": "3ec8922905dc4e3a10c3b46bd7fba023c37ffc309d51c6bed2a13ec3e98177fd",
+    "steps.json": "476035783e4a8e7687a4206df90534f81b74532c2e5c038f3be1b9e06cc07e89",
+    "style.css": "2e8e4e7efd8d33e9b0bf49da60f50c018de35bc0a14c32fcc0a0a5d3b895a063",
+    "template.html": "3b7d70a83c26c9c01be21f8d375a5354f8f0d7dacc22f5117e63f2c05fd582c0",
+    "templates/PROJECT-BRIEF.md": "861f55bb5b4692f5e4fadc0a920ffcea64b145afe1a3ef3b24e9d6b75b6517fc",
+    "test-guide.cjs": "9522049c4ce505c9144f9eb8f11c27a07fe90cca9df172a6a6708abd21e05f47",
+    "validate-guide.py": "e02f8ffc738a940dfb0ff01a67cb3523c4ab8ca1d447d2c4790c7410a542c6d7",
+    "viewer.js": "7bc8c1ca314e4cbe28b580a16f0a256f4ffc2849a8b2a37df28408c3832c3b5e",
+    "workbench-preview.png": "ecd0f3f79577aa3d99e5880da8e838dee8fbf3c6cad40d80f8b5eaf7720e0014",
+    "workflow-map.html": "7b2ba7da4b27d6259f52f7dbca72a858e2f0e803c7c98031cee1ab15fd4a4089",
+    "workflow-source.json": "595655080cc846ffd7fb6e519e5955d2a6d94b46c7868cf8bdfd73ef57c3491c",
+    "workflow-validation.json": "4e9f01481440e2d87431489cbf5d414cce79068cb29066d91207f2274dc2a5cf",
+    "시작하기.txt": "b03b0dcd5724b7f62d5b1149e585272b7f5293cc8097dbadb93ce15f67f2238e"
+  }
+}
