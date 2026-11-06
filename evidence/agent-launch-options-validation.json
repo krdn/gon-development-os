@@ -1,0 +1,53 @@
+{
+  "recorded_at_utc": "2026-11-06T06:45:19.720096+00:00",
+  "base_commit": "c4436fb91b9399292deace69023066a603c782dd",
+  "scope": "에이전트 생성 명령의 승인 생략 옵션, 래퍼 전달 경로와 생성 문서 정합성. 실제 모델 작업 실행은 별도.",
+  "cli_versions": {
+    "codex": "0.167.0",
+    "claude": "2.1.318",
+    "gemini": "0.61.0",
+    "orca": "1.4.246"
+  },
+  "options": {
+    "codex": "--yolo",
+    "claude": "--dangerously-skip-permissions",
+    "gemini": "--yolo"
+  },
+  "help_checks": [
+    "codex --yolo --help",
+    "codex --yolo resume --search --help",
+    "claude --dangerously-skip-permissions --help",
+    "gemini --yolo --help",
+    "orca-ide terminal create --help",
+    "orca-ide terminal wait --help",
+    "orca-ide orchestration worker-start --help",
+    "orca-ide worktree create --help"
+  ],
+  "orca_route": "옵션이 포함된 CLI로 terminal create → tui-idle 확인 → worker-start --terminal. 새 작업공간은 worktree create로 먼저 준비.",
+  "review": {
+    "requested_model": "claude-opus-5-5",
+    "requested_effort": "high",
+    "returned_models": [
+      "claude-opus-5-5"
+    ],
+    "is_error": false,
+    "input_sha256": "08db3ae440b5483c05e650d74ce62cf342c9c5ffd2199adfae99d6f9f31ac60f",
+    "response_sha256": "1d4180f128efd7ec56283f9cd27236d2cd0a7ae925aa6589f553b2b2cadae007"
+  },
+  "review_changes": [
+    "D1·D2: 도구 승인과 계정/OS 인증 구분, 강제 지시문 입력 제한 보존 및 기존 문구 충돌 해소.",
+    "D3: Orca 시작 라벨·기존 세션 옵션 확인·terminal handle 기록 수정.",
+    "D4·D5: 실제 CLI help로 title/focus 지원 확인, 버전 원본·생성물 검증.",
+    "D6: 지시서 절대경로 사용.",
+    "S1·S2·S3: 모델·effort 명시와 실패·재시도·복구 시 기존 Task/배치/옵션 전달 규칙 보완."
+  ],
+  "not_run": [
+    "실제 협업 모델의 유료 요청·파일 작업",
+    "Herdr/Orca에서 실제 작업자 생성 및 인수 시험"
+  ],
+  "sources": [
+    "https://learn.chatgpt.com/docs/agent-approvals-security#common-sandbox-and-approval-combinations",
+    "https://code.claude.com/docs/en/cli-reference",
+    "https://geminicli.com/docs/cli/cli-reference/"
+  ]
+}

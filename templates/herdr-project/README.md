@@ -17,7 +17,7 @@
 Herdr에서 해당 폴더의 터미널을 엽니다. 쉘에서 아래 명령을 실행합니다. 경로는 실제 프로젝트 절대경로로 바꿉니다.
 
 ```sh
-codex --no-daemon -C '/실제/프로젝트/절대경로' -m gpt-6-astra -c model_reasoning_effort='"xhigh"'
+codex --yolo --no-daemon -C '/실제/프로젝트/절대경로' -m gpt-6-astra -c model_reasoning_effort='"xhigh"'
 ```
 
 이는 2026년 11월 3일 확인된 로컬 운영 후보입니다. 실행 시 모델 지원 오류가 있으면 다른 모델로 몰래 바꾸지 말고 사용 가능한 목록과 프로젝트의 모델 정책을 먼저 확인합니다. 로그인·권한 문제가 있으면 해당 CLI가 제공하는 사용자 인증 절차를 완료합니다.
