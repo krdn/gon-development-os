@@ -18,7 +18,10 @@
 이 폴더를 실제 개발 작업 폴더로 사용할 수 있다. 다른 경로에 복사하면 주 모델은 현재 폴더의 절대경로를 다시 확인한다. Herdr의 해당 폴더에서 주 모델을 실행한 뒤 아래를 **대화 입력칸**에 넣는다.
 
 ```text
+$gon-project-lifecycle
 HERDR-PROJECT.md와 HERDR-OPERATIONS.md, docs/STATE.md를 읽어.
+단계별 전문 스킬 적용 규칙을 따르고 실제 경로와 적용 근거를 상태에 남겨.
+이번 범위는 로컬 CLI이므로 웹 스킬은 not_applicable로 기록해.
 문서 확인 시험을 마치고 이제 시험문제지 OCR PDF 도구의 전체 개발을 시작해.
 docs/PROJECT-BRIEF.md의 범위와 AC를 기준으로 PLAN의 첫 미완료 작업부터 진행해.
 필요한 독립 작업은 Herdr 협업 모델에게 맡기고 결과 파일을 읽어 통합해.
@@ -44,7 +47,11 @@ PILOT.md를 읽고 그 범위만 수행해. 제품 구현과 설치는 하지 �
 ## 중단 후 재개
 
 ```text
-HERDR-PROJECT.md와 docs/STATE.md를 읽고 현재 모드와 권한을 유지해 재개해.
+$gon-project-lifecycle
+HERDR-PROJECT.md, HERDR-OPERATIONS.md와 docs/STATE.md를 읽고 현재 모드와 권한을 유지해 재개해.
+현재 세션의 스킬 경로를 확인하고 단계별 적용 규칙을 따라.
+구버전 실행 문서에 해당 절이 없으면 갱신 필요를 알리고, 시작·재개에는 lifecycle,
+웹 작업에는 web-engineering의 실제 지침을 읽어 적용해.
 기존 Herdr 작업자와 결과 파일을 조회해 중복 생성하지 마.
 실제 Git 변경·검증 근거를 확인한 뒤 첫 미완료 작업을 진행해.
 ```

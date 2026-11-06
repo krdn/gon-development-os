@@ -1,9 +1,9 @@
 {
-  "built_at_utc": "2026-11-06T04:09:43.531965+00:00",
+  "built_at_utc": "2026-11-06T05:19:27.472833+00:00",
   "scope": "이번 재생성의 브라우저 회귀·PDF 내용·링크 검사. 실제 Herdr/Orca 실행·배포 아님.",
   "historical_evidence": "preview 이미지, evidence/ 및 외부 리뷰 기록은 이전 확인 자료이며 이번 실행 증거가 아님.",
   "browser_tests": {
-    "timestamp": "2026-11-06T04:09:39.648Z",
+    "timestamp": "2026-11-06T05:19:23.515Z",
     "engine": "Chromium / Playwright",
     "document_sha256": "f2111cbfbc0293212ef66e2ad17cc20557452b436a005c22827f1b10db380ea6",
     "viewports": [
@@ -88,7 +88,7 @@
   },
   "sha256": {
     "README.md": "847473ae5ed477892c2422c90e7b0fc8bb6bb357f2fb920f5224560068f2da74",
-    "browser-tests.json": "9fb6c11324aeab0cda282dc42b9494566f1792976490081390320d445ed6b7c4",
+    "browser-tests.json": "56209d61b0ca5c35f72774eee980153a365f62ccdba504d5aa453c446118a7f4",
     "build-guide.py": "12adce36972108eff4208284f0b6645b8c9f96bb81c70047ec61334fe677bfe7",
     "development-map-preview.png": "d141b2c9fe6ea4c1d34e14af451835430773684a5fccbf388e5575fb8880bb38",
     "development-steps.json": "d994a0c476f5905e5f2fc88278d36b793e8cb23b282da3566823d426e0cc9e6a",
@@ -106,7 +106,7 @@
     "example-project/docs/research/02-research-plan.md": "c4f50b56e7e399d5a4610292ea422d42fe135c41c6c249985ad7462595ba5455",
     "example-project/docs/research/03-evidence.md": "c14424116e068398cf2bba7d0fe546f0058def4cbfdd6f7d4622a30a1e5bbcae",
     "example-project/docs/research/04-decision.md": "a4ee4c36e28d3744cb54ae375ea45d764318c32746cf628e05cb82db092b4ed2",
-    "guide.pdf": "bd95e4b5db66f9afdaf20ed9eabd3f09125c9cca00f3e594d24e4e56b2ea026a",
+    "guide.pdf": "0e779d2be6eeebdf90cdcdec1b9d56e272c109e2abef17c6f1574967fdacdc61",
     "handbook.html": "a383deb91078039b4e945ac38b30c836faeb82bc34fe310e2e156acbf46e9919",
     "index.html": "f2111cbfbc0293212ef66e2ad17cc20557452b436a005c22827f1b10db380ea6",
     "opus-review.json": "fb375f09c3dbfed69ec366b7a5a899fb4dfd14a5c0779f1b3e6323a6213db2f9",
@@ -122,7 +122,7 @@
     "planning-steps.json": "03a45792caeab363cb3bf538189d7976498aec1d08892ba8be122037fc146389",
     "preview.png": "f4c2b846b1faf51a305253869ee527037634a159a1a8fbdac451595bc14fdaeb",
     "print-guide.cjs": "a60f0bede8e89dd1f6aac98d9c817f590a94fa20310b28d0f3fa93fd310f5321",
-    "project-guide.pdf": "9439daab506de04b5581496dcb8eb0a3e18a939aeaa810e8c47c6f708296973b",
+    "project-guide.pdf": "b0d93fbeab95fe2da79d9039d8db9e49381426a86bf4e78c40cde6c39109f8c3",
     "project-mobile.png": "3f174269ba4979066f3fd43d1cefa072097c05d67d02bdc660898cd600fea88a",
     "project-step-preview.png": "f6eb6b2175a4b2c85858f5fd14193b673628305c512d0d22067d3a9a0a197842",
     "project-steps.json": "d36eb7e6504b3569bc624acc10d53d3cb6aacad973b1b4ac0fbe48c73876c011",

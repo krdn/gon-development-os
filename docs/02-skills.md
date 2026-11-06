@@ -44,6 +44,6 @@ python3 scripts/sync-skills.py --apply && python3 scripts/sync-skills.py --check
 
 구버전 OS에서 수동 복사한 설치본과 충돌하면 미리보기가 중단됩니다. 해당 파일을 원본과 비교하고 보관할 로컬 수정을 백업·병합하세요. 미관리 설치를 처음 인수하기로 결정한 경우에만 원본 안내의 `--adopt-existing` 절차를 사용합니다. 이미 관리 중인 파일은 원본과 차이를 해소한 뒤 재실행합니다.
 
-새 Codex 세션의 스킬 선택 목록에서 두 이름을 확인하고, [Herdr 시작·웹 구현·재개 요청문](06-herdr-cli-start.md)을 사용하세요. 별도 스킬 `$gon-task-execute`는 사용자가 해당 과제에 명시했을 때만 적용하며 두 전문 스킬은 이미 정한 목표·수용 기준을 이어받습니다.
+새 Codex 세션의 스킬 선택 목록에서 두 이름을 확인하고, [Herdr 첫 요청](06-herdr-cli-start.md)을 사용하세요. 실행 문서는 시작·P5 인계·재개에 lifecycle, 웹 작업에 web-engineering을 적용하도록 지시합니다. 실제 경로·참조·작업 근거를 STATE에 남기고 새 세션과 작업자에게 필요한 스킬을 전달합니다. 별도 스킬 `$gon-task-execute`는 사용자가 해당 과제에 명시했을 때만 적용하며 두 전문 스킬은 이미 정한 목표·수용 기준을 이어받습니다.
 
 이 저장소의 `skills/`는 [고정된 버전](../skills.lock)의 오프라인 열람·테스트용 사본입니다. CLI 설치는 위 동기화기를 사용합니다. [최초 가져오기 기록](../evidence/imported-skills.json)과 [1.1 당시 검증](../evidence/github-management-validation.json)은 과거 시점의 자료입니다.

@@ -1,0 +1,66 @@
+{
+  "recorded_at_utc": "2026-11-06T05:18:28.487684+00:00",
+  "base_commit": "a7cf0a3335ed69b9f4b265ad294cfc9d22ddcd89",
+  "scope": "Herdr 실행 문서와 가이드 수정안의 정적 검토. 실제 모델의 전 단계 준수·Herdr 협업·제품 E2E 실행은 별도.",
+  "requested_model": "claude-opus-5-5",
+  "requested_effort": "high",
+  "returned_models": [
+    "claude-opus-5-5"
+  ],
+  "response_is_error": false,
+  "review_input_sha256": "f02533cff2875b30b40851a7322ee209f234d9f5aa04284278f14d97e525de1c",
+  "review_response_sha256": "16405a9cfed86e30708b2c7647de314134563849b67ee73a60ef443f104cc55b",
+  "findings": [
+    {
+      "ids": [
+        "D1"
+      ],
+      "change": "기존 주 모델 쓰기 중지 → 인수 회신 → STATE 책임 전환 → 새 주 모델 시작. 종료된 세션 재개 경로도 명시."
+    },
+    {
+      "ids": [
+        "D2",
+        "S5"
+      ],
+      "change": "작업자 역할·적용 참조·제외 범위를 작업지시서에 한정. 작업자의 스킬 기록은 결과 파일, STATE 통합은 주 모델."
+    },
+    {
+      "ids": [
+        "D3",
+        "D4",
+        "D5",
+        "S1",
+        "S2"
+      ],
+      "change": "같은 Space 새 탭의 실행 안내, 웹 범위 변경의 R/AC·기술 결정, CLI 제외 범위, 웹 기술 선택 시점과 기존 제품 명세 재사용을 연결."
+    },
+    {
+      "ids": [
+        "D6",
+        "D7",
+        "D8",
+        "S4",
+        "S6"
+      ],
+      "change": "설치 허용 범위·설치 후 인계, 구버전 계약 재개, 절대 입력·결과 경로, 협업 허용 범위 승계, unverified 상태를 명시."
+    },
+    {
+      "ids": [
+        "D9",
+        "D10"
+      ],
+      "change": "검증 결과 기록과 웹 검증 담당을 구분. 1.4.1 전달 버전의 VERSION·package·lockfile을 맞춤."
+    }
+  ],
+  "judgment": [
+    {
+      "id": "S3",
+      "decision": "기존 지침으로 가능한 작업은 계속한다. 스킬 누락만으로 신규 스택 결정을 awaiting_user나 GitHub 기록을 pending_sync로 고정하지 않는다. 실제 수행하지 못한 행동과 필수 조건만 차단으로 기록한다."
+    },
+    {
+      "id": "S4",
+      "decision": "사용자가 이미 허용한 협업 범위만 인계한다. 문서가 새로운 위임 권한을 만들지 않는다."
+    }
+  ],
+  "post_review": "지적 반영분은 직접 문서·예시·빌드 검사로 확인한다. 외부 리뷰를 재호출하거나 재승인으로 표현하지 않는다."
+}

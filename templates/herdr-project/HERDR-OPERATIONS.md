@@ -18,14 +18,33 @@ codex debug models
 
 `ls`에서 현재 프로젝트의 space/tab/pane/terminal 관계를 확인한다. pane ID는 화면 영역, terminal ID는 실행 프로세스 주소이며 서로 대체할 수 없다. 주 모델이 Herdr 안에 있다면 `HC_TERMINAL_ID`와 조회 결과를 대조한다. 이 값이 없으면 다른 사용자의 터미널을 주 모델로 추측하지 말고 결과 파일을 통해 회수한다.
 
-`herdr-core`는 실행·대기·메시지·결과 읽기, `herdr-app`은 사람이 보는 화면 제어를 담당한다. 앱이 열리지 않았으면 사용자에게 현재 상태를 알리고 승인된 실행 범위에서 연다. 설치·업데이트·서버 재시작을 문서 실행의 일부로 자동 수행하지 않는다.
+`herdr-core`는 실행·대기·메시지·결과 읽기, `herdr-app`은 사람이 보는 화면 제어를 담당한다. 앱이 열리지 않았으면 사용자에게 현재 상태를 알리고 승인된 실행 범위에서 연다. 설치·업데이트·서버 재시작은 별도로 주어진 허용 범위에서 수행한다. 허용이 없으면 필요한 작업과 실행 컴퓨터를 안내한다.
+
+## 새 개발 세션에 인계
+
+기획 세션은 STATE에 다음 요청을 실제 프로젝트 경로와 첫 작업으로 채워 남긴다. 새 개발 세션의 첫 요청으로 전달하고 수신을 확인한다. 주 모델이 새 탭을 제어할 수 없으면 사용자에게 해당 요청과 프로젝트 경로를 전달한다.
+
+```text
+$gon-project-lifecycle
+[프로젝트 절대경로]의 HERDR-PROJECT.md, HERDR-OPERATIONS.md와 docs/STATE.md를 읽어.
+너는 새 개발 주 모델이야. docs/PROJECT-BRIEF.md 또는 기록된 기존 명세의 AC와 허용 범위를 이어받아.
+이 실행 계약의 단계별 전문 스킬 적용 규칙을 수행해.
+현재 세션에서 lifecycle을 확인하고, 이번 작업이 웹 화면·API·DB에 해당하면
+gon-web-engineering의 실제 SKILL.md와 관련 참조를 읽어 적용해.
+먼저 목표·허용 범위·현재 단계·스킬·첫 미완료 작업을 [이전 주 terminal 또는 사용자]에게 회신해.
+이전 주 모델이 실행 중이면 STATE에서 주 모델이 너로 지정되고 인계가 완료된 것을 확인한 뒤 시작해.
+이전 주 모델이 종료된 재개라면 현재 사용자 요청과 종료 확인을 기록하고 주 모델을 이어받아.
+사용자에게 허용받은 협업 범위와 동시 작업자 상한도 그대로 이어받아.
+```
+
+협업 작업자는 아래 작업지시서에서 정한 역할·파일·스킬 범위로 인수한다. 새 컴퓨터와 CLI에서는 설치 상태를 다시 확인하고, 주 모델에게 받은 경로를 그대로 신뢰하지 않는다.
 
 ## 새 협업 분할 터미널 열기
 
-Codex 작업자를 오른쪽 분할에 여는 명령 형태다. 먼저 작업 계약 파일을 실제로 저장한다. 아래 JSON의 경로·모델·pane ID를 바꾼 후 실행한다.
+Codex 작업자를 오른쪽 분할에 여는 명령 형태다. 먼저 작업 계약 파일을 실제로 저장한다. 아래 `PROJECT`는 두 실행 문서가 있는 주 프로젝트의 절대경로, `TASK_FILE`은 작업지시서의 절대경로로 바꾼다. 별도 worktree를 쓰면 실행 폴더는 그 worktree로 지정하고, 입력 문서와 결과 파일의 실제 위치는 작업지시서에 분리해 적는다. 아래 JSON의 경로·모델·pane ID를 바꾼 후 실행한다.
 
 ```sh
-herdr-app do pane.split '{"direction":"right","pane":"PANE_ID","argv":["codex","--no-daemon","-C","PROJECT","-m","MODEL_ID","-c","model_reasoning_effort=\"xhigh\"","docs/ai/tasks/T001.md를 읽고 지정 범위만 수행해. 결과 파일을 저장하고 계약의 보고 대상으로 완료 또는 차단을 알려줘."]}'
+herdr-app do pane.split '{"direction":"right","pane":"PANE_ID","argv":["codex","--no-daemon","-C","PROJECT","-m","MODEL_ID","-c","model_reasoning_effort=\"xhigh\"","PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과 파일을 저장하고 계약의 보고 대상으로 완료 또는 차단을 알려줘."]}'
 ```
 
 이 형태는 최초 요청을 CLI 인수로 전달한다. 앱의 `pane.split`에는 `task` 인수가 없으므로 추가하지 않는다. JSON은 실제 값에서 직렬화하고 셸에 넣을 때는 올바르게 인용한다. 경로의 공백·따옴표를 수동 문자열 연결로 처리하지 않는다.
@@ -38,7 +57,7 @@ Claude 작업자는 `herdr-app do tab.new`의 명시적 `space`, `folder`, `argv
   "space": "SPACE_ID",
   "folder": "PROJECT",
   "argv": ["claude", "--model", "MODEL_ID", "--effort", "xhigh"],
-  "task": "docs/ai/tasks/T002.md를 읽고 지정 범위만 수행해. 결과를 계약의 파일에 저장하고 보고해."
+  "task": "PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과를 계약의 파일에 저장하고 보고해."
 }
 ```
 
@@ -49,7 +68,7 @@ Claude 작업자는 `herdr-app do tab.new`의 명시적 `space`, `folder`, `argv
 작업자가 준비되었고 지시가 전달되지 않은 것이 확인된 경우:
 
 ```sh
-herdr-core send --if idle TERMINAL_ID 'docs/ai/tasks/T001.md를 읽고 실행해. 결과 경로와 완료 또는 차단을 보고해.'
+herdr-core send --if idle TERMINAL_ID 'PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정한 역할·스킬 범위로 실행해. 결과 경로와 완료 또는 차단을 보고해.'
 ```
 
 blocked 상태의 인증·권한 결정을 `--force`로 통과시키지 않는다. 모델 선택 메뉴·신뢰 확인 화면은 실제 상태를 보고 필요한 사용자 결정을 요청한다.
@@ -59,7 +78,7 @@ blocked 상태의 인증·권한 결정을 `--force`로 통과시키지 않는�
 새 탭으로 보여도 괜찮거나 앱의 분할 실행이 지원되지 않는 경우, 현재 도움말에 맞춰 다음 형태를 쓴다. 공간 라벨을 붙여 사용자에게 보이도록 하고 반환된 terminal을 추적한다.
 
 ```sh
-herdr-core run --bg --name project-t001 --cwd 'PROJECT' --label 'herdr.space=SPACE_ID' codex --no-daemon -m MODEL_ID -c model_reasoning_effort='"xhigh"' 'docs/ai/tasks/T001.md를 읽고 수행해. 결과 파일을 저장하고 보고해.'
+herdr-core run --bg --name project-t001 --cwd 'PROJECT' --label 'herdr.space=SPACE_ID' codex --no-daemon -m MODEL_ID -c model_reasoning_effort='"xhigh"' 'PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정한 역할·스킬 범위로 수행해. 결과 파일을 저장하고 보고해.'
 ```
 
 `--name`은 실행별로 고유하게 정한다. 이 명령에 `--bg`가 있어도 작업 완료를 뜻하지 않는다. 실제 첫 요청 수신과 결과를 확인한다. core로 생성한 자식은 부모 종료 시 끝날 수 있다. 지속 실행이 필요한 경우 현재 권한과 수명 요구를 확인하고 `--outlive-parent` 여부를 명시적으로 정한다. `--keep`은 잃어버린 프로그램을 쉘로 대체할 뿐 AI 작업을 재개하지 않는다.
@@ -93,12 +112,14 @@ herdr-core read --lines 100 TERMINAL_ID
 선행 작업과 근거 파일:
 요청 모델 / CLI / effort / 선택 이유:
 실제 모델 확인 근거: 아직 없음
-읽을 파일:
+읽을 파일: HERDR-PROJECT.md, HERDR-OPERATIONS.md와 이 작업의 입력 파일
+적용할 스킬: 이름 / 적용 이유 / 관련 참조 / 제외 절 또는 not_applicable
+기본 제외 범위: STATE·통합·GitHub 관리 기록·지침 설치는 주 모델이 담당
 수정 허용 파일 또는 담당 영역:
 금지 범위: 다른 작업자의 변경 되돌리기, 승인 없는 재위임·배포·전역 설정 변경
 현재 권한과 사용자 확정 사항:
 수용 기준 및 검사 방법:
-결과 파일: docs/ai/results/T001.md
+결과 파일: 실제 작업 폴더 기준 절대경로 / 주 프로젝트 또는 worktree 중 위치 명시
 보고 대상 terminal: [확인한 주 terminal ID 또는 없음]
 
 다른 작업자도 같은 프로젝트에서 작업한다. 지정 범위만 수정하고 충돌을 발견하면 보고한다.
@@ -119,6 +140,8 @@ herdr-core read --lines 100 TERMINAL_ID
 수정 파일 또는 commit:
 검사: 명령 / 환경 / 대상 revision / 결과 / 증거 경로
 요청 모델 / 확인된 모델 / 확인 방법 / unverified 항목:
+적용 스킬: 이름 / 현재 환경의 SKILL.md 경로 / 읽은 참조 / read 또는 applied / 작업·검사 근거
+누락·미확인 스킬: missing 또는 unverified / 막힌 단계, 또는 not_applicable 이유:
 남은 문제와 미검증:
 주 모델이 다음에 할 일:
 ```
@@ -135,6 +158,8 @@ herdr-core read --lines 100 TERMINAL_ID
 완료 목표:
 확정 범위와 권한의 근거:
 기준 요구 문서와 버전:
+주 모델 인계: 대기 또는 완료 / 인수 대상 세션·terminal / 회신 대상 / 쓰기 책임 전환 근거
+단계별 스킬: 이름 / 실행 컴퓨터·CLI / SKILL.md 경로 / 참조 / read·applied·missing·unverified·not_applicable / 작업 근거
 Git branch / SHA / 미커밋 변경:
 기준 이슈 / PR / CI / 배포 URL 또는 pending_sync, not_requested:
 현재 주 모델 / 세션 ID / terminal / pane: 확인한 값만
@@ -144,7 +169,8 @@ Git branch / SHA / 미커밋 변경:
 사용자 질문: 질문 ID / 필요한 답 / 막는 작업 / 독립 진행 가능 작업
 실패한 접근과 반복하지 않을 조치:
 다음 한 가지 실행 행동과 담당:
-재개에 필요한 파일:
+재개에 필요한 파일: HERDR-PROJECT.md, HERDR-OPERATIONS.md, 기준 명세와 현재 결과 파일
+다음 주 모델의 첫 요청: 위 개발 인계 양식을 현재 단계로 채워 기록
 ```
 
 ## 최종 검증 기록 양식
