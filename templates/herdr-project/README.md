@@ -27,6 +27,8 @@ codex --no-daemon -C '/실제/프로젝트/절대경로' -m gpt-6-astra -c model
 ```text
 $gon-project-lifecycle
 이 프로젝트의 HERDR-PROJECT.md와 HERDR-OPERATIONS.md를 실제로 읽고 실행해.
+단계별 전문 스킬 적용 규칙을 따라 lifecycle을 적용하고, 웹 작업에서는 web-engineering을 적용해.
+새 개발 세션과 작업자에게도 해당 작업의 스킬을 전달하고 적용 근거를 STATE에 남겨.
 너는 주 실행 책임자야. 사용자 입력과 기존 지침을 기준으로 기획부터 선택한 완료 목표까지 진행해.
 필요한 독립 작업은 적합한 협업 모델을 선택해 Herdr 분할 터미널 또는 이름 있는 탭에서 수행시켜.
 기술 질문은 조사·실험·협업 모델의 답변으로 해결하고 결과를 검증해 통합해.
@@ -35,7 +37,7 @@ $gon-project-lifecycle
 먼저 작업 경로, 아이디어, 권한, 사용 가능한 모델·Herdr 제어 기능을 확인하고 첫 작업을 시작해.
 ```
 
-웹 화면·API·DB를 구현하는 단계에서는 같은 프로젝트의 개발 세션에 `$gon-web-engineering`을 지정하고 P5의 요구·수용 기준을 전달합니다. [두 스킬 확인과 실제 요청 예시](https://github.com/krdn/gon-development-os/blob/main/docs/06-herdr-cli-start.md)를 참고하세요.
+첫 요청 뒤 주 모델이 단계별 규칙에 따라 스킬을 적용합니다. 웹 작업은 `gon-web-engineering`, 시작·인계·재개는 `gon-project-lifecycle`을 사용합니다. P5에서 다음 개발 세션이 읽을 문서와 스킬을 첫 요청에 포함합니다. [두 스킬 확인과 실제 요청 예시](https://github.com/krdn/gon-development-os/blob/main/docs/06-herdr-cli-start.md)를 참고하세요.
 
 이미 Herdr에서 Codex가 실행 중이라면 같은 프로젝트인지, `--no-daemon`으로 실행되어 Herdr 터미널 안에서 도구가 동작하는지 확인한 뒤 요청을 넣습니다. 다른 프로젝트의 실행 중인 대화에 넣지 않습니다.
 
@@ -48,6 +50,9 @@ $gon-project-lifecycle
 ```text
 $gon-project-lifecycle
 HERDR-PROJECT.md, HERDR-OPERATIONS.md와 docs/STATE.md를 읽고 중단 지점부터 재개해.
+현재 환경의 스킬을 확인하고 단계별 전문 스킬 적용 규칙을 이어서 수행해.
+구버전 실행 문서에 해당 절이 없으면 갱신 필요를 알리고, 시작·재개에는 lifecycle,
+웹 작업에는 web-engineering의 실제 지침을 읽어 적용해.
 실제 Git 변경·기존 Herdr 작업자·저장된 결과를 먼저 대조해 중복 실행을 막아.
 이전 권한과 모델 선택을 보존하고, 완료되지 않은 첫 작업을 수행해.
 ```
