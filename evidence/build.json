@@ -1,6 +1,6 @@
 {
   "version": "1.4.0",
-  "built_at_utc": "2026-11-06T03:40:22.048198+00:00",
+  "built_at_utc": "2026-11-06T04:09:53.549473+00:00",
   "checks": {
     "pdf_pages": 33,
     "bookmarks": 26,
@@ -145,7 +145,7 @@
     "VERSION": "78b591400c56b7b67b8cb3b2b8a8e65e9093897f02ce0878e6b5405c68620fa7",
     "diagrams/workflow.json": "eeda1344f5db95fd14e25aa1f2ac9dc40117b67d9aa9640215380ff47c27d30a",
     "manual/planning-steps.json": "03a45792caeab363cb3bf538189d7976498aec1d08892ba8be122037fc146389",
-    "manual/sections.json": "ed88270933a21af786d5f64ae0c2c99d1caa08ef3719e8736d6d8c9a0511356d",
+    "manual/sections.json": "9c66266857acafda6edbc086bed55880f8f47de78d43602c25ff0157d7c814de",
     "manual/style.css": "616b5ca4fe4373a02482e455fe4498f70e9c5962d6898b4c5bc3981cf0da93e9",
     "manual/viewer.js": "4924dd7923e44d63aad93e5b7071de7e47aae9aefe7805638e6f539ac648ff37",
     "package-lock.json": "9165ef538c8182a0cf04ea02109e7d523844c6de352138129477256a968627a4",
@@ -158,25 +158,25 @@
     "scripts/print-manual.cjs": "d02505ae2431518c7e3c4bd96264a0863d41409365c0aebf3fe12f488d6d51f7",
     "scripts/test_diagram_proof.py": "dd8dff5d31ed38d685382b19ac3d542ebafe49e6027fd4b7ed5d57e443eeac8b",
     "scripts/test_workflow_bundle.py": "58ace3c7fce032b76c4a873cd6520a830ba4b244d716b96747a381950238da76",
-    "scripts/validate.py": "954805ce23f434833fd3204811688efcf2ddb89c4851ff4309448b8c57b736a4",
+    "scripts/validate.py": "b443b40a7a2a8da0d91d229a736c05ad3dc24a87f732ed9a8d388a00114ddb6a",
     "scripts/workflow-bundle.py": "bc6faa6349413eb603299141823e308f5bc1b1d6b5df2267881d6ec95b709491"
   },
   "artifacts": {
     "dist/01-project-workflow-manual.html": {
-      "sha256": "6675a7aada85820bbef4c5923e9e0fffe5bd143aae5ec1a06f3d5a40dbffe24c",
-      "bytes": 113195
+      "sha256": "9515f148db9b6cf8e4ed13019b295fc479ac7e43d8101b1ce83c17a0afdec784",
+      "bytes": 113283
     },
     "dist/01-project-workflow-manual.pdf": {
-      "sha256": "063717dd6b1be806548863b4613dc0f403eb2f0d52bb0c09e2c4af3a72ba014d",
-      "bytes": 1205447
+      "sha256": "482a9498abcbec0cd09f874c33ecb7b1a4ff770d158cdd076c0c08712937593c",
+      "bytes": 1203467
     },
     "dist/02-workflow-map.html": {
       "sha256": "787aec9c211fbcd3e09cfa1ca42a4b9e2aa112bba3676b149d15d96465e72c0b",
       "bytes": 777431
     },
     "docs/01-manual.md": {
-      "sha256": "b0afa3620288302fedc4634222d8ccd8cb947f1e26ff04c1cc346ea8cae58eac",
-      "bytes": 87357
+      "sha256": "aafd09738df03983ea2b22204095a2f1c583ed7148f31a54ba2b9d7cdffaf219",
+      "bytes": 87445
     }
   }
 }

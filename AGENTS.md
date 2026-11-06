@@ -3,7 +3,7 @@
 - 한국어로 응답하고, 기존 미커밋 변경과 사용자가 수정한 설치본을 보존한다.
 - 먼저 `README.md`와 작업에 맞는 `docs/02-skills.md` 또는 `docs/03-maintenance.md`를 읽는다.
 - 일반 매뉴얼 내용은 `manual/sections.json`, 기획 P1~P5는 `manual/planning-steps.json`에서 수정하고 `npm run build`로 결과물을 갱신한다. 생성 결과만 수정하지 않는다.
-- 스킬의 관리 원본은 `skills/`다. 설치본 변경은 별도 적용이며, 사용자의 요청 범위와 기존 변경을 확인한다.
+- 두 전문 스킬은 `krdn/gon-skills`에서 수정한다. `skills/`는 `skills.lock`에 고정한 오프라인 사본이다. 갱신은 `docs/03-maintenance.md`, 설치는 `docs/02-skills.md`를 따른다.
 - `archive/2026-10-31/`은 역사적 기록이다. 오래된 주장·개인 경로·이전 검증을 현재 지침이나 현재 성공 증거로 사용하지 않는다.
 - 범위에 맞는 검사를 수행하고 `npm test`로 문서 링크와 두 스킬 테스트를 확인한다. 스킬이 달라지면 해당 실제 동작과 설치 환경의 인식도 별도로 확인한다.
 - 흐름도는 `diagrams/workflow.json`과 `dist/02-workflow-map.html`을 함께 갱신하고 Archify 검증 기록을 남긴다.

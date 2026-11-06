@@ -49,7 +49,10 @@ def check_path(path, directory=False):
 def find_existing(root, key):
     _, target, alternatives = DOCUMENTS[key]
     found = []
-    for relative in [*alternatives, target]:
+    paths = [*alternatives, target]
+    if key == 'product':
+        paths.append('docs/PROJECT-BRIEF.md')
+    for relative in paths:
         path = root / relative
         check_path(path)
         if path.is_file() and relative not in found:

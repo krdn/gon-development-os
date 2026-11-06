@@ -11,57 +11,39 @@
 
 1.1부터 [GitHub 관리 절차](../skills/gon-project-lifecycle/references/github-management.md)에 따라 관리 기록을 연결합니다. 저장소 문서·Issues/Projects·PR/CI·릴리스/배포에 각 기록을 두고 해당 단계의 원격 상태를 다시 조회합니다. 로컬 PLAN/STATE는 URL을 가진 요약입니다. 기능 15개 영역의 사용/미적용/불가/미완료와 대체 기록은 프로젝트 관리 문서에 남깁니다. web-engineering도 같은 기준에 UI·API·DB 증거를 연결합니다. 새 원격 기능·권한·릴리스·배포가 자동 승인되는 것은 아닙니다.
 
-## 새 컴퓨터에 설치
+## 실행할 컴퓨터에 설치·업데이트
 
-1. 이 비공개 저장소에 접근 가능한 계정으로 저장소를 내려받습니다.
-2. 저장소 루트에서 다음을 실행합니다. 기존 설치가 있으면 여기서 멈추고 아래 업데이트 절차를 사용합니다.
+[gon-skills 설치 안내](https://github.com/krdn/gon-skills#갱신)를 따릅니다. Herdr 원격 Space에서는 **Codex가 실행되는 컴퓨터**의 설치를 확인하세요. 처음에는 비공개 원본을 계속 사용할 경로에 복제합니다. 이미 동기화 중이면 기존 체크아웃에서 진행합니다.
 
-```bash
-mkdir -p "$HOME/.agents/skills"
-python3 - <<'PY'
-from pathlib import Path
-import shutil
-
-root = Path.cwd()
-target = Path.home() / '.agents/skills'
-names = ['gon-project-lifecycle', 'gon-web-engineering']
-# 하나만 설치·업데이트할 때는 names에 해당 스킬 이름만 남깁니다.
-for name in names:
-    if not (root / 'skills' / name / 'SKILL.md').is_file():
-        raise SystemExit('저장소 루트에서 실행하세요.')
-    dest = target / name
-    if dest.exists() or dest.is_symlink():
-        raise SystemExit(f'기존 설치를 먼저 비교하세요: {dest}')
-for name in names:
-    shutil.copytree(root / 'skills' / name, target / name,
-                    ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
-    print(f'설치 파일 복사 완료: {target / name}')
-PY
+```sh
+# 최초 1회
+mkdir -p "$HOME/dev"
+git clone https://github.com/krdn/gon-skills.git "$HOME/dev/gon-skills"
 ```
 
-3. 새 채팅에서 제공되는 스킬 목록과 실제 파일 경로를 확인하고 아래처럼 명시 호출합니다.
+원본 폴더에서 Python 3.11 이상과 PyYAML을 준비합니다. 기존 환경이 없다면 가상환경을 만들 수 있습니다.
 
-```text
-$gon-project-lifecycle
-이 스킬의 실제 원문 경로와 적용할 절차를 먼저 확인해줘.
-[프로젝트 경로]의 현재 상태를 확인하고 [이번 목표]를 진행해줘.
+```sh
+cd "$HOME/dev/gon-skills"
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
-파일 복사 완료만으로 해당 앱의 스킬 로딩·자동 선택·실제 실행 성공이 증명되지는 않습니다. 다른 컴퓨터·Cloud·Orca는 각 실행 환경의 스킬 발견 경로와 파일 접근 권한을 확인합니다. 로컬 `~/.agents/skills`가 모든 환경으로 자동 전달된다고 가정하지 않습니다.
+다음 날 새 셸에서 업데이트할 때도 기존 원본 폴더로 이동합니다. 위 가상환경을 사용했다면 `. .venv/bin/activate`로 다시 활성화하세요. 깨끗한 `main`에서 업데이트합니다. 동기화기는 Codex·Claude Code·Gemini CLI·Hermes 경로를 함께 관리합니다. 먼저 대상과 변경 목록을 살펴보세요.
 
-## 기존 설치를 업데이트
-
-1. 저장소를 `git pull --ff-only`로 갱신합니다.
-2. 저장소 원본과 설치본을 비교합니다. 차이가 있으면 설치본의 수동 변경인지 먼저 판단합니다. 아래 명령의 종료코드 1은 차이가 있다는 의미입니다.
-
-```bash
-diff -ru -x __pycache__ -x '*.pyc' skills/gon-project-lifecycle "$HOME/.agents/skills/gon-project-lifecycle"
-diff -ru -x __pycache__ -x '*.pyc' skills/gon-web-engineering "$HOME/.agents/skills/gon-web-engineering"
+```sh
+git pull --ff-only && python3 scripts/sync-skills.py --dry-run
 ```
 
-3. 필요한 수동 변경은 저장소 작업 브랜치에 반영하고 검증합니다.
-4. 교체하기로 확정한 기존 스킬 디렉터리를 `~/.local/share/gon-development-os/backups/<날짜-시각>/` 아래로 이동해 보관합니다. 스킬 검색 경로 밖에 보관해 중복 로딩을 피합니다. 심볼릭 링크라면 실제 대상과 소유 저장소를 먼저 확인합니다.
-5. 위 새 설치 절차의 `names`를 이번에 교체할 스킬만 포함하도록 바꾼 뒤 원본을 복사합니다. 예를 들어 lifecycle만 갱신하면 `names = ['gon-project-lifecycle']`로 실행합니다. 실패하면 새로 복사된 해당 디렉터리만 치우고 보관본을 원래 위치로 복구합니다.
-6. 새 채팅의 인식, 명시 호출, 작은 실제 작업을 확인한 후 적용 버전·커밋과 결과를 기록합니다.
+미리보기의 변경을 반영하려면 같은 원본 폴더에서 실행합니다.
 
-초기 1.0 가져오기 해시는 [기록](../evidence/imported-skills.json)에 보존했습니다. 1.1의 로컬 설치 적용·검증·외부 리뷰 미완료 상태는 [별도 기록](../evidence/github-management-validation.json)에서 구분합니다. 다른 PC의 설치 상태를 이 기록으로 대신하지 않습니다.
+```sh
+python3 scripts/sync-skills.py --apply && python3 scripts/sync-skills.py --check
+```
+
+구버전 OS에서 수동 복사한 설치본과 충돌하면 미리보기가 중단됩니다. 해당 파일을 원본과 비교하고 보관할 로컬 수정을 백업·병합하세요. 미관리 설치를 처음 인수하기로 결정한 경우에만 원본 안내의 `--adopt-existing` 절차를 사용합니다. 이미 관리 중인 파일은 원본과 차이를 해소한 뒤 재실행합니다.
+
+새 Codex 세션의 스킬 선택 목록에서 두 이름을 확인하고, [Herdr 시작·웹 구현·재개 요청문](06-herdr-cli-start.md)을 사용하세요. 별도 스킬 `$gon-task-execute`는 사용자가 해당 과제에 명시했을 때만 적용하며 두 전문 스킬은 이미 정한 목표·수용 기준을 이어받습니다.
+
+이 저장소의 `skills/`는 [고정된 버전](../skills.lock)의 오프라인 열람·테스트용 사본입니다. CLI 설치는 위 동기화기를 사용합니다. [최초 가져오기 기록](../evidence/imported-skills.json)과 [1.1 당시 검증](../evidence/github-management-validation.json)은 과거 시점의 자료입니다.

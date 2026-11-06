@@ -1,9 +1,10 @@
 {
-  "built_at_utc": "2026-11-06T03:40:19.129485+00:00",
+  "built_at_utc": "2026-11-06T04:09:51.035320+00:00",
   "scope": "이번 재생성의 브라우저 회귀·PDF 내용·링크 검사. 실제 Herdr/Orca 실행·배포 아님.",
   "historical_evidence": "preview 이미지, evidence/ 및 외부 리뷰 기록은 이전 확인 자료이며 이번 실행 증거가 아님.",
   "browser_tests": {
-    "date": "2026-11-02",
+    "date": "2026-11-06",
+    "timestamp": "2026-11-06T04:09:50.132Z",
     "viewports": [
       1440,
       390
@@ -74,12 +75,12 @@
       "pages": 32,
       "complete_copy_boxes": 31,
       "complete_stage_items": 183,
-      "sha256": "00c1d34cd22217d0a487c280379053613c13ead998fbe5ec29472ab7017e89c2"
+      "sha256": "baf1288cd5d0ebe70ca3f6ea9e97874daf32a3b5436fb1c3957b59ec3d50423f"
     }
   },
   "sha256": {
     "README.md": "99e57578eef289ad57305e2d4e89914f5504aa10f0d65f99292d2a93b4304db3",
-    "browser-tests.json": "e2d046d9791f68800b86dc2eb0f45c9627ef53ac10e82724e413a7641c2dc5ee",
+    "browser-tests.json": "f8d91cbbccad00faacf2c50c19757b6affb0341dba8f67449ac4e4e74a8de7e4",
     "build-guide.py": "c09390298bf54bc4c0368ca12b7bc4c8b5bcddbf820ac8c314f186de525eeb9d",
     "documents.png": "4b36542c1e612436f0f45b16f61f210e0f634075d00cd2636a04e6963953bd70",
     "evidence/a11y-desktop.json": "16a0c9db4d321b8b7155b5877a70bebf276b8d33fc57dc5948272279a9844bf8",
@@ -94,7 +95,7 @@
     "example-project/docs/research/04-decision.md": "b1263118595d319facaf5a750822a75b731518b3df9109690c0d3a7797f646cd",
     "examples.html": "261ed4d3d0412b7ba3b6b32dca8a4801c24a70e3df77ab782a2965fb095b87ac",
     "external-review.json": "82397903a9254f7c3b7db3323a8028642cfae96c1cfd3d83f894f0baecc1442c",
-    "guide.pdf": "00c1d34cd22217d0a487c280379053613c13ead998fbe5ec29472ab7017e89c2",
+    "guide.pdf": "baf1288cd5d0ebe70ca3f6ea9e97874daf32a3b5436fb1c3957b59ec3d50423f",
     "index.html": "fa4ee787ed66be3c18545756c4d1815499018ec9e59fe4a0acd698d9482582f6",
     "mobile-p5.png": "8464b82b0ee99618bb28b051c56c91cbdc1d601adcd43460b9af2761f2f8b153",
     "overview.png": "fd21edab4c609cd53d70da45cfa7f99e76f1ff302e781e8d0d3074e5afb030bc",
@@ -103,7 +104,7 @@
     "package.json": "ee7c654c64cb9fcf20d233d9892b05c49c4ff97c25b44c3d4aafbf2223a14972",
     "pdf-documents.png": "530a48df591a7badd56a51055cf3f6d13dacf3ec12313a6df63fabb842003116",
     "pdf-step.png": "dac1d61b3fa5a69edcba38f0954ef3d664752ea5e5c005e1c34c63f08878dfba",
-    "pdf-validation.json": "ec4e4a110b29f2b18bc99b1d850975f165f7cae1bda5a97da3d87ec5ceb198f1",
+    "pdf-validation.json": "94b232aefb6bbb00d973724e9a2255b827f69168b65fd202b6cfdab9aca6d5da",
     "print-guide.cjs": "a137059f16ef6d757950be6bb3f688d0daa67c6942d6c9d718c46b7c0d1ad0e0",
     "rendered-prompts.json": "61538b59ea45f6bb41f868a2de2d2bf4e8ce957db433b70b05a83b2cf5da9923",
     "sources.json": "50fef6eb1cd8cd21036b65ee4c1e671045705f7794adda9a7a776debb349ac21",
@@ -117,7 +118,7 @@
     "templates/research/02-research-plan.md": "176401fef3867d1e119810187e164c7a0b9671d57bc0fd2cdda35a88f05a1710",
     "templates/research/03-evidence.md": "bd42e903fed1394d6a598c9e534166458d16f868ef79065857dd5b89003ba32e",
     "templates/research/04-decision.md": "8ccdbc0a9d4b099b0047e662cbf76846e36c3dff38e1d9c4d16ed9ffaf89ac05",
-    "test-guide.cjs": "c731a5c60691b135c2046578c7bca6f150a8abb774cb8a3c98a76b2b5c55dcef",
+    "test-guide.cjs": "6eda46189949733c0bda7a487072feb718636ddc198352650f56c8ebe37c1990",
     "validate-guide.py": "df359fd3ffdc80705048ffb773c6cf16303735b29c1f98485a58647179a8b60c",
     "viewer.js": "0fe9c555f17fbe2b263469ac818bd2e589585ac971870393878796e2b1446a4e",
     "workbench.png": "21d19c6635c9b9fb330332e38d39d2e448abb6673cfde9582eed64c4ce34e178",

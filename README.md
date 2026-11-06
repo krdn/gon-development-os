@@ -42,8 +42,8 @@ GitHub는 HTML의 상호작용 기능을 직접 실행하지 않습니다. 저�
 | `manual/sections.json` | 일반 단계별 매뉴얼 내용과 요청문 | 내용 변경의 원본 |
 | `manual/planning-steps.json` | 기획 단계의 공통 내용·요청문과 매뉴얼 표시 차이 | 기획 변경의 원본 |
 | `manual/style.css`, `manual/viewer.js` | 화면·인쇄 스타일과 복사·탐색 동작 | 화면 변경 시 |
-| `skills/gon-project-lifecycle/` | GitHub 기준 시작·도입·재개·검증·전달과 원격 기록 확인 | 절차 변경 시 |
-| `skills/gon-web-engineering/` | 웹 기술·구현·검증 스킬 | 웹 기준 변경 시 |
+| `skills/gon-project-lifecycle/` | GitHub 기준 시작·도입·재개·검증·전달과 원격 기록 확인 | 원본 커밋을 갱신할 때 |
+| `skills/gon-web-engineering/` | 웹 기술·구현·검증 스킬 | 원본 커밋을 갱신할 때 |
 | `diagrams/workflow.json` | Archify 흐름도 편집 원본 | 흐름 변경 시 |
 | `scripts/` | 매뉴얼과 전체 안내서 생성·PDF·검증 도구 | 생성 방식 변경 시 |
 | `guides/herdr/`, `guides/orca/` | 별도 실행 안내서 원본·생성기·HTML/PDF·검사 | 해당 환경 안내 변경 시 |
@@ -54,7 +54,7 @@ GitHub는 HTML의 상호작용 기능을 직접 실행하지 않습니다. 저�
 | `archive/2026-10-31/` | 최초 대화·파일·이미지·검증 기록 | 당시 기록으로 보존 |
 | `evidence/` | 가져온 파일 해시와 이번 검증 | 새 검증과 구분해 기록 |
 
-스킬의 관리 원본은 이 저장소입니다. `~/.agents/skills/`의 설치본은 배포 사본이며 GitHub 변경이 자동으로 반영되지 않습니다. [업데이트 절차](docs/03-maintenance.md)에 따라 비교·검증한 후 설치본에 적용합니다.
+실행 스킬은 [gon-skills](https://github.com/krdn/gon-skills)에서 수정하고 설치합니다. 이 매뉴얼은 [skills.lock](skills.lock)에 기록된 커밋의 두 전문 스킬을 오프라인에서도 읽을 수 있게 포함합니다. [설치와 업데이트](docs/02-skills.md) · [매뉴얼 사본 갱신](docs/03-maintenance.md)
 
 ## 첫 요청 예시
 
