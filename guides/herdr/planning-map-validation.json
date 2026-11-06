@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "workflow",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/gon/문서/ChatGPT/사용법/workflow-manual/beginner-guide/planning-map-source.json",
+    "sha256": "623742df43406c69dcbe63539f876e78fd78e6f4f0c6fe403e5d8cca914459df",
+    "bytes": 34553
+  },
+  "artifact": {
+    "path": "/home/gon/문서/ChatGPT/사용법/workflow-manual/beginner-guide/planning-map.html",
+    "sha256": "5b0c10e8792ebffc0afb79e43f55429a2a168d7d986f38b2385e80ebec2cf016",
+    "bytes": 760690
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/gon/문서/ChatGPT/사용법/workflow-manual/beginner-guide/evidence/herdr-planning-20261102-r2/planning-map.finalize.json",
+    "summaryReceipt": "/home/gon/문서/ChatGPT/사용법/workflow-manual/beginner-guide/evidence/herdr-planning-20261102-r2/planning-map.finalize-summary.json",
+    "browserCheckReceipt": "/home/gon/문서/ChatGPT/사용법/workflow-manual/beginner-guide/evidence/herdr-planning-20261102-r2/planning-map.browser-check.json"
+  },
+  "update": {
+    "status": "update_available",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.2.0",
+    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
+    "severity": "normal",
+    "checkedAt": "2026-11-02T04:02:43.158Z",
+    "source": "cache",
+    "noticeRequired": true,
+    "noticeText": "Archify update: 3.0.1 → 3.2.0. A previous check at 2026-11-02T04:02:43.158Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
+    "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1669,
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "routesOverSuggestedBends": 3,
+      "routesOverSuggestedStretch": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [],
+      "detours": [
+        {
+          "relationship": {
+            "id": "compare",
+            "from": "p3",
+            "to": "p4",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "bends": 4,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "id": "reframe",
+            "from": "p4",
+            "to": "p1",
+            "label": "문제 재정의",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 4,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "id": "research-more",
+            "from": "p4",
+            "to": "p3",
+            "label": "근거 부족",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "bends": 2,
+          "stretch": 2.786
+        },
+        {
+          "relationship": {
+            "id": "stop-build",
+            "from": "p4",
+            "to": "stop",
+            "label": "기존 도구·보류",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 3,
+          "stretch": 1.32
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "p3 → p4 needs 4 bends: move node p3 or p4 so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "p4 → p1 needs 4 bends: move node p4 or p1 so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "p4 → p3 needs 2 bends: move node p4 or p3 so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "p4 → stop needs 3 bends: move node p4 or stop so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

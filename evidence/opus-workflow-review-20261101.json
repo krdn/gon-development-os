@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-01",
+  "version": "1.2.1",
+  "requested_model": "claude-opus-5-5",
+  "requested_effort": "high",
+  "observed_model_usage": [
+    "claude-opus-5-5"
+  ],
+  "canonical_model": "claude-opus-5-5",
+  "external_review_succeeded": true,
+  "external_review_scope": "수정 전 제공한 자료를 읽은 1회 리뷰. 모델은 도구·브라우저를 실행하지 않음.",
+  "input_sha256": "bf27310636ded20776e305f971ee01408eaeb402047b490a1ade4d6b6c0ae0da",
+  "response_sha256": "02d382648fab412ea413dad423022199a63b2e508b1856978d432d6b87410268",
+  "findings": [
+    {
+      "id": "A1",
+      "issue": "기획이 예제 기능·기술로 바뀜",
+      "resolution": "예제/내 기획 경로를 분리하고 00 파일 전달, 03 기준 문서·기술 선택, 04~10 문서 기준 요청·확인으로 연결",
+      "verification": "browser-tests.json: 예제 03 주 요청문과 내 기획 03 주 요청문의 복사 대상 구분",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "A2",
+      "issue": "현재 요청문 복사 대상 오류",
+      "resolution": "표시 중인 경로의 data-primary 요청문만 복사",
+      "verification": "evidence/ui/clipboard-project.json, clipboard-exercise.json: 실제 붙여넣기 일치",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "A3",
+      "issue": "입력 위치·인계 범위 모순",
+      "resolution": "파일 앱 단계는 채팅 없음, 기획 입구는 P1~P5와 03으로 연결",
+      "verification": "browser-tests.json: P5에서 내 기획 개발 경로 선택과 파일 앱 단계의 입력 안내",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "A4",
+      "issue": "관리 매뉴얼의 문맥 불일치",
+      "resolution": "기획 공통 원본에서 관리 문맥·번호를 별도 적용",
+      "verification": "scripts/test_diagram_proof.py 및 공통 JSON 바이트 일치 검사",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "A5",
+      "issue": "되돌아가기 경로 누락",
+      "resolution": "P2→P1, P3→P2, P4→P1 반환 경로와 개발 선택 라벨 보완",
+      "verification": "두 흐름도 Archify 4단계 PASS 및 원본·HTML 해시 대조",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "A6",
+      "issue": "PDF 정보·별도 입구 본문 누락 위험",
+      "resolution": "경로 안내·입력 위치를 인쇄하고 details를 명시적으로 펼침. 예제와 내 기획 PDF 분리",
+      "verification": "pdf-validation.json: 각 20쪽, 21개 전체 요청문과 모든 제목 존재",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "A7",
+      "issue": "단계 복원 누락",
+      "resolution": "단계 이동 시 주소와 저장 상태를 함께 갱신",
+      "verification": "browser-tests.json: 다음 단계·새로고침·주소 없는 재방문 복원",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "B1",
+      "issue": "비개발 종료 기록 없음",
+      "resolution": "결정·근거·대안·재검토 조건을 Work 문서로 저장하는 요청문 추가. 진행률을 확인 항목 수로 표시",
+      "verification": "browser-tests.json: 비개발 종료·로컬 완료·보관만 완료 분기",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "B2",
+      "issue": "단계 하드코딩·중복 원본",
+      "resolution": "내용 JSON/템플릿/CSS/동작/생성기 분리. 순서·개수는 데이터에서 생성하고 ID 중복 검사",
+      "verification": "초보자 브라우저 10개 및 원본 공통화·중복 ID 검사",
+      "status": "addressed-and-locally-verified"
+    },
+    {
+      "id": "B3",
+      "issue": "낡은 흐름도·모바일 증거 식별 불가",
+      "resolution": "Archify 해시·4단계 증거를 필수 검사. 접근성 결과에 viewport·시각·경로·HTML 해시 기록, 묶음 생성 시 전체 파일 체크섬 검사",
+      "verification": "관리 회귀 4개, evidence/ui 4개 실행 기록, package-guide.py",
+      "status": "addressed-and-locally-verified"
+    }
+  ],
+  "additional_fixes": [
+    "null·문자열·배열 저장 기록과 저장소 거절에서도 초기화·탐색 유지",
+    "PDF 단독 짧은 페이지와 제목 배치 수정",
+    "전체 펼침의 단계별 탐색 영역 이름을 구분"
+  ],
+  "verification_owner": "수정·실행 검증은 Codex가 수행. 수정 완료본의 Opus 재승인을 주장하지 않음."
+}

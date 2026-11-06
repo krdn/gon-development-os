@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-02",
+  "version": "1.0.0",
+  "scope": "별도 Orca판 교육 안내서. 기존 Herdr판·실제 프로젝트·GitHub 원격·설치 스킬은 변경하지 않음.",
+  "content": {
+    "steps": 13,
+    "copy_boxes": 31,
+    "example_documents": 8,
+    "templates": 8,
+    "planning": "P1~P5 같은 기획 세션 → G1 기준 저장 → D1 새 개발 조정 세션",
+    "documents": "연구4문서→PROJECT-BRIEF/TASKS/STATE→기존 제품·구조 문서 또는 필요한 PRODUCT/ARCHITECTURE",
+    "github": "Issues/기존Projects를 실행 상태 기준으로, 로컬 TASKS/STATE는 URL·Orca ID 대응 요약"
+  },
+  "browser": {
+    "date": "2026-11-02",
+    "viewports": [
+      1440,
+      390
+    ],
+    "clipboard_length": 623,
+    "document_sha256": "fa4ee787ed66be3c18545756c4d1815499018ec9e59fe4a0acd698d9482582f6",
+    "cases": [
+      {
+        "name": "흐름도의 13개 단계가 올바른 상세 설명을 연다",
+        "status": "PASS"
+      },
+      {
+        "name": "프로젝트 값이 반영되고 공백·작은따옴표 경로가 하나의 명령 인수로 유지된다",
+        "status": "PASS"
+      },
+      {
+        "name": "P5 실제 복사 버튼의 클립보드 값이 표시한 요청문과 일치한다",
+        "status": "PASS"
+      },
+      {
+        "name": "잘못된 경로는 반영·복사를 막고 이전 클립보드를 보존한다",
+        "status": "PASS"
+      },
+      {
+        "name": "GitHub 이름 없이 원격 변경 요청문을 복사하지 않는다",
+        "status": "PASS"
+      },
+      {
+        "name": "새로고침 후 설정과 확인 항목이 유지된다",
+        "status": "PASS"
+      },
+      {
+        "name": "다른 프로젝트 경로로 바꾸면 이전 완료 체크를 가져오지 않는다",
+        "status": "PASS"
+      },
+      {
+        "name": "입력한 특수 문자는 HTML로 실행되지 않고 텍스트로 표시된다",
+        "status": "PASS"
+      },
+      {
+        "name": "모든 단계 펼치기·접기가 작동한다",
+        "status": "PASS"
+      },
+      {
+        "name": "390px 화면에서 단계·설정이 화면 밖으로 넘치지 않는다",
+        "status": "PASS"
+      },
+      {
+        "name": "인쇄 시 접힌 내용을 모두 열고 이후 원래 상태로 복구한다",
+        "status": "PASS"
+      },
+      {
+        "name": "별도 예시 뷰어에서 8개 문서를 설치 없이 읽는다",
+        "status": "PASS"
+      },
+      {
+        "name": "페이지 실행 중 JavaScript 오류가 없다",
+        "status": "PASS"
+      }
+    ]
+  },
+  "pdf": {
+    "date": "2026-11-02",
+    "local_links": 70,
+    "steps": 13,
+    "templates": 8,
+    "pdf": {
+      "pages": 32,
+      "complete_copy_boxes": 31,
+      "complete_stage_items": 183,
+      "sha256": "3f03a5a3d01d60c22803a9c3e16b87f33e1cf086d5fcb75e04e92cebabccfb1c"
+    }
+  },
+  "accessibility": {
+    "a11y-mobile": {
+      "inapplicable": 39,
+      "incomplete": 1,
+      "passes": 50,
+      "violations": 0
+    },
+    "a11y-desktop": {
+      "inapplicable": 40,
+      "incomplete": 1,
+      "passes": 49,
+      "violations": 0
+    }
+  },
+  "manual_checks": [
+    "1440px 전체 흐름·작업공간·문서 흐름 확인",
+    "390px P5 화면 확인",
+    "PDF 문서 연결·요청문 페이지 육안 확인",
+    "화살표 기호 색 대비 자동 미판정 1유형은 화면에서 식별 가능한 상태 확인"
+  ],
+  "external_review": {
+    "date": "2026-11-02",
+    "status": "incomplete",
+    "configured_model": "claude-opus-5-5",
+    "configured_effort": "high",
+    "observed_model": null,
+    "exit_code": 143,
+    "output_bytes": 0,
+    "findings": null,
+    "reason": "외부 리뷰 프로세스가 응답 없이 종료됨. 실제 반환 모델과 리뷰 결과를 확인할 수 없어 통과로 처리하지 않음.",
+    "followup": "모델 자동 대체나 반복 리뷰 없이 직접 내용·브라우저·PDF·접근성·패키지 검사 수행.",
+    "input_sha256": "313335318555527367b0119e8608461b3fc1cb3bf1766226ca7e1d1f816f98e3"
+  },
+  "not_executed": [
+    "실제 프로젝트 Orca 작업자 실행·재개·종료",
+    "Orca GUI 클릭·설정 저장",
+    "GitHub 저장소 생성·push·PR 병합·CI·배포"
+  ],
+  "sha256": {
+    "README.md": "8f2580ae05dbff843e958412b5aa03b3131d25a9616615dfd944c91650578ae4",
+    "browser-tests.json": "e2d046d9791f68800b86dc2eb0f45c9627ef53ac10e82724e413a7641c2dc5ee",
+    "build-guide.py": "c09390298bf54bc4c0368ca12b7bc4c8b5bcddbf820ac8c314f186de525eeb9d",
+    "documents.png": "4b36542c1e612436f0f45b16f61f210e0f634075d00cd2636a04e6963953bd70",
+    "evidence/a11y-desktop.json": "16a0c9db4d321b8b7155b5877a70bebf276b8d33fc57dc5948272279a9844bf8",
+    "evidence/a11y-mobile.json": "2718dccbe957f57baa9d7026023d7e0d3a9fcdac3f96cd27199c7dc88c6db575",
+    "example-project/README.md": "6c3a7739aecd348966abcd6d2bfaaa353955d69d7ef587593fc733170c98193c",
+    "example-project/docs/PROJECT-BRIEF.md": "77376f402f8834590cee5405ae756ce76cf3bab368c1bef632da8af855659d8b",
+    "example-project/docs/STATE.md": "220fd3ee4d300aa4ad6d771a26ac309bad882cbe28f9c358d7576bef1fa38ec9",
+    "example-project/docs/TASKS.md": "acbfd024cb3fd7f1d976c45d624ccbd05a3beafd9783c60b6941a0be25db80d4",
+    "example-project/docs/research/01-problem.md": "9ded00609a9a578358c83f664aedae2be438c6342abebffff2eeb50ae036749b",
+    "example-project/docs/research/02-research-plan.md": "3e80c2a4ae4a2214b1722bc48175290b4cb59dc965304cb027f66e1fe3ebd164",
+    "example-project/docs/research/03-evidence.md": "de35af98861401b61b59f24c03fa2580080d364e542d83b8524933117a9e7125",
+    "example-project/docs/research/04-decision.md": "b1263118595d319facaf5a750822a75b731518b3df9109690c0d3a7797f646cd",
+    "examples.html": "261ed4d3d0412b7ba3b6b32dca8a4801c24a70e3df77ab782a2965fb095b87ac",
+    "external-review.json": "82397903a9254f7c3b7db3323a8028642cfae96c1cfd3d83f894f0baecc1442c",
+    "guide.pdf": "3f03a5a3d01d60c22803a9c3e16b87f33e1cf086d5fcb75e04e92cebabccfb1c",
+    "index.html": "fa4ee787ed66be3c18545756c4d1815499018ec9e59fe4a0acd698d9482582f6",
+    "mobile-p5.png": "8464b82b0ee99618bb28b051c56c91cbdc1d601adcd43460b9af2761f2f8b153",
+    "overview.png": "fd21edab4c609cd53d70da45cfa7f99e76f1ff302e781e8d0d3074e5afb030bc",
+    "package-guide.py": "bb56475ea95e5a427f3f818861d58fd1f2427a51de5f66205f22cd5f2e81d1d4",
+    "package-lock.json": "5655c412c9bfa4d6e334aa000c2ad0f8b41af7a7d9fe4164f766ccfa434bef28",
+    "package.json": "ee7c654c64cb9fcf20d233d9892b05c49c4ff97c25b44c3d4aafbf2223a14972",
+    "pdf-documents.png": "530a48df591a7badd56a51055cf3f6d13dacf3ec12313a6df63fabb842003116",
+    "pdf-step.png": "dac1d61b3fa5a69edcba38f0954ef3d664752ea5e5c005e1c34c63f08878dfba",
+    "pdf-validation.json": "cf63a4700e345330745992e9d5b35c673844b65cb20fffc2e40897f561e1a2e3",
+    "print-guide.cjs": "a137059f16ef6d757950be6bb3f688d0daa67c6942d6c9d718c46b7c0d1ad0e0",
+    "rendered-prompts.json": "61538b59ea45f6bb41f868a2de2d2bf4e8ce957db433b70b05a83b2cf5da9923",
+    "sources.json": "50fef6eb1cd8cd21036b65ee4c1e671045705f7794adda9a7a776debb349ac21",
+    "steps.json": "60b44b56e4bae32b23c21306663f222a5e7e5e2698e3674eb564def0d3308c35",
+    "style.css": "05cfe15ea24351e40fb451a82bde2fb297677fb90afc4ed317abf197b345f198",
+    "templates/PROJECT-BRIEF.md": "ad9211179922ef9d0e776a1a8c396427d83fd965c11fee666aaf9acb6bdf3220",
+    "templates/STATE.md": "c19ab49ad35676cc9ee39a12fa1e04b56b651f4cf657edd9df776475bfb628f4",
+    "templates/TASKS.md": "02a664301b33eebd431ab88613d19fe14ae3235d3341a0a9a2ed8934f3f2d698",
+    "templates/WORKER-SPEC.md": "35436bf86d16290c3adfe655203a051f66fd648e15ea32196df94acc5498fd8a",
+    "templates/research/01-problem.md": "5edd7989d957e3e8d9c04ba22a955d1ac5adc13b29c426be2477fcd8848079e7",
+    "templates/research/02-research-plan.md": "176401fef3867d1e119810187e164c7a0b9671d57bc0fd2cdda35a88f05a1710",
+    "templates/research/03-evidence.md": "bd42e903fed1394d6a598c9e534166458d16f868ef79065857dd5b89003ba32e",
+    "templates/research/04-decision.md": "8ccdbc0a9d4b099b0047e662cbf76846e36c3dff38e1d9c4d16ed9ffaf89ac05",
+    "test-guide.cjs": "c731a5c60691b135c2046578c7bca6f150a8abb774cb8a3c98a76b2b5c55dcef",
+    "validate-guide.py": "aae7594f7691a5a2d331f75e4f5ba5292ded3c587c8e0d6cedb5bcfd8b07b97e",
+    "viewer.js": "0fe9c555f17fbe2b263469ac818bd2e589585ac971870393878796e2b1446a4e",
+    "workbench.png": "21d19c6635c9b9fb330332e38d39d2e448abb6673cfde9582eed64c4ce34e178",
+    "시작하기.txt": "3af4718c75ce5be634a48cdf06b49f6a24b7bd37fe95d4e8262422b86af144bb"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-06",
+  "local_links": 70,
+  "steps": 13,
+  "templates": 8,
+  "pdf": {
+    "pages": 32,
+    "complete_copy_boxes": 31,
+    "complete_stage_items": 183,
+    "sha256": "b3e13e6e6832bf114dcd42db0586624144c72a48164d1cf23ed59b32781e49d1"
+  }
+}

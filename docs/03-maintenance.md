@@ -1,10 +1,13 @@
 # 수정·검증·업데이트
 
+전체 안내서와 실행 양식을 함께 다시 만들려면 [GitHub 원본 재생성 안내](05-rebuild-workflow.md)를 따릅니다. 아래 `npm run build`는 관리 매뉴얼만, `npm run build:all`은 두 안내서 검사와 최종 전체 묶음까지 수행합니다. 전체 원본을 변경한 뒤에는 `build:all`을 사용합니다.
+
 ## 편집 위치 선택
 
 | 바꿀 내용 | 편집할 파일 | 확인할 결과 |
 | --- | --- | --- |
-| 단계·요청문·완료 기준 | `manual/sections.json` | HTML, GitHub 매뉴얼, PDF |
+| 일반 단계·요청문·완료 기준 | `manual/sections.json` | HTML, GitHub 매뉴얼, PDF |
+| P1~P5 기획 단계 공통 내용 | `manual/planning-steps.json` | `scripts/planning.py`가 관리 매뉴얼 문맥으로 생성 |
 | 화면·인쇄 배치 | `manual/style.css` | PC·모바일, PDF 페이지 배치 |
 | 복사·목차 동작 | `manual/viewer.js` | 브라우저 실제 동작 |
 | 프로젝트 실행 절차 | `skills/gon-project-lifecycle/` | 기존 동작 테스트, 관련 문서 |
@@ -34,15 +37,16 @@ git pull --ff-only
 git switch -c docs/describe-change
 # 원본과 CHANGELOG.md 수정
 # 새 파일을 추가했다면 의도한 파일만 git add로 먼저 추적
-npm run build
+npm run build:all
 npm test
+npm run verify:all
 git diff --check
 git status --short
 ```
 
 1. 변경 이유와 완료 기준을 한 문장으로 정합니다. 다른 작업의 미커밋 변경을 보존합니다.
 2. 원본을 수정하고 관련 스킬·매뉴얼·흐름도 설명이 어긋나지 않는지 확인합니다.
-3. `npm run build`는 HTML·GitHub 매뉴얼 → PDF → 북마크·해시·오프라인 묶음 순서로 생성합니다. 묶음은 Git이 추적하는 파일과 지정된 생성 결과만 포함합니다. 새 원본 파일은 먼저 의도한 파일만 `git add`하고 빌드합니다. 흐름도 자체는 별도 절차로 갱신합니다.
+3. `npm run build`는 HTML·GitHub 매뉴얼 → PDF → 북마크·해시·오프라인 묶음 순서로 생성합니다. 묶음은 Git이 추적하는 파일과 지정된 생성 결과만 포함합니다. 새 원본 파일은 먼저 의도한 파일만 `git add`하고 빌드합니다. 흐름도 자체는 별도 절차로 갱신합니다. 새 finalize 요약을 `evidence/workflow-validation.json`에 보관하며, 원본·HTML 해시와 네 검증 단계가 일치하지 않으면 빌드도 중단합니다.
 4. `npm test`는 원본·생성 결과 해시, 현재 매뉴얼의 상대·내부 링크, Markdown 링크, 스킬 참조와 두 스킬의 동작 테스트를 검사합니다. `npm run verify:artifacts`는 빌드하기 전 기존 PDF·문서·빌드 기록이 현재 원본과 맞는지만 검사합니다. 외부 웹페이지의 현재 내용·로그인 상태·운영 배포까지 검증하지는 않습니다.
 5. 화면 변경은 브라우저에서 PC·모바일·복사·키보드 동작을 확인합니다. 인쇄 변경은 PDF를 실제로 열어 잘림·빈 페이지·목차를 확인합니다. 자동 빌드는 가로 넘침과 PDF 텍스트·북마크를 검사하지만 시각 검토 전체를 대신하지 않습니다.
 6. 새 전달 버전이면 `VERSION`, `package.json`의 버전을 함께 바꾸고 `npm install --package-lock-only`로 lockfile을 맞춥니다. 호환되지 않는 절차 변경은 major, 호환되는 확장은 minor, 수정은 patch를 사용합니다. 버전 변경 후 다시 빌드합니다.
@@ -67,10 +71,14 @@ git push -u origin HEAD
 node /실제/archify/bin/archify.mjs finalize workflow diagrams/workflow.json dist/02-workflow-map.html --quality showcase --json
 ```
 
-검증 실패를 통과로 기록하지 않습니다. 완료 기록과 브라우저 검증 범위를 `evidence/`에 남기고, 매뉴얼을 다시 빌드해 오프라인 묶음과 해시를 갱신합니다. Archify 버전 변경은 별도 변경으로 기록합니다.
+검증 실패를 통과로 기록하지 않습니다. 통과한 `*.finalize-summary.json`을 `evidence/workflow-validation.json`에 복사합니다. 완료 기록과 브라우저 검증 범위를 `evidence/`에 남기고, 매뉴얼을 다시 빌드해 오프라인 묶음과 해시를 갱신합니다. Archify 버전 변경은 별도 변경으로 기록합니다.
 
 ## CI와 배포 범위
 
 `.github/workflows/validate.yml`은 main push·PR·수동 실행에서 기존 산출물 일치 검사, 스킬 테스트, 문서 재생성, PDF 및 ZIP 생성을 수행합니다. 결과는 30일간 workflow artifact로 보관합니다. 이 동작은 웹사이트 공개, 릴리스 발행, 개인 설치본 변경, 제품 배포를 수행하지 않습니다.
 
 되돌릴 때는 현재 변경을 보존한 후 `git revert <문제 커밋>`으로 수정 이력을 남기고 다시 검증합니다. 설치본은 보관한 이전 버전으로 복구하고 새 채팅에서 확인합니다.
+
+## 초보자 안내와 공통 기획 내용
+
+저장소 `guides/herdr/`의 `planning-steps.json`은 이 저장소 `manual/planning-steps.json`의 사본입니다. 전체 빌드는 공통 원본을 사본에 동기화합니다. 개별 수정 시 초보자 안내에서 `python3 validate-guide.py --manual-planning /실제/관리저장소/manual/planning-steps.json --pdf`로 일치를 검사합니다. `manual` 필드는 관리 매뉴얼의 단계 번호와 안내 문맥만 바꾸는 표시용 설정입니다. 초보자 안내의 HTML·PDF·브라우저 검사는 해당 묶음의 README를 따릅니다.

@@ -1,0 +1,34 @@
+{
+  "imported_on": "2026-11-06",
+  "scope": "과거 검증을 현재 실행 성공으로 간주하지 않음",
+  "sources": [
+    {
+      "source": "beginner-guide",
+      "destination": "guides/herdr",
+      "archive_sha256": "9c075f22d51e3d7431617e61483843f1e6395f5f01fbeaf7c57528896bd1f205",
+      "archive_matches_local": true
+    },
+    {
+      "source": "orca-guide",
+      "destination": "guides/orca",
+      "archive_sha256": "46a979a544d51da89a86c94b631062059aa1aae02cb683d6a2b4e981bca3c439",
+      "archive_matches_local": true
+    },
+    {
+      "source": "herdr-project-kit",
+      "destination": "templates/herdr-project",
+      "selection": "Markdown documents; raw logs/screenshots/session addresses excluded from evidence"
+    },
+    {
+      "source": "exam-ocr-project",
+      "destination": "examples/exam-ocr",
+      "selection": "Markdown documents; raw logs/screenshots/session addresses excluded from evidence"
+    }
+  ],
+  "ocr_history": {
+    "source_sha256": "afcfaa3ff5f93b1543cb6c9bedca1e1447b94ec34f8bf557ea1d1ec5319fb6ee",
+    "checked_on": "2026-11-06",
+    "published": "examples/exam-ocr/docs/ai/results/pilot-intake.md",
+    "scope": "후속 권한 안내까지 확인한 정제 요약; 원본 로그·사용자 세션 주소는 제외"
+  }
+}

@@ -8,3 +8,5 @@ __pycache__/
 !.env.example
 .local/
 /dist/gon-development-os.zip
+
+/guides/*.zip

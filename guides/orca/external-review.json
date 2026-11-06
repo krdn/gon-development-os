@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-02",
+  "status": "incomplete",
+  "configured_model": "claude-opus-5-5",
+  "configured_effort": "high",
+  "observed_model": null,
+  "exit_code": 143,
+  "output_bytes": 0,
+  "findings": null,
+  "reason": "외부 리뷰 프로세스가 응답 없이 종료됨. 실제 반환 모델과 리뷰 결과를 확인할 수 없어 통과로 처리하지 않음.",
+  "followup": "모델 자동 대체나 반복 리뷰 없이 직접 내용·브라우저·PDF·접근성·패키지 검사 수행.",
+  "input_sha256": "313335318555527367b0119e8608461b3fc1cb3bf1766226ca7e1d1f816f98e3"
+}

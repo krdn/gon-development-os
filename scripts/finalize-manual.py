@@ -2,6 +2,8 @@
 """PDF 목차와 빌드 기록, 상대 경로를 보존한 오프라인 묶음을 만든다."""
 from datetime import datetime, timezone
 from pathlib import Path
+from planning import read_sections
+from diagram_proof import check_workflow
 from urllib.parse import unquote, urlsplit
 import hashlib
 import json
@@ -21,7 +23,8 @@ def compact(text):
 
 
 def main():
-    sections = json.loads((ROOT / 'manual/sections.json').read_text())
+    check_workflow(ROOT)
+    sections = read_sections(ROOT)
     pdf = ROOT / 'dist/01-project-workflow-manual.pdf'
     reader = PdfReader(pdf)
     page_text = [compact(page.extract_text() or '') for page in reader.pages]

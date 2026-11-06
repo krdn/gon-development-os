@@ -4,10 +4,12 @@
 
 | 스킬 | 사용하는 상황 | 포함된 자료 |
 | --- | --- | --- |
-| [gon-project-lifecycle](../skills/gon-project-lifecycle/SKILL.md) | 신규 시작, 기존 도입, 작업 재개, 검증·전달 | 단계별 지침 4개, 프로젝트 문서 틀 6개, 비파괴 생성기와 테스트 |
+| [gon-project-lifecycle](../skills/gon-project-lifecycle/SKILL.md) | GitHub 기준 신규 시작, 기존 도입, 작업 재개, 검증·전달 | 단계별/공통 지침 6개, 문서 틀 7개, 비파괴 생성기·읽기 전용 GitHub 점검기·검증 도구와 테스트 |
 | [gon-web-engineering](../skills/gon-web-engineering/SKILL.md) | 웹 프로젝트 기술 선택·구현·검증 | 웹 지침 5개, 설정 도구와 테스트 |
 
 일반 작업은 lifecycle로 시작합니다. 웹 구현이 포함되면 web-engineering을 함께 적용합니다. 이미 정해진 기술·문서·배포 방식은 프로젝트 지침을 우선합니다.
+
+1.1부터 [GitHub 관리 절차](../skills/gon-project-lifecycle/references/github-management.md)에 따라 관리 기록을 연결합니다. 저장소 문서·Issues/Projects·PR/CI·릴리스/배포에 각 기록을 두고 해당 단계의 원격 상태를 다시 조회합니다. 로컬 PLAN/STATE는 URL을 가진 요약입니다. 기능 15개 영역의 사용/미적용/불가/미완료와 대체 기록은 프로젝트 관리 문서에 남깁니다. web-engineering도 같은 기준에 UI·API·DB 증거를 연결합니다. 새 원격 기능·권한·릴리스·배포가 자동 승인되는 것은 아닙니다.
 
 ## 새 컴퓨터에 설치
 
@@ -62,4 +64,4 @@ diff -ru -x __pycache__ -x '*.pyc' skills/gon-web-engineering "$HOME/.agents/ski
 5. 위 새 설치 절차의 `names`를 이번에 교체할 스킬만 포함하도록 바꾼 뒤 원본을 복사합니다. 예를 들어 lifecycle만 갱신하면 `names = ['gon-project-lifecycle']`로 실행합니다. 실패하면 새로 복사된 해당 디렉터리만 치우고 보관본을 원래 위치로 복구합니다.
 6. 새 채팅의 인식, 명시 호출, 작은 실제 작업을 확인한 후 적용 버전·커밋과 결과를 기록합니다.
 
-현재 PC에 설치된 두 스킬은 이번 GitHub 저장 작업으로 교체하지 않았습니다. 초기 가져오기 해시는 [기록](../evidence/imported-skills.json)에 보관했습니다.
+초기 1.0 가져오기 해시는 [기록](../evidence/imported-skills.json)에 보존했습니다. 1.1의 로컬 설치 적용·검증·외부 리뷰 미완료 상태는 [별도 기록](../evidence/github-management-validation.json)에서 구분합니다. 다른 PC의 설치 상태를 이 기록으로 대신하지 않습니다.

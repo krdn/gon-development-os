@@ -2,6 +2,8 @@
 """현재 문서 링크와 두 스킬의 실제 동작 검사를 수행한다."""
 from html.parser import HTMLParser
 from pathlib import Path
+from planning import read_sections
+from diagram_proof import check_workflow
 from urllib.parse import unquote, urlsplit
 import json
 import hashlib
@@ -13,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def check_artifacts():
+    check_workflow(ROOT)
     record = json.loads((ROOT / 'evidence/build.json').read_text())
     sources = [p for folder in ['manual', 'scripts', 'diagrams']
                for p in (ROOT / folder).iterdir() if p.is_file()]
@@ -50,7 +53,7 @@ def main():
     check_artifacts()
     if '--artifacts-only' in sys.argv:
         return
-    sections = json.loads((ROOT / 'manual/sections.json').read_text())
+    sections = read_sections(ROOT)
     ids = [s['id'] for s in sections]
     if len(ids) != len(set(ids)):
         raise ValueError('중복된 매뉴얼 항목 ID')
@@ -82,6 +85,8 @@ def main():
             if not target.scheme and not target.netloc and target.path:
                 if not (document.parent / unquote(target.path)).is_file():
                     errors.append(f'{document.relative_to(ROOT)}: {href}')
+    subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', str(ROOT / 'scripts'),
+                    '-p', 'test_*.py', '-v'], check=True)
     skills = [p for p in sorted((ROOT / 'skills').iterdir()) if p.is_dir()]
     for skill in skills:
         if not (skill / 'SKILL.md').is_file():

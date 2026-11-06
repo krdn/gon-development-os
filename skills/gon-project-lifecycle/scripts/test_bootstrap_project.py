@@ -41,7 +41,7 @@ class BootstrapTests(unittest.TestCase):
         code, report = self.run_cli()
         self.assertEqual(code, 0)
         self.assertEqual(report['status'], 'planned')
-        self.assertEqual(len(report['files']), 6)
+        self.assertEqual(len(report['files']), 7)
         self.assertEqual(list(self.base.iterdir()), before)
 
     def test_apply_creates_requested_documents_and_working_links(self):
@@ -50,7 +50,7 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual(report['status'], 'applied')
         self.assertTrue(report['scaffold_only'])
         self.assertEqual(set(item['action'] for item in report['files']), {'created'})
-        self.assertEqual(len(self.snapshot()), 6)
+        self.assertEqual(len(self.snapshot()), 7)
         for item in report['files']:
             content = (self.project / item['path']).read_text()
             self.assertIn('한글 프로젝트', content)
@@ -85,6 +85,25 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(len(report['files']), 1)
         self.assertEqual(list(self.snapshot()), ['한글 프로젝트/docs/STATE.md'])
+
+    def test_github_only_creates_management_document_without_other_project_files(self):
+        code, report = self.run_cli('--apply', documents=['github'])
+        self.assertEqual(code, 0)
+        self.assertEqual(list(self.snapshot()), ['한글 프로젝트/.github/project-management.md'])
+        self.assertTrue(report['scaffold_only'])
+        self.assertFalse((self.project / '.git').exists())
+
+    def test_existing_github_mapping_is_preserved_and_linked_from_entrypoints(self):
+        (self.project / 'docs').mkdir(parents=True)
+        existing = self.project / 'docs/github-management.md'
+        existing.write_text('기존 관리 기준\nhttps://github.com/owner/repo/issues/1\n')
+        before = existing.read_bytes()
+        code, report = self.run_cli('--apply', documents=['github', 'entrypoints'])
+        self.assertEqual(code, 0)
+        self.assertEqual(existing.read_bytes(), before)
+        self.assertFalse((self.project / '.github/project-management.md').exists())
+        self.assertIn('(docs/github-management.md)', (self.project / 'AGENTS.md').read_text())
+        self.assertTrue(report['review_required'])
 
     def test_known_equivalent_paths_are_reused_without_duplicate_documents(self):
         self.project.mkdir()

@@ -38,6 +38,14 @@ description: Configure Gon’s defaults for new web projects and apply scoped gu
 2. 생성 결과의 `review_required`를 처리하고 실제 결정·명령·제약을 프로젝트 문서에 기록한다. 파일 생성 성공을 지침 병합 완료로 간주하지 않는다.
 3. 애플리케이션 구현까지 요청받았다면 구현·연결·검증까지 계속한다. 검증은 `references/verification.md`와 프로젝트의 실제 명령을 따른다.
 
+## GitHub 관리 기록에 연결한다
+
+- 웹 프로젝트의 관리 기준은 GitHub에 둔다. 실제 remote/host와 기존 `.github/project-management.md` 또는 동등 문서, 이슈·Project·PR을 먼저 확인한다. 설명 요청은 읽기로 끝내고 작은 변경에 새 관리 체계를 설치하지 않는다.
+- 사용 가능한 `gon-project-lifecycle`이 있으면 그 `references/github-management.md`를 읽고 공통 관리·기능별 적용/예외·재조회 절차를 함께 적용한다. 설치 경로를 하드코딩하거나 없는 스킬을 필수라고 가정하지 않는다.
+- lifecycle이 없으면 현재 연결 도구 또는 `gh`로 기존 이슈/PR을 재사용하고, 제품·구조·ADR은 저장소 파일에, 작업 상태는 이슈/Project에, 검사 증거는 해당 SHA의 PR/CI에 기록한다. 각 GitHub 기능의 사용/미적용/불가와 대체 기록은 관리 문서에 남긴다. 세부 작업은 [검증 지침](references/verification.md)을 따른다.
+- UI·API·DB·배포의 실제 검증과 미검증을 구분해 해당 원격 기록을 다시 조회한다. 원격 저장이 안 되면 `pending_sync`로 남기고 로컬 문서 생성·빌드 성공을 GitHub 관리 완료로 표현하지 않는다.
+- 이 연결은 새 저장소/Project·멘션·공개 전환·보호/접근 설정 변경·릴리스 발행·배포의 추가 권한을 주지 않는다. 기존 스택과 다른 추적기 예외를 보존한다.
+
 ## 지침을 유지한다
 
 - 전역 파일에 이 스킬의 본문이나 모든 참조 문서를 자동 가져오도록 추가하지 않는다. 필요하면 전역 파일에는 이 스킬을 선택할 작업 조건만 짧게 남긴다.

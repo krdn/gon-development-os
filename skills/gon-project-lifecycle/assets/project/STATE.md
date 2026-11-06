@@ -2,6 +2,8 @@
 
 - 확인 시점·branch/revision·미커밋 변경: 미확인
 - 현재 목표: 미정
+- 기준 GitHub Issue·Project·PR/CI·Release/배포 URL: 미정
+- 원격 재조회 시점·동기화 상태: pending_sync — 연결 확인 전
 - 구현된 동작: 미확인
 - 검증 명령·대상·환경·결과·증거: NOT_RUN — 프로젝트 검증 전
 - 리뷰·PR/CI: 미확인

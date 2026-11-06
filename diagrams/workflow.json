@@ -2,7 +2,7 @@
   "schema_version": 2,
   "diagram_type": "workflow",
   "meta": {
-    "title": "Gon 프로젝트 개발의 10단계",
+    "title": "Herdr · 기획 문서에서 개발과 전달까지",
     "locale": "ko",
     "translations": {
       "page.title": "{title} 다이어그램",
@@ -445,9 +445,13 @@
       "viewer.rail.right": "패널을 다이어그램 옆으로 이동"
     },
     "quality_profile": "showcase",
-    "output": "dist/02-workflow-map.html"
+    "output": "gon-development-os/diagrams/workflow.html"
   },
   "lanes": [
+    {
+      "id": "research",
+      "label": "개발 전 · AI 대화와 리서치"
+    },
     {
       "id": "owner",
       "label": "요청과 상태"
@@ -469,11 +473,11 @@
     {
       "id": "scope",
       "label": "01 대상 확인",
-      "sublabel": "신규 · 기존 · 재개",
+      "sublabel": "새 세션 · 문서 인계",
       "col": 0,
       "lane": "owner",
       "type": "backend",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -483,7 +487,7 @@
       "col": 0,
       "lane": "plan",
       "type": "backend",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -493,7 +497,7 @@
       "col": 1,
       "lane": "plan",
       "type": "backend",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -503,7 +507,7 @@
       "col": 1,
       "lane": "build",
       "type": "backend",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -513,7 +517,7 @@
       "col": 2,
       "lane": "build",
       "type": "backend",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -523,7 +527,7 @@
       "col": 3,
       "lane": "build",
       "type": "backend",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -533,7 +537,7 @@
       "col": 3,
       "lane": "delivery",
       "type": "security",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -543,7 +547,7 @@
       "col": 4,
       "lane": "delivery",
       "type": "security",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -553,7 +557,7 @@
       "col": 5,
       "lane": "delivery",
       "type": "security",
-      "width": 170,
+      "width": 140,
       "height": 68
     },
     {
@@ -563,7 +567,67 @@
       "col": 5,
       "lane": "owner",
       "type": "backend",
-      "width": 170,
+      "width": 140,
+      "height": 68
+    },
+    {
+      "id": "p1",
+      "label": "P1 문제 문답",
+      "sublabel": "문제와 답변 저장",
+      "col": 0,
+      "lane": "research",
+      "type": "frontend",
+      "width": 140,
+      "height": 68
+    },
+    {
+      "id": "p2",
+      "label": "P2 조사 설계",
+      "sublabel": "조사 질문과 방법",
+      "col": 1,
+      "lane": "research",
+      "type": "frontend",
+      "width": 140,
+      "height": 68
+    },
+    {
+      "id": "p3",
+      "label": "P3 근거 조사",
+      "sublabel": "출처와 근거 저장",
+      "col": 2,
+      "lane": "research",
+      "type": "frontend",
+      "width": 140,
+      "height": 68
+    },
+    {
+      "id": "p4",
+      "label": "P4 비교와 판단",
+      "sublabel": "선택과 이유 저장",
+      "col": 3,
+      "lane": "research",
+      "type": "frontend",
+      "width": 140,
+      "height": 68
+    },
+    {
+      "id": "p5",
+      "label": "P5 개발 기획 인계",
+      "sublabel": "최종 문서 확정",
+      "col": 4,
+      "lane": "research",
+      "type": "frontend",
+      "width": 140,
+      "height": 68
+    },
+    {
+      "id": "stop-planning",
+      "label": "결정 기록 후 종료",
+      "sublabel": "기존 도구 사용 · 보류",
+      "col": 3,
+      "lane": "owner",
+      "type": "database",
+      "width": 140,
       "height": 68
     }
   ],
@@ -638,6 +702,82 @@
       "label": "실패 → 수정",
       "variant": "security",
       "role": "error"
+    },
+    {
+      "id": "plan1",
+      "from": "p1",
+      "to": "p2",
+      "variant": "emphasis",
+      "role": "main"
+    },
+    {
+      "id": "plan2",
+      "from": "p2",
+      "to": "p3",
+      "variant": "emphasis",
+      "role": "main"
+    },
+    {
+      "id": "plan3",
+      "from": "p3",
+      "to": "p4",
+      "variant": "emphasis",
+      "role": "main"
+    },
+    {
+      "id": "plan4",
+      "from": "p4",
+      "to": "p5",
+      "variant": "emphasis",
+      "label": "개발 선택",
+      "role": "main"
+    },
+    {
+      "id": "handoff-plan",
+      "from": "p5",
+      "to": "scope",
+      "label": "기획 인계",
+      "variant": "emphasis",
+      "role": "branch"
+    },
+    {
+      "id": "research-again",
+      "from": "p4",
+      "to": "p3",
+      "label": "근거 부족",
+      "variant": "dashed",
+      "role": "return"
+    },
+    {
+      "id": "non-build",
+      "from": "p4",
+      "to": "stop-planning",
+      "label": "개발 안 함",
+      "variant": "dashed"
+    },
+    {
+      "id": "p2-return-p1",
+      "from": "p2",
+      "to": "p1",
+      "label": "문제 좁히기",
+      "variant": "dashed",
+      "role": "return"
+    },
+    {
+      "id": "p3-return-p2",
+      "from": "p3",
+      "to": "p2",
+      "label": "조사 범위 조정",
+      "variant": "dashed",
+      "role": "return"
+    },
+    {
+      "id": "p4-return-p1",
+      "from": "p4",
+      "to": "p1",
+      "label": "문제 재정의",
+      "variant": "dashed",
+      "role": "return"
     }
   ],
   "mainPath": [
@@ -655,10 +795,11 @@
   "cards": [
     {
       "dot": "cyan",
-      "title": "시작 지점",
+      "title": "시작 지점과 기획 종료",
       "items": [
-        "신규는 01부터, 기존은 01에서 문서·코드를 대조한다.",
-        "재개는 10의 기록을 읽고 남은 단계로 돌아간다."
+        "아이디어만 있으면 P1부터. 기획·범위가 명확하면 01부터 필요한 단계로 간다.",
+        "P4에서 문제 재정의가 필요하면 P1로, 근거 부족은 P3로 돌아간다.",
+        "기존 도구 사용·보류를 선택하면 결정과 다음 행동을 기록하고 개발 없이 종료한다."
       ]
     },
     {
