@@ -118,6 +118,23 @@ class BootstrapTests(unittest.TestCase):
         self.assertIn('(ARCHITECT.md)', readme)
         self.assertEqual(len(report['review_required']), 2)
 
+    def test_herdr_brief_is_preserved_and_linked_when_product_spec_is_absent(self):
+        (self.project / 'docs').mkdir(parents=True)
+        brief = self.project / 'docs/PROJECT-BRIEF.md'
+        brief.write_text('AC01: 기존 요구')
+        code, report = self.run_cli('--apply', documents=['product', 'entrypoints'])
+        self.assertEqual(code, 0)
+        self.assertEqual(report['files'][0]['action'], 'preserve')
+        self.assertEqual(brief.read_text(), 'AC01: 기존 요구')
+        self.assertFalse((self.project / 'docs/PRODUCT.md').exists())
+        self.assertIn('(docs/PROJECT-BRIEF.md)', (self.project / 'AGENTS.md').read_text())
+
+        (self.project / 'docs/PRODUCT.md').write_text('기존 기준 명세')
+        code, report = self.run_cli(documents=['product'])
+        self.assertEqual(code, 0)
+        self.assertEqual(report['files'][0]['path'], 'docs/PRODUCT.md')
+        self.assertIn('docs/PROJECT-BRIEF.md', report['review_required'][0]['paths'])
+
     def test_override_is_preserved_and_active_entrypoint_requires_merge(self):
         self.project.mkdir()
         override = self.project / 'AGENTS.override.md'

@@ -10,11 +10,24 @@
 | P1~P5 기획 단계 공통 내용 | `manual/planning-steps.json` | `scripts/planning.py`가 관리 매뉴얼 문맥으로 생성 |
 | 화면·인쇄 배치 | `manual/style.css` | PC·모바일, PDF 페이지 배치 |
 | 복사·목차 동작 | `manual/viewer.js` | 브라우저 실제 동작 |
-| 프로젝트 실행 절차 | `skills/gon-project-lifecycle/` | 기존 동작 테스트, 관련 문서 |
-| 웹 구현 규칙 | `skills/gon-web-engineering/` | 기존 동작 테스트, 관련 문서 |
+| 프로젝트 실행 절차 | gon-skills의 `skills/gon-project-lifecycle/` | 기존 동작 테스트, 관련 문서 |
+| 웹 구현 규칙 | gon-skills의 `skills/gon-web-engineering/` | 기존 동작 테스트, 관련 문서 |
 | 전체 흐름 | `diagrams/workflow.json` | Archify 결과와 실제 화면 |
 
 `archive/2026-10-31/`의 원본 생성기는 당시 경로를 포함한 보관본입니다. 현재 빌드는 `scripts/`만 사용합니다. `evidence/imported-skills.json`은 가져온 순간의 해시이므로 스킬을 수정할 때 새 해시로 덮어쓰지 않습니다.
+
+## 오프라인 스킬 사본 갱신
+
+[gon-skills](https://github.com/krdn/gon-skills)의 테스트와 원격 커밋을 확인한 뒤 개발 OS의 **깨끗한 작업 브랜치**에서 두 사본과 `skills.lock`을 함께 갱신합니다. 보존할 로컬 스킬 수정은 먼저 원본에 반영합니다.
+
+```sh
+git fetch https://github.com/krdn/gon-skills.git main &&
+  rev=$(git rev-parse FETCH_HEAD) &&
+  git restore --source="$rev" --staged --worktree -- skills/gon-project-lifecycle skills/gon-web-engineering &&
+  { echo "$rev"; git ls-tree "${rev}:skills" -- gon-project-lifecycle gon-web-engineering; } > skills.lock
+```
+
+`git diff --cached -- skills`와 잠금 파일을 검토하고 전체 빌드·테스트를 실행합니다. 잠금에는 원본 커밋과 두 폴더의 Git 트리 해시가 있습니다. CI는 비공개 원본에 별도 인증을 요구하지 않고 체크아웃한 사본의 경로·내용·모드를 이 해시와 대조합니다. 원본 커밋과 해시의 연결은 위 갱신 단계에서 확인합니다.
 
 ## 빌드 환경 준비
 
@@ -55,7 +68,7 @@ git status --short
 9. 설치본 적용은 [별도 업데이트 절차](02-skills.md)에 따라 진행합니다. GitHub 커밋과 설치 적용을 같은 상태로 보고하지 않습니다.
 
 ```bash
-git add manual skills diagrams scripts docs dist evidence README.md CHANGELOG.md VERSION package.json package-lock.json
+git add manual skills skills.lock diagrams scripts docs dist evidence README.md CHANGELOG.md VERSION package.json package-lock.json
 git diff --cached --stat
 git commit -m "docs: 프로젝트 전달 절차 보완"
 git push -u origin HEAD

@@ -14,7 +14,24 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def check_skill_snapshot():
+    revision, *expected = (ROOT / 'skills.lock').read_text().splitlines()
+    if not re.fullmatch(r'[0-9a-f]{40}', revision):
+        raise ValueError('skills.lock의 gon-skills 커밋 SHA를 확인하세요.')
+
+    def git(*args):
+        return subprocess.check_output(['git', *args], cwd=ROOT, text=True).strip()
+
+    # 트리 해시는 Git이 배포하는 파일명, 내용과 실행 비트를 함께 식별한다.
+    if git('diff', '--name-only', '--', 'skills') or git('ls-files', '--others', '--exclude-standard', '--', 'skills'):
+        raise ValueError('오프라인 스킬이 변경됐습니다. 원본에서 가져온 파일과 Git 인덱스를 확인하세요.')
+    tree = git('write-tree', '--prefix=skills/')
+    if git('ls-tree', tree).splitlines() != expected:
+        raise ValueError('오프라인 스킬 사본이 skills.lock과 다릅니다. docs/03-maintenance.md를 확인하세요.')
+
+
 def check_artifacts():
+    check_skill_snapshot()
     check_workflow(ROOT)
     record = json.loads((ROOT / 'evidence/build.json').read_text())
     sources = [p for folder in ['manual', 'scripts', 'diagrams']

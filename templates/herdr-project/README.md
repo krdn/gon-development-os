@@ -1,6 +1,6 @@
 # Herdr 프로젝트 시작 방법
 
-처음 실행한다면 [Herdr CLI 시작 가이드](../../docs/06-herdr-cli-start.md)의 로컬·원격 Space 선택부터 따라갑니다.
+처음 실행한다면 [Herdr CLI 시작 가이드](https://github.com/krdn/gon-development-os/blob/main/docs/06-herdr-cli-start.md)의 로컬·원격 Space 선택부터 따라갑니다.
 
 아이디어를 작성하고 주 모델에게 실행 문서를 읽히면, 주 모델이 기획 → 조사 → 설계 → 구현 → 검증 → 인계를 진행하며 필요한 협업 모델을 Herdr에 엽니다. 사용자에게 필요한 질문과 협업 모델에게 맡길 기술 질문을 구분합니다.
 
@@ -25,6 +25,7 @@ codex --no-daemon -C '/실제/프로젝트/절대경로' -m gpt-6-astra -c model
 **Codex의 대화 입력칸**에 아래 요청을 한 번 넣습니다. 쉘에 넣는 명령이 아닙니다.
 
 ```text
+$gon-project-lifecycle
 이 프로젝트의 HERDR-PROJECT.md와 HERDR-OPERATIONS.md를 실제로 읽고 실행해.
 너는 주 실행 책임자야. 사용자 입력과 기존 지침을 기준으로 기획부터 선택한 완료 목표까지 진행해.
 필요한 독립 작업은 적합한 협업 모델을 선택해 Herdr 분할 터미널 또는 이름 있는 탭에서 수행시켜.
@@ -33,6 +34,8 @@ codex --no-daemon -C '/실제/프로젝트/절대경로' -m gpt-6-astra -c model
 계획이나 문서 작성만으로 끝내지 말고 실제 구현·실행·검증과 최종 인계까지 진행해.
 먼저 작업 경로, 아이디어, 권한, 사용 가능한 모델·Herdr 제어 기능을 확인하고 첫 작업을 시작해.
 ```
+
+웹 화면·API·DB를 구현하는 단계에서는 같은 프로젝트의 개발 세션에 `$gon-web-engineering`을 지정하고 P5의 요구·수용 기준을 전달합니다. [두 스킬 확인과 실제 요청 예시](https://github.com/krdn/gon-development-os/blob/main/docs/06-herdr-cli-start.md)를 참고하세요.
 
 이미 Herdr에서 Codex가 실행 중이라면 같은 프로젝트인지, `--no-daemon`으로 실행되어 Herdr 터미널 안에서 도구가 동작하는지 확인한 뒤 요청을 넣습니다. 다른 프로젝트의 실행 중인 대화에 넣지 않습니다.
 
@@ -43,6 +46,7 @@ codex --no-daemon -C '/실제/프로젝트/절대경로' -m gpt-6-astra -c model
 한번 시작한 대화가 종료되거나 PC가 재시작되면 자동으로 계속된다고 가정하지 않습니다. 같은 폴더의 새 주 모델에 다음을 입력합니다.
 
 ```text
+$gon-project-lifecycle
 HERDR-PROJECT.md, HERDR-OPERATIONS.md와 docs/STATE.md를 읽고 중단 지점부터 재개해.
 실제 Git 변경·기존 Herdr 작업자·저장된 결과를 먼저 대조해 중복 실행을 막아.
 이전 권한과 모델 선택을 보존하고, 완료되지 않은 첫 작업을 수행해.

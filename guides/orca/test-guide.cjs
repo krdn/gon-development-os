@@ -89,8 +89,9 @@ const pass = name => cases.push({ name, status: 'PASS' });
     pass('별도 예시 뷰어에서 8개 문서를 설치 없이 읽는다');
     assert.deepEqual(errors, []);
     pass('페이지 실행 중 JavaScript 오류가 없다');
+    const timestamp = new Date().toISOString();
     fs.writeFileSync(path.join(root, 'browser-tests.json'), JSON.stringify({
-      date: '2026-11-02', viewports: [1440, 390], clipboard_length: copied.length,
+      date: timestamp.slice(0, 10), timestamp, viewports: [1440, 390], clipboard_length: copied.length,
       document_sha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'index.html'))).digest('hex'),
       cases,
     }, null, 2) + '\n');
