@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-07",
+  "scope": "1차완료후개발OS문서와전문스킬보완;제품재검증아님",
+  "baseline": {
+    "os": "cd15b2d8d65224d9ec09c8cfa3df5a5aa40d4f28",
+    "skills": "1451ba6a3f30b5d09249b23cb7ada589293e72a0",
+    "remote_main_matches_local": true,
+    "working_trees_clean": true
+  },
+  "source_records": [
+    {
+      "project": "test-gon-os",
+      "path": "docs/PRODUCT-SPEC.md",
+      "sha256": "b2c6d08add0261a0046c410697d015903f5a2e9360e3e60abd1deacf0c0e2c01"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "docs/STATE.md",
+      "sha256": "286bb5c75a3d41b1cf03dd1b6ea875fdb11a59657d8a31b034da03e881583eff"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "docs/WEB-VALIDATION.md",
+      "sha256": "4f5ab0aaa621f25ba7709937b1476cacc4bde6550a10145b18adf5c1bbbb1713"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "docs/OCR-COMPARISON.md",
+      "sha256": "956a7e2536036fca3d1c220ad590d7c5636bbf235a459225f73b051633c0c62f"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "docs/REVIEW-RESOLUTION.md",
+      "sha256": "ecdd6c2c35b4c47afd343504e64b229467677652a77c2ebfc29e048e9efeca55"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "docs/VALIDATION.md",
+      "sha256": "568faca0f7ecec4760df35f6a42b24bfffebb981c47b378285ce4798479e0fc6"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "docs/ai/results/T001.md",
+      "sha256": "95828ea045f45299c93a156970ee129ed016b1bcebb3ba407916e4d1e32c2a3f"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "docs/ai/results/T007.md",
+      "sha256": "c057a03ed9240e18d662e01037a5a8a1595dac29f0d1e78f836ee483c763fc62"
+    },
+    {
+      "project": "test-gon-os",
+      "path": "README.md",
+      "sha256": "8406c59b59e850599a1e4b118de6740df4e0109717727da0cc2e1fea7134dd66"
+    },
+    {
+      "project": "hook-diagnosis-20261107",
+      "path": "FIX.md",
+      "sha256": "42aae929a076336e7ed4fafb668084bccf20d2ac64c9244cddb3e21098d28755"
+    }
+  ],
+  "review": {
+    "status": "COMPLETED_findings_addressed",
+    "calls": 1,
+    "requested_model": "claude-opus-5-5",
+    "returned_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "high",
+    "is_error": false,
+    "input_sha256": "22220d66e439e318510760cd1d3631ea3040aa583009ebbea9b7c3b39c80c360",
+    "response_sha256": "7485915c64731db45e19040c8611d372b062b8056df4742d19a3a576e00920eb",
+    "findings": [
+      {
+        "id": "M1",
+        "severity": "medium",
+        "issue": "착수 제약 보존과 최신 요청 반영의 모호함",
+        "resolution": "사용자의 명확한 최신 요청은 재승인 없이 반영, 모호한 충돌만 확인하도록 인접 문장 정리"
+      },
+      {
+        "id": "M2",
+        "severity": "medium",
+        "issue": "바뀐 검사만 수행한다는 표현이 필수 CI 생략으로 해석될 수 있음",
+        "resolution": "변경 영향 검사 재실행과 별도로 완료·통합 필수 검사/CI 준수 명시"
+      },
+      {
+        "id": "L1",
+        "severity": "low",
+        "issue": "인계 양식별 이전/새 범위·영향·프로세스·지속 실행 필드 누락",
+        "resolution": "canonical/Herdr/Orca/관리 매뉴얼 양식에 대응 필드 보완"
+      },
+      {
+        "id": "L2",
+        "severity": "low",
+        "issue": "재개 요청문이 사용자 보류 항목을 자동 착수할 수 있음",
+        "resolution": "보류 결정 필드와 재개 조건 충족 전 착수하지 않는 요청문 반영"
+      },
+      {
+        "id": "L3",
+        "severity": "low",
+        "issue": "모든 검사 도구의 상태기록 추가로 확대되거나 실행 앱 없는 경우도 강제될 수 있음",
+        "resolution": "보고서를 덮어쓰는 기존 검사 도구·실행 앱이 있을 때로 한정"
+      },
+      {
+        "id": "L4",
+        "severity": "low",
+        "issue": "Herdr 프로젝트의 중복 규칙과 증거 열거 표류",
+        "resolution": "상세 잔여 조건은 운영 양식으로 연결, 증거 대상을 입력·생성기/설정·출력으로 통일"
+      }
+    ],
+    "unverified_in_review_checked_by_implementer": [
+      {
+        "source": "test-gon-os/README.md:29",
+        "finding": "서버 종료 뒤 .local-data 전체 백업·복원 기록 확인"
+      },
+      {
+        "source": "hook-diagnosis-20261107/FIX.md",
+        "finding": "실제14이벤트성공과다른세션exit1미해결원문확인;이번복구아님"
+      },
+      {
+        "source": "test-gon-os/docs/PRODUCT-SPEC.md:AC04",
+        "finding": "한글·Word수정/저장/재열기기준확인"
+      }
+    ],
+    "re_review": "NOT_RUN; 동일 변경 단위 추가 외부 리뷰 없음. 지적 수정은 구현자와 관련 검사로 확인."
+  },
+  "validation": {
+    "status": "PASS_after_review_and_offline_sync",
+    "skills": {
+      "total": 117,
+      "suites": {
+        "adapters": 23,
+        "model_router": 46,
+        "lifecycle": 35,
+        "web": 13
+      }
+    },
+    "os": {
+      "build_all": "PASS",
+      "npm_test": "PASS",
+      "verify_all": "PASS",
+      "suites": {
+        "artifact_and_bundle": 10,
+        "lifecycle": 35,
+        "web": 13
+      },
+      "browser_regressions": {
+        "herdr": 14,
+        "orca": 13
+      },
+      "manual_pages": 33,
+      "manual_bookmarks": 26,
+      "manual_overflow": "PASS",
+      "pdf_visual_review": {
+        "pages": [
+          23,
+          26
+        ],
+        "result": "본문·링크·코드양식 잘림 없음. 짧은 문단만 다음 쪽으로 넘어간 초기 결과는 원문 축약 뒤 재생성."
+      },
+      "locked_skills_commit": "20e63be3c84585166ed33d3b582a1f1c1a2baa86"
+    },
+    "initial_environment_failure": "시스템 PATH의 Hermes Python에는 pypdf가 없었음. 기존 .venv를 PATH 앞에 둔 재실행 통과; 전역 설치/설정 변경 없음.",
+    "installation": {
+      "status": "PASS",
+      "changed_files": 12,
+      "managed_files": 152,
+      "remaining_changes": 0,
+      "backup": "~/.local/state/gon-skills/backups/20261107T060439.120482Z",
+      "scope": "설치 파일 일치;새세션모델행동검증아님"
+    },
+    "warnings": [
+      "Git commit의 기존 graphify 훅이 Python 모듈을 찾지 못해 경고함. 커밋은 성공했으며 graphify 갱신은 검증 범위가 아님."
+    ]
+  },
+  "delivery": {
+    "skills": {
+      "state": "MERGED",
+      "pr": "https://github.com/krdn/gon-skills/pull/4",
+      "tested_head": "20e63be3c84585166ed33d3b582a1f1c1a2baa86",
+      "merge_commit": "888aafef95a92f44fb32050cfc99a94336a0e1bf",
+      "ci": "https://github.com/krdn/gon-skills/actions/runs/42345373717",
+      "ci_result": "success"
+    },
+    "os": {
+      "branch": "fix/phase-one-handoff",
+      "state_at_capture": "LOCAL_VALIDATED_before_PR",
+      "status_source": "이 문서는 커밋 전 검증 기록. 최종 PR·CI·merge는 이 브랜치의 GitHub PR과 최종 전달 기록에서 재조회한다."
+    },
+    "product_deployment": "NOT_REQUESTED"
+  },
+  "limits": [
+    "후속 프로젝트 지침 준수·시간/비용 절감 미측정",
+    "OCR 제품·한글/Word·t3g 오류 복구는 이번 작업에서 재검증하지 않음"
+  ],
+  "validated_at_utc": "2026-11-07T06:06:16.064704+00:00",
+  "validated_inputs_sha256": {
+    "manual/sections.json": "98f5d1be93a4c4d71eb88f8e2649c0c09587c36f4357793e1af83ec231c9b038",
+    "templates/herdr-project/HERDR-PROJECT.md": "8ded3b36723360e964e0e2c747e8c448c567b890f8c634b443d80f8ad6f3c8ad",
+    "templates/herdr-project/HERDR-OPERATIONS.md": "4ee35514db26ac4345f2c9bdffaf2c016b58d1c46736a155f4a78cad787928a1",
+    "guides/orca/templates/STATE.md": "56fa7cfff11a6e638e7bcdc7d93b39e2bea7134ff87799a38039d53611178359",
+    "skills.lock": "9e820860919377110022720bb87c9e1b5111bc107569c48de6d230352ea70653",
+    "skills/gon-project-lifecycle/assets/project/STATE.md": "e71db04757e9e555f7408bc55a112cc494b3d9c33a75603e4478ccfc84e35fb3",
+    "skills/gon-project-lifecycle/references/work-cycle.md": "1138f5c5b9256bbafb9897d58ca1c282f5beb48276f46391a0e9c544d0e9a5bc",
+    "skills/gon-project-lifecycle/references/delivery.md": "b4fea4e24fc75307877a99d1d4352134768bdecc6e1794d1d827bb7bcb7bd02f",
+    "skills/gon-web-engineering/references/verification.md": "0fb4094fc8f249d6f892e56c200f73be15ab6724e40d380013d75a60611bdbfe"
+  }
+}
