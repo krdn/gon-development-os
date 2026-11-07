@@ -72,3 +72,5 @@ $gon-project-lifecycle
 실제 OCR 작업을 바탕으로 한 [작업 과정 검토와 개선](docs/07-field-review.md), 모델 effort와 검증 범위 변경을 함께 확인하세요.
 
 [Gemini 4 Argon 추가 선택](docs/08-gemini-argon.md): 도입 근거와 실행·미검증 범위, 기존 자동 후보와의 관계를 설명합니다.
+
+[1차 완료 회고와 보완](docs/09-phase-one-retrospective.md): 실제 실패 근거, 기존 개선과 추가 변경, Opus 리뷰 및 검증 범위를 정리합니다.
