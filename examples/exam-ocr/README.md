@@ -33,7 +33,7 @@ docs/PROJECT-BRIEF.md의 범위와 AC를 기준으로 PLAN의 첫 미완료 작�
 주 모델 실행 예시(현재 프로젝트 폴더의 쉘):
 
 ```sh
-codex --yolo --no-daemon -m gpt-6-astra -c model_reasoning_effort='"xhigh"'
+codex --yolo --no-daemon -m gpt-6-astra -c model_reasoning_effort='"medium"'
 ```
 
 모델/effort 지원은 시작 시 확인한다. 도구 실행 승인은 --yolo로 생략한다. 계정 로그인·OS 권한 요청은 실제 화면을 확인해 해당 절차로 처리한다.
@@ -61,3 +61,5 @@ HERDR-PROJECT.md, HERDR-OPERATIONS.md와 docs/STATE.md를 읽고 현재 모드�
 원본 PDF 또는 순서가 정해진 JPG/PNG, 인쇄 언어, 검색해서 확인할 문구를 준비한다. 입력은 프로젝트의 `data/input/` 같은 별도 폴더에 두고 원본은 수정하지 않는다. 학생 개인정보가 없는 시험지를 우선한다. 현재 묶음에는 사용자 시험지나 답안이 없다.
 
 결과 PDF는 원본 이미지 위에 검색용 텍스트를 추가하는 방식이다. 편집 가능한 새 시험지처럼 다시 조판하는 PDF가 필요하면 개발 전에 범위를 수정한다.
+
+시작 전에 과제의 난이도와 실패 영향을 판단해 effort를 고릅니다. 위 medium 예시는 일반 작업용이며, 복잡한 동시성 버그는 high, 핵심 데이터 손실 위험은 xhigh처럼 바꿉니다. 사용자가 명시한 effort가 있으면 그 값을 유지합니다.

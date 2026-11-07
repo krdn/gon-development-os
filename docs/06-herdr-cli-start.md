@@ -87,10 +87,10 @@ nano HERDR-PROJECT.md
 
 ```sh
 pwd
-codex --yolo --no-daemon -C "$PWD" -m gpt-6-astra -c 'model_reasoning_effort="xhigh"'
+codex --yolo --no-daemon -C "$PWD" -m gpt-6-astra -c 'model_reasoning_effort="medium"'
 ```
 
-`--yolo`로 도구 실행 승인을 생략하고, `-C "$PWD"`로 현재 프로젝트를 지정하고, `--no-daemon`으로 Herdr 터미널 안에서 실행합니다. Astra와 xhigh는 실행 양식의 기본 후보입니다. 모델 지원 오류가 나면 같은 컴퓨터에서 `codex debug models`로 지원 목록을 확인하세요.
+`--yolo`로 도구 실행 승인을 생략하고, `-C "$PWD"`로 현재 프로젝트를 지정하고, `--no-daemon`으로 Herdr 터미널 안에서 실행합니다. Astra와 medium은 일반 작업의 시작값입니다. 단순·저위험은 low, 복잡하거나 영향이 큰 작업은 high, 극난도·핵심 위험은 xhigh를 선택하며 명시한 값을 우선합니다. 모델 지원 오류가 나면 같은 컴퓨터에서 `codex debug models`로 지원 목록을 확인하세요.
 
 ## 6. 주 모델이 사용할 스킬 확인하기
 
@@ -173,3 +173,5 @@ HERDR-PROJECT.md, HERDR-OPERATIONS.md와 docs/STATE.md를 읽고 중단 지점�
 ```
 
 [프로젝트 입력 양식](../templates/herdr-project/HERDR-PROJECT.md) · [협업 운영 설명서](../templates/herdr-project/HERDR-OPERATIONS.md)
+
+시작 전에 과제의 난이도와 실패 영향을 판단해 effort를 고릅니다. 위 medium 예시는 일반 작업용이며, 복잡한 동시성 버그는 high, 핵심 데이터 손실 위험은 xhigh처럼 바꿉니다. 사용자가 명시한 effort가 있으면 그 값을 유지합니다.

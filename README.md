@@ -68,3 +68,5 @@ $gon-project-lifecycle
 ```
 
 이 저장소는 개별 제품을 자동 생성·배포하는 플랫폼이 아닙니다. 실제 작업은 선택한 실행 환경의 도구·권한·사용자 요청 범위 안에서 진행합니다. [기존 `ai-engineering-os`](https://github.com/krdn/ai-engineering-os)는 별도 보일러플레이트이며, 이 저장소의 이름과 구분합니다.
+
+실제 OCR 작업을 바탕으로 한 [작업 과정 검토와 개선](docs/07-field-review.md), 모델 effort와 검증 범위 변경을 함께 확인하세요.

@@ -41,12 +41,18 @@ gon-web-engineering의 실제 SKILL.md와 관련 참조를 읽어 적용해.
 
 협업 작업자는 아래 작업지시서에서 정한 역할·파일·스킬 범위로 인수한다. 새 컴퓨터와 CLI에서는 설치 상태를 다시 확인하고, 주 모델에게 받은 경로를 그대로 신뢰하지 않는다.
 
+## 작업자 세션과 환경 확인
+
+같은 작업의 보완은 기존 세션을 이어 쓸 수 있다. 역할·입력·소유 파일이 달라지거나 이전 맥락이 길어지면 새 세션에 필요한 계약과 결과만 전달한다. 터미널이 남아 있다는 이유로 관련 없는 다음 작업을 재사용하지 않는다. 작은 수정은 주 모델이 직접 수행한다.
+
+`HC_TERMINAL_ID`는 현재 `ls/get` 결과의 프로젝트·경로·역할과 대조한다. 작업자의 환경변수 값을 주 모델의 보고 대상이라고 추정하지 않는다. 새 작업자는 기존 변경을 되돌리지 않고 지정 파일만 소유하며 결과 수용 뒤 소유권을 반환한다.
+
 ## 새 협업 분할 터미널 열기
 
-Codex 작업자를 오른쪽 분할에 여는 명령 형태다. 먼저 작업 계약 파일을 실제로 저장한다. 아래 `PROJECT`는 두 실행 문서가 있는 주 프로젝트의 절대경로, `TASK_FILE`은 작업지시서의 절대경로로 바꾼다. 별도 worktree를 쓰면 실행 폴더는 그 worktree로 지정하고, 입력 문서와 결과 파일의 실제 위치는 작업지시서에 분리해 적는다. 아래 JSON의 경로·모델·pane ID를 바꾼 후 실행한다.
+Codex 작업자를 오른쪽 분할에 여는 명령 형태다. 먼저 작업 계약 파일을 실제로 저장한다. 아래 `PROJECT`는 두 실행 문서가 있는 주 프로젝트의 절대경로, `TASK_FILE`은 작업지시서의 절대경로로 바꾼다. 별도 worktree를 쓰면 실행 폴더는 그 worktree로 지정하고, 입력 문서와 결과 파일의 실제 위치는 작업지시서에 분리해 적는다. 아래 JSON의 경로·모델·pane ID와 `EFFORT`를 작업 계약에서 선택한 실제 값으로 바꾼 후 실행한다. 일반 작업은 medium이며 명시한 사용자 값을 우선한다.
 
 ```sh
-herdr-app do pane.split '{"direction":"right","pane":"PANE_ID","argv":["codex","--yolo","--no-daemon","-C","PROJECT","-m","MODEL_ID","-c","model_reasoning_effort=\"xhigh\"","PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과 파일을 저장하고 계약의 보고 대상으로 완료 또는 차단을 알려줘."]}'
+herdr-app do pane.split '{"direction":"right","pane":"PANE_ID","argv":["codex","--yolo","--no-daemon","-C","PROJECT","-m","MODEL_ID","-c","model_reasoning_effort=\"EFFORT\"","PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과 파일을 저장하고 계약의 보고 대상으로 완료 또는 차단을 알려줘."]}'
 ```
 
 이 형태는 최초 요청을 CLI 인수로 전달한다. 앱의 `pane.split`에는 `task` 인수가 없으므로 추가하지 않는다. JSON은 실제 값에서 직렬화하고 셸에 넣을 때는 올바르게 인용한다. 경로의 공백·따옴표를 수동 문자열 연결로 처리하지 않는다.
@@ -58,7 +64,7 @@ Claude 작업자는 `herdr-app do tab.new`의 명시적 `space`, `folder`, `argv
   "name": "T002 기술 대안 검토",
   "space": "SPACE_ID",
   "folder": "PROJECT",
-  "argv": ["claude", "--dangerously-skip-permissions", "--model", "MODEL_ID", "--effort", "xhigh"],
+  "argv": ["claude", "--dangerously-skip-permissions", "--model", "MODEL_ID", "--effort", "EFFORT"],
   "task": "PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과를 계약의 파일에 저장하고 보고해."
 }
 ```
@@ -92,7 +98,7 @@ CLI 도구 실행 승인은 시작 옵션으로 생략한다. blocked 상태에�
 새 탭으로 보여도 괜찮거나 앱의 분할 실행이 지원되지 않는 경우, 현재 도움말에 맞춰 다음 형태를 쓴다. 공간 라벨을 붙여 사용자에게 보이도록 하고 반환된 terminal을 추적한다.
 
 ```sh
-herdr-core run --bg --name project-t001 --cwd 'PROJECT' --label 'herdr.space=SPACE_ID' codex --yolo --no-daemon -m MODEL_ID -c model_reasoning_effort='"xhigh"' 'PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정한 역할·스킬 범위로 수행해. 결과 파일을 저장하고 보고해.'
+herdr-core run --bg --name project-t001 --cwd 'PROJECT' --label 'herdr.space=SPACE_ID' codex --yolo --no-daemon -m MODEL_ID -c model_reasoning_effort='"EFFORT"' 'PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 지정한 역할·스킬 범위로 수행해. 결과 파일을 저장하고 보고해.'
 ```
 
 `--name`은 실행별로 고유하게 정한다. 이 명령에 `--bg`가 있어도 작업 완료를 뜻하지 않는다. 실제 첫 요청 수신과 결과를 확인한다. core로 생성한 자식은 부모 종료 시 끝날 수 있다. 지속 실행이 필요한 경우 현재 권한과 수명 요구를 확인하고 `--outlive-parent` 여부를 명시적으로 정한다. `--keep`은 잃어버린 프로그램을 쉘로 대체할 뿐 AI 작업을 재개하지 않는다.
