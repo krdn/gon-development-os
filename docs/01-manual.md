@@ -1,6 +1,6 @@
 # Gon 프로젝트 워크플로우 실행 매뉴얼
 
-버전 1.5.0. 편집 원본은 `manual/sections.json`과 `manual/planning-steps.json`입니다. 이 파일은 자동 생성합니다.
+버전 1.5.1. 편집 원본은 `manual/sections.json`과 `manual/planning-steps.json`입니다. 이 파일은 자동 생성합니다.
 
 <a id="start"></a>
 
