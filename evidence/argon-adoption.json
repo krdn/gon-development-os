@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-07",
+  "version": "1.5.1",
+  "baseline": "7e251f1a78bd581abf3161b56ac0ca6d7a587040",
+  "scope": "Argon 조사·명시 선택 안내; 자동 후보/중앙 리뷰/기존 OCR 앱 유지",
+  "canonical_evidence": "https://github.com/krdn/gon-skills/blob/main/docs/argon-validation.json",
+  "local_checks": {
+    "build_all": "PASS",
+    "npm_test": "PASS",
+    "verify_all": "PASS",
+    "initial_attempt": "FAILED: inherited Python lacks pypdf; rerun with repository .venv passed"
+  },
+  "review": {
+    "model": "claude-opus-5-5",
+    "model_verification": "matched",
+    "requested_effort": "high",
+    "rounds": 1,
+    "documentation_findings_resolved": 3
+  },
+  "limitations": [
+    "가상 과제 medium 응답1회; 실제 제품 구현·멀티모달·긴 입력 미검증",
+    "서버 추론 모델·effort는 CLI 미제공으로 unverified",
+    "속도·비용·반복정확도 비교 미실행"
+  ],
+  "regenerated_artifacts": "Repository build:all regenerates the existing guide PDFs and verification timestamps; unchanged guide text is not a new runtime collaboration proof."
+}
