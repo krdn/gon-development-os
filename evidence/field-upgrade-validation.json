@@ -1,0 +1,222 @@
+{
+  "status": "PASS_WITH_LIMITATIONS",
+  "date": "2026-11-07",
+  "scope": "OS 문서와 스킬·선택기 변경 검증",
+  "checks": {
+    "router_tests": {
+      "status": "PASS",
+      "count": 42
+    },
+    "sync_tests": {
+      "status": "PASS",
+      "count": 17
+    },
+    "lifecycle_tests": {
+      "status": "PASS",
+      "count": 35
+    },
+    "web_skill_tests": {
+      "status": "PASS",
+      "count": 13
+    },
+    "model_behavior": {
+      "status": "NOT_RUN",
+      "requested_model": "claude-fable-5-1",
+      "requested_effort": "medium",
+      "process_status": "process_error",
+      "reason": "계정에서 usage credits 요구; 추론 토큰 0, 자동 대체 없음",
+      "actual_model": "unverified"
+    },
+    "external_review": {
+      "requested_model": "claude-opus-5-5",
+      "requested_effort": "high",
+      "observed_models": [
+        "claude-opus-5-5"
+      ],
+      "effort_verification": "unverified",
+      "status": "completed_with_findings_resolved",
+      "calls": 1,
+      "fixes": [
+        "모델만 명시한 critical 경로 위험도 적용; before medium/after xhigh 재현",
+        "분류 생략 표시·경고와 지원 범위 제한 경고",
+        "CLI별 적용 지침 우선; 자동경로 전체 조합 검사",
+        "실행 권한을 뜻하지 않는 테스트 이름 수정"
+      ],
+      "not_claimed": [
+        "향후 모든 세션의 준수",
+        "실제 모델별 성능·비용 우위",
+        "Fable 과제 판단 성공"
+      ]
+    },
+    "build": {
+      "status": "PASS",
+      "commands": [
+        "npm run build:all",
+        "npm test",
+        "npm run verify:all"
+      ],
+      "manual_pdf_pages": 33,
+      "manual_sections": 26,
+      "bundle_files": 118,
+      "markdown_links": 64
+    },
+    "installation": {
+      "status": "PASS",
+      "managed_files": 129,
+      "check_changes": 0,
+      "codex_loader": "skills/list 새 조회에서 4개 각각 1회; 오류 0",
+      "manual_policy": "gon-task-execute 및 model-router false 유지"
+    },
+    "default_config": {
+      "status": "PASS",
+      "model": "gpt-6-astra",
+      "effort_before": "xhigh",
+      "effort_after": "medium",
+      "scope": "새 실행 기본값; 현재 세션 적용 아님"
+    },
+    "visual": {
+      "status": "PASS",
+      "scope": "수정한 step-07의 390px 화면과 PDF 20쪽 직접 시각 확인; 넘침·잘림 없음"
+    },
+    "model_catalog": {
+      "codex_version": "0.167.0",
+      "observed": "2026-11-07",
+      "models": [
+        {
+          "slug": "gpt-6.1-sol",
+          "default_reasoning_level": "low",
+          "supported_reasoning_levels": [
+            {
+              "effort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "effort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "effort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "effort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "effort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "effort": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ]
+        },
+        {
+          "slug": "gpt-6-astra",
+          "default_reasoning_level": "medium",
+          "supported_reasoning_levels": [
+            {
+              "effort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "effort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "effort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "effort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "effort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "effort": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ]
+        },
+        {
+          "slug": "gpt-6.1-terra",
+          "default_reasoning_level": "low",
+          "supported_reasoning_levels": [
+            {
+              "effort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "effort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "effort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "effort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "effort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "effort": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ]
+        },
+        {
+          "slug": "gpt-6-luna",
+          "default_reasoning_level": "medium",
+          "supported_reasoning_levels": [
+            {
+              "effort": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "effort": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "effort": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "effort": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "effort": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            }
+          ]
+        }
+      ],
+      "scope": "로컬 지원 목록; 실제 서버 추론 모델 증거 아님"
+    }
+  },
+  "audit_inputs": {
+    "docs/WEB-VALIDATION.md": "4f5ab0aaa621f25ba7709937b1476cacc4bde6550a10145b18adf5c1bbbb1713",
+    "docs/OCR-COMPARISON.md": "956a7e2536036fca3d1c220ad590d7c5636bbf235a459225f73b051633c0c62f",
+    "docs/ai/results/T007.md": "c057a03ed9240e18d662e01037a5a8a1595dac29f0d1e78f836ee483c763fc62"
+  },
+  "canonical_skills_revision": "d0bb40cd31fb7ad0bc008b12bbc13dfa2197f3bf",
+  "limitations": [
+    "Fable 실과제 판단은 사용 크레딧 요구로 NOT_RUN; 추론 토큰 0",
+    "현재 대화의 모델·effort 변경이나 향후 모든 세션의 준수를 검증하지 않음",
+    "속도·비용 개선율과 모델별 성능 순위를 측정하지 않음",
+    "원본 앱과 사용자 자료는 이 업그레이드 대상이 아님"
+  ],
+  "delivery": {
+    "skills_pr": "https://github.com/krdn/gon-skills/pull/2",
+    "ci_scope": "각 PR의 실제 head SHA 검사 결과를 별도로 조회",
+    "release_or_deploy": "not_requested"
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "version": "1.4.2",
-  "built_at_utc": "2026-11-06T06:45:34.221989+00:00",
+  "version": "1.5.0",
+  "built_at_utc": "2026-11-07T00:24:05.147641+00:00",
   "checks": {
     "pdf_pages": 33,
     "bookmarks": 26,
@@ -142,14 +142,14 @@
     }
   ],
   "sources": {
-    "VERSION": "b99b4c7cdf236f59bc9f65d963deaecae3b16a7dad87939cacb9057f7664daee",
+    "VERSION": "acb57a7135b2d7d6e665f67f056e21353023b93835f54def1ae523bf76f1bfb3",
     "diagrams/workflow.json": "eeda1344f5db95fd14e25aa1f2ac9dc40117b67d9aa9640215380ff47c27d30a",
-    "manual/planning-steps.json": "ac60f3461b6aade050a0f58318239220c9942c2f882c0a09aa3c1a9fc3bb2ddb",
-    "manual/sections.json": "f468a391bf242b558745030d6e10108f1aa8aeff21c78fcefe8f38e7dbf572cb",
+    "manual/planning-steps.json": "6d0f05e2432b1a05b627bad3c03e2798dd258de5e1b8a8bce6e325e1db5c8e2e",
+    "manual/sections.json": "406dd1c0a4fa5bda9b7589092fac5aa866c831e79b781979f51fba55669feac0",
     "manual/style.css": "616b5ca4fe4373a02482e455fe4498f70e9c5962d6898b4c5bc3981cf0da93e9",
     "manual/viewer.js": "4924dd7923e44d63aad93e5b7071de7e47aae9aefe7805638e6f539ac648ff37",
-    "package-lock.json": "685a5dadb304c00a3c4db784c957e241be45e3eb115cba2e1bccd48c4b9c7267",
-    "package.json": "e368949acf576d288d204e3a235870f0a7c60e7d861564dfa11badb07ff91a86",
+    "package-lock.json": "3798baa96520c4aa54fe1c18c1d824355913a7c584a1d26cd42121f9a6ff2bb5",
+    "package.json": "fdcc52b598d2085b5c47a90111ae3cfb1312b5e473a786b034c355c48528257e",
     "requirements.txt": "3ec8922905dc4e3a10c3b46bd7fba023c37ffc309d51c6bed2a13ec3e98177fd",
     "scripts/build-manual.py": "03ad8066e32501f3a80c7da7ddd6ede05b429fcf640eaef0fcc9966d0e296064",
     "scripts/diagram_proof.py": "a46865980151421f53b1ee3d47d41ec900b990f725e023c13c03153e4a167928",
@@ -163,20 +163,20 @@
   },
   "artifacts": {
     "dist/01-project-workflow-manual.html": {
-      "sha256": "389895cf3626eadcedcb5067c4ea455072548f05ecf2d67aa0042ffcf78258ff",
-      "bytes": 113424
+      "sha256": "90f9df8acead37390bb34875c0a78f33807e3e8bf647daa6d751fc52e7457a28",
+      "bytes": 114429
     },
     "dist/01-project-workflow-manual.pdf": {
-      "sha256": "f9b771385cd8568c2ce674cf3d1cf9763ad26ea3a8ca31fd8e5ed7a5b7afecdf",
-      "bytes": 1203867
+      "sha256": "a7ff42214ef7a8803824ca8f3e2dfcf11c7cbfbaaa343f732ba710eb3f17bd14",
+      "bytes": 1205606
     },
     "dist/02-workflow-map.html": {
       "sha256": "787aec9c211fbcd3e09cfa1ca42a4b9e2aa112bba3676b149d15d96465e72c0b",
       "bytes": 777431
     },
     "docs/01-manual.md": {
-      "sha256": "28d4056c365efce8e3a69882375297b1b097e76030d3a30dd2d3a6c048e20605",
-      "bytes": 87586
+      "sha256": "8ba999f7b1b4ef92d306c7762d7a3656a8b65e718570d093e196492e5a634a44",
+      "bytes": 88591
     }
   }
 }

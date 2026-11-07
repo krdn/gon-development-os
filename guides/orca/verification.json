@@ -1,10 +1,10 @@
 {
-  "built_at_utc": "2026-11-06T06:45:31.690587+00:00",
+  "built_at_utc": "2026-11-07T00:22:42.744852+00:00",
   "scope": "이번 재생성의 브라우저 회귀·PDF 내용·링크 검사. 실제 Herdr/Orca 실행·배포 아님.",
   "historical_evidence": "preview 이미지, evidence/ 및 외부 리뷰 기록은 이전 확인 자료이며 이번 실행 증거가 아님.",
   "browser_tests": {
-    "date": "2026-11-06",
-    "timestamp": "2026-11-06T06:45:30.736Z",
+    "date": "2026-11-07",
+    "timestamp": "2026-11-07T00:22:41.766Z",
     "viewports": [
       1440,
       390
@@ -67,7 +67,7 @@
     ]
   },
   "pdf_validation": {
-    "date": "2026-11-06",
+    "date": "2026-11-07",
     "local_links": 70,
     "steps": 13,
     "templates": 8,
@@ -75,12 +75,12 @@
       "pages": 32,
       "complete_copy_boxes": 31,
       "complete_stage_items": 183,
-      "sha256": "f982342903f50429af673181920c7d1edcca97ad5e8e3b8d573637687855d4d8"
+      "sha256": "8135b718578f557db62c7fcf92e5048b924572421b293d6a3d8b087248af3683"
     }
   },
   "sha256": {
     "README.md": "99e57578eef289ad57305e2d4e89914f5504aa10f0d65f99292d2a93b4304db3",
-    "browser-tests.json": "a8edafb73d23075943ad57f764e7b34ff19f6eab58b2f813f18721dc833c523a",
+    "browser-tests.json": "48dfbecf240026871ff2757f8bbf37ee91860136112d13be05689dfabe0adf31",
     "build-guide.py": "0e3c28cb29357432bc3908da3035e43bc1b4bfd6ba1b4dc659c5ac82920f10c4",
     "documents.png": "4b36542c1e612436f0f45b16f61f210e0f634075d00cd2636a04e6963953bd70",
     "evidence/a11y-desktop.json": "16a0c9db4d321b8b7155b5877a70bebf276b8d33fc57dc5948272279a9844bf8",
@@ -95,7 +95,7 @@
     "example-project/docs/research/04-decision.md": "b1263118595d319facaf5a750822a75b731518b3df9109690c0d3a7797f646cd",
     "examples.html": "261ed4d3d0412b7ba3b6b32dca8a4801c24a70e3df77ab782a2965fb095b87ac",
     "external-review.json": "82397903a9254f7c3b7db3323a8028642cfae96c1cfd3d83f894f0baecc1442c",
-    "guide.pdf": "f982342903f50429af673181920c7d1edcca97ad5e8e3b8d573637687855d4d8",
+    "guide.pdf": "8135b718578f557db62c7fcf92e5048b924572421b293d6a3d8b087248af3683",
     "index.html": "e79136a3c8571ad5bee3f1e0005582af0be670f97320265b510e601808bbc983",
     "mobile-p5.png": "8464b82b0ee99618bb28b051c56c91cbdc1d601adcd43460b9af2761f2f8b153",
     "overview.png": "fd21edab4c609cd53d70da45cfa7f99e76f1ff302e781e8d0d3074e5afb030bc",
@@ -104,7 +104,7 @@
     "package.json": "ee7c654c64cb9fcf20d233d9892b05c49c4ff97c25b44c3d4aafbf2223a14972",
     "pdf-documents.png": "530a48df591a7badd56a51055cf3f6d13dacf3ec12313a6df63fabb842003116",
     "pdf-step.png": "dac1d61b3fa5a69edcba38f0954ef3d664752ea5e5c005e1c34c63f08878dfba",
-    "pdf-validation.json": "23fd8ab8a876d5763fca197f47f551807788f1d05a65845de48c1b4f6b3bbe7b",
+    "pdf-validation.json": "efcc25277482fb3fc69759928d21b0aa9fb39e6eca028b7cf1123824d3be5de9",
     "print-guide.cjs": "a137059f16ef6d757950be6bb3f688d0daa67c6942d6c9d718c46b7c0d1ad0e0",
     "rendered-prompts.json": "7905d212e8b98ee41f0d220ecb40babbdce479d2c7c8ab965c13fd343256d153",
     "sources.json": "50fef6eb1cd8cd21036b65ee4c1e671045705f7794adda9a7a776debb349ac21",
