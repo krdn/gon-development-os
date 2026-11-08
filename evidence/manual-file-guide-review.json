@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-08T04:26:37.731605+00:00",
+  "version": "1.6.1",
+  "scope": "로컬 매뉴얼 파일 도입·수정·작용 설명. 실행 스킬·제품·설치 환경·원격 저장소 변경 제외.",
+  "base_commit": "c0615d54294e24212d7d300395074c3217d26a96",
+  "review_inputs": {
+    "initial": "4afef46dbdabe3dc0d9aa501278f73d91b18d7b0aa386ef3ebd2e08b7cd15b4a",
+    "followup": {
+      "packet_sha256": "63701483972710bd0a3f65492675ba88acf4cdcc804be765bc37fac623490dea",
+      "manual_sha256": "77595a626c71895eacc9be5c3e14230d910d24f908259e9ffecde4d2c93eca38",
+      "changed_sections": [
+        "project-files",
+        "project-edit",
+        "project-runtime",
+        "step-04",
+        "aeos",
+        "aeos-files"
+      ]
+    }
+  },
+  "reviews": {
+    "initial": {
+      "argon": {
+        "requested_model": "gemini-4-argon-medium",
+        "cli_init_model": "gemini-4-argon-medium",
+        "invocation_status": "SUCCESS",
+        "model_verification": "CLI init 일치. 서버측 개별 모델 식별 메타데이터는 제공되지 않아 별도 확인 불가.",
+        "verdict": "PASS",
+        "finding_ids": [],
+        "resolved_ids": [],
+        "scope": "제공된 텍스트·근거의 읽기 전용 검토; 화면과 제품 실행 직접 확인 아님"
+      },
+      "opus": {
+        "requested_model": "claude-opus-5-5",
+        "requested_effort": "high",
+        "returned_models": [
+          "claude-opus-5-5"
+        ],
+        "canonical_models": [
+          "claude-opus-5-5"
+        ],
+        "invocation_status": "success",
+        "is_error": false,
+        "verdict": "ISSUES",
+        "finding_ids": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "F8",
+          "F9",
+          "F10",
+          "F11",
+          "F12"
+        ],
+        "resolved_ids": [],
+        "scope": "제공된 텍스트·근거의 읽기 전용 검토; 화면과 제품 실행 직접 확인 아님"
+      }
+    },
+    "followup": {
+      "argon": {
+        "requested_model": "gemini-4-argon-medium",
+        "cli_init_model": "gemini-4-argon-medium",
+        "invocation_status": "SUCCESS",
+        "model_verification": "CLI init 일치. 서버측 개별 모델 식별 메타데이터는 제공되지 않아 별도 확인 불가.",
+        "verdict": "PASS",
+        "finding_ids": [],
+        "resolved_ids": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "F8",
+          "F9",
+          "F10",
+          "F11",
+          "F12"
+        ],
+        "scope": "제공된 텍스트·근거의 읽기 전용 검토; 화면과 제품 실행 직접 확인 아님"
+      },
+      "opus": {
+        "requested_model": "claude-opus-5-5",
+        "requested_effort": "high",
+        "returned_models": [
+          "claude-opus-5-5"
+        ],
+        "canonical_models": [
+          "claude-opus-5-5"
+        ],
+        "invocation_status": "success",
+        "is_error": false,
+        "verdict": "ISSUES",
+        "finding_ids": [
+          "N1",
+          "N2"
+        ],
+        "resolved_ids": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "F8",
+          "F9",
+          "F10",
+          "F11"
+        ],
+        "scope": "제공된 텍스트·근거의 읽기 전용 검토; 화면과 제품 실행 직접 확인 아님"
+      }
+    }
+  },
+  "resolutions": [
+    {
+      "id": "F1",
+      "severity": "P2",
+      "action": "사용자 입력 예시에 기본값 4개를 복원해 13개 항목 보존",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F2",
+      "severity": "P2",
+      "action": "첫 요청·재개·AGENTS·P5 흐름에 승인·수용·명시적 위임과 awaiting_user 처리 명시",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F3",
+      "severity": "P3",
+      "action": "매뉴얼 06 구현과 HERDR 계약 05 최소 구현의 다른 번호를 기준 문서와 함께 병기",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F4",
+      "severity": "P3",
+      "action": "표와 복사 예시를 기술 미정·기존 코드 없음으로 일치",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F5",
+      "severity": "P3",
+      "action": "빈 경로 기본값·명시적 오류·원본 확보 링크·비파괴 diff·복사 거절 종료코드 설명",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F6",
+      "severity": "P3",
+      "action": "작업별 TASK 폴더는 원본에서 가져오지 않고 제품에서 생성한다고 명시",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F7",
+      "severity": "P3",
+      "action": "aeos.py의 registry·guide/evidence·루트 문서·계약 의존성 명시",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F8",
+      "severity": "P3",
+      "action": "AEOS 원본과 제품 루트 사이 동일 상대 경로 배치 및 고정 커밋 링크 안내",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F9",
+      "severity": "P3",
+      "action": "결과 경로는 작업지시서가 지정하며 docs/ai/results는 예시로 표시",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F10",
+      "severity": "P3",
+      "action": "Orca 링크 표시를 실제 README 대상과 일치",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F11",
+      "severity": "P3",
+      "action": "04단계에서도 기존 PROJECT-BRIEF 제품 명세를 유지하도록 명시",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "F12",
+      "severity": "P3",
+      "action": "복사 버튼 8개의 고유 접근성 이름 추가; N2 후속 수정으로 표시 문구 포함",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "N1",
+      "severity": "P3",
+      "action": "대화형 zsh 표준입력에서 실패 재현 후 인라인 주석 제거; 실제 두 파일 복사와 내용 일치 확인",
+      "status": "resolved_by_source_change_and_local_check"
+    },
+    {
+      "id": "N2",
+      "severity": "P3",
+      "action": "AEOS 버튼 표시를 복사로 수정; 브라우저 접근성 트리와 8개 이름의 표시 문구 포함 확인",
+      "status": "resolved_by_source_change_and_local_check"
+    }
+  ],
+  "final_local_verification": {
+    "status": "PASS",
+    "commands": [
+      "npm run build",
+      "npm test",
+      "npm run verify:all",
+      "git diff --check"
+    ],
+    "unit_tests": {
+      "repository": 10,
+      "lifecycle": 52,
+      "web_engineering": 13,
+      "total": 75
+    },
+    "pdf_pages": 45,
+    "bookmarks": 30,
+    "manual_html_links": 156,
+    "workflow_bundle_files": 118,
+    "workflow_markdown_links": 64,
+    "focused_checks": {
+      "empty_paths": "PASS",
+      "missing_source": "PASS",
+      "fresh_copy_with_spaces": "PASS",
+      "declined_copy_preserves_existing_input": "PASS",
+      "input_example_fields": 13,
+      "unique_labeled_copy_buttons": 8
+    },
+    "final_two_fixes": {
+      "N1": {
+        "reproduced": "zsh -dfi reading stdin, INTERACTIVE_COMMENTS disabled",
+        "before_exit": 1,
+        "after_exit": 0,
+        "copied_bytes_match": true,
+        "note": "zsh -c uses different parsing; validation used interactive stdin"
+      },
+      "N2": {
+        "visible_label": "복사",
+        "accessible_name": "AEOS 저장소 루트에서 사용할 명령 형식 복사",
+        "label_in_name": true
+      }
+    },
+    "browser": {
+      "mobile_width": 390,
+      "no_horizontal_overflow": true,
+      "copy_buttons": 8,
+      "accessible_names_unique": true,
+      "all_visible_labels_in_accessible_names": true,
+      "pdf_visual_pages": [
+        4,
+        6
+      ],
+      "clipboard_content_readback": "NOT_RUN: browser read permission unavailable"
+    }
+  },
+  "final_source_sha256": "b7349d9fc5887574be750896f595e293e2d84645b257a3f7d87fe7cd23720c65",
+  "final_assessment": {
+    "open_findings": [],
+    "status": "LOCAL_VERIFICATION_PASS",
+    "external_review_boundary": "Argon 변경분 재리뷰 PASS. Opus 변경분 재리뷰는 N1/N2 지적으로 ISSUES였으며 두 건은 이후 직접 재현·수정·검증했다. 마지막 두 수정본에 대한 외부 재리뷰는 추가 호출하지 않았다.",
+    "user_acceptance": "NOT_CLAIMED"
+  },
+  "limitations": [
+    "Argon 서버측 모델 식별은 별도 미검증; CLI init ID 일치만 확인.",
+    "클립보드 내용 재읽기 미검증.",
+    "실제 Herdr/Orca 협업·제품 실행·설치본 동기화·GitHub 업로드/CI·배포는 이번 검증에 포함하지 않음."
+  ]
+}
