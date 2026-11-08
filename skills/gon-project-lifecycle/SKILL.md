@@ -15,6 +15,10 @@ description: Gon AI Development OS 표준과 GitHub 기준 기록으로 프로�
 - 해당 단계의 기록을 실제 원격에서 다시 조회하기 전에는 GitHub 저장 완료라고 보고하지 않는다. 연결 불가·권한 부족은 `pending_sync`로 남기고 가역적인 독립 작업은 계속한다. 다른 추적기가 지정된 기존 프로젝트는 임의로 이전하지 않고 명시된 예외를 기록한다.
 - 설명·점검 요청은 읽기로 끝낸다. 작은 수정은 기존 이슈·PR에 연결하며 새 이슈·Project를 매번 만들지 않는다. 기록 정책은 공개 전환·권한/보호 설정 변경·릴리스 발행·배포·외부 메시지 전송 권한을 추가하지 않는다.
 
+## 정의된 단계마다 사용자 검토를 연결한다
+
+Gon 방식으로 정의한 단계는 [단계 검토 절차](references/stage-review.md)에 따라 구성 승인 → 실행·협의 → 사용자 결과 검토 → 추가 요청 반영·재검증 → 수용 후 다음 단계로 진행한다. 구성은 단계·계약 revision·구성 버전과 모델/effort·역할·소유권·동시 인원·권한/비용 범위에 연결한다. 실제 사용자 답변의 출처·시각·정확한 범위를 보존하며 AI 합의·CI·침묵이나 에이전트가 옮긴 GitHub 기록을 사용자 승인 리뷰로 대신하지 않는다. 단순 편집에는 새 단계를 강제하지 않고, 이미 승인된 구성 안의 일상 작업은 계속한다.
+
 ## 현재 요청의 경계를 정한다
 
 - 설명·제안 요청에는 설명·제안으로 답한다. 프로젝트 생성·도입·개발 요청에서만 해당 파일을 쓴다.
@@ -42,6 +46,7 @@ description: Gon AI Development OS 표준과 GitHub 기준 기록으로 프로�
 | 구현·개발 재개·작업 분해 | [work-cycle.md](references/work-cycle.md) | 범위 안 구현, 실행 증거, 다음 행동 |
 | 검토·PR·배포·인수인계 | [delivery.md](references/delivery.md) | 실제 도달 단계와 남은 조건 |
 | `ai-engineering-os` 도입·기존 `.ai` 작업 | [aeos.md](references/aeos.md) | 기존 Core 계약과 현재 도구를 재사용 |
+| 단계 구성·결과 검토·추가 요청 | [stage-review.md](references/stage-review.md) | 현재 대상의 승인/수용과 다음 단계 조건 |
 | GitHub 기준 기록·기능 선택·동기화 | [github-management.md](references/github-management.md) | 작업별 원격 기록과 기능별 적용/예외 확인 |
 
 명시한 단계에서 시작한다. 구현 요청을 문서 생성으로 끝내거나, 재개 요청을 신규 프로젝트 초기화로 바꾸지 않는다.

@@ -1,12 +1,12 @@
 {
   "date": "2026-11-07",
-  "timestamp": "2026-11-07T06:04:56.974Z",
+  "timestamp": "2026-11-07T23:57:46.045Z",
   "viewports": [
     1440,
     390
   ],
-  "clipboard_length": 623,
-  "document_sha256": "e79136a3c8571ad5bee3f1e0005582af0be670f97320265b510e601808bbc983",
+  "clipboard_length": 806,
+  "document_sha256": "45e19d1fd55ecf509eb1ce4c105194f6820c92cdc7f52c148852e8cb92838b38",
   "cases": [
     {
       "name": "흐름도의 13개 단계가 올바른 상세 설명을 연다",

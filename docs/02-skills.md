@@ -4,7 +4,7 @@
 
 | 스킬 | 사용하는 상황 | 포함된 자료 |
 | --- | --- | --- |
-| [gon-project-lifecycle](../skills/gon-project-lifecycle/SKILL.md) | GitHub 기준 신규 시작, 기존 도입, 작업 재개, 검증·전달 | 단계별/공통 지침 6개, 문서 틀 7개, 비파괴 생성기·읽기 전용 GitHub 점검기·검증 도구와 테스트 |
+| [gon-project-lifecycle](../skills/gon-project-lifecycle/SKILL.md) | GitHub 기준 신규 시작, 기존 도입, 작업 재개, 검증·전달 | 단계별/공통 지침, 문서 틀, 비파괴 생성기·GitHub 점검기·단계 검토 검사와 테스트 |
 | [gon-web-engineering](../skills/gon-web-engineering/SKILL.md) | 웹 프로젝트 기술 선택·구현·검증 | 웹 지침 5개, 설정 도구와 테스트 |
 
 일반 작업은 lifecycle로 시작합니다. 웹 구현이 포함되면 web-engineering을 함께 적용합니다. 이미 정해진 기술·문서·배포 방식은 프로젝트 지침을 우선합니다.

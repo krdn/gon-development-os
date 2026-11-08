@@ -27,6 +27,8 @@ git fetch https://github.com/krdn/gon-skills.git main &&
   { echo "$rev"; git ls-tree "${rev}:skills" -- gon-project-lifecycle gon-web-engineering; } > skills.lock
 ```
 
+단계별 사용자 검토 중에는 승인된 S2 검토 브랜치의 정확한 원격 커밋을 가져와 사본·잠금에 고정할 수 있습니다. 이는 main 통합이나 전역 설치가 아닙니다. S3 검증과 S4 전달 시 최종 원본 커밋을 다시 확인합니다.
+
 `git diff --cached -- skills`와 잠금 파일을 검토하고 전체 빌드·테스트를 실행합니다. 잠금에는 원본 커밋과 두 폴더의 Git 트리 해시가 있습니다. CI는 비공개 원본에 별도 인증을 요구하지 않고 체크아웃한 사본의 경로·내용·모드를 이 해시와 대조합니다. 원본 커밋과 해시의 연결은 위 갱신 단계에서 확인합니다.
 
 ## 빌드 환경 준비

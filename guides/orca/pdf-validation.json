@@ -4,9 +4,9 @@
   "steps": 13,
   "templates": 8,
   "pdf": {
-    "pages": 32,
+    "pages": 34,
     "complete_copy_boxes": 31,
     "complete_stage_items": 183,
-    "sha256": "79b865076ca98881190e1a69c697c9a07136db45b2514801fe761c854fc74547"
+    "sha256": "f73e7bdb2876af9608eddd4b2aa198d0936a7eb154ec2e837fb8a191da6e69b3"
   }
 }
