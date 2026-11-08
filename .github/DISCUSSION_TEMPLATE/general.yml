@@ -1,0 +1,29 @@
+title: "[협의] "
+body:
+  - type: input
+    id: target
+    attributes:
+      label: 단계·구성 버전·입력 revision과 기준 이슈
+    validations:
+      required: true
+  - type: textarea
+    id: participants
+    attributes:
+      label: 실제 참여자와 요청·확인 모델
+      description: 실제 반환 모델을 확인하지 못하면 unverified로 적습니다.
+    validations:
+      required: true
+  - type: textarea
+    id: debate
+    attributes:
+      label: 제안·반론·근거·일치와 미해결
+      description: 내부 추론 원문이나 비밀값은 저장하지 않습니다.
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: 조정 결론·후속 이슈/ADR·사용자 검토 상태
+      description: 에이전트 합의는 사용자 승인이 아닙니다.
+    validations:
+      required: true

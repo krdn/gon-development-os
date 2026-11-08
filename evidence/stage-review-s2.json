@@ -1,0 +1,144 @@
+{
+  "scope": "S2 구현·기초 검사와 설정 확인; S3 독립 외부 리뷰·S4 통합 아님",
+  "checked_at": "2026-11-07T23:59:44.337282+00:00",
+  "skills_commit": "530c7fee04f4e6418790bc4bab8d2f05118eec4b",
+  "source_manifest_sha256": "e205c1f854d44d3e127593ad23cd7f13890d8b21ed2db9e806ecf253ba22cdd1",
+  "source_files": {
+    ".github/CODEOWNERS": "c7004502fe840c7a5f08134e0ed150f5974d6fd99aaaf1a544ab22182157137b",
+    ".github/DISCUSSION_TEMPLATE/general.yml": "f327206607ec4c103d7b6f66b16225eed65484421e7d578917004ce768fafae2",
+    ".github/ISSUE_TEMPLATE/agent-configuration.yml": "157c80190245c3f72f1014f115be87dfd6e1a5546ef1968561a7ba1c2899dba0",
+    ".github/ISSUE_TEMPLATE/stage-review.yml": "1c260594bf9543771b594c31249b1dbf837fb74ecde3997b22d71d8a06efa931",
+    ".github/SECURITY.md": "f0df57373618c788032ed8585ed8ef7aa1018d80d13dfd4f5d49b9d3eb409e22",
+    ".github/dependabot.yml": "a08e7645a963ecc6776fc1f08c15e263c6ddb1f4ae6c2eeaa1e5d3f171dc303e",
+    ".github/project-management.md": "2941bafd46540c6cb1ef75d30ed878f2bc5d10bdc081a4a59d34a9cad17fc73b",
+    ".github/pull_request_template.md": "a534f150eb37f8a088d6a58fc4c021211a3ef3c946b92dde8e575d051f9abb7d",
+    "CHANGELOG.md": "503450a350e569e82fbc2d23fc440dc567be1169ddc149947f733ca9970b1928",
+    "README.md": "f6ecc41059b8ea300105e2bf3f72ff790d2a3949feef8c2203bdd93ecf0f42ca",
+    "VERSION": "cb1d9a30bc4ab8a397f39b7d786bb82aca0b816077eefc35d7c822017d75f6a5",
+    "diagrams/workflow.json": "6321366cf544bc564855985879d90ee56533090eba48b487373decf7fec11432",
+    "docs/02-skills.md": "c4b01810a89610d6797a1740e89ceb2a3e0c31d94f830264428dad01d2769e38",
+    "docs/03-maintenance.md": "2767d9766f9a88788e9c9ee7e93bcbe40b7bf0e942ee1a7a6cbab1b9e6bb0ae0",
+    "docs/06-herdr-cli-start.md": "39195ef703e6e401350402386d954686c09a43e1b0df88deffaf8fcdee07586f",
+    "docs/10-github-stage-review.md": "684132dbff23e778d25438998291ad81c35548527c0c4f4a21a83191601263dd",
+    "docs/adr/0001-github-stage-review.md": "fd8d96593f2eeb85f27724023979e64c33e730a5b0a24e09aaca7bcf9e7ab844",
+    "guides/herdr/planning-steps.json": "450316cd060ddc7bfc8c52879f56f7086e31587502c332bcfb76b0d86b04ffe4",
+    "guides/herdr/steps.json": "1b6030715b2b8086711f05b9ce941827c54ef117706cc486433dc6078011e743",
+    "guides/orca/rendered-prompts.json": "8e3c85a69b1c046741e4b35ff0dcfaf51d98ae45430026f1e110b68067cbe925",
+    "guides/orca/steps.json": "7f512ed8fb002357b0c47c14898f97a60a4e20526e08748b094b66b651b45495",
+    "manual/planning-steps.json": "450316cd060ddc7bfc8c52879f56f7086e31587502c332bcfb76b0d86b04ffe4",
+    "manual/sections.json": "bb80dc574a344596593ba39233adac1b8013ba4b8517509e0b0003b3fd89b977",
+    "package-lock.json": "5ca7d0e7befab70a0f291bf8803aca2a7cd0d9412bb28b6887a5d8a5e7923840",
+    "package.json": "e6a43fbc6ddfd44a3cc6f081eeaa047cedc1f6623e4a24c2a1bb19bd1968ba2b",
+    "skills.lock": "e4cd46508e9df04fb2da196bbc21025bda5542e2a48733f1cbcedc9cbf0652b8",
+    "skills/gon-project-lifecycle/SKILL.md": "542c39e316783924baa7565e079d690e6c6c23a3f6b6946a2fc5ede2f4d4bf4e",
+    "skills/gon-project-lifecycle/assets/project/GITHUB-MANAGEMENT.md": "c2f58152a3a2ecebd55bb06fa57d9699578c065cf979d8834bbd68011ac59dbf",
+    "skills/gon-project-lifecycle/assets/project/PLAN.md": "6a6e161da7559c86198d3e28797f88f0d7c67dc8e0b1d3af9c9c7f2a608362b9",
+    "skills/gon-project-lifecycle/assets/project/STATE.md": "6cffd32f2971738c9e75187fba98383977215446188b88eb512135044aa0402d",
+    "skills/gon-project-lifecycle/references/delivery.md": "3cc0fd2f9fe8b79e962267da6ad87c22f055d8de7dbeba2a94fd67622aed432f",
+    "skills/gon-project-lifecycle/references/github-management.md": "1b70927fe72fd43847553b8aef9811d8e468a71560ff3371414a6f6b953f6590",
+    "skills/gon-project-lifecycle/references/stage-review.md": "8dc566173d6125403e68f47b600a205411897b62ad2f2eb98146232e3b941175",
+    "skills/gon-project-lifecycle/references/work-cycle.md": "f148a3dd289dedc4fd6105b2d801318ef40930c91d7d6373d3b9fb64b2187c66",
+    "skills/gon-project-lifecycle/scripts/stage_review.py": "50185069cca44f680fba61605467131d519d0e68f3bc88cf6c92ec8fdccaea36",
+    "skills/gon-project-lifecycle/scripts/test_stage_review.py": "43d3dcaa3ec38eda4c52d3219974ab7b319692010312031152a7421da35e5991",
+    "templates/herdr-project/HERDR-OPERATIONS.md": "4f19f056c36cbd8216194edb2954ca60954e17f36e44b895bb8a3b39ce27fdc8",
+    "templates/herdr-project/HERDR-PROJECT.md": "2315c222166be5ed44d099469e95359da4173d0d3ceba5837408eec19c835f23",
+    "templates/herdr-project/README.md": "7d5731e83d336e1ea008b68b5bdebae97e5e00d52dd49a043ad33d207caebc47"
+  },
+  "checks": [
+    {
+      "name": "canonical skills",
+      "result": "PASS",
+      "tests": 134,
+      "details": "23 일반/설치 + 46 모델선택 + 52 lifecycle + 13 웹. lifecycle 새 상태 검사 17 포함."
+    },
+    {
+      "name": "OS npm test",
+      "result": "PASS",
+      "tests": 75,
+      "details": "10 빌드/흐름 + 52 lifecycle + 13 웹, 문서 링크·스킬 트리 일치"
+    },
+    {
+      "name": "build:all and verify:all",
+      "result": "PASS",
+      "browser_regressions": 27,
+      "manual_pdf_pages": 34,
+      "bookmarks": 26
+    },
+    {
+      "name": "Archify",
+      "result": "PASS",
+      "gates": [
+        "validate",
+        "deliver",
+        "check",
+        "browser-check"
+      ],
+      "visual_scope": "흐름도 자동 검사. 별도 흐름도 시각 전수 검토 없음."
+    },
+    {
+      "name": "실제 단계 기록",
+      "result": "PASS",
+      "cases": {
+        "S2_enter": "exit0 승인된 구성",
+        "S2_accept": "미수용 예상 거부",
+        "S3_enter": "exit1 S2 결과 수용 대기"
+      }
+    },
+    {
+      "name": "매뉴얼 변경 안내",
+      "result": "PASS",
+      "details": "1440×1000/390×844 screenshot 직접 확인, 단계 검토 문구 줄바꿈·표시 확인",
+      "artifacts": [
+        "evidence/stage-review-s2/desktop.png",
+        "evidence/stage-review-s2/mobile.png"
+      ]
+    },
+    {
+      "name": "GitHub settings and relationships",
+      "result": "PASS",
+      "details": "native sub-issue/blocked_by, Project 필드, active main rules, secret scanning/push protection/private reporting/automated security fixes 설정 후 GET 재조회. 실제 차단/탐지 실험 아님."
+    }
+  ],
+  "initial_failure": {
+    "command": "npm run build:all",
+    "reason": "셸 Python이 Hermes 환경을 선택해 pypdf 없음",
+    "resolution": "기존 프로젝트 .venv(pypdf 6.10.0)를 PATH 앞에 두고 재실행 PASS. 전역 환경 수정 없음"
+  },
+  "limitations": [
+    "S2 사용자 결과 수용·S3 구성 승인 대기",
+    "Opus 5.5/high 외부 리뷰 미실행; dry-run으로 중앙 설정만 확인",
+    "main 미병합·전역 설치 미적용·릴리스 미발행",
+    "Wiki 초기 페이지와 Project 보드/로드맵/charts/workflow UI 미구성: 로그인된 브라우저 연결 없음",
+    "Issue/Discussion/PR 양식·CODEOWNERS·정기 Dependabot은 branch 준비; 기본 브랜치 화면·운영 적용 미검증",
+    "기존 public archive/이력 공개 적합성 전수 검토 미실행",
+    "동일 계정의 AI/사람 분리·인간 승인 진위 기술 증명 없음",
+    "커밋의 기존 graphify 훅 모듈 부재 경고; commit은 성공",
+    "기존 pypdf 의존성 경보 98건(두 매니페스트 합계); 자동 수정 PR14 CI 실패·미병합, 별도 후속 필요"
+  ],
+  "links": {
+    "parent": "https://github.com/krdn/gon-development-os/issues/9",
+    "S2": "https://github.com/krdn/gon-development-os/issues/11",
+    "S3": "https://github.com/krdn/gon-development-os/issues/12",
+    "discussion": "https://github.com/krdn/gon-development-os/discussions/10",
+    "skills_pr": "https://github.com/krdn/gon-skills/pull/5",
+    "skills_ci": "https://github.com/krdn/gon-skills/actions/runs/42427460402",
+    "os_pr": "https://github.com/krdn/gon-development-os/pull/15"
+  },
+  "security_observation": {
+    "checked_at": "2026-11-08T00:02:33.148940+00:00",
+    "scope": "기존 default branch 의존성 경보, 신규 코드로 도입한 경보 아님",
+    "open_alerts": 98,
+    "severity_occurrences": {
+      "high": 40,
+      "medium": 56,
+      "low": 2
+    },
+    "manifest_counts": {
+      "requirements.txt": 49,
+      "guides/herdr/requirements.txt": 49
+    },
+    "interpretation": "두 매니페스트의 pypdf 경보 합계이며 고유 취약점 98개라는 뜻이 아님",
+    "automated_pr": "https://github.com/krdn/gon-development-os/pull/14",
+    "automated_pr_ci": "FAILURE; 이번 S2 변경 PR15와 별도, 미해결·미병합"
+  }
+}

@@ -37,6 +37,7 @@ gon-web-engineering의 실제 SKILL.md와 관련 참조를 읽어 적용해.
 이전 주 모델이 실행 중이면 STATE에서 주 모델이 너로 지정되고 인계가 완료된 것을 확인한 뒤 시작해.
 이전 주 모델이 종료된 재개라면 현재 사용자 요청과 종료 확인을 기록하고 주 모델을 이어받아.
 사용자에게 허용받은 협업 범위와 동시 작업자 상한도 그대로 이어받아.
+현재 단계의 구성 승인·결과 수용과 대상 revision을 GitHub 원문으로 확인하고, 새 구성은 검토받은 뒤 실행해.
 ```
 
 협업 작업자는 아래 작업지시서에서 정한 역할·파일·스킬 범위로 인수한다. 새 컴퓨터와 CLI에서는 설치 상태를 다시 확인하고, 주 모델에게 받은 경로를 그대로 신뢰하지 않는다.
@@ -47,9 +48,29 @@ gon-web-engineering의 실제 SKILL.md와 관련 참조를 읽어 적용해.
 
 `HC_TERMINAL_ID`는 현재 `ls/get` 결과의 프로젝트·경로·역할과 대조한다. 작업자의 환경변수 값을 주 모델의 보고 대상이라고 추정하지 않는다. 새 작업자는 기존 변경을 되돌리지 않고 지정 파일만 소유하며 결과 수용 뒤 소유권을 반환한다.
 
+## 단계 검토와 협의 기록
+
+단계 실행 전에 구성 검토를 받고, 결과를 전달할 때 사용자 수용을 확인한다. 기록은 GitHub의 해당 단계 이슈·Discussion을 기준으로 유지한다. 로컬 STATE에는 링크와 현재 상태만 요약한다.
+
+```text
+단계 ID / 단계 계약 revision / 구성 버전:
+구성: 조정자·작업자 ID / 역할 / 모델·effort / 소유 파일 / 동시 인원 / 권한·비용 범위
+구성 검토: 미검토·검토대기·승인·수정요청·보류 / 실제 사용자 답변 / 시각 / 출처
+협의 라운드: 실제 참여자 / 입력 revision / 제안 / 반론 / 근거 / 일치·미해결 / 조정 결과
+결과: revision / 산출물 링크 / AC별 검사·근거 / 미검증 / 남은 선택
+결과 검토: 미검토·검토대기·수용·수정요청·보류 / 실제 사용자 답변 / 시각 / 출처
+추가 요청: 변경 근거·R/AC / 수정 결과 / 재검사 / 재검토할 revision
+다음 단계 구성안과 아직 필요한 검토:
+기준 GitHub 이슈 / Discussion / Project / ADR / PR·CI / 원격 재조회 시각:
+```
+
+에이전트가 옮긴 사용자 답변은 `recorded_by: agent`로 구분하며, 사용자 본인의 GitHub 승인 리뷰라고 쓰지 않는다. 모델 자기소개나 요청 모델만으로 실제 반환 모델을 확정하지 않는다. 동의하지 않은 참여자의 합의를 만들지 않는다.
+
+자동 검사가 필요하면 설치된 lifecycle의 `scripts/stage_review.py template`, `validate`, `digest`, `check`를 사용한다. 명령과 JSON은 같은 스킬의 `references/stage-review.md`를 기준으로 하고 별도 스키마를 복제하지 않는다. `check --action enter`는 현재 구성 승인·선행 결과 수용, `check --action accept`는 현재 결과 수용의 기록 조건을 검사한다. 실제 사용자 의사·원격 저장 여부는 원문과 GitHub 재조회로 별도 확인한다.
+
 ## 새 협업 분할 터미널 열기
 
-Codex 작업자를 오른쪽 분할에 여는 명령 형태다. 먼저 작업 계약 파일을 실제로 저장한다. 아래 `PROJECT`는 두 실행 문서가 있는 주 프로젝트의 절대경로, `TASK_FILE`은 작업지시서의 절대경로로 바꾼다. 별도 worktree를 쓰면 실행 폴더는 그 worktree로 지정하고, 입력 문서와 결과 파일의 실제 위치는 작업지시서에 분리해 적는다. 아래 JSON의 경로·모델·pane ID와 `EFFORT`를 작업 계약에서 선택한 실제 값으로 바꾼 후 실행한다. 일반 작업은 medium이며 명시한 사용자 값을 우선한다.
+Codex 작업자를 오른쪽 분할에 여는 명령 형태다. 먼저 작업 계약 파일과 해당 단계의 사용자 구성 승인 근거를 실제로 저장한다. 아래 `PROJECT`는 두 실행 문서가 있는 주 프로젝트의 절대경로, `TASK_FILE`은 작업지시서의 절대경로로 바꾼다. 별도 worktree를 쓰면 실행 폴더는 그 worktree로 지정하고, 입력 문서와 결과 파일의 실제 위치는 작업지시서에 분리해 적는다. 아래 JSON의 경로·모델·pane ID와 `EFFORT`를 작업 계약에서 선택한 실제 값으로 바꾼 후 실행한다. 일반 작업은 medium이며 명시한 사용자 값을 우선한다.
 
 ```sh
 herdr-app do pane.split '{"direction":"right","pane":"PANE_ID","argv":["codex","--yolo","--no-daemon","-C","PROJECT","-m","MODEL_ID","-c","model_reasoning_effort=\"EFFORT\"","PROJECT/HERDR-PROJECT.md, PROJECT/HERDR-OPERATIONS.md와 TASK_FILE을 읽고 작업지시서의 역할·파일·스킬 범위만 수행해. 결과 파일을 저장하고 계약의 보고 대상으로 완료 또는 차단을 알려줘."]}'
@@ -127,6 +148,7 @@ herdr-core read --lines 100 TERMINAL_ID
 
 ```text
 작업 ID와 상태: T001 / ready
+단계 ID / 계약 revision / 승인된 구성 버전 / 사용자 승인 근거 URL:
 목표와 질문:
 프로젝트 절대경로 및 기준 revision:
 선행 작업과 근거 파일:
@@ -175,7 +197,9 @@ herdr-core read --lines 100 TERMINAL_ID
 프로젝트 / 절대경로:
 업데이트 시각과 시간대:
 상태: running | awaiting_user | blocked | complete | deferred
-현재 단계:
+현재 단계 / 계약 revision / 구성 버전:
+구성 검토 상태·사용자 답변 근거 / 결과 revision·검토 상태·근거:
+협의 Discussion / 추가 요청 이슈 / 다음 단계 구성 검토:
 완료 목표:
 확정 범위와 권한의 근거:
 범위 변경: 이전/새 범위 / 변경 요청·결정 / 영향받는 R·AC (변경 시만)

@@ -1,8 +1,8 @@
 {
-  "version": "1.5.2",
-  "built_at_utc": "2026-11-07T06:06:18.729208+00:00",
+  "version": "1.6.0",
+  "built_at_utc": "2026-11-08T00:24:20.530942+00:00",
   "checks": {
-    "pdf_pages": 33,
+    "pdf_pages": 34,
     "bookmarks": 26,
     "all_section_titles_found": true,
     "internal_links": 20,
@@ -17,140 +17,140 @@
     },
     {
       "id": "map",
-      "title": "전체 흐름과 네 번의 확인",
+      "title": "전체 흐름과 단계별 사용자 검토",
       "page": 2
     },
     {
       "id": "roles",
       "title": "Herdr의 탭·분할 터미널·세션·파일 구분",
-      "page": 3
+      "page": 4
     },
     {
       "id": "planning-1",
       "title": "P1 질문에 답하고 문제 정의를 파일로 남긴다",
-      "page": 4
+      "page": 5
     },
     {
       "id": "planning-2",
       "title": "P2 질문별 조사 방법과 저장 담당을 정한다",
-      "page": 6
+      "page": 7
     },
     {
       "id": "planning-3",
       "title": "P3 조사 결과를 출처가 있는 근거표로 합친다",
-      "page": 8
+      "page": 9
     },
     {
       "id": "planning-4",
       "title": "P4 대안을 비교하고 내 결정을 기록한다",
-      "page": 10
+      "page": 11
     },
     {
       "id": "planning-5",
       "title": "P5 자료를 개발 시작 문서 하나로 정리한다",
-      "page": 12
+      "page": 13
     },
     {
       "id": "step-01",
       "title": "01 작업 대상과 시작점을 확인한다",
-      "page": 14
+      "page": 15
     },
     {
       "id": "step-02",
       "title": "02 목표와 첫 출시 범위를 정한다",
-      "page": 15
+      "page": 16
     },
     {
       "id": "step-03",
       "title": "03 구조와 상태 흐름을 설계한다",
-      "page": 16
+      "page": 17
     },
     {
       "id": "step-04",
       "title": "04 문서와 실행 환경을 연결한다",
-      "page": 17
+      "page": 18
     },
     {
       "id": "step-05",
       "title": "05 첫 작업을 검증 가능한 크기로 나눈다",
-      "page": 18
+      "page": 19
     },
     {
       "id": "step-06",
       "title": "06 작은 기능을 끝까지 구현한다",
-      "page": 19
+      "page": 20
     },
     {
       "id": "step-07",
       "title": "07 실제 동작을 검증하고 수정한다",
-      "page": 20
+      "page": 21
     },
     {
       "id": "step-08",
       "title": "08 검토하고 변경을 통합한다",
-      "page": 21
+      "page": 22
     },
     {
       "id": "step-09",
       "title": "09 배포 준비와 실제 배포를 확인한다",
-      "page": 22
+      "page": 23
     },
     {
       "id": "step-10",
       "title": "10 결과를 기록하고 다음 작업을 잇는다",
-      "page": 23
+      "page": 24
     },
     {
       "id": "handoff",
       "title": "기획 세션에서 개발 세션으로 문서 인계",
-      "page": 24
+      "page": 25
     },
     {
       "id": "records",
       "title": "문서와 완료 증거를 관리하는 방법",
-      "page": 25
+      "page": 26
     },
     {
       "id": "aeos",
       "title": "기존 AI Engineering OS를 사용하는 경우",
-      "page": 27
+      "page": 28
     },
     {
       "id": "types",
       "title": "프로젝트 유형별로 완료 기준을 바꾼다",
-      "page": 28
+      "page": 29
     },
     {
       "id": "recovery",
       "title": "문제가 생겼을 때의 복구 순서",
-      "page": 29
+      "page": 30
     },
     {
       "id": "practice",
       "title": "앞으로 매번 사용하는 짧은 운영 절차",
-      "page": 30
+      "page": 31
     },
     {
       "id": "rebuild",
       "title": "GitHub 원본으로 전체 안내서 다시 만들기",
-      "page": 31
+      "page": 32
     },
     {
       "id": "sources",
       "title": "적용 기준과 원본 자료",
-      "page": 32
+      "page": 33
     }
   ],
   "sources": {
-    "VERSION": "ded1b601e81d31ca1f65c4f3ccf2ebd7992b6390e37bc2a86f3837282f1e00cf",
-    "diagrams/workflow.json": "eeda1344f5db95fd14e25aa1f2ac9dc40117b67d9aa9640215380ff47c27d30a",
-    "manual/planning-steps.json": "6d0f05e2432b1a05b627bad3c03e2798dd258de5e1b8a8bce6e325e1db5c8e2e",
-    "manual/sections.json": "98f5d1be93a4c4d71eb88f8e2649c0c09587c36f4357793e1af83ec231c9b038",
+    "VERSION": "cb1d9a30bc4ab8a397f39b7d786bb82aca0b816077eefc35d7c822017d75f6a5",
+    "diagrams/workflow.json": "6321366cf544bc564855985879d90ee56533090eba48b487373decf7fec11432",
+    "manual/planning-steps.json": "29b9c8f566552123bd56108dccfe98db207f95428a228a9a6b4bd40ce3fc2b30",
+    "manual/sections.json": "483ad879917993cd6196aed31ab0adb912c8393e6a57d04ca545dced80f70b6d",
     "manual/style.css": "616b5ca4fe4373a02482e455fe4498f70e9c5962d6898b4c5bc3981cf0da93e9",
     "manual/viewer.js": "4924dd7923e44d63aad93e5b7071de7e47aae9aefe7805638e6f539ac648ff37",
-    "package-lock.json": "263236f296530514c5f37d9a7a9e857ee26078796838572293c22feccfc1cdbe",
-    "package.json": "5aed5d9768fd33d1f780e0680d0c130502c153a9811a1653ca4d51864714aeaa",
-    "requirements.txt": "3ec8922905dc4e3a10c3b46bd7fba023c37ffc309d51c6bed2a13ec3e98177fd",
+    "package-lock.json": "5ca7d0e7befab70a0f291bf8803aca2a7cd0d9412bb28b6887a5d8a5e7923840",
+    "package.json": "e6a43fbc6ddfd44a3cc6f081eeaa047cedc1f6623e4a24c2a1bb19bd1968ba2b",
+    "requirements.txt": "6b9d3af92e9bdb2317e9ac845c8349f4b6a44b7d05e628ea717938589b583fc2",
     "scripts/build-manual.py": "03ad8066e32501f3a80c7da7ddd6ede05b429fcf640eaef0fcc9966d0e296064",
     "scripts/diagram_proof.py": "a46865980151421f53b1ee3d47d41ec900b990f725e023c13c03153e4a167928",
     "scripts/finalize-manual.py": "9ef81410ce8141f8ba84e93094a7747907a4228541233cadd702e361bb8339d0",
@@ -163,20 +163,20 @@
   },
   "artifacts": {
     "dist/01-project-workflow-manual.html": {
-      "sha256": "58b1937a7bcb60fe2f66a45e77b3691853325b4e62f1dd7bae6408b54fdc27e3",
-      "bytes": 115349
+      "sha256": "70fc4d59cb0b25592b14ed28b8aeac6e49d831142b8da829e9f4fb75d4a8dc7a",
+      "bytes": 119467
     },
     "dist/01-project-workflow-manual.pdf": {
-      "sha256": "2aa9de8829c44a18f878f0c4e593775ba75539c8556ceea93bf06984f601fcc1",
-      "bytes": 1207568
+      "sha256": "b49ec61db655702533f5b83734a76afc4398da69efad01cfaea0c7acc66aa9f4",
+      "bytes": 1217785
     },
     "dist/02-workflow-map.html": {
-      "sha256": "787aec9c211fbcd3e09cfa1ca42a4b9e2aa112bba3676b149d15d96465e72c0b",
-      "bytes": 777431
+      "sha256": "f90c28a5eeee0071f9b62a1ec80626993c8c1a183a8e6387791968a70cb51157",
+      "bytes": 777584
     },
     "docs/01-manual.md": {
-      "sha256": "54b20d2f6061dcf23137540bc27042f62d2871eec0302db1847f55497d91e11b",
-      "bytes": 89511
+      "sha256": "06d8b2eeeb28d732dd11d0d5fc4335bcf41a5a949a511c86e3775e2206c15486",
+      "bytes": 93620
     }
   }
 }

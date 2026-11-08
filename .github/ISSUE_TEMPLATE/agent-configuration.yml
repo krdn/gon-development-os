@@ -1,0 +1,35 @@
+name: 에이전트 구성 검토
+description: 실행 전 역할과 권한을 검토합니다.
+title: "[구성 검토] "
+body:
+  - type: input
+    id: target
+    attributes:
+      label: 기준 단계 이슈·계약 revision·구성 버전
+    validations:
+      required: true
+  - type: textarea
+    id: configuration
+    attributes:
+      label: 참여자별 역할·모델/effort·소유 파일
+    validations:
+      required: true
+  - type: textarea
+    id: bounds
+    attributes:
+      label: 동시 인원·권한·비용 범위와 이전 구성 대비 변경
+    validations:
+      required: true
+  - type: textarea
+    id: discussion
+    attributes:
+      label: 선택 근거·대안·미해결과 협의 링크
+    validations:
+      required: true
+  - type: textarea
+    id: approval
+    attributes:
+      label: 실제 사용자 답변·출처·시각·승인 범위 또는 검토대기
+      description: 에이전트의 대리 기록과 사용자의 직접 답변을 구분하세요. 미응답·CI 성공은 승인이 아닙니다.
+    validations:
+      required: true

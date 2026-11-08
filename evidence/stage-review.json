@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "project": "krdn/gon-development-os",
+  "stages": [
+    {
+      "id": "S2",
+      "revision": "S2-contract-v1",
+      "configuration": {
+        "version": "v1",
+        "agents": [
+          {
+            "id": "coordinator",
+            "role": "현재 Codex 조정자",
+            "model": "현재 Codex 세션 설정 유지",
+            "effort": "현재 세션 설정 유지",
+            "ownership": [
+              "gon-development-os의 매뉴얼·실행 양식·GitHub 기록과 설정·스킬 사본 통합"
+            ]
+          },
+          {
+            "id": "s2_lifecycle",
+            "role": "lifecycle 구현 작업자",
+            "model": "gpt-6-astra",
+            "effort": "high",
+            "ownership": [
+              "gon-skills/skills/gon-project-lifecycle/"
+            ]
+          }
+        ],
+        "max_concurrency": 2,
+        "permissions": [
+          "승인된 운영 설계의 구현·기초 검사·GitHub 설정과 검토 브랜치 저장",
+          "재위임·추가 모델·S3 외부리뷰·main 병합·전역 설치·릴리스 발행 없음"
+        ],
+        "cost_scope": "현재 Codex 조정자와 GPT-6 Astra/high 작업자 1명, 추가 인원·유료 기능 없음"
+      },
+      "configuration_reviews": [
+        {
+          "decision": "approved",
+          "target": {
+            "stage_id": "S2",
+            "stage_revision": "S2-contract-v1",
+            "configuration_version": "v1",
+            "configuration_digest": "b26e3d6421e78fcd2fe24ec552f4425fef9e58dea8570b7225d8ed52a70cbb4d"
+          },
+          "source": {
+            "kind": "chat",
+            "reference": "https://github.com/krdn/gon-development-os/issues/9#issuecomment-6714630379 (현재 대화 2026-11-08 08:43:21 KST 답변 전사)",
+            "at": "2026-11-08T08:43:21+09:00",
+            "actor": "user",
+            "recorded_by": "agent"
+          },
+          "response": "설계와 S2 구성 승인",
+          "scope": "Discussion #10 운영 설계 v1의 S1 수용과 S2 구성 v1 착수만. 위 JSON은 승인된 구성의 사후 구조화이며 새로운 승인이 아니다. S3/S4 미포함."
+        }
+      ],
+      "result": {
+        "revision": "s2-source-sha256:e205c1f854d44d3e127593ad23cd7f13890d8b21ed2db9e806ecf253ba22cdd1",
+        "summary": "S2 구성 승인·결과 수용 검사, 운영 양식·매뉴얼과 GitHub 설정 구현. 사용자 결과 검토 대기. S3 구성 제안은 현재 Codex + Opus5.5/high 외부리뷰1회.",
+        "artifacts": [
+          "https://github.com/krdn/gon-skills/pull/5",
+          "https://github.com/krdn/gon-development-os/pull/15",
+          "evidence/stage-review-s2.json (source_files 해시와 검사 범위)",
+          "https://github.com/krdn/gon-development-os/issues/11"
+        ],
+        "checks": [
+          "canonical 134검사 PASS; OS 75검사 PASS; build:all/verify:all PASS",
+          "27 브라우저회귀 PASS; 매뉴얼34쪽/목차26; 변경 안내 PC/390px 직접 확인",
+          "실제 S2 enter PASS, S3 enter BLOCKED(사용자 수용 대기) 예상대로",
+          "skills PR5 head530c7fe CI validate SUCCESS; OS CI는 PR 저장 후 이슈에서 확인"
+        ],
+        "limitations": [
+          "S2 사용자 결과 수용·S3 구성 승인 대기",
+          "Opus 5.5/high 외부 리뷰 미실행; dry-run으로 중앙 설정만 확인",
+          "main 미병합·전역 설치 미적용·릴리스 미발행",
+          "Wiki 초기 페이지와 Project 보드/로드맵/charts/workflow UI 미구성: 로그인된 브라우저 연결 없음",
+          "Issue/Discussion/PR 양식·CODEOWNERS·정기 Dependabot은 branch 준비; 기본 브랜치 화면·운영 적용 미검증",
+          "기존 public archive/이력 공개 적합성 전수 검토 미실행",
+          "동일 계정의 AI/사람 분리·인간 승인 진위 기술 증명 없음",
+          "커밋의 기존 graphify 훅 모듈 부재 경고; commit은 성공",
+          "기존 pypdf 의존성 경보 98건(두 매니페스트 합계); 자동 수정 PR14 CI 실패·미병합, 별도 후속 필요"
+        ]
+      },
+      "result_reviews": []
+    },
+    {
+      "id": "S3",
+      "revision": "S3-proposal-v1",
+      "configuration": {
+        "version": "v1-proposal",
+        "agents": [
+          {
+            "id": "coordinator",
+            "role": "현재 Codex 조정자",
+            "model": "현재 Codex 세션 설정 유지",
+            "effort": "현재 세션 설정 유지",
+            "ownership": [
+              "gon-development-os의 매뉴얼·실행 양식·GitHub 기록과 설정·스킬 사본 통합"
+            ]
+          },
+          {
+            "id": "external-review",
+            "role": "읽기 전용 외부 리뷰 1회",
+            "model": "claude-opus-5-5",
+            "effort": "high",
+            "ownership": [
+              "최종 변경·검증 결과 검토; 제품 쓰기 권한 없음"
+            ]
+          }
+        ],
+        "max_concurrency": 2,
+        "permissions": [
+          "사용자 S2결과 수용·S3구성 승인 뒤 시나리오검증·외부리뷰1회·지적수정",
+          "main 병합·전역 설치·릴리스 발행 없음"
+        ],
+        "cost_scope": "기존 외부리뷰 제공 경로의 Opus 5.5/high 호출 1회; 자동 대체·승격 없음"
+      },
+      "configuration_reviews": [],
+      "result": null,
+      "result_reviews": []
+    },
+    {
+      "id": "S4",
+      "revision": "S4-proposal-v1",
+      "configuration": {
+        "version": "v1-proposal",
+        "agents": [
+          {
+            "id": "coordinator",
+            "role": "현재 Codex 조정자",
+            "model": "현재 Codex 세션 설정 유지",
+            "effort": "현재 세션 설정 유지",
+            "ownership": [
+              "gon-development-os의 매뉴얼·실행 양식·GitHub 기록과 설정·스킬 사본 통합"
+            ]
+          }
+        ],
+        "max_concurrency": 1,
+        "permissions": [
+          "S3 결과 수용·S4 구성 승인 뒤 통합·전달",
+          "정확한 최종 설치·발행 범위는 S4 구성 검토 때 확정"
+        ],
+        "cost_scope": "현재 Codex 조정자만, 추가 모델 없음"
+      },
+      "configuration_reviews": [],
+      "result": null,
+      "result_reviews": []
+    }
+  ]
+}

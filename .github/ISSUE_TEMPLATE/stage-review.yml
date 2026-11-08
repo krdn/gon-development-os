@@ -1,0 +1,49 @@
+name: 단계 결과와 다음 구성 검토
+description: 결과 revision과 실제 사용자 답변의 근거를 연결합니다.
+title: "[단계 검토] "
+body:
+  - type: markdown
+    attributes:
+      value: "이 양식의 작성·체크와 CI 통과는 사용자 승인이 아닙니다. 실제 답변의 출처와 승인 범위를 기록하세요."
+  - type: input
+    id: stage
+    attributes:
+      label: 단계 ID와 계약 revision
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 결과 revision과 산출물·검사·미검증
+      description: 기준 이슈·Discussion·PR·CI와 AC별 근거를 연결하세요.
+    validations:
+      required: true
+  - type: textarea
+    id: configuration
+    attributes:
+      label: 다음 단계 구성안과 버전
+      description: 역할·정확한 모델/effort·소유 파일·동시 인원·권한·비용 범위. 다음 단계가 없으면 해당 없음을 적으세요.
+    validations:
+      required: true
+  - type: dropdown
+    id: review-state
+    attributes:
+      label: 결과 검토 상태
+      options:
+        - 검토대기
+        - 수용
+        - 수정요청
+        - 보류
+    validations:
+      required: true
+  - type: textarea
+    id: response
+    attributes:
+      label: 실제 사용자 답변과 출처·시각·범위
+      description: 미응답이면 미응답으로 적으세요. 대리 기록인지 사용자 직접 GitHub 답변인지 구분하세요.
+    validations:
+      required: true
+  - type: textarea
+    id: changes
+    attributes:
+      label: 추가 요청·수정·재검사·다시 검토할 revision
