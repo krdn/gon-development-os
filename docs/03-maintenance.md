@@ -27,7 +27,7 @@ git fetch https://github.com/krdn/gon-skills.git main &&
   { echo "$rev"; git ls-tree "${rev}:skills" -- gon-project-lifecycle gon-web-engineering; } > skills.lock
 ```
 
-단계별 사용자 검토 중에는 승인된 S2 검토 브랜치의 정확한 원격 커밋을 가져와 사본·잠금에 고정할 수 있습니다. 이는 main 통합이나 전역 설치가 아닙니다. S3 검증과 S4 전달 시 최종 원본 커밋을 다시 확인합니다.
+단계별 사용자 검토 중에는 승인된 S2 검토 브랜치의 정확한 원격 커밋을 가져와 사본·잠금에 고정할 수 있습니다. 이는 main 통합이나 전역 설치가 아닙니다. S3 검증과 S4 전달 시 최종 원본 커밋을 다시 확인합니다. S4에서는 gon-skills PR 병합 → 그 main 커밋으로 사본·skills.lock 갱신 → OS 전체 빌드·검사·PR 병합 → 병합된 원본의 전역 설치·대조 순서를 지킵니다. squash/rebase 전 브랜치 SHA를 최종 잠금으로 남기지 않습니다. 실패 시 이전 lock과 동기화기 백업으로 복원하고 재검증합니다.
 
 `git diff --cached -- skills`와 잠금 파일을 검토하고 전체 빌드·테스트를 실행합니다. 잠금에는 원본 커밋과 두 폴더의 Git 트리 해시가 있습니다. CI는 비공개 원본에 별도 인증을 요구하지 않고 체크아웃한 사본의 경로·내용·모드를 이 해시와 대조합니다. 원본 커밋과 해시의 연결은 위 갱신 단계에서 확인합니다.
 
@@ -97,3 +97,5 @@ node /실제/archify/bin/archify.mjs finalize workflow diagrams/workflow.json di
 ## 초보자 안내와 공통 기획 내용
 
 저장소 `guides/herdr/`의 `planning-steps.json`은 이 저장소 `manual/planning-steps.json`의 사본입니다. 전체 빌드는 공통 원본을 사본에 동기화합니다. 개별 수정 시 초보자 안내에서 `python3 validate-guide.py --manual-planning /실제/관리저장소/manual/planning-steps.json --pdf`로 일치를 검사합니다. `manual` 필드는 관리 매뉴얼의 단계 번호와 안내 문맥만 바꾸는 표시용 설정입니다. 초보자 안내의 HTML·PDF·브라우저 검사는 해당 묶음의 README를 따릅니다.
+
+의존성 PR도 원본 변경이므로 병합 전에 두 pypdf 매니페스트의 일치를 확인하고 전체 재생성·검사·산출물 커밋을 수행합니다. 이를 자동 실행하는 workflow는 아직 없습니다. pip 정기 버전 PR은 잠정 중지하고 보안 PR은 유지합니다. npm·Actions 정기 PR도 유지보수자가 검사를 끝낸 뒤 병합합니다.

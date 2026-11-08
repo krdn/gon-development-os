@@ -22,6 +22,8 @@ python3 skills/gon-project-lifecycle/scripts/stage_review.py check --file docs/s
 
 협의는 Discussion에 라운드·실제 참여자·입력 revision·제안·반론·근거·미해결·조정 결론을 남깁니다. 실행할 일은 Issues, 확정 결정은 저장소 ADR, 변경은 PR, 검사는 Actions에 연결합니다. 내부 추론 원문과 비밀값은 저장하지 않습니다. 원격을 다시 읽고 내용·상태·ID·revision이 맞을 때만 저장 완료로 보고합니다.
 
-이번 적용은 [상위 이슈 #9](https://github.com/krdn/gon-development-os/issues/9), [설계·협의 #10](https://github.com/krdn/gon-development-os/discussions/10), [S2 #11](https://github.com/krdn/gon-development-os/issues/11), [Project #18](https://github.com/users/krdn/projects/18)에 연결됩니다. 사용자는 2026-11-08 S1 설계와 S2 구성 v1만 승인했습니다. S3 검증·Opus 리뷰 및 S4 통합은 해당 단계의 사용자 검토를 기다립니다.
+이번 적용은 [상위 이슈 #9](https://github.com/krdn/gon-development-os/issues/9), [설계·협의 #10](https://github.com/krdn/gon-development-os/discussions/10), [S2 #11](https://github.com/krdn/gon-development-os/issues/11), [Project #18](https://github.com/users/krdn/projects/18)에 연결됩니다. 사용자는 2026-11-08 S1 설계와 S2 구성 v1을 승인한 뒤, 09:07:58 KST “너가 판단해서 진행해”로 이번 잔여 작업의 판단을 위임했습니다. [위임 기록](https://github.com/krdn/gon-development-os/issues/9#issuecomment-6714860018)에 따라 S3는 Codex + Opus 5.5/high 리뷰 1회, S4는 Codex만 진행합니다. 이는 사용자의 직접 결과 수용이나 향후 프로젝트 검토 생략이 아닙니다. `evidence/stage-review.json`과 `stage-review-s2.json`은 위임 전 S2 snapshot으로 보존하며, 최신 판정·검증은 단계 이슈에 남깁니다.
 
 기능별 실제 사용·예정·불가·해당 없음과 한계는 [저장소 관리 기록](../.github/project-management.md)에 있습니다. 이 문서·양식이 브랜치에 저장된 상태와 기본 브랜치 적용·설치 완료를 구분합니다.
+
+[Opus 리뷰와 지적 처리](https://github.com/krdn/gon-development-os/discussions/10#discussioncomment-19466106) · [S3 검증 근거](../evidence/stage-review-s3.json) · [최종 통합·설치](https://github.com/krdn/gon-development-os/issues/13) · [접근 환경이 필요한 후속 #16](https://github.com/krdn/gon-development-os/issues/16)
