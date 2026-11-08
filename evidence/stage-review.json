@@ -55,11 +55,11 @@
         }
       ],
       "result": {
-        "revision": "s2-source-sha256:7ec209f31811d2c53ec118dad2cd979dd3f62d0c480a08ee85282d0afea98eb6",
+        "revision": "s2-source-sha256:e205c1f854d44d3e127593ad23cd7f13890d8b21ed2db9e806ecf253ba22cdd1",
         "summary": "S2 구성 승인·결과 수용 검사, 운영 양식·매뉴얼과 GitHub 설정 구현. 사용자 결과 검토 대기. S3 구성 제안은 현재 Codex + Opus5.5/high 외부리뷰1회.",
         "artifacts": [
           "https://github.com/krdn/gon-skills/pull/5",
-          "https://github.com/krdn/gon-development-os/tree/feat/stage-user-review",
+          "https://github.com/krdn/gon-development-os/pull/15",
           "evidence/stage-review-s2.json (source_files 해시와 검사 범위)",
           "https://github.com/krdn/gon-development-os/issues/11"
         ],
@@ -77,7 +77,8 @@
           "Issue/Discussion/PR 양식·CODEOWNERS·정기 Dependabot은 branch 준비; 기본 브랜치 화면·운영 적용 미검증",
           "기존 public archive/이력 공개 적합성 전수 검토 미실행",
           "동일 계정의 AI/사람 분리·인간 승인 진위 기술 증명 없음",
-          "커밋의 기존 graphify 훅 모듈 부재 경고; commit은 성공"
+          "커밋의 기존 graphify 훅 모듈 부재 경고; commit은 성공",
+          "기존 pypdf 의존성 경보 98건(두 매니페스트 합계); 자동 수정 PR14 CI 실패·미병합, 별도 후속 필요"
         ]
       },
       "result_reviews": []

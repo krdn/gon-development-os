@@ -2,7 +2,7 @@
   "scope": "S2 구현·기초 검사와 설정 확인; S3 독립 외부 리뷰·S4 통합 아님",
   "checked_at": "2026-11-07T23:59:44.337282+00:00",
   "skills_commit": "530c7fee04f4e6418790bc4bab8d2f05118eec4b",
-  "source_manifest_sha256": "7ec209f31811d2c53ec118dad2cd979dd3f62d0c480a08ee85282d0afea98eb6",
+  "source_manifest_sha256": "e205c1f854d44d3e127593ad23cd7f13890d8b21ed2db9e806ecf253ba22cdd1",
   "source_files": {
     ".github/CODEOWNERS": "c7004502fe840c7a5f08134e0ed150f5974d6fd99aaaf1a544ab22182157137b",
     ".github/DISCUSSION_TEMPLATE/general.yml": "f327206607ec4c103d7b6f66b16225eed65484421e7d578917004ce768fafae2",
@@ -10,7 +10,7 @@
     ".github/ISSUE_TEMPLATE/stage-review.yml": "1c260594bf9543771b594c31249b1dbf837fb74ecde3997b22d71d8a06efa931",
     ".github/SECURITY.md": "f0df57373618c788032ed8585ed8ef7aa1018d80d13dfd4f5d49b9d3eb409e22",
     ".github/dependabot.yml": "a08e7645a963ecc6776fc1f08c15e263c6ddb1f4ae6c2eeaa1e5d3f171dc303e",
-    ".github/project-management.md": "d98a44831594b9aa273fa96fcdb729d710a2306a44a93889c17d28184a2848eb",
+    ".github/project-management.md": "2941bafd46540c6cb1ef75d30ed878f2bc5d10bdc081a4a59d34a9cad17fc73b",
     ".github/pull_request_template.md": "a534f150eb37f8a088d6a58fc4c021211a3ef3c946b92dde8e575d051f9abb7d",
     "CHANGELOG.md": "503450a350e569e82fbc2d23fc440dc567be1169ddc149947f733ca9970b1928",
     "README.md": "f6ecc41059b8ea300105e2bf3f72ff790d2a3949feef8c2203bdd93ecf0f42ca",
@@ -112,7 +112,8 @@
     "Issue/Discussion/PR 양식·CODEOWNERS·정기 Dependabot은 branch 준비; 기본 브랜치 화면·운영 적용 미검증",
     "기존 public archive/이력 공개 적합성 전수 검토 미실행",
     "동일 계정의 AI/사람 분리·인간 승인 진위 기술 증명 없음",
-    "커밋의 기존 graphify 훅 모듈 부재 경고; commit은 성공"
+    "커밋의 기존 graphify 훅 모듈 부재 경고; commit은 성공",
+    "기존 pypdf 의존성 경보 98건(두 매니페스트 합계); 자동 수정 PR14 CI 실패·미병합, 별도 후속 필요"
   ],
   "links": {
     "parent": "https://github.com/krdn/gon-development-os/issues/9",
@@ -120,6 +121,24 @@
     "S3": "https://github.com/krdn/gon-development-os/issues/12",
     "discussion": "https://github.com/krdn/gon-development-os/discussions/10",
     "skills_pr": "https://github.com/krdn/gon-skills/pull/5",
-    "skills_ci": "https://github.com/krdn/gon-skills/actions/runs/42427460402"
+    "skills_ci": "https://github.com/krdn/gon-skills/actions/runs/42427460402",
+    "os_pr": "https://github.com/krdn/gon-development-os/pull/15"
+  },
+  "security_observation": {
+    "checked_at": "2026-11-08T00:02:33.148940+00:00",
+    "scope": "기존 default branch 의존성 경보, 신규 코드로 도입한 경보 아님",
+    "open_alerts": 98,
+    "severity_occurrences": {
+      "high": 40,
+      "medium": 56,
+      "low": 2
+    },
+    "manifest_counts": {
+      "requirements.txt": 49,
+      "guides/herdr/requirements.txt": 49
+    },
+    "interpretation": "두 매니페스트의 pypdf 경보 합계이며 고유 취약점 98개라는 뜻이 아님",
+    "automated_pr": "https://github.com/krdn/gon-development-os/pull/14",
+    "automated_pr_ci": "FAILURE; 이번 S2 변경 PR15와 별도, 미해결·미병합"
   }
 }

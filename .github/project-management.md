@@ -30,7 +30,7 @@ Project의 `단계`, `구성 검토`, `결과 검토`를 별도 관리합니다.
 | Branch·PR·CODEOWNERS | used: 기존 PR 경로, S2 검토 브랜치. PR/CODEOWNERS 양식은 pending | 같은 계정의 담당 표시를 인간 승인 증명으로 쓰지 않음 |
 | Actions·checks·artifacts | used: 기존 Validate and build와 SHA별 기록. 새 CLI 테스트는 기존 discover 경로로 실행 | 신규 양식은 main 반영 후 운영 적용. artifact 보존 30일, 장기 근거는 repo 요약·해시 |
 | Rulesets·접근 | used: [main 규칙](https://github.com/krdn/gon-development-os/rules/26778583) active 재조회 | PR + 최신 base의 GitHub Actions `validate`, 대화 해결, force push/삭제 방지. bypass 없음. 사람 리뷰수 0은 동일 계정 한계; 사용자 수용은 별도 절차. 실제 거부 실험 미실행 |
-| Security·Dependabot | used: secret scanning·push protection·비공개 제보·취약점 알림·자동 보안 수정 설정 후 재조회 | 탐지·신고 실험은 미실행. 정기 npm/pip/Actions 갱신 설정·SECURITY.md는 branch 준비. 코드 스캔은 pending(미구성) |
+| Security·Dependabot | used: secret scanning·push protection·비공개 제보·취약점 알림·자동 보안 수정 설정 후 재조회 | 의존성 경보 98건(동일 pypdf의 두 매니페스트 합계), 자동 수정 PR #14 생성 확인. PR #14 CI 실패·미병합은 별도 후속. 비밀값 탐지·신고 실험은 미실행. 정기 갱신/SECURITY.md는 branch 준비. 코드 스캔은 pending(미구성) |
 | Tags·Releases·assets | pending: S4 전달 범위에서 초안과 실제 태그/asset을 검토 | 아직 릴리스 발행 없음. 현재 산출물은 저장소·Actions |
 | Environments·Deployments | not_applicable: 이번 S2는 제품 배포 없음 | 실제 배포가 있는 제품에서 기존 파이프라인 기록 사용 |
 | Pages·Packages | not_applicable: 이번 단계에 사이트·패키지 발행 없음 | HTML/PDF는 저장소/Actions로 전달. 공개 사이트는 별도 전달 범위 확정 |
