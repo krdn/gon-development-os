@@ -6,10 +6,18 @@ updates:
       interval: weekly
     open-pull-requests-limit: 3
   - package-ecosystem: pip
-    directory: /
+    directories:
+      - /
+      - /guides/herdr
     schedule:
       interval: weekly
-    open-pull-requests-limit: 3
+    # 산출물 재생성이 필요한 정기 버전 PR은 중지하고 보안 PR은 유지합니다.
+    open-pull-requests-limit: 0
+    groups:
+      pdf-security:
+        applies-to: security-updates
+        patterns:
+          - pypdf
   - package-ecosystem: github-actions
     directory: /
     schedule:
