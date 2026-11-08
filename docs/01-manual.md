@@ -1,6 +1,6 @@
 # Gon 프로젝트 워크플로우 실행 매뉴얼
 
-버전 1.6.0. 편집 원본은 `manual/sections.json`과 `manual/planning-steps.json`입니다. 이 파일은 자동 생성합니다.
+버전 1.6.1. 편집 원본은 `manual/sections.json`과 `manual/planning-steps.json`입니다. 이 파일은 자동 생성합니다.
 
 <a id="start"></a>
 
@@ -8,7 +8,7 @@
 
 AI와 문제를 탐색하고 근거를 조사해 방향을 정한 뒤, 필요한 개발·검증·전달로 이어간다.
 
-<div><strong>Herdr에서 프로젝트 폴더와 기획 Codex를 준비한 뒤 P1 → P5를 진행하고, 개발을 선택하면 01 → 10으로 이어가세요.</strong><p>모든 단계를 매번 별도 채팅으로 요청할 필요는 없습니다. 전체 작업을 맡기면 AI가 허용된 범위에서 이어가고, 사용자는 목표·중요한 선택·실제 결과를 확인합니다.</p></div>
+<p><b>처음 도입한다면:</b> <a href="#project-files">가져올 파일</a> → <a href="#project-edit">프로젝트별 작성 예</a> → <a href="#project-runtime">파일의 작용과 재개</a>를 먼저 읽으세요. 파일을 준비한 뒤 아래 기획·개발 단계로 진행합니다.</p><div><strong>Herdr에서 프로젝트 폴더와 기획 Codex를 준비한 뒤 P1 → P5를 진행하고, 개발을 선택하면 01 → 10으로 이어가세요.</strong><p>모든 단계를 매번 별도 채팅으로 요청할 필요는 없습니다. 전체 작업을 맡기면 AI가 허용된 범위에서 이어가고, 사용자는 목표·중요한 선택·실제 결과를 확인합니다.</p></div>
         <div>
         <a href="#planning-1"><b>새 아이디어·프로젝트</b><span>P1 문답 → 리서치·판단 → P5 기획 인계</span></a>
         <a href="#step-01"><b>기존 프로젝트</b><span>01에서 현재 코드·문서 확인 → 남은 단계</span></a>
@@ -28,6 +28,84 @@ AI와 문제를 탐색하고 근거를 조사해 방향을 정한 뒤, 필요한
 웹 프로젝트라면 사용 가능한 gon-web-engineering 지침도 적용해줘.
 새 주 모델과 협업 작업자를 열 때 Codex·Gemini는 --yolo, Claude·Opus·Fable은 --dangerously-skip-permissions를 넣어줘.
 기존 문서가 있으면 그대로 이어 쓰고 마지막에 다음 행동을 남겨줘.</pre></div><p>대괄호 안을 실제 값으로 바꾸세요. “배포 준비”는 운영 환경 변경을 포함하지 않습니다. 이미 실제 배포를 요청하고 대상·범위가 명확하다면 같은 권한을 단계마다 다시 묻지 않습니다.</p><p><b>이 판은 P1부터 개발까지 Herdr + Codex CLI로 통일합니다.</b> 기획 탭 A는 주 기획, B는 선택적인 독립 조사, C는 파일 확인용 쉘입니다. 기획 P1~P5는 같은 세션을 유지하고, P5 확정 뒤 개발 탭의 새 Codex가 문서를 읽어 시작합니다.</p>
+
+<a id="project-files"></a>
+
+## 내 프로젝트로 가져올 파일을 고른다
+
+Herdr 방식의 새 프로젝트는 실행 문서 두 개로 시작한다. 전문 스킬은 실행할 컴퓨터에 설치하고, 기획·상태 문서는 진행하며 채운다.
+
+<h3>세 위치를 먼저 구분한다</h3><p><b>gon-development-os</b>는 지금 읽는 매뉴얼·실행 양식의 원본이다. <b>gon-skills</b>는 전문 스킬의 개발·설치 원본이다. <b>내 제품 프로젝트</b>는 아이디어·코드·검사 결과를 저장할 별도 폴더다. 아래의 가져오기는 제품 폴더에 필요한 실행 문서를 배치하는 작업이다.</p><div><table><thead><tr><th>원본 경로</th><th>제품 프로젝트의 위치</th><th>가져오는 때와 수정 범위</th></tr></thead><tbody><tr><td><a href="../templates/herdr-project/HERDR-PROJECT.md">templates/herdr-project/<br>HERDR-PROJECT.md</a></td><td><code>HERDR-PROJECT.md</code></td><td><b>Herdr 실행 양식을 사용할 때 처음 복사.</b> 사용자 입력의 아이디어·목표·제약·허용 행동을 채운다. 단계·인계 규칙은 기본값을 읽고 필요한 합의만 반영한다.</td></tr><tr><td><a href="../templates/herdr-project/HERDR-OPERATIONS.md">templates/herdr-project/<br>HERDR-OPERATIONS.md</a></td><td><code>HERDR-OPERATIONS.md</code></td><td><b>위 파일과 함께 복사.</b> 명령·작업지시서·결과·STATE 양식이다. 처음에 모든 예시 ID를 수정하지 않는다. AI가 실행할 때 현재 경로·ID·모델로 치환한다.</td></tr><tr><td><a href="../guides/herdr/templates/PROJECT-BRIEF.md">guides/herdr/templates/<br>PROJECT-BRIEF.md</a></td><td><code>docs/PROJECT-BRIEF.md</code></td><td><b>P5에서 선택.</b> 빈 틀이 필요하면 복사하고, AI가 P1~P4의 확정 내용을 채운다. 기존 명세가 있으면 그 파일을 연결한다.</td></tr><tr><td><a href="../guides/orca/README.md">guides/orca/README.md<br>(templates/ 양식 안내)</a></td><td><code>docs/research/</code>, <code>docs/PROJECT-BRIEF.md</code>, <code>docs/TASKS.md</code>, <code>docs/STATE.md</code> 등</td><td><b>Orca 경로를 선택할 때.</b> S0부터 따라가며 필요한 양식만 사용한다. WORKER-SPEC은 실제 위임이 있을 때 작성한다.</td></tr><tr><td><a href="../docs/02-skills.md">gon-skills의 전문 스킬</a></td><td>Codex가 실행되는 컴퓨터의 스킬 설치 경로</td><td><b>설치.</b> OS 저장소의 <code>skills/</code>를 제품 폴더에 복사하는 것으로 설치를 대신하지 않는다. 동기화 미리보기·반영·검사와 새 세션의 인식을 확인한다.</td></tr></tbody></table></div><h3>제품 폴더에 그대로 복사하지 않는 것</h3><p>이 저장소 루트의 <code>AGENTS.md</code>·<code>README.md</code>·<code>package.json</code>·<code>scripts/</code>는 <b>개발 OS 매뉴얼을 관리하고 빌드하는 설정</b>이다. 제품의 지침·실행 명령으로 덮어쓰지 않는다. <code>manual/</code>·<code>dist/</code>·<code>guides/</code>의 HTML/PDF는 읽거나 매뉴얼을 고칠 때 사용한다. <code>examples/exam-ocr/</code>의 목표·승인·과거 결과도 새 프로젝트의 사실로 복사하지 않는다.</p><h3>실행 문서 두 개 복사</h3><p>원본이 없다면 먼저 <a href="../README.md">저장소 내려받기 안내</a> 또는 <a href="../docs/05-rebuild-workflow.md">clone 안내</a>로 준비한다. 아래 첫 두 변수의 빈 문자열을 원본과 제품의 실제 절대경로로 채운 뒤 <b>셸</b>에서 실행한다. 비워두면 복사하지 않고 안내를 출력한다. 원격 Herdr에서는 Codex가 실행되는 컴퓨터에 두 경로가 있어야 한다.</p><div><div><b>셸에서 실행 · 경로를 먼저 수정</b></div><pre>workflow_src=&quot;&quot;
+project_dir=&quot;&quot;
+if [ -z &quot;$workflow_src&quot; ] || [ -z &quot;$project_dir&quot; ]; then
+  printf &#x27;%s\n&#x27; &#x27;먼저 workflow_src와 project_dir에 실제 경로를 채우세요.&#x27; &gt;&amp;2
+  false
+elif [ ! -f &quot;$workflow_src/templates/herdr-project/HERDR-PROJECT.md&quot; ] ||
+     [ ! -f &quot;$workflow_src/templates/herdr-project/HERDR-OPERATIONS.md&quot; ]; then
+  printf &#x27;%s\n&#x27; &#x27;실행 문서가 없습니다. 원본 경로와 내려받은 파일을 확인하세요.&#x27; &gt;&amp;2
+  false
+else
+  mkdir -p &quot;$project_dir&quot; &amp;&amp;
+  cp -i &quot;$workflow_src/templates/herdr-project/HERDR-PROJECT.md&quot; \
+        &quot;$workflow_src/templates/herdr-project/HERDR-OPERATIONS.md&quot; \
+        &quot;$project_dir/&quot;
+fi</pre></div><p><code>cp -i</code>가 덮어쓰기를 물으면 기존 입력이 있는 파일은 <code>n</code>으로 보존하고 아래 명령으로 차이를 확인한다. 사용자의 아이디어·권한·기존 수정은 남기고 필요한 새 규칙만 직접 또는 AI의 도움으로 병합한다. 복사 거절은 환경에 따라 종료코드 1일 수 있으므로 파일 보존 여부를 확인한다. 처음에는 두 파일만 있어도 된다. 기획·상태 파일을 빈 내용으로 한꺼번에 만들지 않는다.</p><div><div><b>기존 파일과 원본 비교 · 앞에서 설정한 경로 사용</b></div><pre>diff -u &quot;$workflow_src/templates/herdr-project/HERDR-PROJECT.md&quot; &quot;$project_dir/HERDR-PROJECT.md&quot;
+diff -u &quot;$workflow_src/templates/herdr-project/HERDR-OPERATIONS.md&quot; &quot;$project_dir/HERDR-OPERATIONS.md&quot;</pre></div><p><code>diff</code>는 파일을 수정하지 않는다. 차이가 있으면 종료코드 1, 같으면 0이며 파일을 읽지 못한 오류와 구분한다.</p><p><b>확인:</b> 두 실행 문서를 제품 폴더에서 열 수 있고, 원본 매뉴얼 폴더와 제품 폴더가 구분되면 <a href="#project-edit">다음 절의 사용자 입력</a>을 작성한다. 별도 <code>ai-engineering-os</code>의 계약·CLI를 사용할 경우에는 <a href="#aeos-files">AEOS 파일 도입</a>을 따른다.</p>
+
+<a id="project-edit"></a>
+
+## 가져온 파일을 내 프로젝트에 맞게 작성한다
+
+사용자는 목표와 중요한 제약을 정한다. AI는 그 답을 요구사항·검사 기준·실행 기록으로 구체화한다.
+
+<h3>HERDR-PROJECT.md에서 먼저 바꿀 부분</h3><div><table><thead><tr><th>사용자 입력 항목</th><th>작성할 내용</th><th>작성 예</th></tr></thead><tbody><tr><td>프로젝트 아이디어·사용자</td><td>누가 어떤 일을 할 수 있게 만들지</td><td>개인이 브라우저에서 할 일을 기록하고 완료 표시한다.</td></tr><tr><td>필수 기능·제외 기능</td><td>이번에 구현할 동작과 이번에 하지 않을 일</td><td>추가·완료·삭제·새로고침 후 유지. 로그인·공유는 제외.</td></tr><tr><td>기술·기한·비용·데이터</td><td>이미 정해진 조건만 기록하고 나머지는 미정으로 둔다</td><td>기술 미정. 로컬 저장. 유료 외부 API 사용 없음.</td></tr><tr><td>완료 목표</td><td>사람이 실제로 해보고 성공 여부를 판단할 행동</td><td>추가한 항목을 완료·삭제하고 새로고침 후 상태가 유지되는지 확인.</td></tr><tr><td>GitHub·배포 대상 및 허용 행동</td><td>실제 저장소·환경과 허용한 동작</td><td>로컬 검증까지만. 원격 저장·운영 배포는 미지정.</td></tr><tr><td>모델·effort·동시 협업 상한</td><td>직접 지정할 조건이 있을 때 작성</td><td>직접 지정 없음이면 현행 정책 적용. 협업 상한은 허용된 인원의 한도이며 즉시 생성할 인원이 아니다.</td></tr><tr><td>AI 판단·사용자 직접 결정 범위</td><td>AI에 맡기는 가역적인 결정과 사용자가 직접 판단할 경계를 구분</td><td>기술·구현의 가역 선택은 AI에 맡기고, 단계 수용·구성 승인·비용·권한·배포는 사용자 판단으로 유지.</td></tr></tbody></table></div><div><div><b>HERDR-PROJECT.md의 사용자 입력에 넣는 예시</b></div><pre>프로젝트 아이디어: 개인 할 일 관리 웹앱
+누가 어떤 문제를 해결하는가: 내가 해야 할 일을 브라우저에서 관리한다.
+꼭 필요한 기능 또는 사용 예: 할 일 추가, 완료 표시, 삭제, 새로고침 후 유지
+제외할 기능: 로그인, 다른 사람과 공유, 알림, 결제
+기존 코드 또는 참고자료: 없음
+기술·기한·비용·데이터 제약: 로컬 실행. 유료 API 사용 없음. 기술은 아직 미정.
+완료 목표: 위 네 동작을 브라우저에서 확인하고 실행·재개 방법을 남긴다.
+GitHub 대상 및 허용 행동: 미지정
+배포 대상 및 허용 행동: 미지정
+직접 지정할 모델 또는 effort: 없음
+동시 협업 모델 수 상한: 2
+AI 판단에 맡길 범위: 목표를 보존하는 가역적인 기술·구현 결정
+사용자가 직접 결정할 범위: 각 단계 결과 수용과 에이전트 구성 승인, 핵심 목표 변경, 비용 증액, 공개 범위, 계정·권한, 운영 배포</pre></div><p>예시는 작성 방법을 보여준다. 위 내용을 자신의 목표로 바꿔야 한다. 기존 실행 계약에 있는 나머지 규칙은 보존하고, 운영 방식을 바꿀 필요가 있을 때 해당 항목만 협의한다. 미지정인 GitHub·배포 항목을 AI가 허용된 것으로 채우면 안 된다.</p><h3>HERDR-OPERATIONS.md는 어떻게 수정하는가</h3><p>기본적으로 실행 부록을 그대로 둔다. 문서의 <code>PROJECT</code>, <code>MODEL_ID</code>, <code>TERMINAL_ID</code>는 명령 예시의 자리표시자다. AI가 현재 도움말·환경을 확인하고 필요한 명령을 실행할 때 실제 값으로 바꾼다. 예시 전체를 전역 치환하거나 이전 프로젝트의 terminal ID를 저장하지 않는다. 실제 작업지시서는 <code>docs/ai/tasks/T001.md</code>, 결과는 지정한 결과 파일, 현재 상태는 <code>docs/STATE.md</code>에 따로 기록한다.</p><h3>기존 AGENTS.md와 연결한다</h3><p>프로젝트에 <code>AGENTS.md</code>가 있으면 현재 지침을 읽고 아래와 같은 <b>진입 문서 안내만 필요한 범위에서 병합</b>한다. 이 저장소 루트의 AGENTS를 복사하지 않는다. AGENTS가 없는 작은 작업은 첫 요청에서 문서를 지정하는 것으로 시작할 수 있다.</p><div><div><b>제품 프로젝트 AGENTS.md에 병합할 수 있는 안내</b></div><pre>이 프로젝트의 실행 기준은 HERDR-PROJECT.md와 HERDR-OPERATIONS.md다.
+작업 시작·재개 시 두 문서와 기존 docs/STATE.md를 실제로 읽는다.
+제품 요구사항은 docs/PROJECT-BRIEF.md 또는 STATE가 가리키는 기존 명세를 따른다.
+기존 코드·기술·미커밋 변경을 보존한다.
+현재 단계의 구성 승인·결과 수용·명시적 위임 근거를 확인한다.
+승인 대기(awaiting_user)인 작업은 필요한 사용자 답변을 요청하고, 이미 허용된 독립 작업만 진행한다.
+허용된 범위에서 첫 미완료 수용 기준부터 수행한다.
+실행한 검사와 미검증, 다음 행동을 상태 기록에 남긴다.</pre></div><h3>첫 요청에서 실제 읽기를 연결한다</h3><p>두 Markdown 파일을 복사한 것만으로 에이전트나 앱이 실행되지는 않는다. 제품 폴더에서 Codex를 열고 다음 요청을 <b>대화 입력칸</b>에 넣는다. 전문 스킬이 보이지 않으면 실행할 컴퓨터의 설치부터 확인한다.</p><div><div><b>Codex 첫 요청</b></div><pre>$gon-project-lifecycle
+현재 제품 폴더의 HERDR-PROJECT.md와 HERDR-OPERATIONS.md를 실제로 읽어.
+컴퓨터·프로젝트 절대경로·기존 변경·현재 제공되는 스킬을 확인해.
+내 사용자 입력에서 목표·제외 범위·완료 조건·권한을 요약하고 필요한 단계부터 시작해.
+이미 PROJECT-BRIEF와 STATE가 있으면 그 기준의 첫 미완료 작업부터 이어가.
+웹 작업에서는 gon-web-engineering의 실제 지침과 관련 참조를 적용해.
+단계 구성·결과 검토는 실행 계약에 따라 승인·수용·명시적 위임 근거를 확인해.
+승인 대기(awaiting_user)인 작업은 사용자 답변을 요청하고 이미 허용된 독립 작업만 진행해.
+읽은 스킬·수행한 작업·검사 근거·다음 행동을 docs/STATE.md에 남겨.</pre></div><p><b>확인:</b> 첫 답변의 컴퓨터·폴더·목표·허용 범위가 내 입력과 맞아야 한다. 파일을 읽은 상태와 실제 작업·검사를 수행한 상태는 구분해 기록한다.</p>
+
+<a id="project-runtime"></a>
+
+## 파일이 작업과 다음 세션을 연결하는 방식
+
+실행 문서는 진행 규칙, 기획서는 만들 대상, 작업·결과 파일은 수행 범위와 증거, STATE는 다음 행동을 연결한다.
+
+<div><div><b>사용자 입력</b><span>HERDR-PROJECT<br>목표·범위·권한</span></div><i>→</i><div><b>AI가 지침을 읽음</b><span>OPERATIONS + 스킬<br>현재 단계의 행동</span></div><i>→</i><div><b>실행·검사</b><span>BRIEF → 코드 → 결과<br>수용 기준과 대조</span></div><i>→</i><div><b>재개·인계</b><span>STATE + 증거 링크<br>첫 미완료 작업</span></div></div><h3>파일별 작성자와 읽는 시점</h3><div><table><thead><tr><th>파일</th><th>누가 언제 작성·수정하는가</th><th>AI가 읽고 수행하는 일</th></tr></thead><tbody><tr><td><code>HERDR-PROJECT.md</code></td><td>사용자가 아이디어·제약·권한을 작성. 중요한 목표 변경 시 실제 결정 반영.</td><td>시작·단계 전환·재개 때 목표, 허용 범위, 스킬 배정, 검토·완료 조건을 확인.</td></tr><tr><td><code>HERDR-OPERATIONS.md</code></td><td>기본 실행 부록을 복사. 필요한 운영 규칙을 합의해 수정.</td><td>명령 사용법·인계 절차·작업지시서·STATE 양식을 참조. AI가 도구를 호출해야 실행된다.</td></tr><tr><td>설치된 스킬의 <code>SKILL.md</code>와 <code>references/</code></td><td>스킬 원본에서 관리하고 동기화기로 설치.</td><td>lifecycle은 단계·기록·인계를, web-engineering은 관련 웹 구현·검사를 안내. 프로젝트 규칙과 현재 기술을 함께 확인.</td></tr><tr><td><code>docs/research/</code><br><code>01-problem.md</code> 문제 정의<br><code>02-research-plan.md</code> 조사 계획<br><code>03-evidence.md</code> 근거<br><code>04-decision.md</code> 결정</td><td>AI가 P1~P4에서 사용자 답변·출처·조사·결정 기록. 사용자가 중요한 선택을 확인.</td><td>추측을 확정 요구로 바꾸지 않고 P5 명세와 기술 선택의 근거로 사용.</td></tr><tr><td><code>docs/PROJECT-BRIEF.md</code></td><td>AI가 P5에서 요구 R번호·수용 기준 AC번호·제외 범위·첫 작업 작성. 사용자 검토와 변경 이력 연결.</td><td>개발 세션이 무엇을 구현하고 어떤 동작을 검사할지 판단. Herdr에서는 제품 명세 역할을 하므로 같은 내용의 PRODUCT를 중복 생성하지 않는다.</td></tr><tr><td><code>docs/ARCHITECTURE.md</code><br><code>docs/PLAN.md</code> 또는 기존 동등 문서</td><td>구조·작업 계획이 필요한 규모에서 AI가 작성하고 실제 결정·진행에 맞춰 갱신.</td><td>데이터·API 경계와 작업 순서 확인. 기존 이슈·계획이 있으면 그 기준을 연결.</td></tr><tr><td><code>docs/ai/tasks/T001.md</code></td><td>실제 위임이 있을 때 주 모델이 목표·입력·소유 파일·검사·결과 경로를 작성.</td><td>작업자가 지정 범위만 수행. 이 파일이 존재한다고 작업자가 자동 생성되지는 않는다.</td></tr><tr><td>작업지시서가 지정한 결과 파일<br>예: <code>docs/ai/results/T001.md</code></td><td>작업자가 실제 변경·검사·실패·미검증·근거를 작성.</td><td>주 모델이 직접 읽고 코드·검사와 대조한 뒤 통합 여부 판단. 결과 경로만 받은 상태는 검증 완료가 아니다.</td></tr><tr><td><code>docs/STATE.md</code></td><td>주 모델이 실제 진행·검사·차단·다음 행동·근거 링크를 갱신.</td><td>다음 세션이 현재 Git·파일·작업자와 대조하고 첫 미완료 작업부터 재개. 인계 중 쓰기 책임도 확인.</td></tr><tr><td>제품의 <code>README.md</code></td><td>AI가 실제로 확인한 설치·실행·검사·운영 방법을 정리.</td><td>사용자와 다음 개발자가 제품을 실행. OS 매뉴얼의 npm 명령을 제품 명령으로 복사하지 않는다.</td></tr></tbody></table></div><p>번호는 문서별로 다를 수 있다. 예를 들어 이 매뉴얼의 06 구현은 HERDR 실행 계약의 05 최소 구현에 해당한다. STATE에는 기준 문서와 단계 이름을 함께 적어 혼동을 피한다.</p><h3>할 일 저장 기능 하나가 문서 사이를 이동하는 예</h3><ol><li><b>입력:</b> HERDR-PROJECT에 “새로고침 후에도 할 일 유지”를 적는다.</li><li><b>P1~P4:</b> 대상 사용자·저장 범위·데이터 제약을 확인하고 로컬 저장 방식을 선택한 근거를 남긴다.</li><li><b>P5:</b> BRIEF에 R01 “할 일 저장”, AC01 “항목 추가 → 새로고침 → 동일 항목 확인”을 기록한다. P5 결과 수용과 다음 개발 구성 승인의 실제 답변을 연결한 뒤 구현으로 넘어간다. 명시적 위임이 있다면 그 범위와 근거를 구분해 기록한다.</li><li><b>구현:</b> AI가 기존 코드를 확인해 저장 처리를 만든다. 별도 위임이 없다면 주 모델이 직접 수행한다.</li><li><b>검사:</b> 실제 브라우저에서 AC01을 수행하고 입력·대상 revision·결과·증거를 기록한다. 코드를 작성한 사실만으로 AC01을 PASS로 쓰지 않는다.</li><li><b>인계:</b> STATE에 AC01 결과와 다음 미완료 기준을 연결한다. 새 세션은 BRIEF와 결과를 대조해 이어간다.</li></ol><div><div><b>설명용 STATE 예시 · 실제 검사 전 상태</b></div><pre>현재 단계: HERDR 실행 계약 05 최소 구현 (이 매뉴얼 06 구현에 해당)
+기준 명세: docs/PROJECT-BRIEF.md / R01·AC01
+구현: 할 일 저장 코드 초안 작성
+검사: AC01 NOT_RUN — 브라우저 확인 전
+다음 행동: 항목 추가 → 새로고침 → 동일 항목 유지 확인
+GitHub: not_requested — 현재 목표는 로컬 검증
+재개에 읽을 파일: 두 실행 문서, PROJECT-BRIEF, STATE, 변경 코드</pre></div><h3>도구와 Markdown 문서의 역할</h3><p>Markdown은 AI가 읽는 작업 기준이다. 실제 파일 수정·명령 실행·브라우저 검사는 AI와 실행 도구가 수행한다. HTML 안내서의 복사 버튼은 글을 클립보드에 넣는다. Herdr·Orca 단계별 안내서의 체크 표시는 안내서의 확인 상태를 저장한다. 제품 코드·작업자·배포가 자동으로 실행되는 기능으로 해석하지 않는다.</p><p>GitHub가 연결된 작업에서는 계약·결정·코드는 저장소, 할 일은 Issues/Projects, 협의는 Discussions, 변경·검사는 PR/Actions를 기준으로 삼는다. STATE에는 실제 링크와 다음 작업을 요약한다. 로컬만 요청했으면 <code>not_requested</code>, 원격 저장이 필요하지만 아직 안 됐으면 <code>pending_sync</code>로 구분한다.</p><h3>기존 프로젝트 도입과 업데이트</h3><ol><li>현재 README·AGENTS·명세·계획·상태 문서와 미커밋 변경을 먼저 읽는다.</li><li>실행 문서가 없으면 두 양식을 추가하고, 이미 있으면 새 원본과 비교해 필요한 절만 병합한다.</li><li>SPEC·STATUS 등 기존 문서가 같은 역할이면 이름을 바꾸거나 중복 만들지 않고 실행 문서·STATE에서 그 경로를 연결한다.</li><li>스킬 업데이트는 별도 원본의 동기화 절차로 수행한다. 제품 폴더의 아이디어·승인·진행 기록이 자동 갱신되는 것은 아니다.</li><li>재개 요청에서 실제 파일·Git·활성 작업자·결과를 읽고 첫 미완료 작업을 선택한다. 이전 주 모델이 살아 있으면 인계 회신과 쓰기 책임 전환을 먼저 확인한다.</li></ol><div><div><b>Codex 재개 요청</b></div><pre>$gon-project-lifecycle
+HERDR-PROJECT.md, HERDR-OPERATIONS.md와 docs/STATE.md를 읽고 재개해.
+STATE가 가리키는 제품 명세와 검사 근거를 실제 파일·Git 상태와 대조해.
+현재 주 모델·기존 작업자를 확인하고, 인계가 필요하면 쓰기 책임 전환부터 처리해.
+현재 단계의 구성 승인·결과 수용·명시적 위임 근거를 확인해.
+승인 대기(awaiting_user)인 작업은 사용자 답변을 요청하고 이미 허용된 독립 작업만 진행해.
+기존 목표·기술·권한을 유지하며 허용된 첫 미완료 수용 기준의 작업을 수행해.</pre></div>
 
 <a id="map"></a>
 
@@ -178,10 +256,10 @@ docs/STATE.md에 최종 문서 경로·기획 세션 이름·남은 미정·개�
 
 다음 채팅에서도 같은 기준을 읽고 같은 검사를 실행할 수 있게 만든다.
 
-<div><b>작업 위치</b> 실제 프로젝트 폴더를 연 Codex · 기준 GitHub 저장소</div><p>GitHub 저장소를 관리 기록의 기준으로 삼고 기능별 적용·불가·대체 기록을 관리 문서에 남긴다. 로컬 준비만 허용되거나 접근할 수 없으면 pending_sync로 구분한다.</p><h3>사용자가 준비할 것</h3><p>저장할 위치를 정한다. 새 원격 저장소 생성이 필요한 경우 이름과 공개 범위를 명확히 한다. 기존 프로젝트는 기존 문서·CI를 유지한다.</p><h3>AI가 수행할 순서</h3><ol><li>일반 프로젝트와 AEOS 구조 중 현재 상황에 맞는 한 가지를 선택한다. 같은 내용을 두 문서 체계에 중복 작성하지 않는다.</li><li>기존 문서가 없고 필요할 때만 AGENTS·README·PRODUCT·ARCHITECTURE·PLAN·STATE와 GitHub 관리 매핑을 구성한다. AI가 실제 내용과 명령을 채운다.</li><li>매니페스트·잠금 파일·CI에서 실제 설치·실행·검사 방법을 확인하고 실행 가능한 최소 환경을 만든다.</li><li>착수 전 검사 결과를 기록해 기존 실패와 새 회귀를 구분한다. 비밀값 대신 안전한 설정 방법만 문서화한다.</li></ol><div><div><h3>받아야 할 결과</h3><ul><li>문서 진입점과 실제 프로젝트 기준 문서</li><li>실행·검사 방법과 초기 결과</li><li>첫 작업의 선행 환경 조건</li></ul></div><div><h3>다음 단계로 가는 기준</h3><p>다음 작업자가 문서 위치를 알고 필요한 명령을 실행할 수 있으면 05로 간다. 틀 생성만으로 내용 구성이 완료되지는 않는다.</p></div></div><div><div><b>그대로 사용할 요청문</b></div><pre>이 프로젝트의 기존 문서와 개발 환경을 기준으로 작업 기반을 정리해줘.
+<p>실제 복사 대상과 제품별 작성은 <a href="#project-files">파일 도입 안내</a>, 문서의 작성자·읽는 시점은 <a href="#project-runtime">파일 작용 안내</a>를 참고하세요.</p><div><b>작업 위치</b> 실제 프로젝트 폴더를 연 Codex · 기준 GitHub 저장소</div><p>GitHub 저장소를 관리 기록의 기준으로 삼고 기능별 적용·불가·대체 기록을 관리 문서에 남긴다. 로컬 준비만 허용되거나 접근할 수 없으면 pending_sync로 구분한다.</p><h3>사용자가 준비할 것</h3><p>저장할 위치를 정한다. 새 원격 저장소 생성이 필요한 경우 이름과 공개 범위를 명확히 한다. 기존 프로젝트는 기존 문서·CI를 유지한다.</p><h3>AI가 수행할 순서</h3><ol><li>일반 프로젝트와 AEOS 구조 중 현재 상황에 맞는 한 가지를 선택한다. 같은 내용을 두 문서 체계에 중복 작성하지 않는다.</li><li>기존 문서가 없고 필요할 때만 AGENTS·README·제품 명세·ARCHITECTURE·PLAN·STATE와 GitHub 관리 매핑을 구성한다. Herdr 경로의 제품 명세는 기존 PROJECT-BRIEF를 사용하고, 별도 명세가 없는 일반 프로젝트에서만 PRODUCT를 기본안으로 삼는다. AI가 실제 내용과 명령을 채운다.</li><li>매니페스트·잠금 파일·CI에서 실제 설치·실행·검사 방법을 확인하고 실행 가능한 최소 환경을 만든다.</li><li>착수 전 검사 결과를 기록해 기존 실패와 새 회귀를 구분한다. 비밀값 대신 안전한 설정 방법만 문서화한다.</li></ol><div><div><h3>받아야 할 결과</h3><ul><li>문서 진입점과 실제 프로젝트 기준 문서</li><li>실행·검사 방법과 초기 결과</li><li>첫 작업의 선행 환경 조건</li></ul></div><div><h3>다음 단계로 가는 기준</h3><p>다음 작업자가 문서 위치를 알고 필요한 명령을 실행할 수 있으면 05로 간다. 틀 생성만으로 내용 구성이 완료되지는 않는다.</p></div></div><div><div><b>그대로 사용할 요청문</b></div><pre>이 프로젝트의 기존 문서와 개발 환경을 기준으로 작업 기반을 정리해줘.
 같은 역할의 문서를 중복 생성하지 말고 필요한 내용만 보완해줘.
 실제 설치·실행·검사 명령을 확인하고 기준선 결과를 기록해줘.
-앱 구현까지 요청된 범위이므로 문서 정리 후 첫 기능으로 이어가줘.</pre></div><div><b>예시</b><p>일반 프로젝트는 docs/PRODUCT.md 등에 기록한다. .ai/contracts·.ai/tasks·scripts/aeos.py가 보이면 AEOS 도입 상태를 확인하고 기존 체계를 이어 쓴다.</p></div><p><b>막히면</b> 문서 생성기가 기존 파일을 감지하면 내용을 읽어 직접 연결한다. 경로 충돌·심볼릭 링크는 의도한 물리 경로를 확인한다. 설치되지 않은 명령을 실행 가능한 것으로 적지 않는다.</p>
+앱 구현까지 요청된 범위이므로 문서 정리 후 첫 기능으로 이어가줘.</pre></div><div><b>예시</b><p>Herdr 경로는 docs/PROJECT-BRIEF.md를 제품 명세로 사용한다. 별도 명세가 없는 일반 프로젝트는 docs/PRODUCT.md 등을 사용한다. .ai/contracts·.ai/tasks·scripts/aeos.py가 보이면 AEOS 도입 상태를 확인하고 기존 체계를 이어 쓴다.</p></div><p><b>막히면</b> 문서 생성기가 기존 파일을 감지하면 내용을 읽어 직접 연결한다. 경로 충돌·심볼릭 링크는 의도한 물리 경로를 확인한다. 설치되지 않은 명령을 실행 가능한 것으로 적지 않는다.</p>
 
 <a id="step-05"></a>
 
@@ -291,12 +369,20 @@ FAIL은 원인을 수정한 뒤 해당 검사를 다시 실행해줘.
 
 이미 .ai 계약을 사용하거나 템플릿 도입을 선택했다면 같은 Core를 유지한다. 일반 문서 구조로 다시 초기화하지 않는다.
 
-<div><table><thead><tr><th>내용</th><th>일반 프로젝트</th><th>AEOS</th></tr></thead><tbody><tr><td>제품 목적·범위</td><td>docs/PRODUCT.md 또는 기존 명세</td><td>PROJECT.md</td></tr><tr><td>행동·검증 규칙</td><td>AGENTS.md</td><td>AGENTS.md</td></tr><tr><td>구조·인터페이스</td><td>docs/ARCHITECTURE.md</td><td>ARCHITECT.md</td></tr><tr><td>작업 입력</td><td>PLAN/이슈와 관련 문서</td><td>TASK.md + CONTEXT.md</td></tr><tr><td>구현·검증 결과</td><td>STATE/이슈/PR와 증거</td><td>RESULT.md + EVAL.md</td></tr><tr><td>검토·수용 판단</td><td>실제 리뷰·PR 승인 기록</td><td>REVIEW.md + DECISION.md</td></tr></tbody></table></div><h3>첫 작업의 실제 순서</h3><ol><li>자신의 프로젝트 저장소에서 README·PROJECT·AGENTS·ARCHITECT를 읽고 제품 목적에 맞춘다. 템플릿 원본에 제품 코드를 작성하지 않는다.</li><li>도구를 쓸 경우 현재 scripts/aeos.py와 의존 파일, 도움말을 확인한다. 수동 문서 사용은 별도 registry 승격 없이 가능하다.</li><li>사용하지 않은 작업 ID로 여섯 계약의 틀을 만든다. 처음에는 TASK와 CONTEXT만 채운다.</li><li>현재 AI가 계약을 읽고 구현·검증한 결과를 RESULT와 EVAL에 기록한다.</li><li>REVIEW와 최종 DECISION은 실제 독립 검토자 또는 사람이 담당한다. 실제로 없는 승인을 꾸며 쓰지 않는다.</li><li>요청된 커밋·PR·CI·통합·배포를 거쳐 다음 작업으로 간다.</li></ol><div><div><b>AEOS 저장소 루트에서 사용할 명령 형식</b></div><pre>python3 scripts/aeos.py --help
+<p>새로 도입한다면 <a href="#aeos-files">AEOS에서 가져올 파일·수정할 내용·계약별 역할</a>을 먼저 확인하세요.</p><div><table><thead><tr><th>내용</th><th>일반 프로젝트</th><th>AEOS</th></tr></thead><tbody><tr><td>제품 목적·범위</td><td>docs/PRODUCT.md 또는 기존 명세</td><td>PROJECT.md</td></tr><tr><td>행동·검증 규칙</td><td>AGENTS.md</td><td>AGENTS.md</td></tr><tr><td>구조·인터페이스</td><td>docs/ARCHITECTURE.md</td><td>ARCHITECT.md</td></tr><tr><td>작업 입력</td><td>PLAN/이슈와 관련 문서</td><td>TASK.md + CONTEXT.md</td></tr><tr><td>구현·검증 결과</td><td>STATE/이슈/PR와 증거</td><td>RESULT.md + EVAL.md</td></tr><tr><td>검토·수용 판단</td><td>실제 리뷰·PR 승인 기록</td><td>REVIEW.md + DECISION.md</td></tr></tbody></table></div><h3>첫 작업의 실제 순서</h3><ol><li>자신의 프로젝트 저장소에서 README·PROJECT·AGENTS·ARCHITECT를 읽고 제품 목적에 맞춘다. 템플릿 원본에 제품 코드를 작성하지 않는다.</li><li>도구를 쓸 경우 현재 scripts/aeos.py와 의존 파일, 도움말을 확인한다. 수동 문서 사용은 별도 registry 승격 없이 가능하다.</li><li>사용하지 않은 작업 ID로 여섯 계약의 틀을 만든다. 처음에는 TASK와 CONTEXT만 채운다.</li><li>현재 AI가 계약을 읽고 구현·검증한 결과를 RESULT와 EVAL에 기록한다.</li><li>REVIEW와 최종 DECISION은 실제 독립 검토자 또는 사람이 담당한다. 실제로 없는 승인을 꾸며 쓰지 않는다.</li><li>요청된 커밋·PR·CI·통합·배포를 거쳐 다음 작업으로 간다.</li></ol><div><div><b>AEOS 저장소 루트에서 사용할 명령 형식</b></div><pre>python3 scripts/aeos.py --help
 python3 scripts/aeos.py validate
 python3 scripts/aeos.py new-task TASK-001
 
 # 선택 사항: 작업 입력을 초안 문서로 묶기
 python3 scripts/aeos.py packet TASK-001 --runtime standalone --allow-unverified</pre></div><p>Python 3.11+와 현재 CLI 의존성이 필요합니다. TASK-001은 예시이며 기존 ID가 있으면 새 ID를 고르세요. 실제 프로젝트의 도움말이 이 예시보다 우선합니다.</p><div><table><thead><tr><th>성공 표시</th><th>실제로 의미하는 것</th></tr></thead><tbody><tr><td>validate PASS</td><td>registry·이력·증거 구조가 일관됨. 제품 테스트나 모델 접속 검사가 아님.</td></tr><tr><td>new-task 성공</td><td>작업 문서 6개 생성. 내용 완성이나 구현 완료가 아님.</td></tr><tr><td>DRAFT ONLY packet</td><td>입력 문서를 표준 출력으로 묶음. AI 호출·현재 모델 변경·후보 모델 승격을 하지 않음.</td></tr><tr><td>ACCEPT</td><td>수용 판단 기록. 별도의 배포나 외부 메시지 전송 권한을 추가하지 않음.</td></tr></tbody></table></div><p>Standalone과 Orca는 같은 계약을 사용할 수 있습니다. Orca 워커 실행은 별도 요청과 현재 런타임 가이드가 있을 때 연결합니다. 기본 시작을 위해 병렬 워커나 모델 qualification을 먼저 구축할 필요는 없습니다.</p><p>근거: gon-project-lifecycle/references/aeos.md와 기존 템플릿의 docs/01-getting-started.md. 주가 예측 예제는 선택 참고 자료이며 제품 기능이나 필수 도입 요소가 아닙니다.</p>
+
+<a id="aeos-files"></a>
+
+## 선택 경로인 AI Engineering OS의 파일을 도입한다
+
+별도 krdn/ai-engineering-os의 Core 계약을 사용할 때 적용한다. 앞의 Herdr 실행 양식만으로 시작하는 프로젝트에는 이 파일 묶음이 필수는 아니다.
+
+<p><b>배치 기준:</b> 원본 저장소 루트 기준의 상대 경로를 제품 저장소 루트의 같은 경로에 둔다. 예: 원본 <code>.ai/contracts/TASK.md</code> → 제품 <code>.ai/contracts/TASK.md</code>. 기존 파일은 비교·병합하고, 아래 작업별 기록 폴더는 원본에서 가져오지 않는다. 원본 확보는 <a href="https://github.com/krdn/ai-engineering-os/tree/6b98898648b0579be1b421b010cd9247aba4c5c7">확인한 커밋의 전체 파일</a>을 내려받거나 <a href="https://github.com/krdn/ai-engineering-os/blob/6b98898648b0579be1b421b010cd9247aba4c5c7/docs/01-getting-started.md">새 제품 저장소 시작 안내</a>를 따른다.</p><p>이 절의 원본은 <b>gon-development-os가 아닌 별도 ai-engineering-os 저장소</b>다. 파일 관계는 로컬에서 확인한 커밋 <code>6b98898648b0579be1b421b010cd9247aba4c5c7</code>을 기준으로 설명한다. 다른 버전은 해당 README·도입 안내·CLI 의존성을 다시 확인한다.</p><div><table><thead><tr><th>가져올 파일 또는 폴더</th><th>내 프로젝트에서 바꿀 내용</th><th>작용 방식</th></tr></thead><tbody><tr><td><code>PROJECT.md</code></td><td>보일러플레이트 설명을 내 제품 목적·입출력·범위·완료 기준·실제 검사 명령으로 교체.</td><td>각 TASK가 따라야 하는 제품 기준. 기존 명세가 있으면 기준 경로를 연결.</td></tr><tr><td><code>AGENTS.md</code></td><td>기존 규칙과 병합하고 제품별 금지 변경·검사·리뷰 조건을 반영.</td><td>AI의 행동 규칙. 현재 프로젝트의 지침을 통째로 덮어쓰지 않는다.</td></tr><tr><td><code>ARCHITECT.md</code></td><td>필요한 Core 규칙을 보존하며 내 모듈·데이터·인터페이스 경계를 작성.</td><td>구현이 지켜야 할 구조와 변경 영향 판단 기준.</td></tr><tr><td><code>.ai/contracts/</code></td><td>여섯 계약 틀을 원래 경로에 복사. 개별 작업 내용은 tasks에 작성.</td><td>TASK·CONTEXT·RESULT·EVAL·REVIEW·DECISION의 공통 양식.</td></tr><tr><td><code>.ai/tasks/TASK-001/</code><br><b>원본에서 가져오지 않음</b></td><td>제품 폴더에서 new-task 또는 계약 양식 복사로 새 작업마다 생성. 처음에는 TASK와 CONTEXT만 실제 값으로 작성.</td><td>작업별 요구·실행·검사·수용 기록을 보존. 다른 작업의 결과를 새 작업에 복사하지 않는다.</td></tr><tr><td><code>.ai/policies/</code>·<code>.ai/roles/</code>·<code>.ai/runtime/</code></td><td>선택한 운영 방식에 필요한 참조 경로를 보존하고 현재 정책과 충돌을 확인.</td><td>규칙·역할·Standalone/Orca 실행 안내. 폴더 복사만으로 작업자 실행은 발생하지 않는다.</td></tr><tr><td><code>.ai/models/</code>·<code>.ai/evals/</code></td><td>CLI를 사용할 때는 registry와 참조 guide·history·evidence를 함께 유지. 현재 모델로 자동 승격하지 않는다.</td><td>모델 후보·역할·검증 근거를 관리. 기록이 실제 현재 세션의 모델을 바꾸지는 않는다.</td></tr><tr><td><code>scripts/aeos.py</code></td><td>CLI 사용 시 <code>.ai/models/registry.json</code>·관련 guide/evidence·루트 문서·계약 파일을 원래 상대 경로로 함께 도입. <code>new-task</code>도 registry 검사를 먼저 수행한다.</td><td>validate는 무결성 검사, new-task는 계약 복사, packet은 입력 묶음 출력. 제품 구현·모델 호출은 별도.</td></tr><tr><td><code>.github/workflows/</code>·<code>.gitignore</code></td><td>기존 CI와 무시 규칙에 필요한 부분만 병합. 실제 제품 테스트 유지.</td><td>검사 자동화와 임시·민감 파일 제외. 워크플로 파일 복사만으로 branch 보호가 설정되지는 않는다.</td></tr></tbody></table></div><p><code>examples/stock-forecast/</code>와 예제 생성기는 선택 참고 자료다. 예제를 가져오지 않으면 그것을 요구하는 예제 테스트도 함께 복사하지 않는다. CLI를 쓰는 경우 일부 파일만 임의로 가져오지 말고 <a href="https://github.com/krdn/ai-engineering-os/blob/6b98898648b0579be1b421b010cd9247aba4c5c7/docs/03-adopting-existing-project.md">기존 프로젝트 도입 안내</a>의 의존성을 확인한다. 문서를 수동으로 읽고 작업하는 경로는 별도 모델 registry 승격 없이 사용할 수 있다.</p><h3>계약 파일 여섯 개는 언제 채우는가</h3><div><table><thead><tr><th>순서·파일</th><th>작성 내용과 담당</th></tr></thead><tbody><tr><td>1. TASK.md</td><td>주 담당자가 목표·수정 허용 파일·금지 범위·수용 기준·검사를 정한다. 예: “CSV 날짜 형식 오류를 거부한다.”</td></tr><tr><td>2. CONTEXT.md</td><td>주 담당자가 관련 코드·기준 커밋·확정 규칙·자료 출처·미정을 연결한다. AI가 입력을 추측하지 않도록 한다.</td></tr><tr><td>3. RESULT.md</td><td>구현자가 실제 바뀐 파일·동작·남은 문제를 기록한다.</td></tr><tr><td>4. EVAL.md</td><td>구현자가 실행 명령·대상 revision·결과·증거를 기록한다. 미실행은 NOT_RUN으로 남긴다.</td></tr><tr><td>5. REVIEW.md</td><td>사람 또는 실제 독립 검토자가 요구·코드·검사 근거를 확인한다. 구현자의 자기 점검을 독립 승인으로 바꾸지 않는다.</td></tr><tr><td>6. DECISION.md</td><td>실제 승인 주체가 수용·재작업·보류와 후속 조치를 결정한다. 수용 기록이 배포 권한을 추가하지 않는다.</td></tr></tbody></table></div><p>공통 <code>.ai/contracts/</code>는 양식이고, <code>.ai/tasks/작업ID/</code>는 그 작업의 기록이다. 앞 절의 CLI로 틀을 만들거나 수동으로 복사한 뒤 내용을 채운다. 두 체계를 함께 쓰면 Herdr 문서는 실행·인계를, AEOS의 PROJECT/ARCHITECT/계약은 제품·작업의 기준을 맡기고 STATE에는 해당 경로만 연결한다. 같은 요구와 결과를 BRIEF·PRODUCT·TASK에 서로 다르게 중복 관리하지 않는다.</p>
 
 <a id="types"></a>
 
