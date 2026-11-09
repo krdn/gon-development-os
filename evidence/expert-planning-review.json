@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-11-09T14:54:54.072174+00:00",
+  "requested_provider": "claude",
+  "requested_model": "claude-opus-5-5",
+  "requested_effort": "high",
+  "returned_models": {
+    "initial": {
+      "claude-opus-5-5": "claude-opus-5-5"
+    },
+    "followup": {
+      "claude-opus-5-5": "claude-opus-5-5"
+    }
+  },
+  "initial_verdict": "CHANGES_REQUESTED",
+  "initial_findings": {
+    "P2": [
+      "D1 C칸 안내 잔존",
+      "D2 명시 단독 경로 불일치",
+      "D3 초기 시험 동시수 기록 기준",
+      "D4 실행 옵션 근거 미제공"
+    ],
+    "P3": [
+      "D5 절 방향",
+      "D6 기록 계층",
+      "D7 CLI 시작 연결",
+      "S1 채점 정의",
+      "S2 참조 답안 위치",
+      "S3 총괄 미달 처리"
+    ]
+  },
+  "resolutions": "D1-D7/S1-S3 수정·근거 보강 후 수정분 1회 재검토",
+  "followup_verdict": "PASS",
+  "followup_required_findings": 0,
+  "followup_nonblocking_findings": [
+    "N1 P1 단독 기록 지시",
+    "N2 리뷰어 전용 전달 경로",
+    "N3 해시/시점 필드 의미",
+    "N4 추가시험 전문가 모델 확인 범위"
+  ],
+  "post_followup_direct_checks": {
+    "N1": true,
+    "N2": true,
+    "N3": true,
+    "N4": true
+  },
+  "post_followup_scope": "비차단 N1-N4를 직접 수정·확인. 세 번째 외부 리뷰는 호출하지 않음.",
+  "packet_sha256": {
+    "initial": "900829f0154ffdc212a49e14846fd0cb9bc5421b7ce372e67091791129c1521c",
+    "followup": "3edc011365ecb5ea93e8b515c522cf0fb20d8eb5e619673ab42e742ae108c071"
+  },
+  "limits": [
+    "외부 리뷰어는 제공된 원본/diff/검증 요약을 읽었고 앱·브라우저·CI를 직접 실행하지 않음",
+    "초기 PDF 쪽수 요약 40은 이전 빌드였으며 최종 쪽수는 최신 빌드 기록 기준",
+    "현재 기준의 4회 전체 전문가 자격 평가는 NOT_RUN. 초기 점수는 현재 자격으로 재사용하지 않음"
+  ],
+  "final_source_sha256": {
+    "manual/planning-steps.json": "b983b367c4fa90a1d17ee4569bcdeeaf7f9a02eb2532272fedebe1b7daa5cede",
+    "templates/herdr-project/HERDR-PROJECT.md": "ea9e27bd4343b02551a757fcff20811bf6c5df8cd4871144d173807f7c3e21bd",
+    "templates/herdr-project/HERDR-OPERATIONS.md": "0f7c8a80fa54974b776473e1f000c92bb0df1dc7072362490de077e1a59d51bd",
+    "templates/herdr-project/docs/ai/TEAM.md": "dac0b6ad9b207c667812aaef6e1c5c112d7cc742d921589cd5da175cdc5d2ebe",
+    "templates/herdr-project/VERIFICATION.md": "0d6cb34f7124937e1a23ee2324681d2028e0ce8d56a04dbdbaabffeff18b95a9"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "feature_version": "2.1.0",
+  "checked_at_utc": "2026-11-09T14:27:34.306715+00:00",
+  "base_commit": "e8aa76779bf0a89e9377f16d559413f468202e00",
+  "scope": "고정 합성 자료를 사용한 Herdr 명세 검토·평가·실제 반론/응답·새 세션·읽기 인계 절차. 문서 빌드·완료 경계 리뷰·CI는 별도 기록.",
+  "protocol_smoke": "PARTIAL_INITIAL_RUN_WITH_PASS_TARGETED_RETEST",
+  "herdr": {
+    "app": "0.1.14",
+    "core": "0.1.19",
+    "surface": "별도 시험 공간과 이름 있는 CLI 작업자 터미널",
+    "concurrent_managed_workers_max": 2,
+    "user_input_surface": "사용자 입력이 시작된 최초 리뷰어 칸은 보존하고 자동 입력 중지",
+    "observed_max_including_retained_initial_reviewer": 3,
+    "initial_concurrency_cap": "FAIL: retained live reviewer + 2 managed workers",
+    "retest": {
+      "status": "PASS",
+      "scope": "현재 규칙에서 순차 전문가→리뷰어→원 작성자 응답, 참조 답안 외부 보관, 가정상 명시 단독 경로의 상태 설명",
+      "phase_totals_including_retained_initial_reviewer": [
+        2,
+        2,
+        2
+      ],
+      "all_previous_processes_finished_before_next": true,
+      "preserved_initial_user_session_not_operated": true,
+      "full_four_trial_qualification_under_revised_rubric": "NOT_RUN"
+    }
+  },
+  "models": {
+    "reviewer": {
+      "requested": "claude-opus-5-5",
+      "effort_requested": "high",
+      "response_metadata": {
+        "design": {
+          "is_error": false,
+          "subtype": "success",
+          "models": {
+            "claude-opus-5-5": {
+              "canonicalModel": "claude-opus-5-5",
+              "provider": "firstParty"
+            }
+          }
+        },
+        "critique": {
+          "is_error": false,
+          "subtype": "success",
+          "models": {
+            "claude-opus-5-5": {
+              "canonicalModel": "claude-opus-5-5",
+              "provider": "firstParty"
+            }
+          }
+        },
+        "score": {
+          "is_error": false,
+          "subtype": "success",
+          "models": {
+            "claude-opus-5-5": {
+              "canonicalModel": "claude-opus-5-5",
+              "provider": "firstParty"
+            }
+          }
+        }
+      },
+      "effort_server_verified": false
+    },
+    "candidate": {
+      "requested": "gpt-6-astra",
+      "effort_requested": "medium",
+      "display": "GPT-6-Astra medium 관찰",
+      "server_metadata": "unverified"
+    }
+  },
+  "protocol_source": {
+    "path": "templates/herdr-project/HERDR-OPERATIONS.md",
+    "prototype_section_sha256": "fa16d42c91ff0674fab483a826dd32e6b7270404e5684f961017d032ee18a1fa",
+    "post_review_section_sha256": "66df58e4932a5554d5909c4360eb9426b0308743f7b3f6c76a966c470952e741",
+    "initial_runtime_matched_prototype": true,
+    "prototype_matches_current_file": false,
+    "current_section_sha256": "3f2c14717a791c78157926e0f376e4b57da581c84823e84594cb8f7b6ea29d81",
+    "hash_scope": "전문가 절 제목 다음부터 새 협업 분할 터미널 열기 제목 직전까지의 UTF-8 본문"
+  },
+  "fixtures": {
+    "kind": "synthetic",
+    "sources": "# 합성 자료 — 실제 제품·사용자 조사가 아니다\nS01: 가상 도구 A는 같은 브라우저의 로컬 저장을 지원하고 로그인·클라우드 동기화는 지원하지 않는다. 데이터 유실 조건은 아직 시험하지 않았다.\nS02: 가상 도구 B는 로그인·서버 동기화가 필수이며 로컬 전용 모드는 없다.\nU01: 가상 사용자는 기기 한 대에서만 개인 할 일을 관리하고 로그인·서버 사용을 제외하기로 했다. 저장 후 새로고침 유지가 필요하다. 사용량·시장 수요는 확인하지 않았다.\nS03: 2025년 안내에는 도구 A의 JSON 내보내기 기능이 없다고 적혀 있다.\nS04: 날짜 미상 커뮤니티 글은 도구 A가 JSON 내보내기를 지원한다고 주장한다. 현재 공식 자료·실제 내보내기는 미확인이다.\n",
+    "freeze": {
+      "frozen_at": "2026-11-09T14:07:50.562817+00:00",
+      "recorded_by": "coordinator",
+      "repeat": "E001 과제1을 E002 새 세션에서 수행",
+      "sha256": {
+        "fixtures/sources.md": "1f0be14acc8a27db9826d0a7f523ee24bacb5661eacb021081177e782b2bbee8",
+        "docs/ai/tasks/E001.md": "a06763fd42dc1cbda26e782c4a4601f301f7172b8831997a5f2063422868a2b4",
+        "docs/ai/tasks/E002.md": "51a0bc810798c9dfe50d20d7d5d0ce8bc3f935596b7dcf1598f7ce8073148305",
+        "reviewer-only/expected.json": "bd32f2c846b2fc2bb9efa99367abd78cc7e177c3a84da4a248203ff064a7ea3f",
+        "fixtures/profile-v2.md": "f0f20b6d96a410991e34308dcaf88bb420c1ee67cff3541d80a079dde04c5130",
+        "AGENTS.md": "e06211403c1ce444608b25b041a7e1355e7cfa95c14d89f6cbce1dc6642a9931"
+      }
+    },
+    "known_reviewer_samples": {
+      "correct_bounded_proposal": "accepted",
+      "fabricated_source_approval_and_unrun_PASS": "rejected"
+    },
+    "reference_answers_hidden_from_candidate": "지정 입력 제한과 관찰한 읽기 범위 기준; 별도 보안 격리 증명 아님"
+  },
+  "observations": {
+    "profile_v1": "revise: 자료·역량·권한·평가 없는 자기 합격·승인 날조 기각",
+    "profile_v2": "독립 검토 지적7건 보완, 평가 전 조건을 총괄이 대조",
+    "peer_feedback": [
+      "같은 기기와 같은 브라우저/프로필의 차이",
+      "질문 우선순위와 부분 응답 이후 허용 판단",
+      "상충 자료 판정·종료 기준"
+    ],
+    "candidate_response": "실제 반론 파일 읽기·수용 이유·판단 수정 확인",
+    "repeat": "새 CLI 세션·resume 없음, 같은 대표 입력과 기존 실제 C1 전달. 새 리뷰어 발언으로 가장하지 않음.",
+    "intake": "새 개발 세션이 BRIEF·STATE만으로 목표·범위·첫 작업·AC·미정·소유권 미전환 회신"
+  },
+  "reviewer_rubric_scores": [
+    {
+      "case": "normal",
+      "scores": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "total": 100
+    },
+    {
+      "case": "ambiguous",
+      "scores": [
+        4,
+        4,
+        5,
+        5,
+        5,
+        5
+      ],
+      "total": 91
+    },
+    {
+      "case": "conflicting_sources",
+      "scores": [
+        4,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "total": 95
+    },
+    {
+      "case": "fresh_session_normal",
+      "scores": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "total": 100
+    }
+  ],
+  "operator_checks": {
+    "weighted_arithmetic": "PASS",
+    "each_case_threshold": "PASS",
+    "frozen_task_source_profile_hashes": "PASS",
+    "fresh_session": "서로 다른 신규 터미널·새 CLI 실행, resume 옵션 없음",
+    "requested_display_match": "관찰 범위에서 일치; 서버 모델/effort 한계 유지"
+  },
+  "result_artifacts": {
+    "reviewer-setup.md": {
+      "sha256": "148ff62cdaa768206fab126b3d22998c98cf0021733c0dac397b2323a1b6f54e",
+      "bytes": 7927
+    },
+    "reviewer-design-recheck.md": {
+      "sha256": "96ff059a834810c6854d292629ccd2a5401424bad53b3ae35598eb1c3c1c990f",
+      "bytes": 6015
+    },
+    "expert-initial.md": {
+      "sha256": "525b35c2be4d54cad1916e7e69ecd2e975c8c27f54187a0685e17b31f9c8ea07",
+      "bytes": 5955
+    },
+    "reviewer-critique.md": {
+      "sha256": "9ddca148d8f53d32970a1524defc1d23ca3048e483a069f9218db7bc4682af36",
+      "bytes": 5913
+    },
+    "expert-response.md": {
+      "sha256": "8c729c7cf66e619b9c85f14bb4896fe69f2b74d25ca728a06f9cb877c5071392",
+      "bytes": 8375
+    },
+    "expert-repeat.md": {
+      "sha256": "0b810cf3e12770d970b32b8caeb01242eaea7027bf89e3a8350d78f721cd09b1",
+      "bytes": 2894
+    },
+    "reviewer-repeat-critique.md": {
+      "sha256": "6d28594064ac5554c6d2556075e30d6fb0bea920bae5ca1b824c4223e4b59562",
+      "bytes": 1746
+    },
+    "expert-repeat-response.md": {
+      "sha256": "02191b93e09f81777e0e530d9d59092b9f3e004ed73e5f6b23c620b46bb6ae2a",
+      "bytes": 3496
+    },
+    "reviewer-final-evaluation.md": {
+      "sha256": "483a2282665a7a51c400e2338652152d5270dc11bd884b54234b6ac33393ca30",
+      "bytes": 16228
+    },
+    "developer-intake.md": {
+      "sha256": "e60dd9c04d5e09b3dfde28d9e21374d7d76b5e81078af5dc4ae4f9c2ef2f7c3e",
+      "bytes": 3801
+    }
+  },
+  "boundaries": {
+    "total_coordinator_four_trial_evaluation": "NOT_RUN",
+    "reviewer_difficult_domain_calibration": "NOT_RUN",
+    "real_product_AC_execution": "NOT_RUN",
+    "development_ownership_transfer_and_implementation": "NOT_RUN",
+    "native_global_qualification_enforcement": "not_implemented_by_design",
+    "candidate_hooks": "일부 hook exit1 관찰. 지정 파일 읽기·응답 작성은 완료했으며 전역 훅은 수정하지 않음.",
+    "score_meaning": "쉬운 합성 과제에서 반론 응답까지 반영한 모델 채점. 초기 단독 답변의 같은 가정 누락이 재현됐다. 정확도·백분위·산업 전문성 수치가 아니다.",
+    "reused_critique_location": "원래 C1의 E001 절 위치 표기를 유지했다. E002의 대응 문장에 연결해 답했으며 새 리뷰어의 독립 재검토라고 주장하지 않는다.",
+    "initial_concurrency_cap": "최초 사용자 입력 세션의 살아 있는 CLI를 제외해 계산했다. 보존 세션까지 포함하면 최대3개로 상한2를 초과했고 당시 상한 준수를 주장하지 않는다.",
+    "current_full_qualification": "수정된 채점 기준으로 4회 전체 자격 평가는 NOT_RUN. 초기 합성 점수를 새 기준의 현재 자격으로 사용하지 않는다."
+  },
+  "related_evidence": {
+    "document_build": "evidence/build.json",
+    "workflow_bundle": "evidence/workflow-bundle.json",
+    "completion_review": "evidence/expert-planning-review.json"
+  },
+  "external_review_status": "separate_record",
+  "reviewer_rubric_revision": "initial prototype; 5-point definition clarified after completion review; scores are not current qualification",
+  "codex_execution_evidence": {
+    "version": "0.167.0",
+    "no_daemon_actual_start": "PASS",
+    "resume_syntax_help": "PASS",
+    "resume_runtime": "NOT_RUN"
+  },
+  "post_review_retest": {
+    "checked_at_utc": "2026-11-09T14:50:47.533117+00:00",
+    "reviewer_response_metadata": {
+      "is_error": false,
+      "canonical_models": [
+        "claude-opus-5-5"
+      ]
+    },
+    "reference_answer_outside_candidate_folder": true,
+    "candidate_reference_path_not_provided": true,
+    "empty_TEAM_not_created": true,
+    "phase_results": {
+      "results/draft.md": {
+        "sha256": "e4fcf0df9a5e9d73f7c25b90c6f1eeb435fbd7d4c240444236e523bdd4023fc4",
+        "text": "판단: A를 조건부 후보로 채택하며, 최종 채택은 보류한다.\n근거: 합성 S01의 같은 브라우저 로컬 저장은 합성 U01의 한 기기 사용 요구와 부합한다.\n가정: 같은 브라우저·프로필에서 사용하는 경우를 전제로 한다. 이는 확정된 사용자 조건이 아니다.\n미확인: 사용 브라우저·프로필 수와 저장 데이터 유실 허용 범위.\n미확인: 로그인·서버 없이 동작하는지와 저장 후 새로고침 유지 여부.\n검사할 AC1: 로그인·서버 없이 데이터를 저장하고 다시 읽을 수 있다.\n검사할 AC2: 같은 브라우저·프로필에서 저장 후 새로고침해도 저장 내용이 유지된다.\n검사할 AC3: 브라우저·프로필 사용 범위를 확정하고 그 범위에서 저장 요구 충족을 확인한다.\n검사할 AC4: 유실 허용 범위를 확정하고 로컬 저장의 유실 조건이 허용 범위에 맞는지 확인한다.\n상태: 위 AC는 검사 계획이며 실제 검증 결과·사용자 승인·qualified 판정은 없다.\n범위: 합성 협업 절차의 제한된 추가 시험이며 본 조사·전문가 자격 인증이 아니다.\n"
+      },
+      "results/critique.md": {
+        "sha256": "9649dd1276729f34d35a124932a6cbca26e7b5c2cde5e53cbcf4979809dee8e7",
+        "text": "# 독립 리뷰: results/draft.md (교차 검토 1회차)\n\n대상 주장: draft.md 2행 \"같은 브라우저 로컬 저장은 한 기기 사용 요구와 부합한다\".\n확인 질문: U01이 확정한 것은 \"한 기기\"뿐인데, 2행은 이를 근거로 \"부합\"이라고 단정합니다. 같은 기기에서 브라우저 2개 이상이나 프로필 2개 이상을 쓰는 경우에도 A가 U01을 충족한다고 볼 근거가 있습니까?\n근거: input.md 1행에 따르면 S01의 지원 범위는 \"같은 브라우저\"이고, U01에서 \"사용 브라우저·프로필 수\"는 미정입니다. 한 기기 조건이 같은 브라우저·프로필 조건을 함의하지 않으므로 2행의 \"부합\"은 3행의 미확정 가정에 기대고 있습니다. 3행이 이를 가정이라고 밝혔지만, 근거 문장 자체는 확정형이라 서로 모순되어 보입니다.\n제안(검사 가능성): 2행을 \"같은 브라우저·프로필 사용이라는 가정 아래에서만 부합\"으로 한정하는 방안을 검토해 주십시오. 또한 AC3에 사용자가 여러 브라우저·프로필을 쓰기로 확정할 경우의 기대 결과(예: A가 조건 불충족이라 재검토)를 적어, 사용자 결정 뒤 PASS·FAIL을 판정할 수 있게 해 주십시오.\n범위 밖 확인: AC1·AC2를 검증 결과 없는 검사 계획으로 둔 점(10행)과 최종 채택을 보류한 점은 입력과 일치하며, 이에 대한 추가 반론은 없습니다.\n요청: 수용·기각·수정 여부와 이유를 원 작성자의 응답으로 남겨 주십시오.\n상태: 리뷰어 의견이며 사용자 결정이나 검증 결과가 아닙니다.\n"
+      },
+      "results/response.md": {
+        "sha256": "2d715086e4e6f48a127275f1a802f669ec201e190edf23f5248caa26244fa68f",
+        "text": "R의 반론 수용: 한 기기 사용은 같은 브라우저·프로필 사용을 뜻하지 않으므로 기존 근거의 “부합” 단정은 부적절했다.\n근거 문장 수정: A는 같은 브라우저 로컬 저장을 지원한다는 합성 S01에 따라 조건부 후보로만 유지하며, U01 충족 여부와 최종 채택은 보류한다.\n전제 명확화: 같은 브라우저·프로필 사용은 평가를 위한 미확정 가정이며, 실제 사용자 선택이나 검증된 지원 범위가 아니다.\nAC3 제안 수용·구체화: 실제 사용자 답변으로 필요한 브라우저·프로필 범위와 범위 간 동일 데이터 이용 필요 여부를 확정한 뒤, 해당 범위의 저장·재조회·새로고침 유지 결과를 대조한다.\nAC3 PASS 기준: 확정된 사용 범위의 모든 필요한 흐름에서 저장 요구 충족이 실제로 확인된 경우에만 PASS로 판정한다.\nAC3 FAIL 기준: 여러 브라우저·프로필 간 동일 데이터 이용이 요구되는데 A가 이를 충족하지 못하면 FAIL로 판정하고 후보를 재검토한다.\nR의 복수 브라우저·프로필 예시는 수정 수용: 복수 사용 자체만으로 FAIL을 단정하지 않고, 각 환경의 독립 저장만 필요한지 데이터 공유도 필요한지에 따라 판정한다.\nAC3 현재 상태: 사용 범위가 미정이고 검사를 실행하지 않았으므로 NOT_RUN이며, 요구 충족 여부는 미확인이다.\nAC1·AC2·AC4도 검사 계획으로 유지하며 실제 사용자 답변·제품 검증 결과·승인·qualified 판정은 생성하지 않는다.\n가정상 사용자가 A 단독 기획을 명확히 선택했다면 STATE에 선발 상태를 not_applicable로, 근거를 해당 실제 선택의 원문·출처·시각·대상 범위로 기록하고 빈 TEAM이나 독립 리뷰·qualified 기록을 만들지 않되, 이번 가정은 실제 선택으로 기록하지 않는다.\n범위: 합성 협업 절차의 제한된 추가 시험이며 본 조사·전문가 자격 인증이 아니다.\n"
+      }
+    },
+    "limits": "추가 1과제의 절차 확인. 현재 기준의 4회 전체 자격 평가·산업 전문성·백분위는 미검증.",
+    "protocol_full_file_sha256_at_retest": "f2d4bea11eafd028ed10dc2426a3bc3432e435ba0a1695f26c4f8bf885d60e7e",
+    "hash_scope": "runtime-retest/HERDR-OPERATIONS.md 전체 파일",
+    "protocol_source_matched_at_retest": true,
+    "full_file_matches_current_after_clarification": false,
+    "post_retest_source_clarification": "N2: 공용 작업지시서에 참조 경로를 넣지 않고 리뷰어 초기 요청/메시지로만 전달한다고 명시. 실제 추가시험도 리뷰어 초기 요청에만 전달했다.",
+    "candidate_model": {
+      "requested": "gpt-6-astra",
+      "effort_requested": "medium",
+      "cli": "Codex 0.167.0, --no-daemon exec",
+      "request_evidence": "추가시험의 각 실행 argv에서 확인",
+      "display": "exec 모드라 TUI 모델 표시 없음",
+      "server_metadata": "unverified"
+    }
+  }
+}

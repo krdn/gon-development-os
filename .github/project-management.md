@@ -1,5 +1,11 @@
 # GitHub 기준 기록과 적용 현황
 
+## 2.1.0 전문가 기획 협업
+
+[전문가 설계·리뷰·평가 도입 #24](https://github.com/krdn/gon-development-os/issues/24)를 Project #18과 연결한다. 2026-11-09 현재 대화에서 사용자가 도입 판단을 위임하고 main 병합·push를 요청했다. 이는 에이전트가 옮긴 범위 기록이며 GitHub 사용자 직접 승인 리뷰가 아니다. 구성은 기존 협업자 상한 2명과 역할별 파일 소유권을 유지한다. 소스·문서 생성·실제 Herdr 시험·완료 경계 리뷰·PR CI·main 통합을 나누어 기록하고 해당 이슈·PR/Actions에서 원격 상태를 재조회한다. 기존 아래 단계 기록은 당시 작업의 근거로 보존한다.
+
+## 1.6.0 기준 기록
+
 확인일: 2026-11-08. 기준 작업 [#9](https://github.com/krdn/gon-development-os/issues/9), 설계/협의 [#10](https://github.com/krdn/gon-development-os/discussions/10), [Project #18](https://github.com/users/krdn/projects/18), [1.6.0 Milestone](https://github.com/krdn/gon-development-os/milestone/1).
 
 OS는 공통 운영 표준, `krdn/gon-skills`는 스킬 원본입니다. 개별 제품의 설계·작업·협의는 해당 저장소에 남깁니다. OCR 원본과 사용자 자료를 이번 작업으로 원격 이전하지 않습니다.

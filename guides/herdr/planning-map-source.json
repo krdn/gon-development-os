@@ -474,7 +474,7 @@
       "lane": "ask",
       "col": 1,
       "label": "P2 조사 설계",
-      "sublabel": "조사 질문과 방법",
+      "sublabel": "명세·리뷰·실무 평가",
       "type": "frontend",
       "width": 175,
       "height": 64
@@ -484,7 +484,7 @@
       "lane": "ask",
       "col": 2,
       "label": "P3 근거 조사",
-      "sublabel": "출처와 근거 저장",
+      "sublabel": "합격 역할 · 근거 확인",
       "type": "frontend",
       "width": 175,
       "height": 64
@@ -494,7 +494,7 @@
       "lane": "decide",
       "col": 1,
       "label": "P4 대안과 검증",
-      "sublabel": "선택과 이유 저장",
+      "sublabel": "실제 반론 · 응답 · 결정",
       "type": "frontend",
       "width": 175,
       "height": 64
@@ -504,7 +504,7 @@
       "lane": "decide",
       "col": 0,
       "label": "P5 기획 인계",
-      "sublabel": "최종 문서 확정",
+      "sublabel": "독립 결과 검토 · 인계",
       "type": "frontend",
       "width": 175,
       "height": 64
@@ -528,6 +528,16 @@
       "type": "backend",
       "width": 175,
       "height": 64
+    },
+    {
+      "id": "expert-hold",
+      "lane": "ask",
+      "col": 3,
+      "label": "선발 보완·보류",
+      "sublabel": "미해결은 합격 아님",
+      "type": "security",
+      "width": 148,
+      "height": 68
     }
   ],
   "edges": [
@@ -541,7 +551,8 @@
       "id": "do-research",
       "from": "p2",
       "to": "p3",
-      "variant": "emphasis"
+      "variant": "emphasis",
+      "label": "선발·단독 확인"
     },
     {
       "id": "compare",
@@ -579,8 +590,7 @@
       "variant": "security",
       "role": "return",
       "fromSide": "right",
-      "toSide": "right",
-      "route": "outside-right"
+      "toSide": "right"
     },
     {
       "id": "reframe",
@@ -607,6 +617,22 @@
       "label": "조사 범위 조정",
       "variant": "dashed",
       "role": "return"
+    },
+    {
+      "id": "expert-not-qualified",
+      "from": "p2",
+      "to": "expert-hold",
+      "label": "선발 미충족",
+      "variant": "security",
+      "role": "error"
+    },
+    {
+      "id": "expert-reassess",
+      "from": "expert-hold",
+      "to": "p2",
+      "label": "보완·재평가",
+      "variant": "dashed",
+      "role": "return"
     }
   ],
   "cards": [
@@ -624,6 +650,17 @@
       "items": [
         "P4에서 중요한 가정 하나를 실제로 확인하고, 부족하면 P3 또는 P1로 돌아간다.",
         "기획이 이미 명확한 작업은 필요한 개발 단계로 바로 시작한다."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "프로젝트별 전문가 선발과 협의",
+      "items": [
+        "총괄이 명세 작성 → 별도 리뷰어 검토 → 실제 과제 평가",
+        "기본 동시 협업자 2명 · 승인된 역할 교대 · 현재 명세에 유효한 합격만 본 조사",
+        "P3~P4는 실제 반론·응답 · P5는 독립 결과 검토",
+        "보완·토론 한도는 미해결 · AI 합의와 사용자 승인 구분",
+        "실제 허용된 단독 기획은 A가 조사 · 선발 not_applicable · 실패 우회 금지"
       ]
     }
   ]

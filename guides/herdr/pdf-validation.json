@@ -4,13 +4,13 @@
   "diagram_bindings": "PASS",
   "pdf": {
     "guide.pdf": {
-      "pages": 39,
-      "complete_prompts": 44,
+      "pages": 41,
+      "complete_prompts": 43,
       "all_titles_and_full_prompts": "PASS"
     },
     "project-guide.pdf": {
-      "pages": 39,
-      "complete_prompts": 44,
+      "pages": 41,
+      "complete_prompts": 43,
       "all_titles_and_full_prompts": "PASS"
     }
   }
