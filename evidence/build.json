@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "built_at_utc": "2026-11-09T01:28:29.771269+00:00",
+  "built_at_utc": "2026-11-09T01:47:53.382647+00:00",
   "checks": {
     "pdf_pages": 45,
     "bookmarks": 29,
@@ -158,14 +158,14 @@
   ],
   "sources": {
     "VERSION": "c28fcca53637bc88e124af1725df13cb98c69dedefd62fb3cdbe1cdb6b760624",
-    "diagrams/workflow.json": "50a82d3cb50f75ef8ef0a5ef3a35edc9f73868b161d4b460b2033edc11fa36d8",
+    "diagrams/workflow.json": "f7ff1f7806a7fbb688a24c6af81f2669e61b2aa1fd81e76201dbfdd5bd91a23b",
     "manual/planning-steps.json": "6067812eab456f531510fd26e5c1a77896f2f388ff0276314ab498d5609015f1",
     "manual/sections.json": "024d149d12730756970e2a6f2494a1dbc861e118504fe66c4b33ae353c1e5da8",
     "manual/style.css": "616b5ca4fe4373a02482e455fe4498f70e9c5962d6898b4c5bc3981cf0da93e9",
     "manual/viewer.js": "4924dd7923e44d63aad93e5b7071de7e47aae9aefe7805638e6f539ac648ff37",
-    "package-lock.json": "cb4092486bccd3420990d09446ce7b4d4ee3e9f5938d9eb59ce4d9c0600594ff",
-    "package.json": "2c40a22e24cd0f8fd285786187687115e82b72ea20f753b96f056f8c7fd2b37a",
-    "requirements.txt": "6b9d3af92e9bdb2317e9ac845c8349f4b6a44b7d05e628ea717938589b583fc2",
+    "package-lock.json": "a84ca44f11fa35d7fd956369717e2f4cbc9c9a8cdb0b55a0e74a739d2e6d8c55",
+    "package.json": "e2a09443ed25223f228300ab203bf013764471712fe7fe5e6cf51ee7356345e0",
+    "requirements.txt": "ab1bfc0ba42f848efbe5fdccd5698b78c73be948e218229da0124e6bdf024409",
     "scripts/build-manual.py": "03ad8066e32501f3a80c7da7ddd6ede05b429fcf640eaef0fcc9966d0e296064",
     "scripts/diagram_proof.py": "a46865980151421f53b1ee3d47d41ec900b990f725e023c13c03153e4a167928",
     "scripts/finalize-manual.py": "9ef81410ce8141f8ba84e93094a7747907a4228541233cadd702e361bb8339d0",
@@ -186,8 +186,8 @@
       "bytes": 1361421
     },
     "dist/02-workflow-map.html": {
-      "sha256": "398aec54f868b462dfd53dd0a9e36da27525e44712036fb20764402c94ea8677",
-      "bytes": 779377
+      "sha256": "099bb94996fa680e1c0f8654f1ca0a839da4ec32a11d1c6b5feae8322152ce1f",
+      "bytes": 843980
     },
     "docs/01-manual.md": {
       "sha256": "248ea97101a0d36eda1045a8c52d7bd954077e2d30054043f82f32f6d8194b77",

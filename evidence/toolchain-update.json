@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "verified_at_utc": "2026-11-09T01:47:50.066959+00:00",
+  "scope": "프로젝트 관련 도구·의존성 갱신, 현재 흐름도 재생성, 로컬 설치·빌드·문서·브라우저 검증. PR/CI/main은 이 기록 작성 후 별도 검증.",
+  "baseline_commit": "3df5d672d178e859068cee7c766e8f685b2d12d5",
+  "upstream": {
+    "archify": {
+      "before": "3.0.1",
+      "after": "3.2.0",
+      "source": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
+      "git_tree": "39069dd190f574064fe410aa3af1b6dfd98a522c",
+      "installation": "태그 원본 203파일과 설치본 해시 일치"
+    },
+    "archify_review": {
+      "source": "https://github.com/tt-a1i/archify/tree/v3.2.0/.agents/skills/archify-review",
+      "git_tree": "23ddf7ab5283712c49475832e632bb2b665d0caa",
+      "installation": "태그 원본 1파일과 설치본 해시 일치"
+    },
+    "playwright": {
+      "before": "1.62.1",
+      "after": "1.65.0",
+      "source": "https://github.com/microsoft/playwright/releases/tag/v1.65.0",
+      "manifests": [
+        "package.json",
+        "guides/herdr/package.json"
+      ],
+      "installed_in_both": true,
+      "npm_audit": "0 vulnerabilities",
+      "npm_outdated": "{}"
+    },
+    "pypdf": {
+      "before": "6.21.4",
+      "after": "7.0.0",
+      "source": "https://pypdf.readthedocs.io/en/stable/meta/CHANGELOG.html#version-7-0-0-2026-11-06",
+      "manifests": [
+        "requirements.txt",
+        "guides/herdr/requirements.txt"
+      ],
+      "installation": "저장소 .venv, Python 3.11, PDF 재생성·구조·본문 검증 통과"
+    },
+    "github_actions": {
+      "actions/checkout": "v7.0.1",
+      "actions/setup-node": "v7.1.0",
+      "actions/setup-python": "v7.1.0",
+      "actions/upload-artifact": "v7.0.2"
+    },
+    "actions_compatibility": "ubuntu-latest 호스티드 runner 사용. 프로젝트 Node 22/Python 3.11 유지. registry-url·NODE_AUTH_TOKEN 미사용; pull_request_target·workflow_run 미사용. 실제 원격 실행은 PR CI에서 확인.",
+    "gon_skills": {
+      "source_commit": "cb5fe4978b8d49c9f384775facc7de1f5b5c4b46",
+      "source_remote_lock": "MATCH",
+      "installed_sync_check": {
+        "changed": 0,
+        "targets": 161
+      },
+      "action": "최신 원본과 같아 변경 없음"
+    }
+  },
+  "compatibility_fixes": [
+    "세 흐름도의 폐기된 번역 키 3개 제거.",
+    "Herdr 흐름도 원본의 출력 경로를 현재 저장소 경로로 정정.",
+    "기획 흐름도의 reframe(P4→P1)과 P2→P1 선 겹침을 종착 방향 변경으로 해소. 노드·관계·레이블의 의미와 방향은 유지."
+  ],
+  "validation": {
+    "build_all": "PASS",
+    "npm_test": {
+      "repository": 16,
+      "lifecycle": 52,
+      "web_engineering": 13,
+      "total": 81,
+      "status": "PASS"
+    },
+    "verify_all": "PASS",
+    "herdr_browser_cases": 14,
+    "diagram_checks": {
+      "main": {
+        "record": "evidence/workflow-validation.json",
+        "gates": {
+          "validate": "pass",
+          "deliver": "pass",
+          "check": "pass",
+          "browser-check": "pass"
+        },
+        "specification_sha256": "f7ff1f7806a7fbb688a24c6af81f2669e61b2aa1fd81e76201dbfdd5bd91a23b",
+        "artifact_sha256": "099bb94996fa680e1c0f8654f1ca0a839da4ec32a11d1c6b5feae8322152ce1f",
+        "visual_review": "PASS — 1440x900 light, 2048x1320 dark 화면 확인"
+      },
+      "herdr_development": {
+        "record": "guides/herdr/workflow-validation.json",
+        "gates": {
+          "validate": "pass",
+          "deliver": "pass",
+          "check": "pass",
+          "browser-check": "pass"
+        },
+        "specification_sha256": "e67c2db3f2762f4474bed8e27068c9e847de254bb363845de12c34cdd2aafa84",
+        "artifact_sha256": "d25110be4bb8780f7c2f65457bc1317bd23424fe56970a6369b34d8f9cb48991",
+        "visual_review": "PASS — 1440x900 light, 2048x1320 dark 화면 확인"
+      },
+      "herdr_planning": {
+        "record": "guides/herdr/planning-map-validation.json",
+        "gates": {
+          "validate": "pass",
+          "deliver": "pass",
+          "check": "pass",
+          "browser-check": "pass"
+        },
+        "specification_sha256": "9c9dd363359b19bd180552b4be45f672d716c797b2640d797f26f4df40d5da7f",
+        "artifact_sha256": "c30df251875677760c621d35459acbd516bec42eaba7f259cfa1d6dc104e5ee0",
+        "visual_review": "PASS — 1440x900 light, 2048x1320 dark 화면 확인"
+      }
+    },
+    "clipboard": {
+      "status": "PASS",
+      "clipboard_matches_visible_prompt": true,
+      "environment": "isolated Chromium with clipboard permission"
+    },
+    "pdf": {
+      "main_pages": 45,
+      "bookmarks": 29,
+      "herdr_pages_each": 39,
+      "herdr_complete_prompts_each": 44,
+      "visual_scope": "main 10쪽, Herdr 3쪽 확인"
+    },
+    "skill_loader": {
+      "status": "PASS",
+      "method": "skills/list forceReload",
+      "skills": [
+        {
+          "name": "archify",
+          "path": "~/.agents/skills/archify/SKILL.md",
+          "enabled": true,
+          "scope": "user"
+        },
+        {
+          "name": "archify-review",
+          "path": "~/.agents/skills/archify-review/SKILL.md",
+          "enabled": true,
+          "scope": "user"
+        },
+        {
+          "name": "gon-project-lifecycle",
+          "path": "~/.agents/skills/gon-project-lifecycle/SKILL.md",
+          "enabled": true,
+          "scope": "user"
+        },
+        {
+          "name": "gon-web-engineering",
+          "path": "~/.agents/skills/gon-web-engineering/SKILL.md",
+          "enabled": true,
+          "scope": "user"
+        }
+      ]
+    },
+    "git_diff_check": "PASS"
+  },
+  "preservation": {
+    "backup": "외부 로컬 백업에 이전 설치 디렉터리·skill lock·갱신 전 저장소 추적 파일 보존",
+    "installed_differences": "기존 Archify 설치와 v3.0.1 태그가 다른 테스트2개를 이전 설치 디렉터리에 그대로 보존. 새 설치는 v3.2.0 태그와 일치.",
+    "existing_evolve": "UNCHANGED",
+    "offline_skills_and_lock": "UNCHANGED",
+    "global_configuration": "스킬 버전 추적 lock의 해당 두 항목만 갱신"
+  },
+  "delivery_at_record_time": {
+    "baseline_branch_pushed": "https://github.com/krdn/gon-development-os/tree/docs/workflow-optimize-v2",
+    "final_commit_pr_ci_merge": "PENDING — 원격 최종 상태는 PR/Actions에서 확인",
+    "product_deployment": "NOT_RUN"
+  },
+  "limitations": [
+    "실제 제품을 Herdr 작업자로 끝까지 만드는 시험과 시간·비용 개선 측정은 별도.",
+    "새 스킬의 설명과 지침은 다음 대화부터 적용. 이번 확인은 강제 재조회한 실제 Codex loader와 설치 CLI 실행을 포함.",
+    "초기 커밋은 성공했으나 기존 graphify 후크에서 Python 실행 환경을 찾지 못했다는 경고가 있었음. 이 프로젝트 필수 검사에는 graphify가 포함되지 않음."
+  ],
+  "source_sha256": {
+    "package.json": "e2a09443ed25223f228300ab203bf013764471712fe7fe5e6cf51ee7356345e0",
+    "package-lock.json": "a84ca44f11fa35d7fd956369717e2f4cbc9c9a8cdb0b55a0e74a739d2e6d8c55",
+    "requirements.txt": "ab1bfc0ba42f848efbe5fdccd5698b78c73be948e218229da0124e6bdf024409",
+    "guides/herdr/package.json": "3e7f1816ecd1e163117b9e0ffbb3959c854a761cae0219fbadede9c69d409dbf",
+    "guides/herdr/package-lock.json": "ec8eb7779f13a3ac81837c8282f6121e4f62aed69b39544c5eabf351df8bda40",
+    "guides/herdr/requirements.txt": "ab1bfc0ba42f848efbe5fdccd5698b78c73be948e218229da0124e6bdf024409",
+    ".github/workflows/validate.yml": "3201001902cfcb48ec3bb00c096823c3416b71f08659990ff8e68ef430d9dc34",
+    "diagrams/workflow.json": "f7ff1f7806a7fbb688a24c6af81f2669e61b2aa1fd81e76201dbfdd5bd91a23b",
+    "guides/herdr/workflow-source.json": "e67c2db3f2762f4474bed8e27068c9e847de254bb363845de12c34cdd2aafa84",
+    "guides/herdr/planning-map-source.json": "9c9dd363359b19bd180552b4be45f672d716c797b2640d797f26f4df40d5da7f"
+  }
+}

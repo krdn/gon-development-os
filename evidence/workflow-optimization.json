@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "PASS",
-  "completed_at_utc": "2026-11-09T01:28:16.297368+00:00",
+  "completed_at_utc": "2026-11-09T01:47:50.066959+00:00",
   "version": "2.0.0",
   "baseline": "b8194f9ddefb2e0d3168f93cda6eb7878fb7017a",
   "scope": "로컬 매뉴얼 공정 분석·원본 수정·Orca 지원 경로 제거·생성기 결함 수정·산출물 검증. 실제 제품 실행 성과와 원격 전달은 별도.",
@@ -50,7 +50,7 @@
       "record": "guides/herdr/verification.json"
     },
     "archify": {
-      "version": "3.0.1",
+      "version": "3.2.0",
       "gates": {
         "validate": "pass",
         "deliver": "pass",
@@ -145,13 +145,14 @@
     "existing_evolve_hashes": "UNCHANGED",
     "skills_and_lock": "UNCHANGED",
     "historical_archive_and_evidence": "PRESERVED",
-    "installed_skills": "NOT_MODIFIED"
+    "installed_skills": "Archify 계열은 후속 사용자 승인으로 갱신; 고정 두 전문 스킬은 변경 없음"
   },
   "delivery": {
+    "recorded_stage": "최종 로컬 검증 시점. 이후 원격 전달은 PR/Actions에서 별도로 확인.",
     "local_artifacts": "GENERATED_AND_VERIFIED",
-    "git_commit": "NOT_RUN",
-    "github_push_pr_ci": "NOT_RUN",
-    "installation": "NOT_RUN",
+    "git_commit": "baseline 3df5d672d178e859068cee7c766e8f685b2d12d5",
+    "github_push_pr_ci": "기준 브랜치 push 확인, 최종 PR/CI/main은 이 기록 후 진행",
+    "installation": "Archify 3.2.0 계열 설치와 Codex loader 확인; 두 전문 스킬은 최신 일치",
     "production_deployment": "NOT_RUN"
   },
   "limitations": [
@@ -167,8 +168,9 @@
     "guides/herdr/project-steps.json": "34c0d73bd045b2c9ebfe243885ea7f24c9a0dbaad91cefaf1459b69bc7135055",
     "guides/herdr/development-steps.json": "8be0a02b8247638962d84da2311a867f11ed2790dc3696b5408cab88a6fa83ac",
     "guides/herdr/handbook.html": "a3c6bf4e9183dfe41c72ebf9968ebd1b6b0ed4006e4dcd421069f6d26c992394",
-    "diagrams/workflow.json": "50a82d3cb50f75ef8ef0a5ef3a35edc9f73868b161d4b460b2033edc11fa36d8",
+    "diagrams/workflow.json": "f7ff1f7806a7fbb688a24c6af81f2669e61b2aa1fd81e76201dbfdd5bd91a23b",
     "scripts/workflow-bundle.py": "2fda9ea90411b4e00a0403d0facb60855238def585dafd3f7ff041b403150ab1",
     "scripts/test_workflow_bundle.py": "d61301bb8ac55ea043f9706efb8a875f27f4d6f17b48d519344efa352ae24814"
-  }
+  },
+  "toolchain_update_record": "evidence/toolchain-update.json"
 }
