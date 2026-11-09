@@ -6,14 +6,14 @@
   "type": "workflow",
   "quality": "showcase",
   "specification": {
-    "path": "/home/gon/dev/gon-development-os/diagrams/workflow.json",
-    "sha256": "6321366cf544bc564855985879d90ee56533090eba48b487373decf7fec11432",
-    "bytes": 38656
+    "path": "/home/gon/dev/infra/gon-development-os/diagrams/workflow.json",
+    "sha256": "50a82d3cb50f75ef8ef0a5ef3a35edc9f73868b161d4b460b2033edc11fa36d8",
+    "bytes": 39091
   },
   "artifact": {
-    "path": "/home/gon/dev/gon-development-os/dist/02-workflow-map.html",
-    "sha256": "f90c28a5eeee0071f9b62a1ec80626993c8c1a183a8e6387791968a70cb51157",
-    "bytes": 777584
+    "path": "/home/gon/dev/infra/gon-development-os/dist/02-workflow-map.html",
+    "sha256": "398aec54f868b462dfd53dd0a9e36da27525e44712036fb20764402c94ea8677",
+    "bytes": 779377
   },
   "gates": {
     "validate": "pass",
@@ -28,9 +28,9 @@
     "truncated": false
   },
   "evidence": {
-    "receipt": "/home/gon/dev/gon-development-os/dist/02-workflow-map.finalize.json",
-    "summaryReceipt": "/home/gon/dev/gon-development-os/dist/02-workflow-map.finalize-summary.json",
-    "browserCheckReceipt": "/home/gon/dev/gon-development-os/dist/02-workflow-map.browser-check.json"
+    "receipt": "/home/gon/dev/infra/gon-development-os/dist/02-workflow-map.finalize.json",
+    "summaryReceipt": "/home/gon/dev/infra/gon-development-os/dist/02-workflow-map.finalize-summary.json",
+    "browserCheckReceipt": "/home/gon/dev/infra/gon-development-os/dist/02-workflow-map.browser-check.json"
   },
   "update": {
     "status": "update_available",
@@ -38,24 +38,36 @@
     "availableVersion": "3.2.0",
     "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
     "severity": "normal",
-    "checkedAt": "2026-11-07T23:52:21.400Z",
-    "source": "network",
+    "checkedAt": "2026-11-09T01:03:19.779Z",
+    "source": "cache",
     "noticeRequired": true,
-    "noticeText": "Archify update: 3.0.1 → 3.2.0. A newer release is available. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
+    "noticeText": "Archify update: 3.0.1 → 3.2.0. A previous check at 2026-11-09T01:03:19.779Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
     "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
   },
   "visualReview": "not-requested",
-  "durationMs": 2070,
+  "durationMs": 1954,
   "visualReviewRecommendation": {
     "action": "inspect-route-readability",
     "signals": {
       "routesOverSuggestedBends": 2,
-      "routesOverSuggestedStretch": 1
+      "routesOverSuggestedStretch": 2
     },
     "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
     "affectedRoutes": {
       "crossings": [],
       "detours": [
+        {
+          "relationship": {
+            "id": "e0",
+            "from": "scope",
+            "to": "product",
+            "label": "",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "bends": 2,
+          "stretch": 1.431
+        },
         {
           "relationship": {
             "id": "fix",
@@ -74,8 +86,8 @@
             "from": "p4",
             "to": "p1",
             "label": "문제 재정의",
-            "collectionIndex": 14,
-            "artifactIndex": 15
+            "collectionIndex": 16,
+            "artifactIndex": 17
           },
           "bends": 3,
           "stretch": 1.065,
@@ -84,7 +96,7 @@
               "id": "p2",
               "label": "P2 조사 설계",
               "box": [
-                258.8,
+                262.8,
                 86,
                 140,
                 68
@@ -94,7 +106,7 @@
               "id": "p3",
               "label": "P3 근거 조사",
               "box": [
-                484,
+                488,
                 86,
                 140,
                 68
@@ -108,8 +120,8 @@
             "from": "p4",
             "to": "p3",
             "label": "근거 부족",
-            "collectionIndex": 19,
-            "artifactIndex": 20
+            "collectionIndex": 21,
+            "artifactIndex": 22
           },
           "bends": 2,
           "stretch": 1.444
@@ -118,6 +130,7 @@
       "truncated": false
     },
     "hints": [
+      "scope → product needs 2 bends: move node scope or product so they share a row or column with matching centers, or sit diagonally with a clear corner.",
       "verify → build needs 3 bends: move node verify or build so they share a row or column with matching centers, or sit diagonally with a clear corner.",
       "p4 → p3 needs 2 bends: move node p4 or p3 so they share a row or column with matching centers, or sit diagonally with a clear corner."
     ],

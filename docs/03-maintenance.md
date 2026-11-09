@@ -1,6 +1,6 @@
 # 수정·검증·업데이트
 
-전체 안내서와 실행 양식을 함께 다시 만들려면 [GitHub 원본 재생성 안내](05-rebuild-workflow.md)를 따릅니다. 아래 `npm run build`는 관리 매뉴얼만, `npm run build:all`은 두 안내서 검사와 최종 전체 묶음까지 수행합니다. 전체 원본을 변경한 뒤에는 `build:all`을 사용합니다.
+전체 안내서와 실행 양식을 함께 다시 만들려면 [GitHub 원본 재생성 안내](05-rebuild-workflow.md)를 따릅니다. 아래 `npm run build`는 관리 매뉴얼만, `npm run build:all`은 Herdr 안내서 검사와 최종 전체 묶음까지 수행합니다. 전체 원본을 변경한 뒤에는 `build:all`을 사용합니다.
 
 ## 편집 위치 선택
 

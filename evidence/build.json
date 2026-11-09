@@ -1,12 +1,12 @@
 {
-  "version": "1.6.1",
-  "built_at_utc": "2026-11-08T04:26:40.016392+00:00",
+  "version": "2.0.0",
+  "built_at_utc": "2026-11-09T01:28:29.771269+00:00",
   "checks": {
     "pdf_pages": 45,
-    "bookmarks": 30,
+    "bookmarks": 29,
     "all_section_titles_found": true,
     "internal_links": 28,
-    "named_destinations": 30
+    "named_destinations": 29
   },
   "scope": "PDF 제목·목차와 파일 내용 식별. 스킬 테스트·CI·시각 품질은 별도 기록.",
   "contents": [
@@ -118,36 +118,31 @@
     {
       "id": "handoff",
       "title": "기획 세션에서 개발 세션으로 문서 인계",
-      "page": 33
+      "page": 34
     },
     {
       "id": "records",
       "title": "문서와 완료 증거를 관리하는 방법",
-      "page": 34
+      "page": 35
     },
     {
       "id": "aeos",
       "title": "기존 AI Engineering OS를 사용하는 경우",
-      "page": 36
+      "page": 37
     },
     {
       "id": "aeos-files",
       "title": "선택 경로인 AI Engineering OS의 파일을 도입한다",
-      "page": 38
+      "page": 39
     },
     {
       "id": "types",
       "title": "프로젝트 유형별로 완료 기준을 바꾼다",
-      "page": 40
+      "page": 41
     },
     {
       "id": "recovery",
       "title": "문제가 생겼을 때의 복구 순서",
-      "page": 41
-    },
-    {
-      "id": "practice",
-      "title": "앞으로 매번 사용하는 짧은 운영 절차",
       "page": 42
     },
     {
@@ -162,14 +157,14 @@
     }
   ],
   "sources": {
-    "VERSION": "6430a242e9486093ef6f71d9086d48f61ba102f0d2fb0f5b95334c6007a46db3",
-    "diagrams/workflow.json": "6321366cf544bc564855985879d90ee56533090eba48b487373decf7fec11432",
-    "manual/planning-steps.json": "29b9c8f566552123bd56108dccfe98db207f95428a228a9a6b4bd40ce3fc2b30",
-    "manual/sections.json": "b7349d9fc5887574be750896f595e293e2d84645b257a3f7d87fe7cd23720c65",
+    "VERSION": "c28fcca53637bc88e124af1725df13cb98c69dedefd62fb3cdbe1cdb6b760624",
+    "diagrams/workflow.json": "50a82d3cb50f75ef8ef0a5ef3a35edc9f73868b161d4b460b2033edc11fa36d8",
+    "manual/planning-steps.json": "6067812eab456f531510fd26e5c1a77896f2f388ff0276314ab498d5609015f1",
+    "manual/sections.json": "024d149d12730756970e2a6f2494a1dbc861e118504fe66c4b33ae353c1e5da8",
     "manual/style.css": "616b5ca4fe4373a02482e455fe4498f70e9c5962d6898b4c5bc3981cf0da93e9",
     "manual/viewer.js": "4924dd7923e44d63aad93e5b7071de7e47aae9aefe7805638e6f539ac648ff37",
-    "package-lock.json": "f2e9ea70316fdb0868862cff183639abb38e4906f2e79cd38ca73140fc21d7ea",
-    "package.json": "6200881946fb0c9d7bd57d479daaa5164361d7573aa670fb0042bc2300678501",
+    "package-lock.json": "cb4092486bccd3420990d09446ce7b4d4ee3e9f5938d9eb59ce4d9c0600594ff",
+    "package.json": "2c40a22e24cd0f8fd285786187687115e82b72ea20f753b96f056f8c7fd2b37a",
     "requirements.txt": "6b9d3af92e9bdb2317e9ac845c8349f4b6a44b7d05e628ea717938589b583fc2",
     "scripts/build-manual.py": "03ad8066e32501f3a80c7da7ddd6ede05b429fcf640eaef0fcc9966d0e296064",
     "scripts/diagram_proof.py": "a46865980151421f53b1ee3d47d41ec900b990f725e023c13c03153e4a167928",
@@ -177,25 +172,25 @@
     "scripts/planning.py": "678dfebe867cd68fe80beffd1f4555b4af70a71c2c0213e4b9cb3a4fd5087527",
     "scripts/print-manual.cjs": "d02505ae2431518c7e3c4bd96264a0863d41409365c0aebf3fe12f488d6d51f7",
     "scripts/test_diagram_proof.py": "dd8dff5d31ed38d685382b19ac3d542ebafe49e6027fd4b7ed5d57e443eeac8b",
-    "scripts/test_workflow_bundle.py": "58ace3c7fce032b76c4a873cd6520a830ba4b244d716b96747a381950238da76",
+    "scripts/test_workflow_bundle.py": "d61301bb8ac55ea043f9706efb8a875f27f4d6f17b48d519344efa352ae24814",
     "scripts/validate.py": "b443b40a7a2a8da0d91d229a736c05ad3dc24a87f732ed9a8d388a00114ddb6a",
-    "scripts/workflow-bundle.py": "bc6faa6349413eb603299141823e308f5bc1b1d6b5df2267881d6ec95b709491"
+    "scripts/workflow-bundle.py": "2fda9ea90411b4e00a0403d0facb60855238def585dafd3f7ff041b403150ab1"
   },
   "artifacts": {
     "dist/01-project-workflow-manual.html": {
-      "sha256": "91881f8fa17ed9590243d884953fa9d651d77241c14e88239348eaaf8bf78d65",
-      "bytes": 150413
+      "sha256": "1eed8ec4bebebe4d95647dd07c6853a78ca7703f5f43905698c431c11050e51c",
+      "bytes": 149891
     },
     "dist/01-project-workflow-manual.pdf": {
-      "sha256": "3aaee83a25bb9b137432f0b107b33e71b7037462a84853a6cb6b0bc941c656fb",
-      "bytes": 1375655
+      "sha256": "32cd2e4099da816c909104fc99de16064599425dff61d9355c7a2fc3564275f8",
+      "bytes": 1361421
     },
     "dist/02-workflow-map.html": {
-      "sha256": "f90c28a5eeee0071f9b62a1ec80626993c8c1a183a8e6387791968a70cb51157",
-      "bytes": 777584
+      "sha256": "398aec54f868b462dfd53dd0a9e36da27525e44712036fb20764402c94ea8677",
+      "bytes": 779377
     },
     "docs/01-manual.md": {
-      "sha256": "155a8fa0d82b88130aca565d2de2e6d5f109522a6c8659ed609b346e1732c0fc",
+      "sha256": "248ea97101a0d36eda1045a8c52d7bd954077e2d30054043f82f32f6d8194b77",
       "bytes": 121861
     }
   }

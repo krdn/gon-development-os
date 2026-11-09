@@ -9,7 +9,7 @@
 [전체 재생성 안내와 AI 요청문](docs/05-rebuild-workflow.md)을 기준으로 `npm run build:all` → `npm test` → `npm run verify:all`을 수행합니다. 의존성·글꼴·브라우저 준비 방법도 같은 문서에 있습니다.
 
 - [Herdr CLI에서 프로젝트 처음 시작하기](docs/06-herdr-cli-start.md) · 첫 요청 뒤 단계별 전문 스킬 적용과 새 세션 인계
-- [Herdr 단계별 안내](guides/herdr/README.md) · [Orca 단계별 안내](guides/orca/README.md)
+- [Herdr 단계별 안내](guides/herdr/README.md)
 - [아이디어 입력용 실행 양식](templates/herdr-project/README.md) · [시험지 OCR 프로젝트 예시](examples/exam-ocr/README.md)
 
 안내서·실행 양식·예시의 편집 원본이 모두 이 저장소에 있습니다. 과거 앱 시험의 차단·미검증은 예시의 RUN-RESULT에 남기며 문서 빌드 성공을 실제 협업·제품 성공으로 간주하지 않습니다.
@@ -46,7 +46,7 @@ GitHub는 HTML의 상호작용 기능을 직접 실행하지 않습니다. 저�
 | `skills/gon-web-engineering/` | 웹 기술·구현·검증 스킬 | 원본 커밋을 갱신할 때 |
 | `diagrams/workflow.json` | Archify 흐름도 편집 원본 | 흐름 변경 시 |
 | `scripts/` | 매뉴얼과 전체 안내서 생성·PDF·검증 도구 | 생성 방식 변경 시 |
-| `guides/herdr/`, `guides/orca/` | 별도 실행 안내서 원본·생성기·HTML/PDF·검사 | 해당 환경 안내 변경 시 |
+| `guides/herdr/` | Herdr 실습 안내서 원본·생성기·HTML/PDF·검사 | 해당 환경 안내 변경 시 |
 | `templates/herdr-project/` | 프로젝트 아이디어 입력·협업·재개 실행 양식 | 실행 계약 변경 시 |
 | `examples/exam-ocr/` | 채워진 OCR 프로젝트 문서와 과거 시험 결과 요약 | 예시 범위·근거 변경 시 |
 | `docs/01-manual.md`, `dist/01-*.html`, `dist/01-*.pdf` | 매뉴얼 자동 생성 결과 | 직접 편집하지 않음 |
@@ -76,3 +76,5 @@ $gon-project-lifecycle
 [1차 완료 회고와 보완](docs/09-phase-one-retrospective.md): 실제 실패 근거, 기존 개선과 추가 변경, Opus 리뷰 및 검증 범위를 정리합니다.
 
 [단계별 사용자 검토와 GitHub 운영](docs/10-github-stage-review.md): 구성 사전 승인, 결과 수용, 추가 요청·협의 기록과 실제 적용 상태를 연결합니다.
+
+[2.0.0 공정 분석과 최적화](docs/11-workflow-optimization.md): 중복 명세·승인 단위·로컬 완료 경로·재빌드 실패 기록을 정리하고 Orca 지원을 제거했습니다.

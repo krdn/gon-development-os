@@ -31,7 +31,7 @@ jobs:
       - run: npm run build:all
       - run: npm test
       - name: 생성 문서의 원본 반영 여부 확인
-        run: git diff --exit-code -- docs/01-manual.md dist/01-project-workflow-manual.html guides/herdr/index.html guides/herdr/steps.json guides/herdr/planning-steps.json guides/orca/index.html guides/orca/examples.html
+        run: git diff --exit-code -- docs/01-manual.md dist/01-project-workflow-manual.html guides/herdr/index.html guides/herdr/steps.json guides/herdr/planning-steps.json
       - uses: actions/upload-artifact@v4
         with:
           name: gon-development-os-${{ github.sha }}
@@ -39,5 +39,5 @@ jobs:
             dist/
             evidence/build.json
             evidence/workflow-bundle.json
-            guides/*.zip
+            guides/gon-beginner-workflow.zip
           retention-days: 30
