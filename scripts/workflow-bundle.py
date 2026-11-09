@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""저장소의 두 안내서와 실행 문서 묶음을 재생성하고 내용 해시를 검증한다."""
+"""Herdr 안내서와 실행 문서 묶음을 재생성하고 내용 해시를 검증한다."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -14,7 +14,7 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FOLDERS = ('guides/herdr', 'guides/orca', 'templates/herdr-project', 'examples/exam-ocr')
+FOLDERS = ('guides/herdr', 'templates/herdr-project', 'examples/exam-ocr')
 RECORD = ROOT / 'evidence/workflow-bundle.json'
 IGNORED = {'node_modules', '.venv', '__pycache__', '.git'}
 
@@ -69,21 +69,24 @@ def check_document_links():
     return count
 
 
-def verify():
-    record = json.loads(RECORD.read_text())
+def verify(record=None, report=True):
+    if record is None:
+        record = json.loads(RECORD.read_text())
     if record.get('schema_version') != 1 or record.get('status') != 'PASS':
         raise ValueError('전체 안내서 빌드 기록이 없습니다. npm run build:all을 실행하세요.')
     if record.get('files') != hashes():
         raise ValueError('안내서·실행 문서가 빌드 기록과 다릅니다. npm run build:all을 실행하세요.')
     if (ROOT / 'manual/planning-steps.json').read_bytes() != (ROOT / 'guides/herdr/planning-steps.json').read_bytes():
         raise ValueError('공통 기획 원본과 Herdr 안내서가 다릅니다.')
-    for name, stem in [('herdr', 'gon-beginner-workflow'), ('orca', 'gon-orca-codex-guide')]:
-        path = ROOT / 'guides' / (stem + '.zip')
-        if path.exists():
-            verify_archive(ROOT / 'guides' / name, path)
+    path = ROOT / 'guides/gon-beginner-workflow.zip'
+    if path.exists():
+        verify_archive(ROOT / 'guides/herdr', path)
     count = check_document_links()
-    print(json.dumps({'workflow_bundle': 'PASS', 'files': len(record['files']),
-                      'markdown_links': count, 'scope': '문서와 검사 기록; 실제 에이전트 실행 아님'}, ensure_ascii=False))
+    result = {'workflow_bundle': 'PASS', 'files': len(record['files']),
+              'markdown_links': count, 'scope': '문서와 검사 기록; 실제 에이전트 실행 아님'}
+    if report:
+        print(json.dumps(result, ensure_ascii=False))
+    return result
 
 
 def run(args, cwd, commands):
@@ -94,26 +97,37 @@ def run(args, cwd, commands):
                      'result': 'PASS'})
 
 
+def write_record(record):
+    temporary = RECORD.with_suffix('.tmp.json')
+    temporary.write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n')
+    temporary.replace(RECORD)
+
+
 def build():
-    commands = []
-    source = ROOT / 'manual/planning-steps.json'
-    copy = ROOT / 'guides/herdr/planning-steps.json'
-    if copy.exists() and digest(source) != digest(copy):
-        if not RECORD.exists() or json.loads(RECORD.read_text()).get('files', {}).get(str(copy.relative_to(ROOT))) != digest(copy):
-            raise ValueError('Herdr 기획 사본에 별도 변경이 있습니다. 공통 원본과 먼저 대조하세요.')
-    shutil.copyfile(source, copy)
-    for name in ('herdr', 'orca'):
-        folder = ROOT / 'guides' / name
+    previous = json.loads(RECORD.read_text()) if RECORD.exists() else {}
+    attempt = {'schema_version': 1, 'status': 'RUNNING',
+               'built_at_utc': datetime.now(timezone.utc).isoformat(),
+               'scope': '문서 재생성 실행 상태; PASS 전에는 현재 검증 근거로 사용하지 않음.',
+               'files': previous.get('files', {})}
+    write_record(attempt)
+    try:
+        commands = []
+        source = ROOT / 'manual/planning-steps.json'
+        copy = ROOT / 'guides/herdr/planning-steps.json'
+        if copy.exists() and digest(source) != digest(copy):
+            if previous.get('files', {}).get(str(copy.relative_to(ROOT))) != digest(copy):
+                raise ValueError('Herdr 기획 사본에 별도 변경이 있습니다. 공통 원본과 먼저 대조하세요.')
+        shutil.copyfile(source, copy)
+        attempt['files'][str(copy.relative_to(ROOT))] = digest(copy)
+        write_record(attempt)
+        folder = ROOT / 'guides/herdr'
         run([sys.executable, 'build-guide.py'], folder, commands)
         run(['node', 'test-guide.cjs'], folder, commands)
         run(['node', 'print-guide.cjs'], folder, commands)
-        validation = [sys.executable, 'validate-guide.py', '--pdf']
-        if name == 'herdr':
-            validation += ['--manual-planning', '../../manual/planning-steps.json']
-        run(validation, folder, commands)
+        run([sys.executable, 'validate-guide.py', '--pdf', '--manual-planning', '../../manual/planning-steps.json'], folder, commands)
         current = {
             'built_at_utc': datetime.now(timezone.utc).isoformat(),
-            'scope': '이번 재생성의 브라우저 회귀·PDF 내용·링크 검사. 실제 Herdr/Orca 실행·배포 아님.',
+            'scope': '이번 재생성의 브라우저 회귀·PDF 내용·링크 검사. 실제 Herdr 실행·배포 아님.',
             'historical_evidence': 'preview 이미지, evidence/ 및 외부 리뷰 기록은 이전 확인 자료이며 이번 실행 증거가 아님.',
             'browser_tests': json.loads((folder / 'browser-tests.json').read_text()),
             'pdf_validation': json.loads((folder / 'pdf-validation.json').read_text()),
@@ -122,18 +136,29 @@ def build():
         }
         (folder / 'verification.json').write_text(json.dumps(current, ensure_ascii=False, indent=2) + '\n')
         run([sys.executable, 'package-guide.py'], folder, commands)
-    count = check_document_links()
-    record = {'schema_version': 1, 'status': 'PASS',
-              'built_at_utc': datetime.now(timezone.utc).isoformat(),
-              'scope': '문서 재생성·브라우저 회귀·PDF·링크·파일 무결성. 실제 앱 협업·제품 OCR·배포는 별도.',
-              'markdown_links': count, 'commands': commands, 'files': hashes()}
-    RECORD.write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n')
-    # 마지막에 관리 매뉴얼과 전체 ZIP을 생성해야 새 안내서·검증 기록도 포함된다.
-    try:
+        count = check_document_links()
+        record = {'schema_version': 1, 'status': 'PASS',
+                  'built_at_utc': datetime.now(timezone.utc).isoformat(),
+                  'scope': '문서 재생성·브라우저 회귀·PDF·링크·파일 무결성. 실제 앱 협업·제품 OCR·배포는 별도.',
+                  'markdown_links': count, 'commands': commands, 'files': hashes()}
         run(['npm', 'run', 'build'], ROOT, commands)
-        verify()
+        result = verify(record, report=False)
+        output = ROOT / 'dist/gon-development-os.zip'
+        temporary = output.with_suffix('.tmp.zip')
+        record_name = str(RECORD.relative_to(ROOT))
+        record_bytes = (json.dumps(record, ensure_ascii=False, indent=2) + '\n').encode()
+        with zipfile.ZipFile(output) as source, zipfile.ZipFile(temporary, 'w') as target:
+            for item in source.infolist():
+                target.writestr(item, record_bytes if item.filename == record_name else source.read(item))
+        with zipfile.ZipFile(temporary) as archive:
+            if archive.testzip() is not None or archive.read(record_name) != record_bytes:
+                raise ValueError('최종 묶음의 빌드 기록 또는 무결성 불일치')
+        temporary.replace(output)
+        write_record(record)
+        print(json.dumps(result, ensure_ascii=False))
     except BaseException:
-        RECORD.unlink(missing_ok=True)
+        attempt['status'] = 'FAIL'
+        write_record(attempt)
         raise
 
 

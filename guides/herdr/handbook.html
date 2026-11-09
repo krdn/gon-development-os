@@ -20,6 +20,8 @@
 </details>
 <details id="sessions">
 <summary>② 같은 세션·새 세션·resume·fork를 고르는 기준</summary>
+<p class="reading-note"><b>이 페이지의 번호는 실습 순서입니다.</b> 실행 계약 2.0.0·관리 매뉴얼의 공정과 아래처럼 대응합니다. 실습 요청문은 해당 단계만 수행합니다. 전체 실행을 맡겼다면 승인된 묶음 안에서 각 실습 입력을 기다릴 필요가 없습니다.</p><div class="table-wrap"><table><thead><tr><th>실습</th><th>실행 공정</th></tr></thead><tbody><tr><td>00 준비</td><td>실행 계약 00 준비 · 매뉴얼 시작/Herdr 역할 안내</td></tr><tr><td>01 새 세션 · 02 지침 확인</td><td>01 대상 확인</td></tr><tr><td>03 문서 인계 확인</td><td>02 목표·범위와 03 구조의 기존 결정 확인</td></tr><tr><td>04 문서·환경 준비</td><td>04 작업 기반</td></tr><tr><td>05 첫 기능 구현</td><td>05 첫 작업 → 06 구현</td></tr><tr><td>06 직접 사용</td><td>07 실제 검증</td></tr><tr><td>07 실패 수정·리뷰</td><td>06 수정 → 07 재검사, 완료 경계 리뷰는 08</td></tr><tr><td>08 GitHub 보관</td><td>08 검토와 통합 중 허용된 원격 전달</td></tr><tr><td>09 배포</td><td>09 배포와 확인</td></tr><tr><td>10 기록·재개</td><td>10 기록과 재개</td></tr></tbody></table></div>
+
 <p><b>하나의 결과를 끝낼 때까지 같은 대화</b>를 기본으로 합니다. 이 안내의 기획 결과는 승인된 개발 시작 문서, 개발 결과는 합의한 첫 출시 범위입니다. 예제의 R01~R05는 같은 세션에서 하나씩 구현·확인합니다. 할 일 앱 완성 뒤 독립된 달력 기능처럼 새 범위를 시작하면 문서로 새 세션을 엽니다. 프로젝트 전체를 무조건 한 대화에 넣거나 단계마다 새 대화를 만들 필요는 없습니다.</p>
 <div class="table-wrap"><table><thead><tr><th>지금 상황</th><th>선택</th><th>그다음 행동</th></tr></thead><tbody>
 <tr><td>P1→P2, P3 추가 조사, P4 정정</td><td>같은 기획 세션</td><td>A에서 계속 질문하고 해당 단계 파일을 갱신합니다.</td></tr>
@@ -63,7 +65,7 @@
 <p>이 예시는 Q03 → U02(새로고침 요구), Q02 → U03(같은 브라우저 제약) → D02 → R04·AC04로 연결됩니다. S01은 미확인이므로 저장 API를 확정하는 근거로 쓰지 않습니다.</p><h3>최종 문서에는 이 내용이 보여야 합니다</h3>
 <ol><li><b>앞쪽 요약:</b> 무엇을 왜 만드는지, 첫 범위와 제외, 가장 중요한 완료 기준.</li><li><b>세부 요구:</b> 사용 흐름, R번호별 기능, AC번호별 확인 행동과 기대 결과.</li><li><b>제약과 결정:</b> 데이터·운영·기술 확정/미정, 근거 링크, 남은 미정과 시작을 막는지 여부.</li><li><b>출발점:</b> 첫 구현 작업, 승인 상태·실제 날짜·문서 버전, 연결된 STATE.</li></ol>
 <p><b>초안 → 내가 읽고 정정 → 실제 합의 → 승인 기록</b> 순서를 따릅니다. 미정이 있는데 AI가 임의로 “승인 완료”라고 쓰지 않게 합니다. P5의 승인 요청에서 대괄호를 실제 확인 내용으로 바꾸고, 03의 인계 요청을 사용하면 문서로 인계할 수 있습니다.</p>
-<p>개발 시작 후 <code>PRODUCT.md</code>와 <code>ARCHITECTURE.md</code>가 필요하면 04에서 기존 문서와 연결해 만듭니다. PROJECT-BRIEF는 기획 출발점의 근거, PRODUCT는 개발 중 유지할 범위·완료 기준입니다. 범위 변경 때 두 문서에 서로 다른 결론을 방치하지 않고 변경 이유와 현재 기준을 STATE에 연결합니다.</p>
+<p>개발 중에도 <code>PROJECT-BRIEF.md</code> 한 곳에서 범위·요구·완료 기준을 갱신합니다. 별도 PRODUCT를 중복 생성하지 않습니다. 구조 설명이 필요한 경우에만 <code>ARCHITECTURE.md</code>를 추가합니다. 기존 명세가 있다면 그 경로를 유지하고 STATE는 현재 버전·변경 근거·다음 행동을 연결합니다.</p>
 <div class="artifact-links"><a href="example-project/docs/PROJECT-BRIEF.md">채워진 최종 문서 예시</a><a href="example-project/README.md">예시 파일을 읽는 순서</a><a href="example-project.zip">P1~P5 예시 전체 내려받기</a><a href="templates/PROJECT-BRIEF.md">빈 최종 문서 양식</a></div>
 </details>
 </section>

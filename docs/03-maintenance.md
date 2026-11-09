@@ -1,6 +1,6 @@
 # 수정·검증·업데이트
 
-전체 안내서와 실행 양식을 함께 다시 만들려면 [GitHub 원본 재생성 안내](05-rebuild-workflow.md)를 따릅니다. 아래 `npm run build`는 관리 매뉴얼만, `npm run build:all`은 두 안내서 검사와 최종 전체 묶음까지 수행합니다. 전체 원본을 변경한 뒤에는 `build:all`을 사용합니다.
+전체 안내서와 실행 양식을 함께 다시 만들려면 [GitHub 원본 재생성 안내](05-rebuild-workflow.md)를 따릅니다. 아래 `npm run build`는 관리 매뉴얼만, `npm run build:all`은 Herdr 안내서 검사와 최종 전체 묶음까지 수행합니다. 전체 원본을 변경한 뒤에는 `build:all`을 사용합니다.
 
 ## 편집 위치 선택
 
@@ -80,7 +80,7 @@ git push -u origin HEAD
 
 ## 흐름도 수정
 
-현재 그림은 Archify 3.0.1로 생성한 결과와 검증 기록을 보존합니다. 이 저장소는 제3자 Archify 스킬 전체를 포함하지 않습니다. 설치된 Archify 스킬의 지침을 읽고 해당 버전·경로를 확인합니다. 저장소 루트에서 다음 형식으로 생성합니다.
+현재 그림은 Archify 3.2.0으로 생성한 결과와 검증 기록을 보존합니다. 이 저장소는 제3자 Archify 스킬 전체를 포함하지 않습니다. 설치된 Archify 스킬의 지침을 읽고 해당 버전·경로를 확인합니다. 저장소 루트에서 다음 형식으로 생성합니다.
 
 ```bash
 node /실제/archify/bin/archify.mjs finalize workflow diagrams/workflow.json dist/02-workflow-map.html --quality showcase --json

@@ -6,14 +6,14 @@
   "type": "workflow",
   "quality": "showcase",
   "specification": {
-    "path": "/home/gon/dev/gon-development-os/diagrams/workflow.json",
-    "sha256": "6321366cf544bc564855985879d90ee56533090eba48b487373decf7fec11432",
-    "bytes": 38656
+    "path": "/home/gon/dev/infra/gon-development-os/diagrams/workflow.json",
+    "sha256": "f7ff1f7806a7fbb688a24c6af81f2669e61b2aa1fd81e76201dbfdd5bd91a23b",
+    "bytes": 38831
   },
   "artifact": {
-    "path": "/home/gon/dev/gon-development-os/dist/02-workflow-map.html",
-    "sha256": "f90c28a5eeee0071f9b62a1ec80626993c8c1a183a8e6387791968a70cb51157",
-    "bytes": 777584
+    "path": "/home/gon/dev/infra/gon-development-os/dist/02-workflow-map.html",
+    "sha256": "099bb94996fa680e1c0f8654f1ca0a839da4ec32a11d1c6b5feae8322152ce1f",
+    "bytes": 843980
   },
   "gates": {
     "validate": "pass",
@@ -28,99 +28,24 @@
     "truncated": false
   },
   "evidence": {
-    "receipt": "/home/gon/dev/gon-development-os/dist/02-workflow-map.finalize.json",
-    "summaryReceipt": "/home/gon/dev/gon-development-os/dist/02-workflow-map.finalize-summary.json",
-    "browserCheckReceipt": "/home/gon/dev/gon-development-os/dist/02-workflow-map.browser-check.json"
+    "receipt": "/home/gon/dev/infra/gon-development-os/.local/toolchain-update/main-flow-final/02-workflow-map.finalize.json",
+    "summaryReceipt": "/home/gon/dev/infra/gon-development-os/.local/toolchain-update/main-flow-final/02-workflow-map.finalize-summary.json",
+    "browserCheckReceipt": "/home/gon/dev/infra/gon-development-os/.local/toolchain-update/main-flow-final/02-workflow-map.browser-check.json"
   },
   "update": {
-    "status": "update_available",
-    "installedVersion": "3.0.1",
+    "status": "current",
+    "installedVersion": "3.2.0",
     "availableVersion": "3.2.0",
-    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
-    "severity": "normal",
-    "checkedAt": "2026-11-07T23:52:21.400Z",
-    "source": "network",
-    "noticeRequired": true,
-    "noticeText": "Archify update: 3.0.1 → 3.2.0. A newer release is available. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
-    "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
+    "releaseNotes": null,
+    "checkedAt": "2026-11-09T01:41:22.718Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
   },
   "visualReview": "not-requested",
-  "durationMs": 2070,
-  "visualReviewRecommendation": {
-    "action": "inspect-route-readability",
-    "signals": {
-      "routesOverSuggestedBends": 2,
-      "routesOverSuggestedStretch": 1
-    },
-    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
-    "affectedRoutes": {
-      "crossings": [],
-      "detours": [
-        {
-          "relationship": {
-            "id": "fix",
-            "from": "verify",
-            "to": "build",
-            "label": "실패 → 수정",
-            "collectionIndex": 9,
-            "artifactIndex": 10
-          },
-          "bends": 3,
-          "stretch": 1.33
-        },
-        {
-          "relationship": {
-            "id": "p4-return-p1",
-            "from": "p4",
-            "to": "p1",
-            "label": "문제 재정의",
-            "collectionIndex": 14,
-            "artifactIndex": 15
-          },
-          "bends": 3,
-          "stretch": 1.065,
-          "directCorridorBlockers": [
-            {
-              "id": "p2",
-              "label": "P2 조사 설계",
-              "box": [
-                258.8,
-                86,
-                140,
-                68
-              ]
-            },
-            {
-              "id": "p3",
-              "label": "P3 근거 조사",
-              "box": [
-                484,
-                86,
-                140,
-                68
-              ]
-            }
-          ]
-        },
-        {
-          "relationship": {
-            "id": "research-again",
-            "from": "p4",
-            "to": "p3",
-            "label": "근거 부족",
-            "collectionIndex": 19,
-            "artifactIndex": 20
-          },
-          "bends": 2,
-          "stretch": 1.444
-        }
-      ],
-      "truncated": false
-    },
-    "hints": [
-      "verify → build needs 3 bends: move node verify or build so they share a row or column with matching centers, or sit diagonally with a clear corner.",
-      "p4 → p3 needs 2 bends: move node p4 or p3 so they share a row or column with matching centers, or sit diagonally with a clear corner."
-    ],
-    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  "durationMs": 2384,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
   }
 }

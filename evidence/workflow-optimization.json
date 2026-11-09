@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "completed_at_utc": "2026-11-09T01:47:50.066959+00:00",
+  "version": "2.0.0",
+  "baseline": "b8194f9ddefb2e0d3168f93cda6eb7878fb7017a",
+  "scope": "로컬 매뉴얼 공정 분석·원본 수정·Orca 지원 경로 제거·생성기 결함 수정·산출물 검증. 실제 제품 실행 성과와 원격 전달은 별도.",
+  "analysis_report": "docs/11-workflow-optimization.md",
+  "changes": {
+    "issues_addressed": 12,
+    "orca_tracked_files_removed": 45,
+    "manual_sections_before": 30,
+    "manual_sections_after": 29,
+    "contract_version": "2.0.0"
+  },
+  "validation": {
+    "build_all": "PASS",
+    "npm_test": {
+      "status": "PASS",
+      "repository": 16,
+      "lifecycle": 52,
+      "web_engineering": 13,
+      "total": 81
+    },
+    "verify_all": "PASS",
+    "git_diff_check": "PASS",
+    "workflow_bundle": {
+      "status": "PASS",
+      "files": 73,
+      "markdown_links": 38,
+      "record": "evidence/workflow-bundle.json"
+    },
+    "main_manual": {
+      "sections": 29,
+      "html_links": 151,
+      "pdf_pages": 45,
+      "pdf_bookmarks": 29,
+      "record": "evidence/build.json"
+    },
+    "herdr": {
+      "browser_cases": 14,
+      "viewports": [
+        1440,
+        390
+      ],
+      "routes": 2,
+      "steps": 16,
+      "pdf_pages_each": 39,
+      "complete_prompts_each": 44,
+      "record": "guides/herdr/verification.json"
+    },
+    "archify": {
+      "version": "3.2.0",
+      "gates": {
+        "validate": "pass",
+        "deliver": "pass",
+        "check": "pass",
+        "browser-check": "pass"
+      },
+      "record": "evidence/workflow-validation.json"
+    },
+    "clipboard": {
+      "status": "PASS",
+      "clipboard_matches_visible_prompt": true,
+      "environment": "isolated Chromium with clipboard permission"
+    },
+    "visual_review": {
+      "status": "PASS_IN_INSPECTED_SCOPE",
+      "scope": "PC·390px 모바일 매뉴얼과 데스크톱 흐름 배치를 확인. 최종 PDF 관리 매뉴얼 10쪽·Herdr 3쪽의 공정 대응표를 렌더링해 잘림·겹침 없음 확인. 전 페이지 수동 검토는 아님."
+    },
+    "regressions": [
+      {
+        "case": "실패한 재빌드 뒤 이전 PASS 재사용 차단",
+        "before": "FAIL reproduced",
+        "after": "PASS"
+      },
+      {
+        "case": "자동 기획 동기화 뒤 실패한 실행을 새 원본으로 재시도",
+        "before": "FAIL reproduced",
+        "after": "PASS"
+      },
+      {
+        "case": "최종 매뉴얼 빌드 중 조기 PASS 기록 차단",
+        "before": "FAIL reproduced",
+        "after": "PASS"
+      },
+      {
+        "case": "최종 ZIP 실패 시 전체 빌드 PASS 로그 차단",
+        "before": "FAIL reproduced",
+        "after": "PASS"
+      },
+      {
+        "case": "사용자 수정 기획 사본 보존",
+        "after": "PASS"
+      },
+      {
+        "case": "ZIP 안 빌드 기록과 게시된 루트 기록 일치",
+        "after": "PASS"
+      }
+    ],
+    "optional_docs_ste_lint": {
+      "status": "NOT_RUN",
+      "exit_code": 2,
+      "reason": "저장소 docs/conventions/ste100-writing.md가 없어 실행 불가. 문서 링크·내용·생성물 검사는 별도로 수행."
+    }
+  },
+  "external_review": {
+    "requested_model": "claude-opus-5-5",
+    "requested_effort": "high",
+    "actual_model": "claude-opus-5-5",
+    "model_identity": "modelUsage/canonicalModel 일치; 두 호출 subtype success, is_error false",
+    "initial": {
+      "verdict": "ISSUES",
+      "P2": 5,
+      "P3": 7,
+      "input_sha256": "43623b909675b767cca5785f12c0ea24be87ea3e8dea62edbf70e4fc99ad0d7f"
+    },
+    "correction_only_followup": {
+      "verdict": "ISSUES",
+      "remaining_ids": [
+        "P2-1",
+        "P3-3",
+        "P3-5"
+      ],
+      "input_sha256": "b87d1cfa75ddc397cbf5e3a4b030375775d421eaa940a01243b9e3164e424617"
+    },
+    "disposition": {
+      "P2-1": "Herdr 내 기획 경로의 제품 기준과 세션 설명을 PROJECT-BRIEF 또는 기존 명세 하나로 통일; 대응 원본과 생성 결과 검색 확인.",
+      "P2-2": "실행 계약·STATE에 2.0.0 버전과 구 공정 번호 대응 및 버전 미기재 재개 규칙 추가.",
+      "P2-3": "P1~P5 요청문은 각각 해당 단계만 수행하고 다음 단계는 시작하지 않도록 제한.",
+      "P2-4": "실행 양식 README의 구현 진행을 선택한 완료 목표에 구현이 포함된 경우로 제한.",
+      "P2-5": "작업 묶음·검토 지점은 기존 사용자 요청·답변·명시적 판단 위임을 먼저 적용. 예시를 자동 승인으로 사용하지 않음.",
+      "P3-1": "기존 명세 우선, 신규 Herdr PROJECT-BRIEF·그 외 신규 PRODUCT 규칙을 표와 설명에 일치시킴.",
+      "P3-2": "P5 인계 후 읽기·권한 확인과 쓰기 책임 전환을 거쳐 요청 범위의 첫 작업으로 연결.",
+      "P3-3": "최종 매뉴얼·ZIP 검증까지 RUNNING 유지. ZIP과 루트 기록을 순서대로 원자 교체하고 마지막에만 전체 PASS 출력. 실패 회귀 검사 통과.",
+      "P3-4": "하위 과거 보고서보다 루트 전체 빌드 상태·현재 입력 해시를 우선하도록 안내.",
+      "P3-5": "실습 00 및 실제 활동별 대응을 명시. 공정 05 첫 작업·09 배포와 확인·10 기록과 재개를 통일.",
+      "P3-6": "안내서 문서 갱신일과 도구 확인일 분리.",
+      "P3-7": "STATE 기록은 해당 항목만 작성, 승인 근거는 URL 또는 로컬 기록 위치 허용."
+    },
+    "final_disposition": "마지막 3건을 원본·생성 결과 대조와 관련 회귀 검사로 직접 처리. 수정 후 외부 모델을 다시 호출하지 않았으며 최종 외부 PASS로 표시하지 않음.",
+    "limitations": "제공 텍스트 기준 외부 검토. 리뷰 모델은 브라우저/PDF 실물과 검사 실행을 직접 확인하지 않음. 실제 빌드·동작·화면 확인은 주 작업자가 수행."
+  },
+  "preservation": {
+    "existing_evolve_hashes": "UNCHANGED",
+    "skills_and_lock": "UNCHANGED",
+    "historical_archive_and_evidence": "PRESERVED",
+    "installed_skills": "Archify 계열은 후속 사용자 승인으로 갱신; 고정 두 전문 스킬은 변경 없음"
+  },
+  "delivery": {
+    "recorded_stage": "최종 로컬 검증 시점. 이후 원격 전달은 PR/Actions에서 별도로 확인.",
+    "local_artifacts": "GENERATED_AND_VERIFIED",
+    "git_commit": "baseline 3df5d672d178e859068cee7c766e8f685b2d12d5",
+    "github_push_pr_ci": "기준 브랜치 push 확인, 최종 PR/CI/main은 이 기록 후 진행",
+    "installation": "Archify 3.2.0 계열 설치와 Codex loader 확인; 두 전문 스킬은 최신 일치",
+    "production_deployment": "NOT_RUN"
+  },
+  "limitations": [
+    "실제 Herdr 작업자로 기획부터 제품 완성까지 실행하는 시험은 수행하지 않음.",
+    "시간·비용 감소와 실제 에이전트의 새 지침 준수율은 측정하지 않음.",
+    "스킬 원본과 고정 사본의 Orca 참조는 보존. 매뉴얼의 현재 Orca 지원 경로만 제거."
+  ],
+  "source_sha256": {
+    "manual/sections.json": "024d149d12730756970e2a6f2494a1dbc861e118504fe66c4b33ae353c1e5da8",
+    "manual/planning-steps.json": "6067812eab456f531510fd26e5c1a77896f2f388ff0276314ab498d5609015f1",
+    "templates/herdr-project/HERDR-PROJECT.md": "64ae6129ebb7d46923eadd12fd6009f1aabae358fab10c426b85dafcee25e7a8",
+    "templates/herdr-project/HERDR-OPERATIONS.md": "6b1e886fc650d82acfd949e5516981f5484b8b12152eaf06054f459e581d97a4",
+    "guides/herdr/project-steps.json": "34c0d73bd045b2c9ebfe243885ea7f24c9a0dbaad91cefaf1459b69bc7135055",
+    "guides/herdr/development-steps.json": "8be0a02b8247638962d84da2311a867f11ed2790dc3696b5408cab88a6fa83ac",
+    "guides/herdr/handbook.html": "a3c6bf4e9183dfe41c72ebf9968ebd1b6b0ed4006e4dcd421069f6d26c992394",
+    "diagrams/workflow.json": "f7ff1f7806a7fbb688a24c6af81f2669e61b2aa1fd81e76201dbfdd5bd91a23b",
+    "scripts/workflow-bundle.py": "2fda9ea90411b4e00a0403d0facb60855238def585dafd3f7ff041b403150ab1",
+    "scripts/test_workflow_bundle.py": "d61301bb8ac55ea043f9706efb8a875f27f4d6f17b48d519344efa352ae24814"
+  },
+  "toolchain_update_record": "evidence/toolchain-update.json"
+}

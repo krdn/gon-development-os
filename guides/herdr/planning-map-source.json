@@ -274,9 +274,6 @@
       "viewer.passport.relationship.direction.loop": "순환",
       "viewer.passport.sourceCount.one": "검증된 소스 참조 {count}개",
       "viewer.passport.sourceCount.other": "검증된 소스 참조 {count}개",
-      "viewer.passport.sourceMarker": "출처",
-      "viewer.passport.beacon.one": "검증된 소스 {count}개; 이 노드를 포커스하여 확인",
-      "viewer.passport.beacon.other": "검증된 소스 {count}개; 이 노드를 포커스하여 확인",
       "viewer.passport.repository.open": "검증된 저장소 리비전 {revision} 열기",
       "viewer.passport.source.open": "리비전 {revision}의 검증된 소스 {path} 열기",
       "viewer.passport.source.openLink": "열기 ↗",
@@ -445,7 +442,7 @@
       "viewer.rail.right": "패널을 다이어그램 옆으로 이동"
     },
     "quality_profile": "showcase",
-    "output": "workflow-manual/beginner-guide/planning-map-source.html"
+    "output": "guides/herdr/planning-map.html"
   },
   "lanes": [
     {
@@ -591,7 +588,9 @@
       "to": "p1",
       "label": "문제 재정의",
       "variant": "dashed",
-      "role": "return"
+      "role": "return",
+      "fromSide": "top",
+      "toSide": "left"
     },
     {
       "id": "p2-return-p1",
