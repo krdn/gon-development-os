@@ -7,13 +7,13 @@
   "quality": "showcase",
   "specification": {
     "path": "/home/gon/dev/infra/gon-development-os/guides/herdr/planning-map-source.json",
-    "sha256": "9c9dd363359b19bd180552b4be45f672d716c797b2640d797f26f4df40d5da7f",
-    "bytes": 34317
+    "sha256": "bd2928418aa50fd9c8d364a2c0c74d7fb8873383d65e01bce841787968191c0e",
+    "bytes": 35538
   },
   "artifact": {
     "path": "/home/gon/dev/infra/gon-development-os/guides/herdr/planning-map.html",
-    "sha256": "c30df251875677760c621d35459acbd516bec42eaba7f259cfa1d6dc104e5ee0",
-    "bytes": 824192
+    "sha256": "ac0659763501b382d86f3b190e4935feabfde3d8537f5153426a75e39209cb4f",
+    "bytes": 829009
   },
   "gates": {
     "validate": "pass",
@@ -28,9 +28,9 @@
     "truncated": false
   },
   "evidence": {
-    "receipt": "/home/gon/dev/infra/gon-development-os/.local/toolchain-update/herdr-planning-repair1/planning-map.finalize.json",
-    "summaryReceipt": "/home/gon/dev/infra/gon-development-os/.local/toolchain-update/herdr-planning-repair1/planning-map.finalize-summary.json",
-    "browserCheckReceipt": "/home/gon/dev/infra/gon-development-os/.local/toolchain-update/herdr-planning-repair1/planning-map.browser-check.json"
+    "receipt": "/home/gon/.scratch/gon-os-expert-agent-implementation-20261109/planning-review-fix/planning-map.finalize.json",
+    "summaryReceipt": "/home/gon/.scratch/gon-os-expert-agent-implementation-20261109/planning-review-fix/planning-map.finalize-summary.json",
+    "browserCheckReceipt": "/home/gon/.scratch/gon-os-expert-agent-implementation-20261109/planning-review-fix/planning-map.browser-check.json"
   },
   "update": {
     "status": "current",
@@ -43,7 +43,7 @@
     "noticeText": null
   },
   "visualReview": "not-requested",
-  "durationMs": 1903,
+  "durationMs": 2587,
   "browserCheck": {
     "requested": true,
     "ran": true

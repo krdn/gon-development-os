@@ -78,3 +78,5 @@ $gon-project-lifecycle
 [단계별 사용자 검토와 GitHub 운영](docs/10-github-stage-review.md): 구성 사전 승인, 결과 수용, 추가 요청·협의 기록과 실제 적용 상태를 연결합니다.
 
 [2.0.0 공정 분석과 최적화](docs/11-workflow-optimization.md): 중복 명세·승인 단위·로컬 완료 경로·재빌드 실패 기록을 정리하고 Orca 지원을 제거했습니다.
+
+[프로젝트별 전문가 설계와 협업](docs/12-expert-planning.md): P1~P5의 역할 명세·독립 리뷰·실무 평가·실제 반론/응답과 GitHub 유사 프로젝트의 적용 근거를 설명합니다.
