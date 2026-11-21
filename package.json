@@ -13,7 +13,7 @@
     "verify:all": "npm run verify:artifacts && python3 scripts/workflow-bundle.py verify"
   },
   "devDependencies": {
-    "playwright": "1.65.0"
+    "playwright": "1.65.1"
   },
   "engines": {
     "node": ">=22"
